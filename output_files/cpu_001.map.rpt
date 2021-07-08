@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu_001
-Thu Jul 08 10:59:31 2021
+Thu Jul 08 11:54:12 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -53,7 +53,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jul 08 10:59:31 2021       ;
+; Analysis & Synthesis Status        ; Successful - Thu Jul 08 11:54:12 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_001                                     ;
 ; Top-level Entity Name              ; cpu_001                                     ;
@@ -382,7 +382,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port     ; Type   ; Severity ; Details                                                                             ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
-; q[14..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; q[11..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -393,7 +393,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------+--------+----------+-------------------------------------------------------------------------------------+
 ; i_ldregf   ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; i_regsel   ; Input  ; Info     ; Stuck at GND                                                                        ;
-; i_regfdata ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; o_regfdata ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------------+--------+----------+-------------------------------------------------------------------------------------+
 
@@ -451,7 +450,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Thu Jul 08 10:59:15 2021
+    Info: Processing started: Thu Jul 08 11:53:56 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -475,11 +474,20 @@ Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(22): object "w_keyBu
 Warning (10540): VHDL Signal Declaration warning at cpu_001.vhd(25): used explicit default value for signal "w_loadPC" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 25
 Warning (10540): VHDL Signal Declaration warning at cpu_001.vhd(26): used explicit default value for signal "w_incPC" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 26
 Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(31): object "w_slowPulse" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 31
-Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(37): object "w_regFOut" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 37
-Info (12128): Elaborating entity "ProgramCounter" for hierarchy "ProgramCounter:progCtr" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 47
-Info (12128): Elaborating entity "SlowClock" for hierarchy "SlowClock:slowClock" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
-Info (12128): Elaborating entity "RegisterFile" for hierarchy "RegisterFile:RegFile" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 67
-Info (12128): Elaborating entity "ROM_1KW" for hierarchy "ROM_1KW:rom" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 77
+Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(45): object "OP_IOw" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 45
+Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(47): object "OP_BEZ" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 47
+Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(48): object "OP_BNZ" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 48
+Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(49): object "OP_JMP" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 49
+Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(52): object "w_peripAddr" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 52
+Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(53): object "w_peripDataFromCPU" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 53
+Warning (10540): VHDL Signal Declaration warning at cpu_001.vhd(54): used explicit default value for signal "w_peripDataToCPU" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 54
+Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(55): object "w_peripWr" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 55
+Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(56): object "w_peripRd" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 56
+Warning (10540): VHDL Signal Declaration warning at cpu_001.vhd(59): used explicit default value for signal "ALUDataOut" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 59
+Info (12128): Elaborating entity "ProgramCounter" for hierarchy "ProgramCounter:progCtr" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 74
+Info (12128): Elaborating entity "SlowClock" for hierarchy "SlowClock:slowClock" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 87
+Info (12128): Elaborating entity "RegisterFile" for hierarchy "RegisterFile:RegFile" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 94
+Info (12128): Elaborating entity "ROM_1KW" for hierarchy "ROM_1KW:rom" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 109
 Info (12128): Elaborating entity "altsyncram" for hierarchy "ROM_1KW:rom|altsyncram:altsyncram_component" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ROM_1KW.vhd Line: 60
 Info (12130): Elaborated megafunction instantiation "ROM_1KW:rom|altsyncram:altsyncram_component" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ROM_1KW.vhd Line: 60
 Info (12133): Instantiated megafunction "ROM_1KW:rom|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ROM_1KW.vhd Line: 60
@@ -562,9 +570,9 @@ Info (21057): Implemented 7 device resources after synthesis - the final resourc
     Info (21059): Implemented 1 output pins
     Info (21061): Implemented 2 logic cells
     Info (21064): Implemented 2 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 22 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 31 warnings
     Info: Peak virtual memory: 4806 megabytes
-    Info: Processing ended: Thu Jul 08 10:59:31 2021
+    Info: Processing ended: Thu Jul 08 11:54:12 2021
     Info: Elapsed time: 00:00:16
     Info: Total CPU time (on all processors): 00:00:37
 

@@ -1,5 +1,5 @@
 Assembler report for cpu_001
-Thu Jul 08 10:59:41 2021
+Thu Jul 08 11:54:22 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Thu Jul 08 10:59:41 2021 ;
+; Assembler Status      ; Successful - Thu Jul 08 11:54:22 2021 ;
 ; Revision Name         ; cpu_001                               ;
 ; Top-level Entity Name ; cpu_001                               ;
 ; Family                ; Cyclone IV E                          ;
@@ -78,15 +78,15 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Thu Jul 08 10:59:40 2021
+    Info: Processing started: Thu Jul 08 11:54:20 2021
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off cpu_001 -c cpu_001
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4680 megabytes
-    Info: Processing ended: Thu Jul 08 10:59:41 2021
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 4681 megabytes
+    Info: Processing ended: Thu Jul 08 11:54:22 2021
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 

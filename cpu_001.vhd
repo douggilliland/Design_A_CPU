@@ -39,9 +39,36 @@ ARCHITECTURE beh OF cpu_001 IS
 	-- ROM
 	signal romData		: std_logic_vector(15 downto 0);
 	
+	-- Opcode decoder
+	signal OP_LRI		: std_logic;
+	signal OP_IOR		: std_logic;
+	signal OP_IOw		: std_logic;
+	signal OP_ARI		: std_logic;
+	signal OP_BEZ		: std_logic;
+	signal OP_BNZ		: std_logic;
+	signal OP_JMP		: std_logic;
+	
+	-- Peripheral bus
+	signal w_peripAddr				: std_logic_vector(7 downto 0);
+	signal w_peripDataFromCPU	: std_logic_vector(7 downto 0);
+	signal w_peripDataToCPU		: std_logic_vector(7 downto 0) := x"00";
+	signal w_peripWr				: std_logic;
+	signal w_peripRd				: std_logic;
+	
+	-- ALU
+	signal ALUDataOut				: std_logic_vector(7 downto 0) := x"00";
+	
 BEGIN
 
 	w_keyBuff	<= i_KEY0;
+	
+	OP_LRI <= '1' when romData(15 downto 12) = "0010" else '0';
+	OP_IOR <= '1' when romData(15 downto 12) = "0110" else '0';
+	OP_IOW <= '1' when romData(15 downto 12) = "0111" else '0';
+	OP_ARI <= '1' when romData(15 downto 12) = "1000" else '0';
+	OP_BEZ <= '1' when romData(15 downto 12) = "1100" else '0';
+	OP_BNZ <= '1' when romData(15 downto 12) = "1101" else '0';
+	OP_JMP <= '1' when romData(15 downto 12) = "1110" else '0';
 	
 	-- Program Counter
 	progCtr : ENTITY work.ProgramCounter
@@ -73,6 +100,11 @@ BEGIN
 		o_RegFData	=> w_regFOut
 	);
 	
+	w_regFIn <= w_peripDataToCPU 		when OP_IOR = '1' else
+					ALUDataOut				when OP_ARI = '1' else
+					romData(7 downto 0)	when OP_LRI = '1' else
+					x"00";
+	
 	-- ROM
 	rom : ENTITY work.ROM_1KW
 	PORT map
@@ -82,9 +114,15 @@ BEGIN
 		q			=> romData
 	);
 	
+	-- Peripheral bus
+	w_peripAddr				<= romData(7 downto 0);
+	w_peripDataFromCPU	<= w_regFOut;
+	w_peripWr				<= '0';
+	w_peripRd				<= '0';
+	
+	
 	w_ldRegF		<= '1';				-- Continuously re-load PC
 	w_regSel		<= "0000";			-- Ignored
-	w_regFIn		<= "00000000";		-- Ignored
 	w_PCLDVal	<= x"000";			-- PC Load Address = 0x000
 	o_LED 		<= romData(15) when i_KEY0 = '0' else -- LED0
 						romData(0);
