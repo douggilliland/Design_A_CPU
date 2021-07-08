@@ -36,6 +36,9 @@ ARCHITECTURE beh OF cpu_001 IS
 	signal w_regFIn	: std_logic_vector(7 downto 0) := x"55";
 	signal w_regFOut	: std_logic_vector(7 downto 0);
 	
+	-- ROM
+	signal romData		: std_logic_vector(15 downto 0);
+	
 BEGIN
 
 	w_keyBuff	<= i_KEY0;
@@ -70,9 +73,21 @@ BEGIN
 		o_RegFData	=> w_regFOut
 	);
 	
-	w_ldRegF<= '1';				-- Load reg strobe
-	w_regSel <= "100"&i_KEY0;	-- Select Reg 0
-	w_regFIn <= "00000000";		-- KEY0 on D0 in
-	o_LED <= w_regFOut(0);		-- LED0 on D0 out
+	-- ROM
+	rom : ENTITY work.ROM_1KW
+	PORT map
+	(
+		clock		=> i_clock,
+		address	=> w_ProgCtr(9 downto 0),
+		q			=> romData
+	);
+	
+	w_ldRegF		<= '1';				-- Continuously re-load PC
+	w_regSel		<= "0000";			-- Ignored
+	w_regFIn		<= "00000000";		-- Ignored
+	w_PCLDVal	<= x"000";			-- PC Load Address = 0x000
+	o_LED 		<= romData(15) when i_KEY0 = '0' else -- LED0
+						romData(0);
+	
 
 END beh;

@@ -10,6 +10,10 @@
 				{
 					"name" : "i_KEY0",
 					"strict" : false
+				},
+				{
+					"name" : "i_clock",
+					"strict" : false
 				}
 			]
 		}
