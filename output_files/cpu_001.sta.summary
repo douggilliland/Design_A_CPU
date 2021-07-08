@@ -2,64 +2,76 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'altera_reserved_tck'
-Slack : 43.263
+Type  : Slow 1200mV 85C Model Setup 'i_clock'
+Slack : -7.784
+TNS   : -326.482
+
+Type  : Slow 1200mV 85C Model Setup 'ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_97t3:auto_generated|ram_block1a0~porta_address_reg0'
+Slack : -4.971
+TNS   : -34.641
+
+Type  : Slow 1200mV 85C Model Hold 'ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_97t3:auto_generated|ram_block1a0~porta_address_reg0'
+Slack : -1.956
+TNS   : -12.519
+
+Type  : Slow 1200mV 85C Model Hold 'i_clock'
+Slack : 0.434
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'altera_reserved_tck'
-Slack : 0.455
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'i_clock'
+Slack : -3.201
+TNS   : -86.726
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_97t3:auto_generated|ram_block1a0~porta_address_reg0'
+Slack : 0.413
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Recovery 'altera_reserved_tck'
-Slack : 95.897
+Type  : Slow 1200mV 0C Model Setup 'i_clock'
+Slack : -7.146
+TNS   : -299.096
+
+Type  : Slow 1200mV 0C Model Setup 'ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_97t3:auto_generated|ram_block1a0~porta_address_reg0'
+Slack : -4.873
+TNS   : -34.089
+
+Type  : Slow 1200mV 0C Model Hold 'ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_97t3:auto_generated|ram_block1a0~porta_address_reg0'
+Slack : -1.857
+TNS   : -12.126
+
+Type  : Slow 1200mV 0C Model Hold 'i_clock'
+Slack : 0.383
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Removal 'altera_reserved_tck'
-Slack : 1.324
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'i_clock'
+Slack : -3.201
+TNS   : -86.789
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_97t3:auto_generated|ram_block1a0~porta_address_reg0'
+Slack : 0.326
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'altera_reserved_tck'
-Slack : 49.420
+Type  : Fast 1200mV 0C Model Setup 'i_clock'
+Slack : -2.668
+TNS   : -107.016
+
+Type  : Fast 1200mV 0C Model Setup 'ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_97t3:auto_generated|ram_block1a0~porta_address_reg0'
+Slack : -1.897
+TNS   : -12.914
+
+Type  : Fast 1200mV 0C Model Hold 'ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_97t3:auto_generated|ram_block1a0~porta_address_reg0'
+Slack : -1.028
+TNS   : -7.060
+
+Type  : Fast 1200mV 0C Model Hold 'i_clock'
+Slack : 0.179
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Setup 'altera_reserved_tck'
-Slack : 43.811
-TNS   : 0.000
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'i_clock'
+Slack : -3.000
+TNS   : -73.389
 
-Type  : Slow 1200mV 0C Model Hold 'altera_reserved_tck'
-Slack : 0.403
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Recovery 'altera_reserved_tck'
-Slack : 96.241
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Removal 'altera_reserved_tck'
-Slack : 1.219
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'altera_reserved_tck'
-Slack : 49.266
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Setup 'altera_reserved_tck'
-Slack : 47.445
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'altera_reserved_tck'
-Slack : 0.187
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Recovery 'altera_reserved_tck'
-Slack : 98.090
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Removal 'altera_reserved_tck'
-Slack : 0.562
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'altera_reserved_tck'
-Slack : 49.295
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_97t3:auto_generated|ram_block1a0~porta_address_reg0'
+Slack : 0.419
 TNS   : 0.000
 
 ------------------------------------------------------------
