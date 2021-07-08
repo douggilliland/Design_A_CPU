@@ -22,8 +22,8 @@ ARCHITECTURE beh OF cpu_001 IS
 	signal w_keyBuff	: std_logic;
 	
 	-- Program Counter
-	signal w_loadPC	: std_logic := '0';
-	signal w_incPC		: std_logic := '0';
+	signal w_loadPC	: std_logic;
+	signal w_incPC		: std_logic;
 	signal w_PCLDVal	: std_logic_vector(11 downto 0) := x"123";
 	signal w_ProgCtr	: std_logic_vector(11 downto 0);
 	
@@ -31,7 +31,7 @@ ARCHITECTURE beh OF cpu_001 IS
 	signal w_slowPulse	: std_logic;
 	
 	-- Register File
-	signal w_ldRegF	: std_logic := '1';
+	signal w_ldRegF	: std_logic;
 	signal w_regSel	: std_logic_vector(3 downto 0) := "0000";
 	signal w_regFIn	: std_logic_vector(7 downto 0) := x"55";
 	signal w_regFOut	: std_logic_vector(7 downto 0);
@@ -54,9 +54,22 @@ ARCHITECTURE beh OF cpu_001 IS
 	signal w_peripDataToCPU		: std_logic_vector(7 downto 0) := x"00";
 	signal w_peripWr				: std_logic;
 	signal w_peripRd				: std_logic;
+	signal w_peripTRWr			: std_logic;
+	signal w_peripTRRd			: std_logic;
+	
+	-- State Machine
+	signal w_GreyCode				: std_logic_vector(1 downto 0);
 	
 	-- ALU
-	signal ALUDataOut				: std_logic_vector(7 downto 0) := x"00";
+	signal ALUDataOut				: std_logic_vector(7 downto 0);
+	
+	attribute syn_keep	: boolean;
+	attribute syn_keep of OP_IOR					: signal is true;
+	attribute syn_keep of OP_IOW					: signal is true;
+	attribute syn_keep of w_peripAddr			: signal is true;
+	attribute syn_keep of w_peripDataFromCPU	: signal is true;
+	attribute syn_keep of w_peripDataToCPU		: signal is true;
+	
 	
 BEGIN
 
@@ -95,15 +108,21 @@ BEGIN
 	PORT MAP (
 		i_clock		=> i_clock,
 		i_ldRegF		=> w_ldRegF,
-		i_regSel		=> w_regSel,
+		i_regSel		=> romData(11 downto 8),
 		i_RegFData	=> w_regFIn,
 		o_RegFData	=> w_regFOut
 	);
 	
-	w_regFIn <= w_peripDataToCPU 		when OP_IOR = '1' else
+	w_regFIn <= w_peripDataToCPU 		when ((OP_IOR = '1') and (w_peripTRRd = '1')) else
 					ALUDataOut				when OP_ARI = '1' else
 					romData(7 downto 0)	when OP_LRI = '1' else
 					x"00";
+	
+	w_ldRegF	<= '1' when ((w_GreyCode = "10") and (OP_LRI = '1'))	else 
+					'1' when ((w_GreyCode = "10") and (OP_IOR = '1'))	else 
+					'0';
+	
+	ALUDataOut <= w_regFOut;	
 	
 	-- ROM
 	rom : ENTITY work.ROM_1KW
@@ -114,14 +133,35 @@ BEGIN
 		q			=> romData
 	);
 	
+	-- Grey code counter
+	GreyCodeCounter : ENTITY work.GreyCode
+	  PORT  map (
+			i_clock		=> i_clock,
+			i_resetN		=> '1',
+			o_GreyCode	=> w_GreyCode
+		);
+		
+	w_loadPC <= '1' when ((w_GreyCode = "10") and (OP_JMP = '1'))	else '0';
+	w_incPC	<= '1' when  (w_GreyCode = "10") 							else '0';
+	
+	-- Peripheral Test Register
+	testPeriphReg : ENTITY work.PeriphTestReg
+	  PORT  MAP (
+			i_clock			=> i_clock,
+			i_wrReg			=> w_peripTRWr,
+			i_periphRegIn	=> w_peripDataFromCPU,
+			o_PeriphRegOut	=> w_peripDataToCPU
+		);
+	
+	w_peripTRWr <= '1' when w_peripAddr = x"AA" else '0';
+	w_peripTRRd <= '1' when w_peripAddr = x"55" else '0';
+	
 	-- Peripheral bus
 	w_peripAddr				<= romData(7 downto 0);
 	w_peripDataFromCPU	<= w_regFOut;
-	w_peripWr				<= '0';
-	w_peripRd				<= '0';
+	w_peripWr				<= '1' when ((w_GreyCode = "10")   and (OP_IOW = '1'))	else '0';
+	w_peripRd				<= '1' when ((w_GreyCode(1) = '1') and (OP_IOR = '1'))	else '0';
 	
-	
-	w_ldRegF		<= '1';				-- Continuously re-load PC
 	w_regSel		<= "0000";			-- Ignored
 	w_PCLDVal	<= x"000";			-- PC Load Address = 0x000
 	o_LED 		<= romData(15) when i_KEY0 = '0' else -- LED0
