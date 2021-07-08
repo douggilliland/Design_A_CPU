@@ -2,4 +2,4 @@
  
 This will be a YouTube Series.
 
-Documentation slides are here.
+[https://github.com/douggilliland/Design_A_CPU/tree/main/Docs Documentation slides are here].
