@@ -6,4 +6,6 @@
 
 == Hardware ==
 
+QMTECH EP4CE15 FPGA card
+
 <img src="https://raw.githubusercontent.com/douggilliland/Design_A_CPU/main/Docs/CycloneIV_Starter_Kit_P528-cropped.jpg?token=AALUDDTXH4AAMPMJKRVL2LDA5BCOI"></img>
