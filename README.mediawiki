@@ -1,5 +1,9 @@
 == Design_A_CPU ==
 
-This will be a YouTube Series.
+[https://www.youtube.com/watch?v=ZtEJHF-pVU0 Part 1 of YouTube Series].
 
 [https://github.com/douggilliland/Design_A_CPU/tree/main/Docs Documentation slides are here].
+
+== Hardware ==
+
+<img src="https://raw.githubusercontent.com/douggilliland/Design_A_CPU/main/Docs/CycloneIV_Starter_Kit_P528-cropped.jpg?token=AALUDDTXH4AAMPMJKRVL2LDA5BCOI"></img>
