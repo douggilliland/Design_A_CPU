@@ -13,6 +13,7 @@ ENTITY ALU_Unit IS
 		i_ALU_A_In	: IN std_logic_vector(7 downto 0);
 		i_ALU_B_In	: IN std_logic_vector(7 downto 0);
 		i_OP_ARI		: IN std_logic;
+		i_OP_ORI		: IN std_logic;
 		i_LatchZBit	: IN std_logic;
 		-- 
 		o_Z_Bit		: out std_logic;
@@ -32,12 +33,13 @@ ARCHITECTURE beh OF ALU_Unit IS
 	
 BEGIN
 
-	o_ALU_Out <= (i_ALU_A_In and i_ALU_B_In) when (i_OP_ARI = '1');
+	o_ALU_Out <= (i_ALU_A_In and i_ALU_B_In) when (i_OP_ARI = '1') else
+					 (i_ALU_A_In or i_ALU_B_In)  when (i_OP_ORI = '1');
 	
 	w_zeroVal <=	((not o_ALU_Out(7)) and (not o_ALU_Out(6)) and (not o_ALU_Out(5)) and (not o_ALU_Out(4)) and 
 						 (not o_ALU_Out(3)) and (not o_ALU_Out(2)) and (not o_ALU_Out(1)) and (not o_ALU_Out(0)));
 
-	ALU_Unit : PROCESS (i_clock)			-- Sensitivity list
+	latchZBit : PROCESS (i_clock)			-- Sensitivity list
 		BEGIN
 			IF rising_edge(i_clock) THEN		-- On clocks
 				if i_LatchZBit = '1' then
