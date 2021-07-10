@@ -1,5 +1,5 @@
 Flow report for cpu_001
-Sat Jul 10 09:17:59 2021
+Sat Jul 10 11:05:44 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sat Jul 10 09:17:53 2021       ;
+; Flow Status                        ; Successful - Sat Jul 10 11:05:37 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_001                                     ;
 ; Top-level Entity Name              ; cpu_001                                     ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE15F23C8                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 1,109 / 15,408 ( 7 % )                      ;
+; Total logic elements               ; 1,108 / 15,408 ( 7 % )                      ;
 ;     Total combinational functions  ; 681 / 15,408 ( 4 % )                        ;
 ;     Dedicated logic registers      ; 828 / 15,408 ( 5 % )                        ;
 ; Total registers                    ; 828                                         ;
-; Total pins                         ; 41 / 344 ( 12 % )                           ;
+; Total pins                         ; 70 / 344 ( 20 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 15,872 / 516,096 ( 3 % )                    ;
 ; Embedded Multiplier 9-bit elements ; 0 / 112 ( 0 % )                             ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/10/2021 09:16:53 ;
+; Start date & time ; 07/10/2021 11:04:32 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; cpu_001             ;
 +-------------------+---------------------+
@@ -76,12 +76,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+-----------------------------------------------+---------------+-------------+------------------+
 ; Assignment Name                     ; Value                                         ; Default Value ; Entity Name ; Section Id       ;
 +-------------------------------------+-----------------------------------------------+---------------+-------------+------------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589187.162592301210364                ; --            ; --          ; --               ;
+; COMPILER_SIGNATURE_ID               ; 10995770589187.162592947200432                ; --            ; --          ; --               ;
 ; ENABLE_SIGNALTAP                    ; On                                            ; --            ; --          ; --               ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                            ; --            ; --          ; --               ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                             ; --            ; --          ; --               ;
 ; MISC_FILE                           ; ROM_1KW.cmp                                   ; --            ; --          ; --               ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                          ; --            ; --          ; --               ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                             ; --            ; --          ; --               ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                             ; --            ; --          ; --               ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                    ; --            ; --          ; --               ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                    ; --            ; --          ; --               ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family)        ; --            ; --          ; Top              ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)        ; --            ; --          ; Top              ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)        ; --            ; --          ; Top              ;
@@ -126,11 +130,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:43     ; 1.0                     ; 4853 MB             ; 00:01:11                           ;
-; Fitter               ; 00:00:09     ; 1.0                     ; 5524 MB             ; 00:00:11                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 4686 MB             ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:04     ; 1.1                     ; 4778 MB             ; 00:00:04                           ;
-; Total                ; 00:00:58     ; --                      ; --                  ; 00:01:29                           ;
+; Analysis & Synthesis ; 00:00:48     ; 1.0                     ; 4853 MB             ; 00:01:14                           ;
+; Fitter               ; 00:00:09     ; 1.0                     ; 5522 MB             ; 00:00:11                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4684 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.1                     ; 4779 MB             ; 00:00:04                           ;
+; Total                ; 00:01:04     ; --                      ; --                  ; 00:01:32                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -16,16 +16,37 @@ ENTITY cpu_001 IS
 		o_LED			: OUT std_logic;
 		
 		-- SDRAM - Not used
-		DRAM_CS_N	: OUT std_logic := '0';
+		DRAM_CS_N	: OUT std_logic := '1';
 		DRAM_CLK		: OUT std_logic := '0';
 		DRAM_CKE		: OUT std_logic := '0';
-		DRAM_CAS_N	: OUT std_logic := '0';
+		DRAM_CAS_N	: OUT std_logic := '1';
+		DRAM_RAS_N	: OUT std_logic := '1';
 		DRAM_WE_N	: OUT std_logic := '1';
 		DRAM_UDQM	: OUT std_logic := '0';
 		DRAM_LDQM	: OUT std_logic := '0';
 		DRAM_BA		: OUT std_logic_vector(1 downto 0) := "00";
 		DRAM_ADDR	: OUT std_logic_vector(12 downto 0) := "0"&x"000";
-		DRAM_DQ		: in std_logic_vector(15 downto 0) := (others=>'Z')
+		DRAM_DQ		: in std_logic_vector(15 downto 0) := (others=>'Z');
+		
+		-- Ethernet
+		-- Ins
+		e_rxc			: IN std_logic := '0';
+		e_rxdv		: IN std_logic := '0';					-- Rx Data Valid
+		e_rxer		: IN std_logic := '0';					-- Transmit error
+		e_rxd			: IN std_logic_vector(7 downto 0);	-- Tx data
+		e_txc			: in std_logic := '0';					-- Tx clock
+		-- Outs
+		e_mdc			: OUT std_logic := '0';					-- Management Data Clock
+		e_gtxc		: OUT std_logic := '0';
+		e_reset		: OUT std_logic := '0';					-- Hold in reset (low)
+		e_txen		: OUT std_logic := '0';
+		e_txer		: OUT std_logic := '0';
+		e_txd			: OUT std_logic_vector(7 downto 0) := X"00";
+		e_mdio		: INOUT std_logic := 'Z';				-- Management Data
+		
+		-- UART
+		uart_rx		: in std_logic := '1';
+		uart_tx		: OUT std_logic
 		
 	);
 END cpu_001;
@@ -77,6 +98,9 @@ ARCHITECTURE beh OF cpu_001 IS
 	signal w_peripTRWr			: std_logic;
 	signal w_peripTRRd			: std_logic;
 	
+	-- Peripherals
+	signal w_serialLoopback		: std_logic;
+	
 	-- State Machine
 	signal w_GreyCode				: std_logic_vector(1 downto 0);
 	
@@ -96,6 +120,9 @@ ARCHITECTURE beh OF cpu_001 IS
 BEGIN
 
 	w_keyBuff	<= i_KEY0;
+	
+	w_serialLoopback <= uart_rx;
+	uart_tx <= w_serialLoopback;
 	
 	OP_LRI <= '1' when w_romData(15 downto 12) = "0010" else '0';
 	OP_IOR <= '1' when w_romData(15 downto 12) = "0110" else '0';

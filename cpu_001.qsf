@@ -99,7 +99,37 @@ set_location_assignment PIN_V10 -to DRAM_DQ[12]
 set_location_assignment PIN_Y10 -to DRAM_DQ[13]
 set_location_assignment PIN_W10 -to DRAM_DQ[14]
 set_location_assignment PIN_V11 -to DRAM_DQ[15]
-#
+# UART
+set_location_assignment PIN_Y21 -to uart_rx
+set_location_assignment PIN_Y22 -to uart_tx
+# Ethernet
+set_location_assignment PIN_L21 -to e_gtxc
+set_location_assignment PIN_W22 -to e_mdc
+set_location_assignment PIN_W21 -to e_mdio
+set_location_assignment PIN_N22 -to e_reset
+set_location_assignment PIN_F21 -to e_rxc
+set_location_assignment PIN_J21 -to e_rxd[7]
+set_location_assignment PIN_J22 -to e_rxd[6]
+set_location_assignment PIN_H21 -to e_rxd[5]
+set_location_assignment PIN_H22 -to e_rxd[4]
+set_location_assignment PIN_F22 -to e_rxd[3]
+set_location_assignment PIN_E21 -to e_rxd[2]
+set_location_assignment PIN_E22 -to e_rxd[1]
+set_location_assignment PIN_D21 -to e_rxd[0]
+set_location_assignment PIN_D22 -to e_rxdv
+set_location_assignment PIN_K22 -to e_rxer
+set_location_assignment PIN_R22 -to e_txc
+set_location_assignment PIN_V22 -to e_txd[7]
+set_location_assignment PIN_U21 -to e_txd[6]
+set_location_assignment PIN_U22 -to e_txd[5]
+set_location_assignment PIN_R21 -to e_txd[4]
+set_location_assignment PIN_P21 -to e_txd[3]
+set_location_assignment PIN_P22 -to e_txd[2]
+set_location_assignment PIN_N21 -to e_txd[1]
+set_location_assignment PIN_M21 -to e_txd[0]
+set_location_assignment PIN_M22 -to e_txen
+set_location_assignment PIN_V21 -to e_txer
+# 
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_KEY0
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_LED
 set_global_assignment -name VHDL_FILE ProgramCounter.vhd
@@ -282,5 +312,15 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to altera_reserved_tdi
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to altera_reserved_tdo
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to altera_reserved_tms
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_RAS_N
+set_global_assignment -name ENABLE_OCT_DONE OFF
+set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF
+set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name SLD_FILE db/cpu_002_Part9_auto_stripped.stp

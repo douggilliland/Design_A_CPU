@@ -8,7 +8,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "uart_tx",
+					"strict" : false
+				},
+				{
 					"name" : "i_KEY0",
+					"strict" : false
+				},
+				{
+					"name" : "uart_rx",
 					"strict" : false
 				},
 				{
