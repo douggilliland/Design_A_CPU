@@ -27,6 +27,10 @@ ARCHITECTURE beh OF cpu_001 IS
 	signal w_PCLDVal	: std_logic_vector(11 downto 0) := x"123";
 	signal w_ProgCtr	: std_logic_vector(11 downto 0);
 	
+	-- Stack Return address
+	signal w_rtnAddr	: std_logic_vector(11 downto 0);
+	signal w_LDAddr	: std_logic_vector(11 downto 0);
+	
 	-- Slow clock signals
 	signal w_slowPulse	: std_logic;
 	
@@ -48,6 +52,8 @@ ARCHITECTURE beh OF cpu_001 IS
 	signal OP_BEZ		: std_logic;
 	signal OP_BNZ		: std_logic;
 	signal OP_JMP		: std_logic;
+	signal OP_JSR		: std_logic;
+	signal OP_RTS		: std_logic;
 	
 	-- Peripheral bus
 	signal w_peripAddr			: std_logic_vector(7 downto 0);
@@ -83,6 +89,8 @@ BEGIN
 	OP_IOW <= '1' when w_romData(15 downto 12) = "0111" else '0';
 	OP_ARI <= '1' when w_romData(15 downto 12) = "1000" else '0';
 	OP_ORI <= '1' when w_romData(15 downto 12) = "1001" else '0';	
+	OP_JSR <= '1' when w_romData(15 downto 12) = "1010" else '0';
+	OP_RTS <= '1' when w_romData(15 downto 12) = "1011" else '0';
 	OP_BEZ <= '1' when w_romData(15 downto 12) = "1100" else '0';
 	OP_BNZ <= '1' when w_romData(15 downto 12) = "1101" else '0';
 	OP_JMP <= '1' when w_romData(15 downto 12) = "1110" else '0';
@@ -92,13 +100,34 @@ BEGIN
 	PORT map
    (
 		-- Ins
-		i_clock		=> i_clock,						-- Clock (50 MHz)
-		i_loadPC		=> w_loadPC,					-- Load PC control
-		i_incPC		=> w_incPC,						-- Increment PC control
-		i_PCLdValr	=> w_romData(11 downto 0),	-- Load PC value
+		i_clock		=> i_clock,		-- Clock (50 MHz)
+		i_loadPC		=> w_loadPC,	-- Load PC control
+		i_incPC		=> w_incPC,		-- Increment PC control
+		i_PCLdValr	=> w_LDAddr,	-- Load PC value
 		-- Outs
-		o_ProgCtr	=> w_ProgCtr					-- Program Counter
+		o_ProgCtr	=> w_ProgCtr	-- Program Counter
 	);
+	
+		w_LDAddr <= w_rtnAddr when (OP_RTS = '1') else
+						w_romData(11 downto 0);
+		
+	w_loadPC <= '1' when ((w_GreyCode = "10") and (OP_JMP = '1')) else 
+					'1' when ((w_GreyCode = "10") and (OP_RTS = '1')) else 
+					'1' when ((w_GreyCode = "10") and (OP_JSR = '1')) else 
+					'1' when ((w_GreyCode = "10") and (OP_BEZ = '1') and (w_ALUZBit = '1')) else 
+					'1' when ((w_GreyCode = "10") and (OP_BNZ = '1') and (w_ALUZBit = '0')) else 
+					'0';
+	w_incPC	<= '1' when  (w_GreyCode = "10") else '0';
+	
+	stackVal : PROCESS (i_clock)			-- Sensitivity list
+	BEGIN
+		IF rising_edge(i_clock) THEN		-- On clocks
+			if ((OP_JSR = '1') and (w_GreyCode = "10")) then	-- store next addr + 1
+				w_rtnAddr <= w_ProgCtr + 1;
+			END IF;
+		END IF;
+	END PROCESS;
+
 	
 	-- Slow clock
 	slowClock : ENTITY work.SlowClock
@@ -146,12 +175,6 @@ BEGIN
 			o_GreyCode	=> w_GreyCode
 		);
 		
-	w_loadPC <= '1' when ((w_GreyCode = "10") and (OP_JMP = '1'))	else 
-					'1' when ((w_GreyCode = "10") and (OP_BEZ = '1') and (w_ALUZBit = '1')) else 
-					'1' when ((w_GreyCode = "10") and (OP_BNZ = '1') and (w_ALUZBit = '0')) else 
-					'0';
-	w_incPC	<= '1' when  (w_GreyCode = "10") else '0';
-	
 	-- Peripheral Test Register
 	testPeriphReg : ENTITY work.PeriphTestReg
 	  PORT  MAP (
