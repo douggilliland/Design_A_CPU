@@ -4,7 +4,6 @@
 #	['LABEL', 'OPCODE', 'REG_LABEL', 'OFFSET_ADDR', 'COMMENT']
 #
 # Assembler opcodes
-#	NOP - No operation
 #	LRI - Load a register with an immediate value (byte)
 #	IOW - Write a register to an I/O address
 #	IOR - Read an I/O address to a register
@@ -15,6 +14,10 @@
 #	BEZ - Branch if equal to zero
 #	BNZ - Branch if not equal to zero
 #	JMP - Jump to an address
+#
+# Assembler Psuedo-opcodes
+#	NOP - No operation
+#	HLT - Halt (Jump to self)
 #
 
 import csv
@@ -69,8 +72,11 @@ class ControlClass:
 		for row in inList[1:]:
 			if row[0] != '':
 				labelsList[row[0]] = progCounter
+			if row[1] == 'HLT':
+				labelName = 'HLT_' + str(progCounter)
+				labelsList[labelName] = progCounter
 			progCounter += 1
-		# print('labelsList',labelsList)
+		print('labelsList',labelsList)
 		program = []
 		progCounter = 0
 		for row in inList[1:]:
@@ -79,6 +85,13 @@ class ControlClass:
 			if row[1] != '':
 				if row[1] == 'NOP':
 					vecStr = '0x9800'  # ORI Reg8,0x00	
+					program.append(vecStr)
+				elif row[1] == 'HLT':
+					vecStr = '0xE'
+					labelName = 'HLT_' + str(progCounter)
+					distance = labelsList[labelName]
+					distStr = self.calcOffsetString(distance)
+					vecStr += distStr
 					program.append(vecStr)
 				elif row[1] == 'LRI':
 					vecStr = '0x2'

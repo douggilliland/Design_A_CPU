@@ -1,0 +1,2 @@
+000	START	0x9800	NOP							
+001			0xE001	HLT							
