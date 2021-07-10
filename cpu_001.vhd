@@ -11,9 +11,22 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 ENTITY cpu_001 IS
   PORT 
   (
-		i_clock	: IN std_logic;		-- 50 MHz clock
-		i_KEY0	: IN std_logic;		-- KEY0
-		o_LED		: OUT std_logic
+		i_clock		: IN std_logic;		-- 50 MHz clock
+		i_KEY0		: IN std_logic;		-- KEY0
+		o_LED			: OUT std_logic;
+		
+		-- SDRAM - Not used
+		DRAM_CS_N	: OUT std_logic := '0';
+		DRAM_CLK		: OUT std_logic := '0';
+		DRAM_CKE		: OUT std_logic := '0';
+		DRAM_CAS_N	: OUT std_logic := '0';
+		DRAM_WE_N	: OUT std_logic := '1';
+		DRAM_UDQM	: OUT std_logic := '0';
+		DRAM_LDQM	: OUT std_logic := '0';
+		DRAM_BA		: OUT std_logic_vector(1 downto 0) := "00";
+		DRAM_ADDR	: OUT std_logic_vector(12 downto 0) := "0"&x"000";
+		DRAM_DQ		: in std_logic_vector(15 downto 0) := (others=>'Z')
+		
 	);
 END cpu_001;
 

@@ -1,4 +1,4 @@
-Analysis & Synthesis Status : Successful - Fri Jul 09 22:15:17 2021
+Analysis & Synthesis Status : Successful - Sat Jul 10 09:17:36 2021
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : cpu_001
 Top-level Entity Name : cpu_001
@@ -7,7 +7,7 @@ Total logic elements : 1,134
     Total combinational functions : 679
     Dedicated logic registers : 828
 Total registers : 828
-Total pins : 3
+Total pins : 41
 Total virtual pins : 0
 Total memory bits : 15,872
 Embedded Multiplier 9-bit elements : 0

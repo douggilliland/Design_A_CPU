@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu_001
-Fri Jul 09 22:15:17 2021
+Sat Jul 10 09:17:36 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -59,7 +59,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jul 09 22:15:17 2021       ;
+; Analysis & Synthesis Status        ; Successful - Sat Jul 10 09:17:36 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_001                                     ;
 ; Top-level Entity Name              ; cpu_001                                     ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 ;     Total combinational functions  ; 679                                         ;
 ;     Dedicated logic registers      ; 828                                         ;
 ; Total registers                    ; 828                                         ;
-; Total pins                         ; 3                                           ;
+; Total pins                         ; 41                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 15,872                                      ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -276,15 +276,15 @@ https://fpgasoftware.intel.com/eula.
 ;     -- Dedicated logic registers            ; 828           ;
 ;     -- I/O registers                        ; 0             ;
 ;                                             ;               ;
-; I/O pins                                    ; 3             ;
+; I/O pins                                    ; 41            ;
 ; Total memory bits                           ; 15872         ;
 ;                                             ;               ;
 ; Embedded Multiplier 9-bit elements          ; 0             ;
 ;                                             ;               ;
 ; Maximum fan-out node                        ; i_clock~input ;
 ; Maximum fan-out                             ; 578           ;
-; Total fan-out                               ; 5711          ;
-; Average fan-out                             ; 3.57          ;
+; Total fan-out                               ; 5749          ;
+; Average fan-out                             ; 3.43          ;
 +---------------------------------------------+---------------+
 
 
@@ -293,7 +293,7 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                 ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |cpu_001                                                                                                                                ; 679 (74)            ; 828 (12)                  ; 15872       ; 0            ; 0       ; 0         ; 3    ; 0            ; |cpu_001                                                                                                                                                                                                                                                                                                                                            ; cpu_001                           ; work         ;
+; |cpu_001                                                                                                                                ; 679 (74)            ; 828 (12)                  ; 15872       ; 0            ; 0       ; 0         ; 41   ; 0            ; |cpu_001                                                                                                                                                                                                                                                                                                                                            ; cpu_001                           ; work         ;
 ;    |ALU_Unit:ALU_Unit|                                                                                                                  ; 44 (44)             ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cpu_001|ALU_Unit:ALU_Unit                                                                                                                                                                                                                                                                                                                          ; ALU_Unit                          ; work         ;
 ;    |GreyCode:GreyCodeCounter|                                                                                                           ; 1 (1)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cpu_001|GreyCode:GreyCodeCounter                                                                                                                                                                                                                                                                                                                   ; GreyCode                          ; work         ;
 ;    |PeriphTestReg:testPeriphReg|                                                                                                        ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cpu_001|PeriphTestReg:testPeriphReg                                                                                                                                                                                                                                                                                                                ; PeriphTestReg                     ; work         ;
@@ -749,16 +749,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 63                          ;
+; boundary_port         ; 101                         ;
 ; cycloneiii_ff         ; 99                          ;
 ;     ENA               ; 83                          ;
 ;     ENA SLD           ; 12                          ;
 ;     plain             ; 4                           ;
-; cycloneiii_lcell_comb ; 201                         ;
+; cycloneiii_lcell_comb ; 203                         ;
 ;     arith             ; 21                          ;
 ;         2 data inputs ; 20                          ;
 ;         3 data inputs ; 1                           ;
-;     normal            ; 180                         ;
+;     normal            ; 182                         ;
+;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 35                          ;
 ;         2 data inputs ; 12                          ;
 ;         3 data inputs ; 60                          ;
@@ -766,7 +767,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; cycloneiii_ram_block  ; 16                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 3.81                        ;
+; Average LUT depth     ; 3.78                        ;
 +-----------------------+-----------------------------+
 
 
@@ -886,12 +887,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Jul 09 22:14:33 2021
+    Info: Processing started: Sat Jul 10 09:16:51 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file cpu_001.vhd
-    Info (12022): Found design unit 1: cpu_001-beh File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 20
+    Info (12022): Found design unit 1: cpu_001-beh File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 33
     Info (12023): Found entity 1: cpu_001 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 11
 Info (12021): Found 2 design units, including 1 entities, in source file programcounter.vhd
     Info (12022): Found design unit 1: ProgramCounter-beh File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ProgramCounter.vhd Line: 24
@@ -916,15 +917,24 @@ Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
     Info (12022): Found design unit 1: ALU_Unit-beh File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 24
     Info (12023): Found entity 1: ALU_Unit File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 9
 Info (12127): Elaborating entity "cpu_001" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(22): object "w_keyBuff" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 22
-Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(27): object "w_PCLDVal" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 27
-Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(35): object "w_slowPulse" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 35
-Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(62): object "w_peripWr" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 62
-Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(63): object "w_peripRd" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 63
-Info (12128): Elaborating entity "ProgramCounter" for hierarchy "ProgramCounter:progCtr" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 99
-Info (12128): Elaborating entity "SlowClock" for hierarchy "SlowClock:slowClock" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 133
-Info (12128): Elaborating entity "RegisterFile" for hierarchy "RegisterFile:RegFile" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 140
-Info (12128): Elaborating entity "ROM_1KW" for hierarchy "ROM_1KW:rom" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 162
+Warning (10540): VHDL Signal Declaration warning at cpu_001.vhd(19): used explicit default value for signal "DRAM_CS_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 19
+Warning (10540): VHDL Signal Declaration warning at cpu_001.vhd(20): used explicit default value for signal "DRAM_CLK" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 20
+Warning (10540): VHDL Signal Declaration warning at cpu_001.vhd(21): used explicit default value for signal "DRAM_CKE" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 21
+Warning (10540): VHDL Signal Declaration warning at cpu_001.vhd(22): used explicit default value for signal "DRAM_CAS_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 22
+Warning (10540): VHDL Signal Declaration warning at cpu_001.vhd(23): used explicit default value for signal "DRAM_WE_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 23
+Warning (10540): VHDL Signal Declaration warning at cpu_001.vhd(24): used explicit default value for signal "DRAM_UDQM" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 24
+Warning (10540): VHDL Signal Declaration warning at cpu_001.vhd(25): used explicit default value for signal "DRAM_LDQM" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 25
+Warning (10540): VHDL Signal Declaration warning at cpu_001.vhd(26): used explicit default value for signal "DRAM_BA" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 26
+Warning (10540): VHDL Signal Declaration warning at cpu_001.vhd(27): used explicit default value for signal "DRAM_ADDR" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 27
+Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(35): object "w_keyBuff" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 35
+Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(40): object "w_PCLDVal" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 40
+Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(48): object "w_slowPulse" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 48
+Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(75): object "w_peripWr" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 75
+Warning (10036): Verilog HDL or VHDL warning at cpu_001.vhd(76): object "w_peripRd" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 76
+Info (12128): Elaborating entity "ProgramCounter" for hierarchy "ProgramCounter:progCtr" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 112
+Info (12128): Elaborating entity "SlowClock" for hierarchy "SlowClock:slowClock" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 146
+Info (12128): Elaborating entity "RegisterFile" for hierarchy "RegisterFile:RegFile" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 153
+Info (12128): Elaborating entity "ROM_1KW" for hierarchy "ROM_1KW:rom" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 175
 Info (12128): Elaborating entity "altsyncram" for hierarchy "ROM_1KW:rom|altsyncram:altsyncram_component" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ROM_1KW.vhd Line: 60
 Info (12130): Elaborated megafunction instantiation "ROM_1KW:rom|altsyncram:altsyncram_component" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ROM_1KW.vhd Line: 60
 Info (12133): Instantiated megafunction "ROM_1KW:rom|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ROM_1KW.vhd Line: 60
@@ -982,9 +992,9 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
     Info (12023): Found entity 1: altsyncram_ibt3 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_ibt3.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_ibt3" for hierarchy "ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_ibt3:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Critical Warning (127005): Memory depth (512) in the design file differs from memory depth (6) in the Memory Initialization File "C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_Code/Part_A2_Test1.mif" -- setting initial value for remaining addresses to 0 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ROM_1KW.vhd Line: 60
-Info (12128): Elaborating entity "GreyCode" for hierarchy "GreyCode:GreyCodeCounter" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 171
-Info (12128): Elaborating entity "PeriphTestReg" for hierarchy "PeriphTestReg:testPeriphReg" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 179
-Info (12128): Elaborating entity "ALU_Unit" for hierarchy "ALU_Unit:ALU_Unit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 202
+Info (12128): Elaborating entity "GreyCode" for hierarchy "GreyCode:GreyCodeCounter" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 184
+Info (12128): Elaborating entity "PeriphTestReg" for hierarchy "PeriphTestReg:testPeriphReg" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 192
+Info (12128): Elaborating entity "ALU_Unit" for hierarchy "ALU_Unit:ALU_Unit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 215
 Info (10041): Inferred latch for "o_ALU_Out[0]" at ALU.vhd(36) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
 Info (10041): Inferred latch for "o_ALU_Out[1]" at ALU.vhd(36) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
 Info (10041): Inferred latch for "o_ALU_Out[2]" at ALU.vhd(36) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
@@ -1015,7 +1025,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_ngc File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/cmpr_ngc.tdf Line: 23
 Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2021.07.09.22:14:59 Progress: Loading sld8375e25e/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2021.07.10.09:17:17 Progress: Loading sld8375e25e/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -1054,6 +1064,29 @@ Warning (13012): Latch ALU_Unit:ALU_Unit|o_ALU_Out[6]_151 has unsafe behavior Fi
     Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_ibt3:auto_generated|q_a[12] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_ibt3.tdf Line: 32
 Warning (13012): Latch ALU_Unit:ALU_Unit|o_ALU_Out[7]_159 has unsafe behavior File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
     Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_ibt3:auto_generated|q_a[12] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_ibt3.tdf Line: 32
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "DRAM_CS_N" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 19
+    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 20
+    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 21
+    Warning (13410): Pin "DRAM_CAS_N" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 22
+    Warning (13410): Pin "DRAM_WE_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 23
+    Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 24
+    Warning (13410): Pin "DRAM_LDQM" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 25
+    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 26
+    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 26
+    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 27
+    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 27
+    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 27
+    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 27
+    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 27
+    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 27
+    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 27
+    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 27
+    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 27
+    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 27
+    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 27
+    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 27
+    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 27
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
 Info (17016): Found the following redundant logic cells in design
     Info (17048): Logic cell "ALU_Unit:ALU_Unit|o_ALU_Out[0]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
@@ -1064,22 +1097,22 @@ Info (17016): Found the following redundant logic cells in design
     Info (17048): Logic cell "ALU_Unit:ALU_Unit|o_ALU_Out[5]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
     Info (17048): Logic cell "ALU_Unit:ALU_Unit|o_ALU_Out[6]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
     Info (17048): Logic cell "ALU_Unit:ALU_Unit|o_ALU_Out[7]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
-    Info (17048): Logic cell "w_peripDataToCPU[0]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 61
-    Info (17048): Logic cell "w_peripAddr[6]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 59
-    Info (17048): Logic cell "w_peripAddr[7]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 59
-    Info (17048): Logic cell "w_peripAddr[5]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 59
-    Info (17048): Logic cell "w_peripAddr[0]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 59
-    Info (17048): Logic cell "w_peripAddr[4]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 59
-    Info (17048): Logic cell "w_peripAddr[2]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 59
-    Info (17048): Logic cell "w_peripAddr[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 59
-    Info (17048): Logic cell "w_peripAddr[1]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 59
-    Info (17048): Logic cell "w_peripDataToCPU[1]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 61
-    Info (17048): Logic cell "w_peripDataToCPU[2]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 61
-    Info (17048): Logic cell "w_peripDataToCPU[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 61
-    Info (17048): Logic cell "w_peripDataToCPU[4]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 61
-    Info (17048): Logic cell "w_peripDataToCPU[5]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 61
-    Info (17048): Logic cell "w_peripDataToCPU[6]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 61
-    Info (17048): Logic cell "w_peripDataToCPU[7]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 61
+    Info (17048): Logic cell "w_peripDataToCPU[0]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 74
+    Info (17048): Logic cell "w_peripAddr[6]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 72
+    Info (17048): Logic cell "w_peripAddr[7]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 72
+    Info (17048): Logic cell "w_peripAddr[5]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 72
+    Info (17048): Logic cell "w_peripAddr[0]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 72
+    Info (17048): Logic cell "w_peripAddr[4]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 72
+    Info (17048): Logic cell "w_peripAddr[2]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 72
+    Info (17048): Logic cell "w_peripAddr[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 72
+    Info (17048): Logic cell "w_peripAddr[1]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 72
+    Info (17048): Logic cell "w_peripDataToCPU[1]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 74
+    Info (17048): Logic cell "w_peripDataToCPU[2]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 74
+    Info (17048): Logic cell "w_peripDataToCPU[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 74
+    Info (17048): Logic cell "w_peripDataToCPU[4]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 74
+    Info (17048): Logic cell "w_peripDataToCPU[5]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 74
+    Info (17048): Logic cell "w_peripDataToCPU[6]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 74
+    Info (17048): Logic cell "w_peripDataToCPU[7]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 74
     Info (17048): Logic cell "ALU_Unit:ALU_Unit|i_ALU_B_In[0]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 14
     Info (17048): Logic cell "ALU_Unit:ALU_Unit|i_ALU_B_In[1]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 14
     Info (17048): Logic cell "ALU_Unit:ALU_Unit|i_ALU_B_In[2]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 14
@@ -1091,15 +1124,32 @@ Info (17016): Found the following redundant logic cells in design
 Info (35024): Successfully connected in-system debug instance "auto_signaltap_0" to all 93 required data inputs, trigger inputs, acquisition clocks, and dynamic pins
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1258 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 2 output pins
+Warning (21074): Design contains 16 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "DRAM_DQ[0]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 28
+    Warning (15610): No output dependent on input pin "DRAM_DQ[1]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 28
+    Warning (15610): No output dependent on input pin "DRAM_DQ[2]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 28
+    Warning (15610): No output dependent on input pin "DRAM_DQ[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 28
+    Warning (15610): No output dependent on input pin "DRAM_DQ[4]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 28
+    Warning (15610): No output dependent on input pin "DRAM_DQ[5]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 28
+    Warning (15610): No output dependent on input pin "DRAM_DQ[6]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 28
+    Warning (15610): No output dependent on input pin "DRAM_DQ[7]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 28
+    Warning (15610): No output dependent on input pin "DRAM_DQ[8]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 28
+    Warning (15610): No output dependent on input pin "DRAM_DQ[9]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 28
+    Warning (15610): No output dependent on input pin "DRAM_DQ[10]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 28
+    Warning (15610): No output dependent on input pin "DRAM_DQ[11]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 28
+    Warning (15610): No output dependent on input pin "DRAM_DQ[12]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 28
+    Warning (15610): No output dependent on input pin "DRAM_DQ[13]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 28
+    Warning (15610): No output dependent on input pin "DRAM_DQ[14]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 28
+    Warning (15610): No output dependent on input pin "DRAM_DQ[15]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 28
+Info (21057): Implemented 1296 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 21 input pins
+    Info (21059): Implemented 24 output pins
     Info (21061): Implemented 1174 logic cells
     Info (21064): Implemented 76 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 24 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 73 warnings
     Info: Peak virtual memory: 4853 megabytes
-    Info: Processing ended: Fri Jul 09 22:15:17 2021
-    Info: Elapsed time: 00:00:44
-    Info: Total CPU time (on all processors): 00:01:12
+    Info: Processing ended: Sat Jul 10 09:17:36 2021
+    Info: Elapsed time: 00:00:45
+    Info: Total CPU time (on all processors): 00:01:14
 
 
