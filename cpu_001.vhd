@@ -7,70 +7,32 @@ USE ieee.numeric_std.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
--- The pinout of the part
 ENTITY cpu_001 IS
   PORT 
   (
-		i_clock		: IN std_logic;		-- 50 MHz clock
-		i_KEY0		: IN std_logic;		-- KEY0
-		o_LED			: OUT std_logic;
-		
-		-- SDRAM - Not used
-		DRAM_CS_N	: OUT std_logic := '1';
-		DRAM_CLK		: OUT std_logic := '0';
-		DRAM_CKE		: OUT std_logic := '0';
-		DRAM_CAS_N	: OUT std_logic := '1';
-		DRAM_RAS_N	: OUT std_logic := '1';
-		DRAM_WE_N	: OUT std_logic := '1';
-		DRAM_UDQM	: OUT std_logic := '0';
-		DRAM_LDQM	: OUT std_logic := '0';
-		DRAM_BA		: OUT std_logic_vector(1 downto 0) := "00";
-		DRAM_ADDR	: OUT std_logic_vector(12 downto 0) := "0"&x"000";
-		DRAM_DQ		: in std_logic_vector(15 downto 0) := (others=>'Z');
-		
-		-- Ethernet
-		-- Ins
-		e_rxc			: IN std_logic := '0';
-		e_rxdv		: IN std_logic := '0';					-- Rx Data Valid
-		e_rxer		: IN std_logic := '0';					-- Transmit error
-		e_rxd			: IN std_logic_vector(7 downto 0);	-- Tx data
-		e_txc			: in std_logic := '0';					-- Tx clock
-		-- Outs
-		e_mdc			: OUT std_logic := '0';					-- Management Data Clock
-		e_gtxc		: OUT std_logic := '0';
-		e_reset		: OUT std_logic := '0';					-- Hold in reset (low)
-		e_txen		: OUT std_logic := '0';
-		e_txer		: OUT std_logic := '0';
-		e_txd			: OUT std_logic_vector(7 downto 0) := X"00";
-		e_mdio		: INOUT std_logic := 'Z';				-- Management Data
-		
-		-- UART
-		uart_rx		: in std_logic := '1';
-		uart_tx		: OUT std_logic
-		
+		i_clock					: IN std_logic;		-- 50 MHz clock
+		-- Peripheral bus
+		i_peripDataToCPU		: in std_logic_vector(7 downto 0);
+		o_peripAddr				: out std_logic_vector(7 downto 0);
+		o_peripDataFromCPU	: out std_logic_vector(7 downto 0);
+		o_peripWr				: out std_logic;
+		o_peripRd				: out std_logic
 	);
 END cpu_001;
 
 ARCHITECTURE beh OF cpu_001 IS
 
-	signal w_keyBuff	: std_logic;
-	
 	-- Program Counter
 	signal w_loadPC	: std_logic;
 	signal w_incPC		: std_logic;
-	signal w_PCLDVal	: std_logic_vector(11 downto 0) := x"123";
 	signal w_ProgCtr	: std_logic_vector(11 downto 0);
 	
 	-- Stack Return address
 	signal w_rtnAddr	: std_logic_vector(11 downto 0);
 	signal w_LDAddr	: std_logic_vector(11 downto 0);
 	
-	-- Slow clock signals
-	signal w_slowPulse	: std_logic;
-	
 	-- Register File
 	signal w_ldRegF	: std_logic;
---	signal w_regSel	: std_logic_vector(3 downto 0) := "0000";
 	signal w_regFIn	: std_logic_vector(7 downto 0) := x"55";
 	signal w_regFOut	: std_logic_vector(7 downto 0);
 	
@@ -95,11 +57,10 @@ ARCHITECTURE beh OF cpu_001 IS
 	signal w_peripDataToCPU		: std_logic_vector(7 downto 0) := x"00";
 	signal w_peripWr				: std_logic;
 	signal w_peripRd				: std_logic;
-	signal w_peripTRWr			: std_logic;
-	signal w_peripTRRd			: std_logic;
 	
 	-- Peripherals
 	signal w_serialLoopback		: std_logic;
+	signal w_segs					: std_logic_vector(7 downto 0);
 	
 	-- State Machine
 	signal w_GreyCode				: std_logic_vector(1 downto 0);
@@ -108,22 +69,17 @@ ARCHITECTURE beh OF cpu_001 IS
 	signal w_ALUDataOut		: std_logic_vector(7 downto 0);
 	signal w_ALUZBit		: std_logic;
 	
-	
+	-- Signal Tap
 	attribute syn_keep	: boolean;
-	attribute syn_keep of OP_IOR					: signal is true;
-	attribute syn_keep of OP_IOW					: signal is true;
 	attribute syn_keep of w_peripAddr			: signal is true;
 	attribute syn_keep of w_peripDataFromCPU	: signal is true;
 	attribute syn_keep of w_peripDataToCPU		: signal is true;
+	attribute syn_keep of OP_IOR					: signal is true;
+	attribute syn_keep of OP_IOW					: signal is true;
 	
 	
 BEGIN
 
-	w_keyBuff	<= i_KEY0;
-	
-	w_serialLoopback <= uart_rx;
-	uart_tx <= w_serialLoopback;
-	
 	OP_LRI <= '1' when w_romData(15 downto 12) = "0010" else '0';
 	OP_IOR <= '1' when w_romData(15 downto 12) = "0110" else '0';
 	OP_IOW <= '1' when w_romData(15 downto 12) = "0111" else '0';
@@ -146,11 +102,9 @@ BEGIN
 		i_PCLdValr	=> w_LDAddr,	-- Load PC value
 		-- Outs
 		o_ProgCtr	=> w_ProgCtr	-- Program Counter
-	);
-	
-		w_LDAddr <= w_rtnAddr when (OP_RTS = '1') else
+	);	
+	w_LDAddr <= w_rtnAddr when (OP_RTS = '1') else
 						w_romData(11 downto 0);
-		
 	w_loadPC <= '1' when ((w_GreyCode = "10") and (OP_JMP = '1')) else 
 					'1' when ((w_GreyCode = "10") and (OP_RTS = '1')) else 
 					'1' when ((w_GreyCode = "10") and (OP_JSR = '1')) else 
@@ -159,6 +113,7 @@ BEGIN
 					'0';
 	w_incPC	<= '1' when  (w_GreyCode = "10") else '0';
 	
+	-- JSR/RTS Stack
 	stackVal : PROCESS (i_clock)			-- Sensitivity list
 	BEGIN
 		IF rising_edge(i_clock) THEN		-- On clocks
@@ -167,14 +122,6 @@ BEGIN
 			END IF;
 		END IF;
 	END PROCESS;
-
-	
-	-- Slow clock
-	slowClock : ENTITY work.SlowClock
-	PORT MAP  (
-		i_clock		=> i_clock,
-		o_slowClock	=> w_slowPulse
-	);
 	
 	-- Register File
 	RegFile : ENTITY work.RegisterFile
@@ -185,20 +132,18 @@ BEGIN
 		i_RegFData	=> w_regFIn,
 		o_RegFData	=> w_regFOut
 	);
-	
-	w_regFIn <= w_peripDataToCPU 		when ((OP_IOR = '1') and (w_peripTRRd = '1')) else
+	w_regFIn <= i_peripDataToCPU 			when OP_IOR = '1'  else
 					w_ALUDataOut				when OP_ARI = '1' else
 					w_ALUDataOut				when OP_ORI = '1' else
 					w_romData(7 downto 0)	when OP_LRI = '1' else
 					x"00";
-	
 	w_ldRegF	<= '1' when ((w_GreyCode = "10") and (OP_LRI = '1'))	else 
 					'1' when ((w_GreyCode = "10") and (OP_IOR = '1'))	else 
 					'1' when ((w_GreyCode = "10") and (OP_ARI = '1'))	else 
 					'1' when ((w_GreyCode = "10") and (OP_ORI = '1'))	else 
 					'0';
 	
-	-- ROM
+	-- ROM (max 4K words)
 	rom : ENTITY work.ROM_1KW
 	PORT map
 	(
@@ -215,29 +160,6 @@ BEGIN
 			o_GreyCode	=> w_GreyCode
 		);
 		
-	-- Peripheral Test Register
-	testPeriphReg : ENTITY work.PeriphTestReg
-	  PORT  MAP (
-			i_clock			=> i_clock,
-			i_wrReg			=> w_peripTRWr,
-			i_periphRegIn	=> w_peripDataFromCPU,
-			o_PeriphRegOut	=> w_peripDataToCPU
-		);
-	
-	w_peripTRWr <= '1' when w_peripAddr = x"AA" else '0';
-	w_peripTRRd <= '1' when w_peripAddr = x"55" else '0';
-	
-	-- Peripheral bus
-	w_peripAddr				<= w_romData(7 downto 0);
-	w_peripDataFromCPU	<= w_regFOut;
-	w_peripWr				<= '1' when ((w_GreyCode = "10")   and (OP_IOW = '1'))	else '0';
-	w_peripRd				<= '1' when ((w_GreyCode(1) = '1') and (OP_IOR = '1'))	else '0';
-	
---	w_regSel		<= "0000";			-- Ignored
-	w_PCLDVal	<= x"000";			-- PC Load Address = 0x000
-	o_LED 		<= w_romData(15) when i_KEY0 = '0' else -- LED0
-						w_romData(0);
-	
 	-- ALU Unit
 	ALU_Unit : ENTITY work.ALU_Unit
 	  PORT  MAP (
@@ -251,4 +173,10 @@ BEGIN
 			o_ALU_Out	=> w_ALUDataOut				-- Register file input mux
 		);
 
+	-- Peripheral bus
+	o_peripAddr				<= w_romData(7 downto 0);
+	o_peripDataFromCPU	<= w_regFOut;
+	o_peripWr				<= '1' when ((w_GreyCode = "10")   and (OP_IOW = '1'))	else '0';
+	o_peripRd				<= '1' when ((w_GreyCode(1) = '1') and (OP_IOR = '1'))	else '0';
+	
 END beh;

@@ -1,25 +1,22 @@
-|cpu_001
-i_clock => programcounter:progCtr.i_clock
-i_clock => w_rtnAddr[0].CLK
-i_clock => w_rtnAddr[1].CLK
-i_clock => w_rtnAddr[2].CLK
-i_clock => w_rtnAddr[3].CLK
-i_clock => w_rtnAddr[4].CLK
-i_clock => w_rtnAddr[5].CLK
-i_clock => w_rtnAddr[6].CLK
-i_clock => w_rtnAddr[7].CLK
-i_clock => w_rtnAddr[8].CLK
-i_clock => w_rtnAddr[9].CLK
-i_clock => w_rtnAddr[10].CLK
-i_clock => w_rtnAddr[11].CLK
+|CPU_top
+i_clock => cpu_001:CPU.i_clock
+i_clock => w_SevenSegData[0].CLK
+i_clock => w_SevenSegData[1].CLK
+i_clock => w_SevenSegData[2].CLK
+i_clock => w_SevenSegData[3].CLK
+i_clock => w_SevenSegData[4].CLK
+i_clock => w_SevenSegData[5].CLK
+i_clock => w_SevenSegData[6].CLK
+i_clock => w_SevenSegData[7].CLK
+i_clock => w_SevenSegData[8].CLK
+i_clock => w_SevenSegData[9].CLK
+i_clock => w_SevenSegData[10].CLK
+i_clock => w_SevenSegData[11].CLK
+i_clock => o_LED~reg0.CLK
 i_clock => slowclock:slowClock.i_clock
-i_clock => registerfile:RegFile.i_clock
-i_clock => rom_1kw:rom.clock
-i_clock => greycode:GreyCodeCounter.i_clock
-i_clock => periphtestreg:testPeriphReg.i_clock
-i_clock => alu_unit:ALU_Unit.i_clock
-i_KEY0 => o_LED.OUTPUTSELECT
-o_LED <= o_LED.DB_MAX_OUTPUT_PORT_TYPE
+i_clock => loadable_7sd_3led:sevSeg.i_clock_50Mhz
+i_KEY0 => w_peripDataToCPU[0].DATAB
+o_LED <= o_LED~reg0.DB_MAX_OUTPUT_PORT_TYPE
 DRAM_CS_N <= <VCC>
 DRAM_CLK <= <GND>
 DRAM_CKE <= <GND>
@@ -43,22 +40,22 @@ DRAM_ADDR[9] <= <GND>
 DRAM_ADDR[10] <= <GND>
 DRAM_ADDR[11] <= <GND>
 DRAM_ADDR[12] <= <GND>
-DRAM_DQ[0] => ~NO_FANOUT~
-DRAM_DQ[1] => ~NO_FANOUT~
-DRAM_DQ[2] => ~NO_FANOUT~
-DRAM_DQ[3] => ~NO_FANOUT~
-DRAM_DQ[4] => ~NO_FANOUT~
-DRAM_DQ[5] => ~NO_FANOUT~
-DRAM_DQ[6] => ~NO_FANOUT~
-DRAM_DQ[7] => ~NO_FANOUT~
-DRAM_DQ[8] => ~NO_FANOUT~
-DRAM_DQ[9] => ~NO_FANOUT~
-DRAM_DQ[10] => ~NO_FANOUT~
-DRAM_DQ[11] => ~NO_FANOUT~
-DRAM_DQ[12] => ~NO_FANOUT~
-DRAM_DQ[13] => ~NO_FANOUT~
-DRAM_DQ[14] => ~NO_FANOUT~
-DRAM_DQ[15] => ~NO_FANOUT~
+DRAM_DQ[0] <> <UNC>
+DRAM_DQ[1] <> <UNC>
+DRAM_DQ[2] <> <UNC>
+DRAM_DQ[3] <> <UNC>
+DRAM_DQ[4] <> <UNC>
+DRAM_DQ[5] <> <UNC>
+DRAM_DQ[6] <> <UNC>
+DRAM_DQ[7] <> <UNC>
+DRAM_DQ[8] <> <UNC>
+DRAM_DQ[9] <> <UNC>
+DRAM_DQ[10] <> <UNC>
+DRAM_DQ[11] <> <UNC>
+DRAM_DQ[12] <> <UNC>
+DRAM_DQ[13] <> <UNC>
+DRAM_DQ[14] <> <UNC>
+DRAM_DQ[15] <> <UNC>
 e_rxc => ~NO_FANOUT~
 e_rxdv => ~NO_FANOUT~
 e_rxer => ~NO_FANOUT~
@@ -85,11 +82,68 @@ e_txd[5] <= <GND>
 e_txd[6] <= <GND>
 e_txd[7] <= <GND>
 e_mdio <> <UNC>
+SMG_Data[0] <= loadable_7sd_3led:sevSeg.o_LED_out[0]
+SMG_Data[1] <= loadable_7sd_3led:sevSeg.o_LED_out[1]
+SMG_Data[2] <= loadable_7sd_3led:sevSeg.o_LED_out[2]
+SMG_Data[3] <= loadable_7sd_3led:sevSeg.o_LED_out[3]
+SMG_Data[4] <= loadable_7sd_3led:sevSeg.o_LED_out[4]
+SMG_Data[5] <= loadable_7sd_3led:sevSeg.o_LED_out[5]
+SMG_Data[6] <= loadable_7sd_3led:sevSeg.o_LED_out[6]
+SMG_Data[7] <= loadable_7sd_3led:sevSeg.o_LED_out[7]
+Scan_Sig[0] <= loadable_7sd_3led:sevSeg.o_Anode_Activate[0]
+Scan_Sig[1] <= loadable_7sd_3led:sevSeg.o_Anode_Activate[1]
+Scan_Sig[2] <= loadable_7sd_3led:sevSeg.o_Anode_Activate[2]
 uart_rx => uart_tx.DATAIN
 uart_tx <= uart_rx.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|cpu_001|ProgramCounter:progCtr
+|CPU_top|cpu_001:CPU
+i_clock => programcounter:progCtr.i_clock
+i_clock => w_rtnAddr[0].CLK
+i_clock => w_rtnAddr[1].CLK
+i_clock => w_rtnAddr[2].CLK
+i_clock => w_rtnAddr[3].CLK
+i_clock => w_rtnAddr[4].CLK
+i_clock => w_rtnAddr[5].CLK
+i_clock => w_rtnAddr[6].CLK
+i_clock => w_rtnAddr[7].CLK
+i_clock => w_rtnAddr[8].CLK
+i_clock => w_rtnAddr[9].CLK
+i_clock => w_rtnAddr[10].CLK
+i_clock => w_rtnAddr[11].CLK
+i_clock => registerfile:RegFile.i_clock
+i_clock => rom_1kw:rom.clock
+i_clock => greycode:GreyCodeCounter.i_clock
+i_clock => alu_unit:ALU_Unit.i_clock
+i_peripDataToCPU[0] => w_regFIn[0].DATAB
+i_peripDataToCPU[1] => w_regFIn[1].DATAB
+i_peripDataToCPU[2] => w_regFIn[2].DATAB
+i_peripDataToCPU[3] => w_regFIn[3].DATAB
+i_peripDataToCPU[4] => w_regFIn[4].DATAB
+i_peripDataToCPU[5] => w_regFIn[5].DATAB
+i_peripDataToCPU[6] => w_regFIn[6].DATAB
+i_peripDataToCPU[7] => w_regFIn[7].DATAB
+o_peripAddr[0] <= rom_1kw:rom.q[0]
+o_peripAddr[1] <= rom_1kw:rom.q[1]
+o_peripAddr[2] <= rom_1kw:rom.q[2]
+o_peripAddr[3] <= rom_1kw:rom.q[3]
+o_peripAddr[4] <= rom_1kw:rom.q[4]
+o_peripAddr[5] <= rom_1kw:rom.q[5]
+o_peripAddr[6] <= rom_1kw:rom.q[6]
+o_peripAddr[7] <= rom_1kw:rom.q[7]
+o_peripDataFromCPU[0] <= registerfile:RegFile.o_RegFData[0]
+o_peripDataFromCPU[1] <= registerfile:RegFile.o_RegFData[1]
+o_peripDataFromCPU[2] <= registerfile:RegFile.o_RegFData[2]
+o_peripDataFromCPU[3] <= registerfile:RegFile.o_RegFData[3]
+o_peripDataFromCPU[4] <= registerfile:RegFile.o_RegFData[4]
+o_peripDataFromCPU[5] <= registerfile:RegFile.o_RegFData[5]
+o_peripDataFromCPU[6] <= registerfile:RegFile.o_RegFData[6]
+o_peripDataFromCPU[7] <= registerfile:RegFile.o_RegFData[7]
+o_peripWr <= o_peripWr.DB_MAX_OUTPUT_PORT_TYPE
+o_peripRd <= o_peripRd.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU_top|cpu_001:CPU|ProgramCounter:progCtr
 i_clock => w_progCtr[0].CLK
 i_clock => w_progCtr[1].CLK
 i_clock => w_progCtr[2].CLK
@@ -152,36 +206,7 @@ o_ProgCtr[10] <= w_progCtr[10].DB_MAX_OUTPUT_PORT_TYPE
 o_ProgCtr[11] <= w_progCtr[11].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|cpu_001|SlowClock:slowClock
-i_clock => o_slowClock~reg0.CLK
-i_clock => w_slowD2.CLK
-i_clock => w_slowD1.CLK
-i_clock => w_slowClkCt[0].CLK
-i_clock => w_slowClkCt[1].CLK
-i_clock => w_slowClkCt[2].CLK
-i_clock => w_slowClkCt[3].CLK
-i_clock => w_slowClkCt[4].CLK
-i_clock => w_slowClkCt[5].CLK
-i_clock => w_slowClkCt[6].CLK
-i_clock => w_slowClkCt[7].CLK
-i_clock => w_slowClkCt[8].CLK
-i_clock => w_slowClkCt[9].CLK
-i_clock => w_slowClkCt[10].CLK
-i_clock => w_slowClkCt[11].CLK
-i_clock => w_slowClkCt[12].CLK
-i_clock => w_slowClkCt[13].CLK
-i_clock => w_slowClkCt[14].CLK
-i_clock => w_slowClkCt[15].CLK
-i_clock => w_slowClkCt[16].CLK
-i_clock => w_slowClkCt[17].CLK
-i_clock => w_slowClkCt[18].CLK
-i_clock => w_slowClkCt[19].CLK
-i_clock => w_slowClkCt[20].CLK
-i_clock => w_slowClkCt[21].CLK
-o_slowClock <= o_slowClock~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|cpu_001|RegisterFile:RegFile
+|CPU_top|cpu_001:CPU|RegisterFile:RegFile
 i_clock => reg7[0].CLK
 i_clock => reg7[1].CLK
 i_clock => reg7[2].CLK
@@ -372,7 +397,7 @@ o_RegFData[6] <= o_RegFData.DB_MAX_OUTPUT_PORT_TYPE
 o_RegFData[7] <= o_RegFData.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|cpu_001|ROM_1KW:rom
+|CPU_top|cpu_001:CPU|ROM_1KW:rom
 address[0] => altsyncram:altsyncram_component.address_a[0]
 address[1] => altsyncram:altsyncram_component.address_a[1]
 address[2] => altsyncram:altsyncram_component.address_a[2]
@@ -401,7 +426,7 @@ q[14] <= altsyncram:altsyncram_component.q_a[14]
 q[15] <= altsyncram:altsyncram_component.q_a[15]
 
 
-|cpu_001|ROM_1KW:rom|altsyncram:altsyncram_component
+|CPU_top|cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component
 wren_a => ~NO_FANOUT~
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -423,19 +448,19 @@ data_a[13] => ~NO_FANOUT~
 data_a[14] => ~NO_FANOUT~
 data_a[15] => ~NO_FANOUT~
 data_b[0] => ~NO_FANOUT~
-address_a[0] => altsyncram_ibt3:auto_generated.address_a[0]
-address_a[1] => altsyncram_ibt3:auto_generated.address_a[1]
-address_a[2] => altsyncram_ibt3:auto_generated.address_a[2]
-address_a[3] => altsyncram_ibt3:auto_generated.address_a[3]
-address_a[4] => altsyncram_ibt3:auto_generated.address_a[4]
-address_a[5] => altsyncram_ibt3:auto_generated.address_a[5]
-address_a[6] => altsyncram_ibt3:auto_generated.address_a[6]
-address_a[7] => altsyncram_ibt3:auto_generated.address_a[7]
-address_a[8] => altsyncram_ibt3:auto_generated.address_a[8]
+address_a[0] => altsyncram_jbt3:auto_generated.address_a[0]
+address_a[1] => altsyncram_jbt3:auto_generated.address_a[1]
+address_a[2] => altsyncram_jbt3:auto_generated.address_a[2]
+address_a[3] => altsyncram_jbt3:auto_generated.address_a[3]
+address_a[4] => altsyncram_jbt3:auto_generated.address_a[4]
+address_a[5] => altsyncram_jbt3:auto_generated.address_a[5]
+address_a[6] => altsyncram_jbt3:auto_generated.address_a[6]
+address_a[7] => altsyncram_jbt3:auto_generated.address_a[7]
+address_a[8] => altsyncram_jbt3:auto_generated.address_a[8]
 address_b[0] => ~NO_FANOUT~
 addressstall_a => ~NO_FANOUT~
 addressstall_b => ~NO_FANOUT~
-clock0 => altsyncram_ibt3:auto_generated.clock0
+clock0 => altsyncram_jbt3:auto_generated.clock0
 clock1 => ~NO_FANOUT~
 clocken0 => ~NO_FANOUT~
 clocken1 => ~NO_FANOUT~
@@ -445,29 +470,29 @@ aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
 byteena_a[0] => ~NO_FANOUT~
 byteena_b[0] => ~NO_FANOUT~
-q_a[0] <= altsyncram_ibt3:auto_generated.q_a[0]
-q_a[1] <= altsyncram_ibt3:auto_generated.q_a[1]
-q_a[2] <= altsyncram_ibt3:auto_generated.q_a[2]
-q_a[3] <= altsyncram_ibt3:auto_generated.q_a[3]
-q_a[4] <= altsyncram_ibt3:auto_generated.q_a[4]
-q_a[5] <= altsyncram_ibt3:auto_generated.q_a[5]
-q_a[6] <= altsyncram_ibt3:auto_generated.q_a[6]
-q_a[7] <= altsyncram_ibt3:auto_generated.q_a[7]
-q_a[8] <= altsyncram_ibt3:auto_generated.q_a[8]
-q_a[9] <= altsyncram_ibt3:auto_generated.q_a[9]
-q_a[10] <= altsyncram_ibt3:auto_generated.q_a[10]
-q_a[11] <= altsyncram_ibt3:auto_generated.q_a[11]
-q_a[12] <= altsyncram_ibt3:auto_generated.q_a[12]
-q_a[13] <= altsyncram_ibt3:auto_generated.q_a[13]
-q_a[14] <= altsyncram_ibt3:auto_generated.q_a[14]
-q_a[15] <= altsyncram_ibt3:auto_generated.q_a[15]
+q_a[0] <= altsyncram_jbt3:auto_generated.q_a[0]
+q_a[1] <= altsyncram_jbt3:auto_generated.q_a[1]
+q_a[2] <= altsyncram_jbt3:auto_generated.q_a[2]
+q_a[3] <= altsyncram_jbt3:auto_generated.q_a[3]
+q_a[4] <= altsyncram_jbt3:auto_generated.q_a[4]
+q_a[5] <= altsyncram_jbt3:auto_generated.q_a[5]
+q_a[6] <= altsyncram_jbt3:auto_generated.q_a[6]
+q_a[7] <= altsyncram_jbt3:auto_generated.q_a[7]
+q_a[8] <= altsyncram_jbt3:auto_generated.q_a[8]
+q_a[9] <= altsyncram_jbt3:auto_generated.q_a[9]
+q_a[10] <= altsyncram_jbt3:auto_generated.q_a[10]
+q_a[11] <= altsyncram_jbt3:auto_generated.q_a[11]
+q_a[12] <= altsyncram_jbt3:auto_generated.q_a[12]
+q_a[13] <= altsyncram_jbt3:auto_generated.q_a[13]
+q_a[14] <= altsyncram_jbt3:auto_generated.q_a[14]
+q_a[15] <= altsyncram_jbt3:auto_generated.q_a[15]
 q_b[0] <= <GND>
 eccstatus[0] <= <GND>
 eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|cpu_001|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_ibt3:auto_generated
+|CPU_top|cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_jbt3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -646,7 +671,7 @@ q_a[14] <= ram_block1a14.PORTADATAOUT
 q_a[15] <= ram_block1a15.PORTADATAOUT
 
 
-|cpu_001|GreyCode:GreyCodeCounter
+|CPU_top|cpu_001:CPU|GreyCode:GreyCodeCounter
 i_clock => o_GreyCode[0]~reg0.CLK
 i_clock => o_GreyCode[1]~reg0.CLK
 i_resetN => w_greyCode[1].OUTPUTSELECT
@@ -655,42 +680,7 @@ o_GreyCode[0] <> o_GreyCode[0]~reg0
 o_GreyCode[1] <> o_GreyCode[1]~reg0
 
 
-|cpu_001|PeriphTestReg:testPeriphReg
-i_clock => o_PeriphRegOut[0]~reg0.CLK
-i_clock => o_PeriphRegOut[1]~reg0.CLK
-i_clock => o_PeriphRegOut[2]~reg0.CLK
-i_clock => o_PeriphRegOut[3]~reg0.CLK
-i_clock => o_PeriphRegOut[4]~reg0.CLK
-i_clock => o_PeriphRegOut[5]~reg0.CLK
-i_clock => o_PeriphRegOut[6]~reg0.CLK
-i_clock => o_PeriphRegOut[7]~reg0.CLK
-i_wrReg => o_PeriphRegOut[0]~reg0.ENA
-i_wrReg => o_PeriphRegOut[1]~reg0.ENA
-i_wrReg => o_PeriphRegOut[2]~reg0.ENA
-i_wrReg => o_PeriphRegOut[3]~reg0.ENA
-i_wrReg => o_PeriphRegOut[4]~reg0.ENA
-i_wrReg => o_PeriphRegOut[5]~reg0.ENA
-i_wrReg => o_PeriphRegOut[6]~reg0.ENA
-i_wrReg => o_PeriphRegOut[7]~reg0.ENA
-i_periphRegIn[0] => o_PeriphRegOut[0]~reg0.DATAIN
-i_periphRegIn[1] => o_PeriphRegOut[1]~reg0.DATAIN
-i_periphRegIn[2] => o_PeriphRegOut[2]~reg0.DATAIN
-i_periphRegIn[3] => o_PeriphRegOut[3]~reg0.DATAIN
-i_periphRegIn[4] => o_PeriphRegOut[4]~reg0.DATAIN
-i_periphRegIn[5] => o_PeriphRegOut[5]~reg0.DATAIN
-i_periphRegIn[6] => o_PeriphRegOut[6]~reg0.DATAIN
-i_periphRegIn[7] => o_PeriphRegOut[7]~reg0.DATAIN
-o_PeriphRegOut[0] <= o_PeriphRegOut[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-o_PeriphRegOut[1] <= o_PeriphRegOut[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-o_PeriphRegOut[2] <= o_PeriphRegOut[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-o_PeriphRegOut[3] <= o_PeriphRegOut[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-o_PeriphRegOut[4] <= o_PeriphRegOut[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-o_PeriphRegOut[5] <= o_PeriphRegOut[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-o_PeriphRegOut[6] <= o_PeriphRegOut[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-o_PeriphRegOut[7] <= o_PeriphRegOut[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|cpu_001|ALU_Unit:ALU_Unit
+|CPU_top|cpu_001:CPU|ALU_Unit:ALU_Unit
 i_clock => o_Z_Bit~reg0.CLK
 i_ALU_A_In[0] => i_ALU_A_In[0]~buf0.DATAIN
 i_ALU_A_In[1] => i_ALU_A_In[1]~buf0.DATAIN
@@ -728,5 +718,100 @@ o_ALU_Out[4] <> o_ALU_Out[4]
 o_ALU_Out[5] <> o_ALU_Out[5]
 o_ALU_Out[6] <> o_ALU_Out[6]
 o_ALU_Out[7] <> o_ALU_Out[7]
+
+
+|CPU_top|SlowClock:slowClock
+i_clock => o_slowClock~reg0.CLK
+i_clock => w_slowD2.CLK
+i_clock => w_slowD1.CLK
+i_clock => w_slowClkCt[0].CLK
+i_clock => w_slowClkCt[1].CLK
+i_clock => w_slowClkCt[2].CLK
+i_clock => w_slowClkCt[3].CLK
+i_clock => w_slowClkCt[4].CLK
+i_clock => w_slowClkCt[5].CLK
+i_clock => w_slowClkCt[6].CLK
+i_clock => w_slowClkCt[7].CLK
+i_clock => w_slowClkCt[8].CLK
+i_clock => w_slowClkCt[9].CLK
+i_clock => w_slowClkCt[10].CLK
+i_clock => w_slowClkCt[11].CLK
+i_clock => w_slowClkCt[12].CLK
+i_clock => w_slowClkCt[13].CLK
+i_clock => w_slowClkCt[14].CLK
+i_clock => w_slowClkCt[15].CLK
+i_clock => w_slowClkCt[16].CLK
+i_clock => w_slowClkCt[17].CLK
+i_clock => w_slowClkCt[18].CLK
+i_clock => w_slowClkCt[19].CLK
+i_clock => w_slowClkCt[20].CLK
+i_clock => w_slowClkCt[21].CLK
+o_slowClock <= o_slowClock~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPU_top|Loadable_7SD_3LED:sevSeg
+i_clock_50Mhz => w_refresh_counter[0].CLK
+i_clock_50Mhz => w_refresh_counter[1].CLK
+i_clock_50Mhz => w_refresh_counter[2].CLK
+i_clock_50Mhz => w_refresh_counter[3].CLK
+i_clock_50Mhz => w_refresh_counter[4].CLK
+i_clock_50Mhz => w_refresh_counter[5].CLK
+i_clock_50Mhz => w_refresh_counter[6].CLK
+i_clock_50Mhz => w_refresh_counter[7].CLK
+i_clock_50Mhz => w_refresh_counter[8].CLK
+i_clock_50Mhz => w_refresh_counter[9].CLK
+i_clock_50Mhz => w_refresh_counter[10].CLK
+i_clock_50Mhz => w_refresh_counter[11].CLK
+i_clock_50Mhz => w_refresh_counter[12].CLK
+i_clock_50Mhz => w_refresh_counter[13].CLK
+i_clock_50Mhz => w_refresh_counter[14].CLK
+i_clock_50Mhz => w_refresh_counter[15].CLK
+i_clock_50Mhz => w_refresh_counter[16].CLK
+i_clock_50Mhz => w_refresh_counter[17].CLK
+i_clock_50Mhz => w_refresh_counter[18].CLK
+i_clock_50Mhz => w_refresh_counter[19].CLK
+i_reset => w_refresh_counter[0].ACLR
+i_reset => w_refresh_counter[1].ACLR
+i_reset => w_refresh_counter[2].ACLR
+i_reset => w_refresh_counter[3].ACLR
+i_reset => w_refresh_counter[4].ACLR
+i_reset => w_refresh_counter[5].ACLR
+i_reset => w_refresh_counter[6].ACLR
+i_reset => w_refresh_counter[7].ACLR
+i_reset => w_refresh_counter[8].ACLR
+i_reset => w_refresh_counter[9].ACLR
+i_reset => w_refresh_counter[10].ACLR
+i_reset => w_refresh_counter[11].ACLR
+i_reset => w_refresh_counter[12].ACLR
+i_reset => w_refresh_counter[13].ACLR
+i_reset => w_refresh_counter[14].ACLR
+i_reset => w_refresh_counter[15].ACLR
+i_reset => w_refresh_counter[16].ACLR
+i_reset => w_refresh_counter[17].ACLR
+i_reset => w_refresh_counter[18].ACLR
+i_reset => w_refresh_counter[19].ACLR
+i_displayed_number[0] => Mux10.IN3
+i_displayed_number[1] => Mux11.IN3
+i_displayed_number[2] => Mux13.IN3
+i_displayed_number[3] => Mux14.IN3
+i_displayed_number[4] => Mux10.IN2
+i_displayed_number[5] => Mux11.IN2
+i_displayed_number[6] => Mux13.IN2
+i_displayed_number[7] => Mux14.IN2
+i_displayed_number[8] => Mux10.IN1
+i_displayed_number[9] => Mux11.IN1
+i_displayed_number[10] => Mux13.IN1
+i_displayed_number[11] => Mux14.IN1
+o_Anode_Activate[0] <= Mux9.DB_MAX_OUTPUT_PORT_TYPE
+o_Anode_Activate[1] <= Mux8.DB_MAX_OUTPUT_PORT_TYPE
+o_Anode_Activate[2] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
+o_LED_out[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+o_LED_out[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+o_LED_out[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+o_LED_out[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+o_LED_out[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+o_LED_out[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+o_LED_out[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+o_LED_out[7] <= <VCC>
 
 
