@@ -26,9 +26,6 @@ from sys import version_info
 import time
 from datetime import date
 
-# Fix path below if imports fail
-sys.path.append('C:\\Users\\HPz420\\Documents\\GitHub\\land-boards\\lb-Python-Code\\dgCommonModules\\TKDGCommon')
-
 from dgProgDefaultsTk import *
 from dgReadCSVtoListTk import *
 from dgWriteListtoCSVTk import *
@@ -81,7 +78,7 @@ class ControlClass:
 			row[1] = row[1].upper()
 			if row[1] != '':
 				if row[1] == 'NOP':
-					vecStr = '0x0000'				
+					vecStr = '0x9800'  # ORI Reg8,0x00	
 					program.append(vecStr)
 				elif row[1] == 'LRI':
 					vecStr = '0x2'
