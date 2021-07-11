@@ -48,11 +48,79 @@
 					"strict" : false
 				},
 				{
-					"name" : "uart_tx",
+					"name" : "vga_r[0]",
 					"strict" : false
 				},
 				{
-					"name" : "uart_rx",
+					"name" : "vga_r[1]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_r[2]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_r[3]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_r[4]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_g[0]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_g[1]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_g[2]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_g[3]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_g[4]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_g[5]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_b[0]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_b[1]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_b[2]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_b[3]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_b[4]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_hs",
+					"strict" : false
+				},
+				{
+					"name" : "vga_vs",
+					"strict" : false
+				},
+				{
+					"name" : "uart_tx",
 					"strict" : false
 				},
 				{
@@ -61,6 +129,10 @@
 				},
 				{
 					"name" : "i_KEY0",
+					"strict" : false
+				},
+				{
+					"name" : "uart_rx",
 					"strict" : false
 				},
 				{
