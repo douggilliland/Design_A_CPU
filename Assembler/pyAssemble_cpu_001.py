@@ -181,15 +181,15 @@ class ControlClass:
 					print('bad instr', row)
 					assert False,'bad instr'
 				progCounter += 1
-		print('program',program)
+		# print('program',program)
 		# Create the list file
 		annotatedSource = []
 		progOffset = 0
 		for rowOffset in range(len(inList)-1):
-			print(inList[rowOffset])
+			# print(inList[rowOffset])
 			annRow = []
 			annRow.append(inList[rowOffset+1][0])
-			print('progOffset',progOffset)
+			# print('progOffset',progOffset)
 			# Add copcode to listing
 			if inList[rowOffset+1][1] != '':
 				annRow.append(program[progOffset])

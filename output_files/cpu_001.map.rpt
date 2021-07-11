@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu_001
-Sun Jul 11 10:11:40 2021
+Sun Jul 11 11:29:16 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -27,7 +27,7 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
  19. Multiplexer Restructuring Statistics (Restructuring Performed)
  20. Source assignments for cpu_001:CPU
  21. Source assignments for cpu_001:CPU|Shifter:Shifter
- 22. Source assignments for cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated
+ 22. Source assignments for cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated
  23. Source assignments for cpu_001:CPU|ALU_Unit:ALU_Unit
  24. Source assignments for ANSIDisplayVGA:vdu|SansBoldRom:\GEN_EXT_SCHARS:fontRom|altsyncram:altsyncram_component|altsyncram_k1t3:auto_generated
  25. Source assignments for ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KRAM:dispCharRam|altsyncram:altsyncram_component|altsyncram_ldr3:auto_generated
@@ -85,13 +85,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Jul 11 10:11:40 2021       ;
+; Analysis & Synthesis Status        ; Successful - Sun Jul 11 11:29:16 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_001                                     ;
 ; Top-level Entity Name              ; CPU_top                                     ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 2,524                                       ;
-;     Total combinational functions  ; 1,943                                       ;
+; Total logic elements               ; 2,541                                       ;
+;     Total combinational functions  ; 1,960                                       ;
 ;     Dedicated logic registers      ; 1,266                                       ;
 ; Total registers                    ; 1266                                        ;
 ; Total pins                         ; 133                                         ;
@@ -241,8 +241,8 @@ https://fpgasoftware.intel.com/eula.
 ; altrom.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc                                                               ;             ;
 ; altram.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc                                                               ;             ;
 ; altdpram.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                                                             ;             ;
-; db/altsyncram_5dt3.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_5dt3.tdf                                             ;             ;
-; ../CPU_Code/Part_B3_Test4.mif                                      ; yes             ; Auto-Found Memory Initialization File        ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_Code/Part_B3_Test4.mif                                         ;             ;
+; db/altsyncram_obt3.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_obt3.tdf                                             ;             ;
+; ./CPU_Code/Part_B3_Test5.mif                                       ; yes             ; Auto-Found Memory Initialization File        ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_Code/Part_B3_Test5.mif                                         ;             ;
 ; db/altsyncram_k1t3.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_k1t3.tdf                                             ;             ;
 ; ./Periperals/ANSIDisplay/SansFontBold.HEX                          ; yes             ; Auto-Found Memory Initialization File        ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/ANSIDisplay/SansFontBold.HEX                            ;             ;
 ; db/altsyncram_ldr3.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_ldr3.tdf                                             ;             ;
@@ -312,16 +312,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+---------------+
 ; Resource                                    ; Usage         ;
 +---------------------------------------------+---------------+
-; Estimated Total logic elements              ; 2,524         ;
+; Estimated Total logic elements              ; 2,541         ;
 ;                                             ;               ;
-; Total combinational functions               ; 1943          ;
+; Total combinational functions               ; 1960          ;
 ; Logic element usage by number of LUT inputs ;               ;
-;     -- 4 input functions                    ; 807           ;
-;     -- 3 input functions                    ; 550           ;
-;     -- <=2 input functions                  ; 586           ;
+;     -- 4 input functions                    ; 831           ;
+;     -- 3 input functions                    ; 541           ;
+;     -- <=2 input functions                  ; 588           ;
 ;                                             ;               ;
 ; Logic elements by mode                      ;               ;
-;     -- normal mode                          ; 1526          ;
+;     -- normal mode                          ; 1543          ;
 ;     -- arithmetic mode                      ; 417           ;
 ;                                             ;               ;
 ; Total registers                             ; 1266          ;
@@ -335,7 +335,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;               ;
 ; Maximum fan-out node                        ; i_clock~input ;
 ; Maximum fan-out                             ; 975           ;
-; Total fan-out                               ; 11861         ;
+; Total fan-out                               ; 11934         ;
 ; Average fan-out                             ; 3.26          ;
 +---------------------------------------------+---------------+
 
@@ -345,8 +345,8 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                 ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |CPU_top                                                                                                                                ; 1943 (43)           ; 1266 (21)                 ; 64768       ; 0            ; 0       ; 0         ; 133  ; 0            ; |CPU_top                                                                                                                                                                                                                                                                                                                                            ; CPU_top                           ; work         ;
-;    |ANSIDisplayVGA:vdu|                                                                                                                 ; 934 (777)           ; 203 (203)                 ; 49152       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|ANSIDisplayVGA:vdu                                                                                                                                                                                                                                                                                                                         ; ANSIDisplayVGA                    ; work         ;
+; |CPU_top                                                                                                                                ; 1960 (62)           ; 1266 (21)                 ; 64768       ; 0            ; 0       ; 0         ; 133  ; 0            ; |CPU_top                                                                                                                                                                                                                                                                                                                                            ; CPU_top                           ; work         ;
+;    |ANSIDisplayVGA:vdu|                                                                                                                 ; 932 (775)           ; 203 (203)                 ; 49152       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|ANSIDisplayVGA:vdu                                                                                                                                                                                                                                                                                                                         ; ANSIDisplayVGA                    ; work         ;
 ;       |DisplayRam2K:\GEN_2KATTRAM:dispAttRam|                                                                                           ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KATTRAM:dispAttRam                                                                                                                                                                                                                                                                                   ; DisplayRam2K                      ; work         ;
 ;          |altsyncram:altsyncram_component|                                                                                              ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KATTRAM:dispAttRam|altsyncram:altsyncram_component                                                                                                                                                                                                                                                   ; altsyncram                        ; work         ;
 ;             |altsyncram_ldr3:auto_generated|                                                                                            ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KATTRAM:dispAttRam|altsyncram:altsyncram_component|altsyncram_ldr3:auto_generated                                                                                                                                                                                                                    ; altsyncram_ldr3                   ; work         ;
@@ -376,7 +376,7 @@ https://fpgasoftware.intel.com/eula.
 ;       |ProgramCounter:progCtr|                                                                                                          ; 24 (24)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU|ProgramCounter:progCtr                                                                                                                                                                                                                                                                                                         ; ProgramCounter                    ; work         ;
 ;       |ROM_1KW:rom|                                                                                                                     ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU|ROM_1KW:rom                                                                                                                                                                                                                                                                                                                    ; ROM_1KW                           ; work         ;
 ;          |altsyncram:altsyncram_component|                                                                                              ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component                                                                                                                                                                                                                                                                                    ; altsyncram                        ; work         ;
-;             |altsyncram_5dt3:auto_generated|                                                                                            ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated                                                                                                                                                                                                                                                     ; altsyncram_5dt3                   ; work         ;
+;             |altsyncram_obt3:auto_generated|                                                                                            ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated                                                                                                                                                                                                                                                     ; altsyncram_obt3                   ; work         ;
 ;       |RegisterFile:RegFile|                                                                                                            ; 59 (59)             ; 64 (64)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU|RegisterFile:RegFile                                                                                                                                                                                                                                                                                                           ; RegisterFile                      ; work         ;
 ;       |Shifter:Shifter|                                                                                                                 ; 23 (23)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU|Shifter:Shifter                                                                                                                                                                                                                                                                                                                ; Shifter                           ; work         ;
 ;    |sld_hub:auto_hub|                                                                                                                   ; 123 (1)             ; 90 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                           ; sld_hub                           ; altera_sld   ;
@@ -446,7 +446,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KRAM:dispCharRam|altsyncram:altsyncram_component|altsyncram_ldr3:auto_generated|ALTSYNCRAM                                                                      ; AUTO ; True Dual Port   ; 2048         ; 8            ; 2048         ; 8            ; 16384 ; None                                      ;
 ; ANSIDisplayVGA:vdu|SansBoldRom:\GEN_EXT_SCHARS:fontRom|altsyncram:altsyncram_component|altsyncram_k1t3:auto_generated|ALTSYNCRAM                                                                      ; AUTO ; ROM              ; 2048         ; 8            ; --           ; --           ; 16384 ; ./Periperals/ANSIDisplay/SansFontBold.HEX ;
 ; bufferedUART:acia|altsyncram:rxBuffer_rtl_0|altsyncram_3ce1:auto_generated|ALTSYNCRAM                                                                                                                 ; AUTO ; Simple Dual Port ; 16           ; 8            ; 16           ; 8            ; 128   ; None                                      ;
-; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|ALTSYNCRAM                                                                                                     ; M9K  ; ROM              ; 512          ; 16           ; --           ; --           ; 8192  ; ../CPU_Code/Part_B3_Test4.mif             ;
+; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|ALTSYNCRAM                                                                                                     ; M9K  ; ROM              ; 512          ; 16           ; --           ; --           ; 8192  ; ./CPU_Code/Part_B3_Test5.mif              ;
 ; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|altsyncram_e524:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 128          ; 57           ; 128          ; 57           ; 7296  ; None                                      ;
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-------------------------------------------+
 
@@ -615,55 +615,55 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|charVert[1]                  ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|param4[6]                    ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|charHoriz[0]                 ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|pixelCount[2]                ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|bufferedUART:acia|dataOut[5]                    ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |CPU_top|bufferedUART:acia|dataOut[0]                    ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |CPU_top|TimerUnit:timerUnit|w_countSecs[6]              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|pixelClockCount[1]           ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|cpu_001:CPU|ProgramCounter:progCtr|w_progCtr[8] ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|param1[0]                    ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|param2[3]                    ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|param3[1]                    ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|TimerUnit:timerUnit|w_countmSecs[6]             ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|TimerUnit:timerUnit|w_countuSecs[1]             ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|TimerUnit:timerUnit|prescalerUSec[5]            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|charScanLine[0]              ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |CPU_top|bufferedUART:acia|rxClockCount[5]               ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |CPU_top|bufferedUART:acia|rxBitCount[3]                 ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |CPU_top|bufferedUART:acia|txBitCount[0]                 ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |CPU_top|bufferedUART:acia|txBuffer[0]                   ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|dispCharWRData[0]            ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |CPU_top|bufferedUART:acia|txClockCount[0]               ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|videoB1                      ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|startAddr[10]                ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|videoR0                      ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|paramCount[2]                ;
-; 12:1               ; 7 bits    ; 56 LEs        ; 7 LEs                ; 49 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|cursorHorizRestore[6]        ;
-; 13:1               ; 5 bits    ; 40 LEs        ; 5 LEs                ; 35 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|cursorVertRestore[3]         ;
-; 35:1               ; 7 bits    ; 161 LEs       ; 77 LEs               ; 84 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|cursorHoriz[6]               ;
-; 41:1               ; 2 bits    ; 54 LEs        ; 24 LEs               ; 30 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|cursorVert[3]                ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |CPU_top|Loadable_7SD_3LED:sevSeg|Mux14                  ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |CPU_top|ANSIDisplayVGA:vdu|paramCount                   ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |CPU_top|ANSIDisplayVGA:vdu|dispState                    ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; No         ; |CPU_top|cpu_001:CPU|w_regFIn[0]                         ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |CPU_top|w_peripDataToCPU[5]                             ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |CPU_top|w_peripDataToCPU[3]                             ;
-; 9:1                ; 7 bits    ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; No         ; |CPU_top|cpu_001:CPU|RegisterFile:RegFile|o_RegFData[1]  ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |CPU_top|cpu_001:CPU|Shifter:Shifter|o_DataOut           ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |CPU_top|ANSIDisplayVGA:vdu|escState                     ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |CPU_top|ANSIDisplayVGA:vdu|escState                     ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |CPU_top|bufferedUART:acia|txState.idle                  ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |CPU_top|bufferedUART:acia|rxState.idle                  ;
-; 9:1                ; 9 bits    ; 54 LEs        ; 9 LEs                ; 45 LEs                 ; No         ; |CPU_top|ANSIDisplayVGA:vdu|dispState                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|charVert[1]                   ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|param4[1]                     ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|charHoriz[1]                  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|pixelCount[2]                 ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|bufferedUART:acia|dataOut[2]                     ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |CPU_top|bufferedUART:acia|dataOut[1]                     ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |CPU_top|TimerUnit:timerUnit|w_countSecs[3]               ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|pixelClockCount[0]            ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|cpu_001:CPU|ProgramCounter:progCtr|w_progCtr[11] ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|param1[1]                     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|param2[3]                     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|param3[3]                     ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|TimerUnit:timerUnit|w_countmSecs[7]              ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|TimerUnit:timerUnit|w_countuSecs[6]              ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|TimerUnit:timerUnit|prescalerUSec[1]             ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|charScanLine[3]               ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |CPU_top|bufferedUART:acia|rxClockCount[0]                ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |CPU_top|bufferedUART:acia|rxBitCount[1]                  ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |CPU_top|bufferedUART:acia|txBitCount[2]                  ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |CPU_top|bufferedUART:acia|txBuffer[1]                    ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|dispCharWRData[3]             ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |CPU_top|bufferedUART:acia|txClockCount[3]                ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|videoR1                       ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|startAddr[10]                 ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|videoG0                       ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|paramCount[0]                 ;
+; 12:1               ; 7 bits    ; 56 LEs        ; 7 LEs                ; 49 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|cursorHorizRestore[0]         ;
+; 13:1               ; 5 bits    ; 40 LEs        ; 5 LEs                ; 35 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|cursorVertRestore[4]          ;
+; 35:1               ; 7 bits    ; 161 LEs       ; 77 LEs               ; 84 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|cursorHoriz[5]                ;
+; 41:1               ; 2 bits    ; 54 LEs        ; 24 LEs               ; 30 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|cursorVert[2]                 ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |CPU_top|Loadable_7SD_3LED:sevSeg|Mux13                   ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |CPU_top|ANSIDisplayVGA:vdu|paramCount                    ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |CPU_top|ANSIDisplayVGA:vdu|dispState                     ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; No         ; |CPU_top|cpu_001:CPU|w_regFIn[6]                          ;
+; 9:1                ; 7 bits    ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; No         ; |CPU_top|cpu_001:CPU|RegisterFile:RegFile|o_RegFData[7]   ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |CPU_top|cpu_001:CPU|Shifter:Shifter|o_DataOut            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |CPU_top|ANSIDisplayVGA:vdu|escState                      ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |CPU_top|ANSIDisplayVGA:vdu|escState                      ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |CPU_top|bufferedUART:acia|txState.dataBit                ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |CPU_top|bufferedUART:acia|rxState.stopBit                ;
+; 9:1                ; 9 bits    ; 54 LEs        ; 9 LEs                ; 45 LEs                 ; No         ; |CPU_top|ANSIDisplayVGA:vdu|dispState                     ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |CPU_top|w_peripDataToCPU[6]                              ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |CPU_top|w_peripDataToCPU[3]                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
 
 
 +-------------------------------------------------------------+
@@ -755,7 +755,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 
 
 +---------------------------------------------------------------------------------------------------------------+
-; Source assignments for cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated ;
+; Source assignments for cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated ;
 +---------------------------------+--------------------+------+-------------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                              ;
 +---------------------------------+--------------------+------+-------------------------------------------------+
@@ -877,62 +877,62 @@ Note: All latches listed above may not be present at the end of synthesis due to
 
 +------------------------------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component ;
-+------------------------------------+-------------------------------+---------------------------------+
-; Parameter Name                     ; Value                         ; Type                            ;
-+------------------------------------+-------------------------------+---------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                             ; Untyped                         ;
-; AUTO_CARRY_CHAINS                  ; ON                            ; AUTO_CARRY                      ;
-; IGNORE_CARRY_BUFFERS               ; OFF                           ; IGNORE_CARRY                    ;
-; AUTO_CASCADE_CHAINS                ; ON                            ; AUTO_CASCADE                    ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                           ; IGNORE_CASCADE                  ;
-; WIDTH_BYTEENA                      ; 1                             ; Untyped                         ;
-; OPERATION_MODE                     ; ROM                           ; Untyped                         ;
-; WIDTH_A                            ; 16                            ; Signed Integer                  ;
-; WIDTHAD_A                          ; 9                             ; Signed Integer                  ;
-; NUMWORDS_A                         ; 512                           ; Signed Integer                  ;
-; OUTDATA_REG_A                      ; UNREGISTERED                  ; Untyped                         ;
-; ADDRESS_ACLR_A                     ; NONE                          ; Untyped                         ;
-; OUTDATA_ACLR_A                     ; NONE                          ; Untyped                         ;
-; WRCONTROL_ACLR_A                   ; NONE                          ; Untyped                         ;
-; INDATA_ACLR_A                      ; NONE                          ; Untyped                         ;
-; BYTEENA_ACLR_A                     ; NONE                          ; Untyped                         ;
-; WIDTH_B                            ; 1                             ; Signed Integer                  ;
-; WIDTHAD_B                          ; 1                             ; Signed Integer                  ;
-; NUMWORDS_B                         ; 0                             ; Signed Integer                  ;
-; INDATA_REG_B                       ; CLOCK1                        ; Untyped                         ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                        ; Untyped                         ;
-; RDCONTROL_REG_B                    ; CLOCK1                        ; Untyped                         ;
-; ADDRESS_REG_B                      ; CLOCK1                        ; Untyped                         ;
-; OUTDATA_REG_B                      ; UNREGISTERED                  ; Untyped                         ;
-; BYTEENA_REG_B                      ; CLOCK1                        ; Untyped                         ;
-; INDATA_ACLR_B                      ; NONE                          ; Untyped                         ;
-; WRCONTROL_ACLR_B                   ; NONE                          ; Untyped                         ;
-; ADDRESS_ACLR_B                     ; NONE                          ; Untyped                         ;
-; OUTDATA_ACLR_B                     ; NONE                          ; Untyped                         ;
-; RDCONTROL_ACLR_B                   ; NONE                          ; Untyped                         ;
-; BYTEENA_ACLR_B                     ; NONE                          ; Untyped                         ;
-; WIDTH_BYTEENA_A                    ; 1                             ; Signed Integer                  ;
-; WIDTH_BYTEENA_B                    ; 1                             ; Signed Integer                  ;
-; RAM_BLOCK_TYPE                     ; M9K                           ; Untyped                         ;
-; BYTE_SIZE                          ; 8                             ; Signed Integer                  ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                     ; Untyped                         ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ          ; Untyped                         ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ          ; Untyped                         ;
-; INIT_FILE                          ; ../CPU_Code/Part_B3_Test4.mif ; Untyped                         ;
-; INIT_FILE_LAYOUT                   ; PORT_A                        ; Untyped                         ;
-; MAXIMUM_DEPTH                      ; 0                             ; Signed Integer                  ;
-; CLOCK_ENABLE_INPUT_A               ; BYPASS                        ; Untyped                         ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL                        ; Untyped                         ;
-; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                        ; Untyped                         ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                        ; Untyped                         ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN               ; Untyped                         ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN               ; Untyped                         ;
-; ENABLE_ECC                         ; FALSE                         ; Untyped                         ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                         ; Untyped                         ;
-; WIDTH_ECCSTATUS                    ; 3                             ; Signed Integer                  ;
-; DEVICE_FAMILY                      ; Cyclone IV E                  ; Untyped                         ;
-; CBXI_PARAMETER                     ; altsyncram_5dt3               ; Untyped                         ;
-+------------------------------------+-------------------------------+---------------------------------+
++------------------------------------+------------------------------+----------------------------------+
+; Parameter Name                     ; Value                        ; Type                             ;
++------------------------------------+------------------------------+----------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                            ; Untyped                          ;
+; AUTO_CARRY_CHAINS                  ; ON                           ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS               ; OFF                          ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS                ; ON                           ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                          ; IGNORE_CASCADE                   ;
+; WIDTH_BYTEENA                      ; 1                            ; Untyped                          ;
+; OPERATION_MODE                     ; ROM                          ; Untyped                          ;
+; WIDTH_A                            ; 16                           ; Signed Integer                   ;
+; WIDTHAD_A                          ; 9                            ; Signed Integer                   ;
+; NUMWORDS_A                         ; 512                          ; Signed Integer                   ;
+; OUTDATA_REG_A                      ; UNREGISTERED                 ; Untyped                          ;
+; ADDRESS_ACLR_A                     ; NONE                         ; Untyped                          ;
+; OUTDATA_ACLR_A                     ; NONE                         ; Untyped                          ;
+; WRCONTROL_ACLR_A                   ; NONE                         ; Untyped                          ;
+; INDATA_ACLR_A                      ; NONE                         ; Untyped                          ;
+; BYTEENA_ACLR_A                     ; NONE                         ; Untyped                          ;
+; WIDTH_B                            ; 1                            ; Signed Integer                   ;
+; WIDTHAD_B                          ; 1                            ; Signed Integer                   ;
+; NUMWORDS_B                         ; 0                            ; Signed Integer                   ;
+; INDATA_REG_B                       ; CLOCK1                       ; Untyped                          ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                       ; Untyped                          ;
+; RDCONTROL_REG_B                    ; CLOCK1                       ; Untyped                          ;
+; ADDRESS_REG_B                      ; CLOCK1                       ; Untyped                          ;
+; OUTDATA_REG_B                      ; UNREGISTERED                 ; Untyped                          ;
+; BYTEENA_REG_B                      ; CLOCK1                       ; Untyped                          ;
+; INDATA_ACLR_B                      ; NONE                         ; Untyped                          ;
+; WRCONTROL_ACLR_B                   ; NONE                         ; Untyped                          ;
+; ADDRESS_ACLR_B                     ; NONE                         ; Untyped                          ;
+; OUTDATA_ACLR_B                     ; NONE                         ; Untyped                          ;
+; RDCONTROL_ACLR_B                   ; NONE                         ; Untyped                          ;
+; BYTEENA_ACLR_B                     ; NONE                         ; Untyped                          ;
+; WIDTH_BYTEENA_A                    ; 1                            ; Signed Integer                   ;
+; WIDTH_BYTEENA_B                    ; 1                            ; Signed Integer                   ;
+; RAM_BLOCK_TYPE                     ; M9K                          ; Untyped                          ;
+; BYTE_SIZE                          ; 8                            ; Signed Integer                   ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                    ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ         ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ         ; Untyped                          ;
+; INIT_FILE                          ; ./CPU_Code/Part_B3_Test5.mif ; Untyped                          ;
+; INIT_FILE_LAYOUT                   ; PORT_A                       ; Untyped                          ;
+; MAXIMUM_DEPTH                      ; 0                            ; Signed Integer                   ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                       ; Untyped                          ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                       ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                       ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                       ; Untyped                          ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN              ; Untyped                          ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN              ; Untyped                          ;
+; ENABLE_ECC                         ; FALSE                        ; Untyped                          ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                        ; Untyped                          ;
+; WIDTH_ECCSTATUS                    ; 3                            ; Signed Integer                   ;
+; DEVICE_FAMILY                      ; Cyclone IV E                 ; Untyped                          ;
+; CBXI_PARAMETER                     ; altsyncram_obt3              ; Untyped                          ;
++------------------------------------+------------------------------+----------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -1498,20 +1498,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SLD               ; 8                           ;
 ;     plain             ; 89                          ;
 ; cycloneiii_io_obuf    ; 51                          ;
-; cycloneiii_lcell_comb ; 1445                        ;
+; cycloneiii_lcell_comb ; 1462                        ;
 ;     arith             ; 342                         ;
 ;         2 data inputs ; 213                         ;
 ;         3 data inputs ; 129                         ;
-;     normal            ; 1103                        ;
+;     normal            ; 1120                        ;
 ;         0 data inputs ; 17                          ;
 ;         1 data inputs ; 72                          ;
-;         2 data inputs ; 153                         ;
-;         3 data inputs ; 248                         ;
-;         4 data inputs ; 613                         ;
+;         2 data inputs ; 155                         ;
+;         3 data inputs ; 239                         ;
+;         4 data inputs ; 637                         ;
 ; cycloneiii_ram_block  ; 48                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 10.60                       ;
-; Average LUT depth     ; 5.15                        ;
+; Average LUT depth     ; 5.25                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1532,22 +1532,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; cpu_001:CPU|ALU_Unit:ALU_Unit|i_OP_ARI ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|Equal4~0                                                                          ; N/A     ;
 ; cpu_001:CPU|OP_IOR                     ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|OP_IOR                                                                            ; N/A     ;
 ; cpu_001:CPU|OP_IOw                     ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|OP_IOw                                                                            ; N/A     ;
-; cpu_001:CPU|i_peripDataToCPU[0]        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[0]~10                                                                        ; N/A     ;
-; cpu_001:CPU|i_peripDataToCPU[1]        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU~20                                                                           ; N/A     ;
-; cpu_001:CPU|i_peripDataToCPU[2]        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[2]~21                                                                        ; N/A     ;
-; cpu_001:CPU|i_peripDataToCPU[3]        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[3]~22                                                                        ; N/A     ;
-; cpu_001:CPU|i_peripDataToCPU[4]        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[4]~15                                                                        ; N/A     ;
-; cpu_001:CPU|i_peripDataToCPU[5]        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[5]~16                                                                        ; N/A     ;
-; cpu_001:CPU|i_peripDataToCPU[6]        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[6]~17                                                                        ; N/A     ;
-; cpu_001:CPU|i_peripDataToCPU[7]        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU~19                                                                           ; N/A     ;
-; cpu_001:CPU|o_peripAddr[0]             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|q_a[0] ; N/A     ;
-; cpu_001:CPU|o_peripAddr[1]             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|q_a[1] ; N/A     ;
-; cpu_001:CPU|o_peripAddr[2]             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|q_a[2] ; N/A     ;
-; cpu_001:CPU|o_peripAddr[3]             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|q_a[3] ; N/A     ;
-; cpu_001:CPU|o_peripAddr[4]             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|q_a[4] ; N/A     ;
-; cpu_001:CPU|o_peripAddr[5]             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|q_a[5] ; N/A     ;
-; cpu_001:CPU|o_peripAddr[6]             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|q_a[6] ; N/A     ;
-; cpu_001:CPU|o_peripAddr[7]             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|q_a[7] ; N/A     ;
+; cpu_001:CPU|i_peripDataToCPU[0]        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[0]~4                                                                         ; N/A     ;
+; cpu_001:CPU|i_peripDataToCPU[1]        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[1]~8                                                                         ; N/A     ;
+; cpu_001:CPU|i_peripDataToCPU[2]        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[2]~11                                                                        ; N/A     ;
+; cpu_001:CPU|i_peripDataToCPU[3]        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[3]~14                                                                        ; N/A     ;
+; cpu_001:CPU|i_peripDataToCPU[4]        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[4]~22                                                                        ; N/A     ;
+; cpu_001:CPU|i_peripDataToCPU[5]        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[5]~26                                                                        ; N/A     ;
+; cpu_001:CPU|i_peripDataToCPU[6]        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[6]~30                                                                        ; N/A     ;
+; cpu_001:CPU|i_peripDataToCPU[7]        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[7]~33                                                                        ; N/A     ;
+; cpu_001:CPU|o_peripAddr[0]             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|q_a[0] ; N/A     ;
+; cpu_001:CPU|o_peripAddr[1]             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|q_a[1] ; N/A     ;
+; cpu_001:CPU|o_peripAddr[2]             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|q_a[2] ; N/A     ;
+; cpu_001:CPU|o_peripAddr[3]             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|q_a[3] ; N/A     ;
+; cpu_001:CPU|o_peripAddr[4]             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|q_a[4] ; N/A     ;
+; cpu_001:CPU|o_peripAddr[5]             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|q_a[5] ; N/A     ;
+; cpu_001:CPU|o_peripAddr[6]             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|q_a[6] ; N/A     ;
+; cpu_001:CPU|o_peripAddr[7]             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|q_a[7] ; N/A     ;
 ; cpu_001:CPU|o_peripDataFromCPU[0]      ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ALU_Unit:ALU_Unit|i_ALU_A_In[0]~buf0                                              ; N/A     ;
 ; cpu_001:CPU|o_peripDataFromCPU[1]      ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ALU_Unit:ALU_Unit|i_ALU_A_In[1]~buf0                                              ; N/A     ;
 ; cpu_001:CPU|o_peripDataFromCPU[2]      ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; cpu_001:CPU|ALU_Unit:ALU_Unit|i_ALU_A_In[2]~buf0                                              ; N/A     ;
@@ -1591,14 +1591,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; io_J12[7]                              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; io_J12[7]                                                                                     ; N/A     ;
 ; io_J12[8]                              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; io_J12[8]                                                                                     ; N/A     ;
 ; io_J12[9]                              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; io_J12[9]                                                                                     ; N/A     ;
-; w_peripDataToCPU[0]                    ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[0]~10                                                                        ; N/A     ;
-; w_peripDataToCPU[1]                    ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU~20                                                                           ; N/A     ;
-; w_peripDataToCPU[2]                    ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[2]~21                                                                        ; N/A     ;
-; w_peripDataToCPU[3]                    ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[3]~22                                                                        ; N/A     ;
-; w_peripDataToCPU[4]                    ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[4]~15                                                                        ; N/A     ;
-; w_peripDataToCPU[5]                    ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[5]~16                                                                        ; N/A     ;
-; w_peripDataToCPU[6]                    ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[6]~17                                                                        ; N/A     ;
-; w_peripDataToCPU[7]                    ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU~19                                                                           ; N/A     ;
+; w_peripDataToCPU[0]                    ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[0]~4                                                                         ; N/A     ;
+; w_peripDataToCPU[1]                    ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[1]~8                                                                         ; N/A     ;
+; w_peripDataToCPU[2]                    ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[2]~11                                                                        ; N/A     ;
+; w_peripDataToCPU[3]                    ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[3]~14                                                                        ; N/A     ;
+; w_peripDataToCPU[4]                    ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[4]~22                                                                        ; N/A     ;
+; w_peripDataToCPU[5]                    ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[5]~26                                                                        ; N/A     ;
+; w_peripDataToCPU[6]                    ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[6]~30                                                                        ; N/A     ;
+; w_peripDataToCPU[7]                    ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; w_peripDataToCPU[7]~33                                                                        ; N/A     ;
 ; auto_signaltap_0|gnd                   ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                                                           ; N/A     ;
 ; auto_signaltap_0|gnd                   ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                                                           ; N/A     ;
 ; auto_signaltap_0|gnd                   ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                                                           ; N/A     ;
@@ -1640,7 +1640,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sun Jul 11 10:10:53 2021
+    Info: Processing started: Sun Jul 11 11:28:23 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1750,7 +1750,7 @@ Info (12133): Instantiated megafunction "cpu_001:CPU|ROM_1KW:rom|altsyncram:alts
     Info (12134): Parameter "indata_aclr_a" = "UNUSED"
     Info (12134): Parameter "indata_aclr_b" = "NONE"
     Info (12134): Parameter "indata_reg_b" = "CLOCK1"
-    Info (12134): Parameter "init_file" = "../CPU_Code/Part_B3_Test4.mif"
+    Info (12134): Parameter "init_file" = "./CPU_Code/Part_B3_Test5.mif"
     Info (12134): Parameter "init_file_layout" = "PORT_A"
     Info (12134): Parameter "maximum_depth" = "0"
     Info (12134): Parameter "numwords_a" = "512"
@@ -1780,10 +1780,10 @@ Info (12133): Instantiated megafunction "cpu_001:CPU|ROM_1KW:rom|altsyncram:alts
     Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
     Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
     Info (12134): Parameter "lpm_type" = "altsyncram"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_5dt3.tdf
-    Info (12023): Found entity 1: altsyncram_5dt3 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_5dt3.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_5dt3" for hierarchy "cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Critical Warning (127005): Memory depth (512) in the design file differs from memory depth (20) in the Memory Initialization File "C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_Code/Part_B3_Test4.mif" -- setting initial value for remaining addresses to 0 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ROM_1KW.vhd Line: 60
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_obt3.tdf
+    Info (12023): Found entity 1: altsyncram_obt3 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_obt3.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_obt3" for hierarchy "cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Critical Warning (127005): Memory depth (512) in the design file differs from memory depth (19) in the Memory Initialization File "C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_Code/Part_B3_Test5.mif" -- setting initial value for remaining addresses to 0 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ROM_1KW.vhd Line: 60
 Info (12128): Elaborating entity "GreyCode" for hierarchy "cpu_001:CPU|GreyCode:GreyCodeCounter" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 179
 Info (12128): Elaborating entity "ALU_Unit" for hierarchy "cpu_001:CPU|ALU_Unit:ALU_Unit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 187
 Info (10041): Inferred latch for "o_ALU_Out[0]" at ALU.vhd(36) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
@@ -1794,13 +1794,13 @@ Info (10041): Inferred latch for "o_ALU_Out[4]" at ALU.vhd(36) File: C:/Users/HP
 Info (10041): Inferred latch for "o_ALU_Out[5]" at ALU.vhd(36) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
 Info (10041): Inferred latch for "o_ALU_Out[6]" at ALU.vhd(36) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
 Info (10041): Inferred latch for "o_ALU_Out[7]" at ALU.vhd(36) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
-Info (12128): Elaborating entity "Loadable_7SD_3LED" for hierarchy "Loadable_7SD_3LED:sevSeg" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 177
+Info (12128): Elaborating entity "Loadable_7SD_3LED" for hierarchy "Loadable_7SD_3LED:sevSeg" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
 Warning (10631): VHDL Process Statement warning at Loadable_7SD_3LED.vhd(69): inferring latch(es) for signal or variable "w_LED_BCD", which holds its previous value in one or more paths through the process File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
 Info (10041): Inferred latch for "w_LED_BCD[0]" at Loadable_7SD_3LED.vhd(69) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
 Info (10041): Inferred latch for "w_LED_BCD[1]" at Loadable_7SD_3LED.vhd(69) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
 Info (10041): Inferred latch for "w_LED_BCD[2]" at Loadable_7SD_3LED.vhd(69) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
 Info (10041): Inferred latch for "w_LED_BCD[3]" at Loadable_7SD_3LED.vhd(69) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
-Info (12128): Elaborating entity "ANSIDisplayVGA" for hierarchy "ANSIDisplayVGA:vdu" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 195
+Info (12128): Elaborating entity "ANSIDisplayVGA" for hierarchy "ANSIDisplayVGA:vdu" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 197
 Warning (10036): Verilog HDL or VHDL warning at ANSIDisplayVGA.vhd(112): object "func_reset" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/ANSIDisplay/ANSIDisplayVGA.vhd Line: 112
 Info (12128): Elaborating entity "SansBoldRom" for hierarchy "ANSIDisplayVGA:vdu|SansBoldRom:\GEN_EXT_SCHARS:fontRom" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/ANSIDisplay/ANSIDisplayVGA.vhd Line: 219
 Info (12128): Elaborating entity "altsyncram" for hierarchy "ANSIDisplayVGA:vdu|SansBoldRom:\GEN_EXT_SCHARS:fontRom|altsyncram:altsyncram_component" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/ANSIDisplay/SansBoldRom.vhd Line: 60
@@ -1927,10 +1927,10 @@ Info (12133): Instantiated megafunction "ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2K
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ldr3.tdf
     Info (12023): Found entity 1: altsyncram_ldr3 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_ldr3.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_ldr3" for hierarchy "ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KRAM:dispCharRam|altsyncram:altsyncram_component|altsyncram_ldr3:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "bufferedUART" for hierarchy "bufferedUART:acia" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 221
-Info (12128): Elaborating entity "BaudRate6850" for hierarchy "BaudRate6850:BaudRateGen" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 238
-Info (12128): Elaborating entity "SlowClock" for hierarchy "SlowClock:slowClock" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 248
-Info (12128): Elaborating entity "TimerUnit" for hierarchy "TimerUnit:timerUnit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 257
+Info (12128): Elaborating entity "bufferedUART" for hierarchy "bufferedUART:acia" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 223
+Info (12128): Elaborating entity "BaudRate6850" for hierarchy "BaudRate6850:BaudRateGen" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 240
+Info (12128): Elaborating entity "SlowClock" for hierarchy "SlowClock:slowClock" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 250
+Info (12128): Elaborating entity "TimerUnit" for hierarchy "TimerUnit:timerUnit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 259
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_e524.tdf
     Info (12023): Found entity 1: altsyncram_e524 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_e524.tdf Line: 28
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_ssc.tdf
@@ -1953,7 +1953,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_ngc File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/cmpr_ngc.tdf Line: 23
 Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2021.07.11.10:11:20 Progress: Loading sld8375e25e/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2021.07.11.11:28:51 Progress: Loading sld8375e25e/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -2031,15 +2031,23 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/add_
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
     Info (12023): Found entity 1: add_sub_8pc File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/add_sub_8pc.tdf Line: 23
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
-    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[3]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[4]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[5]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[6]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[7]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[8]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[9]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[10]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
+    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[3]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[4]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[5]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[6]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[7]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[8]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[9]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[10]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
 Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "io_J12[29]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
+    Warning (13040): bidirectional pin "io_J12[30]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
+    Warning (13040): bidirectional pin "io_J12[31]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
+    Warning (13040): bidirectional pin "io_J12[32]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
+    Warning (13040): bidirectional pin "io_J12[33]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
+    Warning (13040): bidirectional pin "io_J12[34]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
+    Warning (13040): bidirectional pin "io_J12[35]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
+    Warning (13040): bidirectional pin "io_J12[36]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
     Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
     Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
     Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
@@ -2075,23 +2083,15 @@ Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "io_J12[26]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
     Warning (13040): bidirectional pin "io_J12[27]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
     Warning (13040): bidirectional pin "io_J12[28]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[29]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[30]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[31]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[32]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[33]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[34]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[35]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[36]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
 Info (13060): One or more bidirectional pins are fed by always enabled tri-state buffers
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[3]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[4]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[5]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[6]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[7]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[8]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[9]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[10]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[3]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[4]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[5]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[6]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[7]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[8]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[9]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[10]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
 Warning (13012): Latch Loadable_7SD_3LED:sevSeg|w_LED_BCD[0] has unsafe behavior File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
     Warning (13013): Ports D and ENA on the latch are fed by the same signal Loadable_7SD_3LED:sevSeg|w_refresh_counter[19] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 61
 Warning (13012): Latch Loadable_7SD_3LED:sevSeg|w_LED_BCD[1] has unsafe behavior File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
@@ -2101,30 +2101,30 @@ Warning (13012): Latch Loadable_7SD_3LED:sevSeg|w_LED_BCD[2] has unsafe behavior
 Warning (13012): Latch Loadable_7SD_3LED:sevSeg|w_LED_BCD[3] has unsafe behavior File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
     Warning (13013): Ports D and ENA on the latch are fed by the same signal Loadable_7SD_3LED:sevSeg|w_refresh_counter[19] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 61
 Warning (13012): Latch cpu_001:CPU|ALU_Unit:ALU_Unit|o_ALU_Out[0]_103 has unsafe behavior File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|q_a[15] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_5dt3.tdf Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|q_a[15] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_obt3.tdf Line: 32
 Warning (13012): Latch cpu_001:CPU|ALU_Unit:ALU_Unit|o_ALU_Out[1]_111 has unsafe behavior File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|q_a[15] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_5dt3.tdf Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|q_a[15] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_obt3.tdf Line: 32
 Warning (13012): Latch cpu_001:CPU|ALU_Unit:ALU_Unit|o_ALU_Out[2]_119 has unsafe behavior File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|q_a[15] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_5dt3.tdf Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|q_a[15] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_obt3.tdf Line: 32
 Warning (13012): Latch cpu_001:CPU|ALU_Unit:ALU_Unit|o_ALU_Out[3]_127 has unsafe behavior File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|q_a[15] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_5dt3.tdf Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|q_a[15] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_obt3.tdf Line: 32
 Warning (13012): Latch cpu_001:CPU|ALU_Unit:ALU_Unit|o_ALU_Out[4]_135 has unsafe behavior File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|q_a[15] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_5dt3.tdf Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|q_a[15] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_obt3.tdf Line: 32
 Warning (13012): Latch cpu_001:CPU|ALU_Unit:ALU_Unit|o_ALU_Out[5]_143 has unsafe behavior File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|q_a[15] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_5dt3.tdf Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|q_a[15] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_obt3.tdf Line: 32
 Warning (13012): Latch cpu_001:CPU|ALU_Unit:ALU_Unit|o_ALU_Out[6]_151 has unsafe behavior File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|q_a[15] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_5dt3.tdf Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|q_a[15] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_obt3.tdf Line: 32
 Warning (13012): Latch cpu_001:CPU|ALU_Unit:ALU_Unit|o_ALU_Out[7]_159 has unsafe behavior File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 36
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated|q_a[15] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_5dt3.tdf Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_obt3:auto_generated|q_a[15] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_obt3.tdf Line: 32
 Warning (13009): TRI or OPNDRN buffers permanently enabled
-    Warning (13010): Node "io_J12[3]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Warning (13010): Node "io_J12[4]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Warning (13010): Node "io_J12[5]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Warning (13010): Node "io_J12[6]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Warning (13010): Node "io_J12[7]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Warning (13010): Node "io_J12[8]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Warning (13010): Node "io_J12[9]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
-    Warning (13010): Node "io_J12[10]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 158
+    Warning (13010): Node "io_J12[3]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Warning (13010): Node "io_J12[4]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Warning (13010): Node "io_J12[5]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Warning (13010): Node "io_J12[6]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Warning (13010): Node "io_J12[7]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Warning (13010): Node "io_J12[8]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Warning (13010): Node "io_J12[9]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
+    Warning (13010): Node "io_J12[10]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 160
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "DRAM_CS_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 30
     Warning (13410): Pin "DRAM_CLK" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 31
@@ -2215,16 +2215,16 @@ Warning (21074): Design contains 12 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "e_rxd[6]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 47
     Warning (15610): No output dependent on input pin "e_rxd[7]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 47
     Warning (15610): No output dependent on input pin "e_txc" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 48
-Info (21057): Implemented 2814 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2831 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 18 input pins
     Info (21059): Implemented 68 output pins
     Info (21060): Implemented 51 bidirectional pins
-    Info (21061): Implemented 2571 logic cells
+    Info (21061): Implemented 2588 logic cells
     Info (21064): Implemented 105 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 170 warnings
-    Info: Peak virtual memory: 4867 megabytes
-    Info: Processing ended: Sun Jul 11 10:11:40 2021
-    Info: Elapsed time: 00:00:47
-    Info: Total CPU time (on all processors): 00:01:21
+    Info: Peak virtual memory: 4868 megabytes
+    Info: Processing ended: Sun Jul 11 11:29:16 2021
+    Info: Elapsed time: 00:00:53
+    Info: Total CPU time (on all processors): 00:01:22
 
 

@@ -145,6 +145,8 @@ BEGIN
 								w_UARTDataOut								when (w_peripAddr(7 downto 1) = "0000010") else		-- 0X04-0X05 = UART
 								w_VDUDataOut								when (w_peripAddr(7 downto 1) = "0000011") else		-- 0X06-0X07 = VDU
 								w_timerOut									when (w_peripAddr(7 downto 2) = "000010") else		-- 0X08-0X0B = TIMER
+								io_J12(10 downto 3)						when (w_peripAddr = x"0C") else							-- 0X0C = Readback output latch
+								io_J12(36 downto 29)						when (w_peripAddr = x"0D") else							-- 0X0C = Readback output latch
 								x"00";
 	w_keyBuff	<= i_KEY0;
 
