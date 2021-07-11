@@ -1,6 +1,6 @@
 == Design_A_CPU ==
 
-https://www.youtube.com/watch?v=ZtEJHF-pVU0&list=PLn__0BqzWEWNspQ0xkG5h-oSJ21EAet8H YouTube Video Series].
+[https://www.youtube.com/watch?v=ZtEJHF-pVU0&list=PLn__0BqzWEWNspQ0xkG5h-oSJ21EAet8H YouTube Video Series].
 
 [https://github.com/douggilliland/Design_A_CPU/tree/main/Docs Documentation slides are here].
 
