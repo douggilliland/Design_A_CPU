@@ -94,6 +94,16 @@ ARCHITECTURE beh OF CPU_top IS
 	signal w_VDUDataOut	: std_logic_vector(7 downto 0);
 	signal W_VDUWr    	: std_logic;
 	signal W_VDURd    	: std_logic;
+	
+	-- Timer
+	signal w_timerAdr		:	std_logic;
+	signal w_timerOut		: 	std_logic_vector(7 downto 0);
+
+--	-- Signal Tap Logic Analyzer signals
+--	attribute syn_keep	: boolean;
+--	attribute syn_keep of w_peripAddr			: signal is true;
+--	attribute syn_keep of w_peripDataFromCPU			: signal is true;
+--	attribute syn_keep of w_peripDataToCPU			: signal is true;
 
 	
 BEGIN
@@ -115,11 +125,12 @@ BEGIN
 	-- -----------------------------------------------------------------------------------------------------------------
 	-- Peripherals
 	-- Peripheral read data mux
-	w_peripDataToCPU <=	"0000000"&w_keyBuff						when (w_peripAddr = x"00") else
-								w_SevenSegData(7 downto 0)				when (w_peripAddr = x"02") else
-								"0000"&w_SevenSegData(11 downto 8)	when (w_peripAddr = x"03") else
-								w_UARTDataOut								when (w_peripAddr(7 downto 1) = "0000010") else
-								w_VDUDataOut								when (w_peripAddr(7 downto 1) = "0000011") else
+	w_peripDataToCPU <=	"0000000"&w_keyBuff						when (w_peripAddr = x"00") else							-- 0X00 = KEY0
+								w_SevenSegData(7 downto 0)				when (w_peripAddr = x"02") else							-- 0X02 = 7 SEG BOTTOM 2 NIBBLES
+								"0000"&w_SevenSegData(11 downto 8)	when (w_peripAddr = x"03") else							-- 0X03 = 7 SEG UPPER NIBBLE
+								w_UARTDataOut								when (w_peripAddr(7 downto 1) = "0000010") else		-- 0X04-0X05 = UART
+								w_VDUDataOut								when (w_peripAddr(7 downto 1) = "0000011") else		-- 0X06-0X07 = VDU
+								w_timerOut									when (w_peripAddr(7 downto 2) = "000010") else		-- 0X08-0X0B = TIMER
 								x"00";
 	w_keyBuff	<= i_KEY0;
 
@@ -218,5 +229,21 @@ BEGIN
 		i_clock		=> i_clock,
 		o_slowClock	=> w_slowPulse
 	);
+
+	-- Timer Unit
+	w_timerAdr	<=	'1' when (w_peripAddr(7 downto 2) = "000010") else '0';
+	timerUnit : entity work.TimerUnit
+		port map
+		(
+			-- Clock and Reset
+			i_clk					=> i_clock,
+			i_n_reset			=> '1',
+			-- The key and LED on the FPGA card 
+			i_timerSel			=> w_timerAdr,
+			i_writeStrobe		=> w_peripWr,
+			i_regSel				=> w_peripAddr(1 downto 0),
+			i_dataIn				=> w_peripDataFromCPU,
+			o_dataOut			=> w_timerOut
+		);
 	
 END beh;

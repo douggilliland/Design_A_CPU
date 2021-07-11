@@ -71,6 +71,7 @@ ARCHITECTURE beh OF cpu_001 IS
 	
 	-- Signal Tap
 	attribute syn_keep	: boolean;
+	attribute syn_keep of w_ProgCtr			: signal is true;
 	attribute syn_keep of w_peripAddr			: signal is true;
 	attribute syn_keep of w_peripDataFromCPU	: signal is true;
 	attribute syn_keep of w_peripDataToCPU		: signal is true;
