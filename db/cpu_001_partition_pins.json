@@ -124,6 +124,38 @@
 					"strict" : false
 				},
 				{
+					"name" : "io_J12[3]",
+					"strict" : false
+				},
+				{
+					"name" : "io_J12[4]",
+					"strict" : false
+				},
+				{
+					"name" : "io_J12[5]",
+					"strict" : false
+				},
+				{
+					"name" : "io_J12[6]",
+					"strict" : false
+				},
+				{
+					"name" : "io_J12[7]",
+					"strict" : false
+				},
+				{
+					"name" : "io_J12[8]",
+					"strict" : false
+				},
+				{
+					"name" : "io_J12[9]",
+					"strict" : false
+				},
+				{
+					"name" : "io_J12[10]",
+					"strict" : false
+				},
+				{
 					"name" : "i_KEY0",
 					"strict" : false
 				},

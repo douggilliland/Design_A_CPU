@@ -81,7 +81,7 @@ ARCHITECTURE beh OF CPU_top IS
 	-- Slow clock signals
 	signal w_slowPulse	: std_logic;
 	
-	-- Peripheral bus
+	-- CPU Peripheral bus
 	signal w_peripAddr			: std_logic_vector(7 downto 0);
 	signal w_peripDataFromCPU	: std_logic_vector(7 downto 0);
 	signal w_peripDataToCPU		: std_logic_vector(7 downto 0) := x"00";
@@ -111,6 +111,9 @@ ARCHITECTURE beh OF CPU_top IS
 	-- Timer
 	signal w_timerAdr		:	std_logic;
 	signal w_timerOut		: 	std_logic_vector(7 downto 0);
+	
+	-- J12 Connectpr
+	signal w_io_J12		: std_logic_vector(36 downto 3);
 
 --	-- Signal Tap Logic Analyzer signals
 --	attribute syn_keep	: boolean;
@@ -135,8 +138,6 @@ BEGIN
 		o_peripRd				=> w_peripRd
 	);
 	
-	-- -----------------------------------------------------------------------------------------------------------------
-	-- Peripherals
 	-- Peripheral read data mux
 	w_peripDataToCPU <=	"0000000"&w_keyBuff						when (w_peripAddr = x"00") else							-- 0X00 = KEY0
 								w_SevenSegData(7 downto 0)				when (w_peripAddr = x"02") else							-- 0X02 = 7 SEG BOTTOM 2 NIBBLES
@@ -147,9 +148,12 @@ BEGIN
 								x"00";
 	w_keyBuff	<= i_KEY0;
 
+	-- -----------------------------------------------------------------------------------------------------------------
+	-- Peripherals
+	
 	-- ____________________________________________________________________________________
 	-- CPU Write Latches
-	latchLED : process (i_clock)
+	WriteLatches : process (i_clock)
 	begin
 		if rising_edge(i_clock) then
 			if ((w_peripAddr = x"00") and (w_peripWr = '1')) then		-- LED
@@ -158,6 +162,8 @@ BEGIN
 				w_SevenSegData(7 downto 0) <= w_peripDataFromCPU;
 			elsif ((w_peripAddr = x"03") and (w_peripWr = '1')) then	-- 7Seg upper 4 bits
 				w_SevenSegData(11 downto 8) <= w_peripDataFromCPU( 3 downto 0);
+			elsif ((w_peripAddr = x"0C") and (w_peripWr = '1')) then	-- 
+				io_J12(10 downto 3) <= w_peripDataFromCPU;
 			end if;
 		end if;
 	end process;

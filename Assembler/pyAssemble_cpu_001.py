@@ -5,6 +5,10 @@
 #
 # Assembler opcodes
 #	LRI - Load a register with an immediate value (byte)
+#	SRL - Shift register left
+#	SRR - Shift register right
+#	RRL - Rotate register left
+#	RRR - Rotate register right
 #	IOW - Write a register to an I/O address
 #	IOR - Read an I/O address to a register
 #	ORI - OR a register with an immediate value
@@ -86,6 +90,34 @@ class ControlClass:
 				if row[1] == 'NOP':
 					vecStr = '0x9800'  # ORI Reg8,0x00	
 					program.append(vecStr)
+				elif row[1] == 'SRL':
+					if row[3] != '0X01':
+						assert False,'Only supports single shift'
+					vecStr = '0x3'
+					vecStr += row[2][-1]
+					vecStr += "01"
+					program.append(vecStr)
+				elif row[1] == 'SRR':
+					if row[3] != '0X01':
+						assert False,'Only supports single shift'
+					vecStr = '0x3'
+					vecStr += row[2][-1]
+					vecStr += "81"
+					program.append(vecStr)
+				elif row[1] == 'RRL':
+					if row[3] != '0X01':
+						assert False,'Only supports single shift'
+					vecStr = '0x3'
+					vecStr += row[2][-1]
+					vecStr += "41"
+					program.append(vecStr)
+				elif row[1] == 'RRR':
+					if row[3] != '0X01':
+						assert False,'Only supports single shift'
+					vecStr = '0x3'
+					vecStr += row[2][-1]
+					vecStr += "C1"
+					program.append(vecStr)
 				elif row[1] == 'HLT':
 					vecStr = '0xE'
 					labelName = 'HLT_' + str(progCounter)
@@ -149,13 +181,16 @@ class ControlClass:
 					print('bad instr', row)
 					assert False,'bad instr'
 				progCounter += 1
-		# print('program',program)
+		print('program',program)
+		# Create the list file
 		annotatedSource = []
 		progOffset = 0
 		for rowOffset in range(len(inList)-1):
-			# print(inList[rowOffset])
+			print(inList[rowOffset])
 			annRow = []
 			annRow.append(inList[rowOffset+1][0])
+			print('progOffset',progOffset)
+			# Add copcode to listing
 			if inList[rowOffset+1][1] != '':
 				annRow.append(program[progOffset])
 				progOffset += 1

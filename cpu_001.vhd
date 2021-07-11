@@ -41,6 +41,7 @@ ARCHITECTURE beh OF cpu_001 IS
 	
 	-- Opcode decoder
 	signal OP_LRI		: std_logic;
+	signal OP_SRI		: std_logic;
 	signal OP_IOR		: std_logic;
 	signal OP_IOw		: std_logic;
 	signal OP_ARI		: std_logic;
@@ -67,7 +68,10 @@ ARCHITECTURE beh OF cpu_001 IS
 	
 	-- ALU
 	signal w_ALUDataOut		: std_logic_vector(7 downto 0);
-	signal w_ALUZBit		: std_logic;
+	signal w_ALUZBit			: std_logic;
+	
+	-- Shifter
+	signal w_ShiftDataOut	: std_logic_vector(7 downto 0);
 	
 	-- Signal Tap
 	attribute syn_keep	: boolean;
@@ -82,6 +86,7 @@ ARCHITECTURE beh OF cpu_001 IS
 BEGIN
 
 	OP_LRI <= '1' when w_romData(15 downto 12) = "0010" else '0';
+	OP_SRI <= '1' when w_romData(15 downto 12) = "0011" else '0';
 	OP_IOR <= '1' when w_romData(15 downto 12) = "0110" else '0';
 	OP_IOW <= '1' when w_romData(15 downto 12) = "0111" else '0';
 	OP_ARI <= '1' when w_romData(15 downto 12) = "1000" else '0';
@@ -133,17 +138,34 @@ BEGIN
 		i_RegFData	=> w_regFIn,
 		o_RegFData	=> w_regFOut
 	);
-	w_regFIn <= i_peripDataToCPU 			when OP_IOR = '1'  else
+	w_regFIn <= i_peripDataToCPU 			when OP_IOR = '1' else
 					w_ALUDataOut				when OP_ARI = '1' else
 					w_ALUDataOut				when OP_ORI = '1' else
 					w_romData(7 downto 0)	when OP_LRI = '1' else
+					w_ShiftDataOut				when OP_SRI = '1' else
 					x"00";
 	w_ldRegF	<= '1' when ((w_GreyCode = "10") and (OP_LRI = '1'))	else 
 					'1' when ((w_GreyCode = "10") and (OP_IOR = '1'))	else 
 					'1' when ((w_GreyCode = "10") and (OP_ARI = '1'))	else 
 					'1' when ((w_GreyCode = "10") and (OP_ORI = '1'))	else 
+					'1' when ((w_GreyCode = "10") and (OP_SRI = '1'))	else 
 					'0';
 	
+	-- Shifter
+	Shifter : ENTITY work.Shifter
+	  PORT map (
+			-- Ins
+			i_clock			=> i_clock,						-- Clock (50 MHz)
+			i_OP_SRI			=> OP_SRI,						-- Shift/Rotate Instruction
+			i_Shift0Rot1	=> w_romData(6),				-- Shift=0, Rotate=1
+			i_ShiftL0R1		=> w_romData(7),				-- 0=left, 1=right
+			i_ShiftCount	=> w_romData(2 downto 0),	-- 0x1
+			i_DataIn			=> w_regFOut,					-- Data In
+			-- Outs
+			o_DataOut		=> w_ShiftDataOut				-- Data Out
+		);
+	
+
 	-- ROM (max 4K words)
 	rom : ENTITY work.ROM_1KW
 	PORT map

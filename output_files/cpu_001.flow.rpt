@@ -1,5 +1,5 @@
 Flow report for cpu_001
-Sat Jul 10 22:40:47 2021
+Sun Jul 11 10:19:13 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,20 +41,20 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sat Jul 10 22:40:41 2021       ;
+; Flow Status                        ; Successful - Sun Jul 11 10:19:13 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_001                                     ;
 ; Top-level Entity Name              ; CPU_top                                     ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE15F23C8                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 2,365 / 15,408 ( 15 % )                     ;
-;     Total combinational functions  ; 1,919 / 15,408 ( 12 % )                     ;
-;     Dedicated logic registers      ; 1,210 / 15,408 ( 8 % )                      ;
-; Total registers                    ; 1210                                        ;
+; Total logic elements               ; 2,439 / 15,408 ( 16 % )                     ;
+;     Total combinational functions  ; 1,945 / 15,408 ( 13 % )                     ;
+;     Dedicated logic registers      ; 1,266 / 15,408 ( 8 % )                      ;
+; Total registers                    ; 1266                                        ;
 ; Total pins                         ; 133 / 344 ( 39 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 63,744 / 516,096 ( 12 % )                   ;
+; Total memory bits                  ; 64,768 / 516,096 ( 13 % )                   ;
 ; Embedded Multiplier 9-bit elements ; 0 / 112 ( 0 % )                             ;
 ; Total PLLs                         ; 0 / 4 ( 0 % )                               ;
 +------------------------------------+---------------------------------------------+
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/10/2021 22:28:53 ;
+; Start date & time ; 07/11/2021 10:10:55 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; cpu_001             ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+------------------------------------------------------------------------------+---------------+-------------+------------------+
 ; Assignment Name                     ; Value                                                                        ; Default Value ; Entity Name ; Section Id       ;
 +-------------------------------------+------------------------------------------------------------------------------+---------------+-------------+------------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589187.162597053304696                                               ; --            ; --          ; --               ;
+; COMPILER_SIGNATURE_ID               ; 10995770589187.162601265409556                                               ; --            ; --          ; --               ;
 ; ENABLE_SIGNALTAP                    ; On                                                                           ; --            ; --          ; --               ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                                           ; --            ; --          ; --               ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                                            ; --            ; --          ; --               ;
@@ -115,11 +115,11 @@ https://fpgasoftware.intel.com/eula.
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=basic,1,                                         ; --            ; --          ; auto_signaltap_0 ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL_PIPELINE=1                                                 ; --            ; --          ; auto_signaltap_0 ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ENABLE_ADVANCED_TRIGGER=0                                                ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=49                                                             ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=49                                                ; --            ; --          ; auto_signaltap_0 ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=12                                                          ; --            ; --          ; auto_signaltap_0 ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK=000000000000000000000000000000000000000000000000000000000 ; --            ; --          ; auto_signaltap_0 ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK_LENGTH=57                                                 ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=57                                                             ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=57                                                ; --            ; --          ; auto_signaltap_0 ;
 ; SMART_RECOMPILE                     ; On                                                                           ; Off           ; --          ; --               ;
 ; TOP_LEVEL_ENTITY                    ; CPU_top                                                                      ; cpu_001       ; --          ; --               ;
 ; USE_SIGNALTAP_FILE                  ; output_files/cpu_002_Part9.stp                                               ; --            ; --          ; --               ;
@@ -131,14 +131,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:47     ; 1.0                     ; 4866 MB             ; 00:01:11                           ;
-; Fitter               ; 00:00:12     ; 1.1                     ; 5547 MB             ; 00:00:15                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 4687 MB             ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.1                     ; 4800 MB             ; 00:00:05                           ;
-; Fitter               ; 00:00:12     ; 1.1                     ; 5545 MB             ; 00:00:15                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 4687 MB             ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.1                     ; 4800 MB             ; 00:00:05                           ;
-; Total                ; 00:01:27     ; --                      ; --                  ; 00:01:56                           ;
+; Analysis & Synthesis ; 00:00:44     ; 1.0                     ; 4867 MB             ; 00:01:18                           ;
+; Fitter               ; 00:00:15     ; 1.1                     ; 5545 MB             ; 00:00:18                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 4691 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:06     ; 1.1                     ; 4800 MB             ; 00:00:05                           ;
+; MIF/HEX Update       ; 00:00:02     ; 1.0                     ; 4706 MB             ; 00:00:02                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4689 MB             ; 00:00:04                           ;
+; MIF/HEX Update       ; 00:00:01     ; 1.0                     ; 4706 MB             ; 00:00:02                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4689 MB             ; 00:00:03                           ;
+; MIF/HEX Update       ; 00:00:01     ; 1.0                     ; 4707 MB             ; 00:00:02                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4689 MB             ; 00:00:04                           ;
+; Total                ; 00:01:24     ; --                      ; --                  ; 00:02:01                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -151,9 +154,12 @@ https://fpgasoftware.intel.com/eula.
 ; Fitter               ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
 ; Assembler            ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
 ; Timing Analyzer      ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
+; MIF/HEX Update       ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
 ; Assembler            ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
+; MIF/HEX Update       ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
+; MIF/HEX Update       ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -164,9 +170,12 @@ quartus_map --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_0
 quartus_fit --read_settings_files=off --write_settings_files=off cpu_001 -c cpu_001
 quartus_asm --read_settings_files=off --write_settings_files=off cpu_001 -c cpu_001
 quartus_sta cpu_001 -c cpu_001
-quartus_fit --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
-quartus_asm --read_settings_files=off --write_settings_files=off cpu_001 -c cpu_001
-quartus_sta cpu_001 -c cpu_001
+quartus_cdb cpu_001 -c cpu_001 --update_mif
+quartus_asm --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
+quartus_cdb cpu_001 -c cpu_001 --update_mif
+quartus_asm --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
+quartus_cdb cpu_001 -c cpu_001 --update_mif
+quartus_asm --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 
 
 

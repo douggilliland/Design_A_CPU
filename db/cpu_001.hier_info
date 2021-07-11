@@ -1,5 +1,13 @@
 |CPU_top
 i_clock => cpu_001:CPU.i_clock
+i_clock => io_J12[3]~reg0.CLK
+i_clock => io_J12[4]~reg0.CLK
+i_clock => io_J12[5]~reg0.CLK
+i_clock => io_J12[6]~reg0.CLK
+i_clock => io_J12[7]~reg0.CLK
+i_clock => io_J12[8]~reg0.CLK
+i_clock => io_J12[9]~reg0.CLK
+i_clock => io_J12[10]~reg0.CLK
 i_clock => w_SevenSegData[0].CLK
 i_clock => w_SevenSegData[1].CLK
 i_clock => w_SevenSegData[2].CLK
@@ -115,14 +123,14 @@ vga_b[3] <= ansidisplayvga:vdu.videoB1
 vga_b[4] <= ansidisplayvga:vdu.videoB1
 vga_hs <= ansidisplayvga:vdu.hSync
 vga_vs <= ansidisplayvga:vdu.vSync
-io_J12[3] <> <UNC>
-io_J12[4] <> <UNC>
-io_J12[5] <> <UNC>
-io_J12[6] <> <UNC>
-io_J12[7] <> <UNC>
-io_J12[8] <> <UNC>
-io_J12[9] <> <UNC>
-io_J12[10] <> <UNC>
+io_J12[3] <> io_J12[3]~reg0
+io_J12[4] <> io_J12[4]~reg0
+io_J12[5] <> io_J12[5]~reg0
+io_J12[6] <> io_J12[6]~reg0
+io_J12[7] <> io_J12[7]~reg0
+io_J12[8] <> io_J12[8]~reg0
+io_J12[9] <> io_J12[9]~reg0
+io_J12[10] <> io_J12[10]~reg0
 io_J12[11] <> <UNC>
 io_J12[12] <> <UNC>
 io_J12[13] <> <UNC>
@@ -168,6 +176,7 @@ i_clock => w_rtnAddr[9].CLK
 i_clock => w_rtnAddr[10].CLK
 i_clock => w_rtnAddr[11].CLK
 i_clock => registerfile:RegFile.i_clock
+i_clock => shifter:Shifter.i_clock
 i_clock => rom_1kw:rom.clock
 i_clock => greycode:GreyCodeCounter.i_clock
 i_clock => alu_unit:ALU_Unit.i_clock
@@ -453,6 +462,32 @@ o_RegFData[6] <= o_RegFData.DB_MAX_OUTPUT_PORT_TYPE
 o_RegFData[7] <= o_RegFData.DB_MAX_OUTPUT_PORT_TYPE
 
 
+|CPU_top|cpu_001:CPU|Shifter:Shifter
+i_clock => ~NO_FANOUT~
+i_OP_SRI => i_OP_SRI~buf0.DATAIN
+i_Shift0Rot1 => i_Shift0Rot1~buf0.DATAIN
+i_ShiftL0R1 => i_ShiftL0R1~buf0.DATAIN
+i_ShiftCount[0] => i_ShiftCount[0]~buf0.DATAIN
+i_ShiftCount[1] => i_ShiftCount[1]~buf0.DATAIN
+i_ShiftCount[2] => i_ShiftCount[2]~buf0.DATAIN
+i_DataIn[0] => i_DataIn[0]~buf0.DATAIN
+i_DataIn[1] => i_DataIn[1]~buf0.DATAIN
+i_DataIn[2] => i_DataIn[2]~buf0.DATAIN
+i_DataIn[3] => i_DataIn[3]~buf0.DATAIN
+i_DataIn[4] => i_DataIn[4]~buf0.DATAIN
+i_DataIn[5] => i_DataIn[5]~buf0.DATAIN
+i_DataIn[6] => i_DataIn[6]~buf0.DATAIN
+i_DataIn[7] => i_DataIn[7]~buf0.DATAIN
+o_DataOut[0] <= o_DataOut[0]~buf0.DB_MAX_OUTPUT_PORT_TYPE
+o_DataOut[1] <= o_DataOut[1]~buf0.DB_MAX_OUTPUT_PORT_TYPE
+o_DataOut[2] <= o_DataOut[2]~buf0.DB_MAX_OUTPUT_PORT_TYPE
+o_DataOut[3] <= o_DataOut[3]~buf0.DB_MAX_OUTPUT_PORT_TYPE
+o_DataOut[4] <= o_DataOut[4]~buf0.DB_MAX_OUTPUT_PORT_TYPE
+o_DataOut[5] <= o_DataOut[5]~buf0.DB_MAX_OUTPUT_PORT_TYPE
+o_DataOut[6] <= o_DataOut[6]~buf0.DB_MAX_OUTPUT_PORT_TYPE
+o_DataOut[7] <= o_DataOut[7]~buf0.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |CPU_top|cpu_001:CPU|ROM_1KW:rom
 address[0] => altsyncram:altsyncram_component.address_a[0]
 address[1] => altsyncram:altsyncram_component.address_a[1]
@@ -504,19 +539,19 @@ data_a[13] => ~NO_FANOUT~
 data_a[14] => ~NO_FANOUT~
 data_a[15] => ~NO_FANOUT~
 data_b[0] => ~NO_FANOUT~
-address_a[0] => altsyncram_kbt3:auto_generated.address_a[0]
-address_a[1] => altsyncram_kbt3:auto_generated.address_a[1]
-address_a[2] => altsyncram_kbt3:auto_generated.address_a[2]
-address_a[3] => altsyncram_kbt3:auto_generated.address_a[3]
-address_a[4] => altsyncram_kbt3:auto_generated.address_a[4]
-address_a[5] => altsyncram_kbt3:auto_generated.address_a[5]
-address_a[6] => altsyncram_kbt3:auto_generated.address_a[6]
-address_a[7] => altsyncram_kbt3:auto_generated.address_a[7]
-address_a[8] => altsyncram_kbt3:auto_generated.address_a[8]
+address_a[0] => altsyncram_5dt3:auto_generated.address_a[0]
+address_a[1] => altsyncram_5dt3:auto_generated.address_a[1]
+address_a[2] => altsyncram_5dt3:auto_generated.address_a[2]
+address_a[3] => altsyncram_5dt3:auto_generated.address_a[3]
+address_a[4] => altsyncram_5dt3:auto_generated.address_a[4]
+address_a[5] => altsyncram_5dt3:auto_generated.address_a[5]
+address_a[6] => altsyncram_5dt3:auto_generated.address_a[6]
+address_a[7] => altsyncram_5dt3:auto_generated.address_a[7]
+address_a[8] => altsyncram_5dt3:auto_generated.address_a[8]
 address_b[0] => ~NO_FANOUT~
 addressstall_a => ~NO_FANOUT~
 addressstall_b => ~NO_FANOUT~
-clock0 => altsyncram_kbt3:auto_generated.clock0
+clock0 => altsyncram_5dt3:auto_generated.clock0
 clock1 => ~NO_FANOUT~
 clocken0 => ~NO_FANOUT~
 clocken1 => ~NO_FANOUT~
@@ -526,29 +561,29 @@ aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
 byteena_a[0] => ~NO_FANOUT~
 byteena_b[0] => ~NO_FANOUT~
-q_a[0] <= altsyncram_kbt3:auto_generated.q_a[0]
-q_a[1] <= altsyncram_kbt3:auto_generated.q_a[1]
-q_a[2] <= altsyncram_kbt3:auto_generated.q_a[2]
-q_a[3] <= altsyncram_kbt3:auto_generated.q_a[3]
-q_a[4] <= altsyncram_kbt3:auto_generated.q_a[4]
-q_a[5] <= altsyncram_kbt3:auto_generated.q_a[5]
-q_a[6] <= altsyncram_kbt3:auto_generated.q_a[6]
-q_a[7] <= altsyncram_kbt3:auto_generated.q_a[7]
-q_a[8] <= altsyncram_kbt3:auto_generated.q_a[8]
-q_a[9] <= altsyncram_kbt3:auto_generated.q_a[9]
-q_a[10] <= altsyncram_kbt3:auto_generated.q_a[10]
-q_a[11] <= altsyncram_kbt3:auto_generated.q_a[11]
-q_a[12] <= altsyncram_kbt3:auto_generated.q_a[12]
-q_a[13] <= altsyncram_kbt3:auto_generated.q_a[13]
-q_a[14] <= altsyncram_kbt3:auto_generated.q_a[14]
-q_a[15] <= altsyncram_kbt3:auto_generated.q_a[15]
+q_a[0] <= altsyncram_5dt3:auto_generated.q_a[0]
+q_a[1] <= altsyncram_5dt3:auto_generated.q_a[1]
+q_a[2] <= altsyncram_5dt3:auto_generated.q_a[2]
+q_a[3] <= altsyncram_5dt3:auto_generated.q_a[3]
+q_a[4] <= altsyncram_5dt3:auto_generated.q_a[4]
+q_a[5] <= altsyncram_5dt3:auto_generated.q_a[5]
+q_a[6] <= altsyncram_5dt3:auto_generated.q_a[6]
+q_a[7] <= altsyncram_5dt3:auto_generated.q_a[7]
+q_a[8] <= altsyncram_5dt3:auto_generated.q_a[8]
+q_a[9] <= altsyncram_5dt3:auto_generated.q_a[9]
+q_a[10] <= altsyncram_5dt3:auto_generated.q_a[10]
+q_a[11] <= altsyncram_5dt3:auto_generated.q_a[11]
+q_a[12] <= altsyncram_5dt3:auto_generated.q_a[12]
+q_a[13] <= altsyncram_5dt3:auto_generated.q_a[13]
+q_a[14] <= altsyncram_5dt3:auto_generated.q_a[14]
+q_a[15] <= altsyncram_5dt3:auto_generated.q_a[15]
 q_b[0] <= <GND>
 eccstatus[0] <= <GND>
 eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|CPU_top|cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_kbt3:auto_generated
+|CPU_top|cpu_001:CPU|ROM_1KW:rom|altsyncram:altsyncram_component|altsyncram_5dt3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
