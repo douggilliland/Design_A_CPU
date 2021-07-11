@@ -262,27 +262,6 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to altera_reserved_tdi
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to altera_reserved_tdo
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to altera_reserved_tms
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_RAS_N
-set_global_assignment -name VHDL_FILE Periperals/IOP16_Timer_Unit/TimerUnit.vhd
-set_global_assignment -name VHDL_FILE Periperals/SlowClock.vhd
-set_global_assignment -name VHDL_FILE Periperals/VGA/SBCTextDisplayRGB.vhd
-set_global_assignment -name VHDL_FILE Periperals/VGA/SansBoldRomReduced.vhd
-set_global_assignment -name VHDL_FILE Periperals/VGA/SansBoldRom.vhd
-set_global_assignment -name VHDL_FILE Periperals/VGA/DisplayRam2K.vhd
-set_global_assignment -name VHDL_FILE Periperals/VGA/DisplayRam1K.vhd
-set_global_assignment -name VHDL_FILE Periperals/VGA/CGABoldRomReduced.vhd
-set_global_assignment -name VHDL_FILE Periperals/VGA/CGABoldRom.vhd
-set_global_assignment -name VHDL_FILE Periperals/UART/bufferedUART.vhd
-set_global_assignment -name VHDL_FILE Periperals/UART/BaudRate6850.vhd
-set_global_assignment -name VHDL_FILE cpu_001.vhd
-set_global_assignment -name VHDL_FILE ProgramCounter.vhd
-set_global_assignment -name VHDL_FILE RegisterFile.vhd
-set_global_assignment -name QIP_FILE ROM_1KW.qip
-set_global_assignment -name VHDL_FILE GreyCode.vhd
-set_global_assignment -name SIGNALTAP_FILE output_files/cpu_002_Part8.stp
-set_global_assignment -name VHDL_FILE ALU.vhd
-set_global_assignment -name SIGNALTAP_FILE output_files/cpu_002_Part9.stp
-set_global_assignment -name VHDL_FILE Periperals/Loadable_7SD_3LED.vhd
-set_global_assignment -name VHDL_FILE CPU_top.vhd
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[0] -to "cpu_001:CPU|ALU_Unit:ALU_Unit|i_OP_ARI" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[1] -to "cpu_001:CPU|OP_IOR" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[2] -to "cpu_001:CPU|OP_IOw" -section_id auto_signaltap_0
@@ -364,5 +343,26 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LE
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[26] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[28] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[29] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_global_assignment -name VHDL_FILE Periperals/ANSIDisplay/SansBoldRomReduced.vhd
+set_global_assignment -name VHDL_FILE Periperals/ANSIDisplay/SansBoldRom.vhd
+set_global_assignment -name VHDL_FILE Periperals/ANSIDisplay/DisplayRam2K.vhd
+set_global_assignment -name VHDL_FILE Periperals/ANSIDisplay/DisplayRam1K.vhd
+set_global_assignment -name VHDL_FILE Periperals/ANSIDisplay/CGABoldRomReduced.vhd
+set_global_assignment -name VHDL_FILE Periperals/ANSIDisplay/CGABoldRom.vhd
+set_global_assignment -name VHDL_FILE Periperals/ANSIDisplay/ANSIDisplayVGA.vhd
+set_global_assignment -name VHDL_FILE Periperals/IOP16_Timer_Unit/TimerUnit.vhd
+set_global_assignment -name VHDL_FILE Periperals/SlowClock.vhd
+set_global_assignment -name VHDL_FILE Periperals/UART/bufferedUART.vhd
+set_global_assignment -name VHDL_FILE Periperals/UART/BaudRate6850.vhd
+set_global_assignment -name VHDL_FILE cpu_001.vhd
+set_global_assignment -name VHDL_FILE ProgramCounter.vhd
+set_global_assignment -name VHDL_FILE RegisterFile.vhd
+set_global_assignment -name QIP_FILE ROM_1KW.qip
+set_global_assignment -name VHDL_FILE GreyCode.vhd
+set_global_assignment -name SIGNALTAP_FILE output_files/cpu_002_Part8.stp
+set_global_assignment -name VHDL_FILE ALU.vhd
+set_global_assignment -name SIGNALTAP_FILE output_files/cpu_002_Part9.stp
+set_global_assignment -name VHDL_FILE Periperals/Loadable_7SD_3LED.vhd
+set_global_assignment -name VHDL_FILE CPU_top.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name SLD_FILE db/cpu_002_Part9_auto_stripped.stp

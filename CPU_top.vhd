@@ -1,5 +1,15 @@
+-- -----------------------------------------------------------------------------------------------------------------
 -- CPU_top.vhd
 -- Calls the CPU and the individual Peripheral units
+--
+--	16-Bit Processor
+-- Peripherals On the FPGA card
+--		VDU
+--		UART (USBSerial)
+--		Timer Unit
+--		3 digit Seven Segment LED
+--		Pushbutton
+--		LED
 
 -- Library boilerplates
 LIBRARY ieee;
@@ -134,6 +144,7 @@ BEGIN
 								x"00";
 	w_keyBuff	<= i_KEY0;
 
+	-- ____________________________________________________________________________________
 	-- CPU Write Latches
 	latchLED : process (i_clock)
 	begin
@@ -152,6 +163,7 @@ BEGIN
 --	w_serialLoopback	<= uart_rx;
 --	uart_tx				<= w_serialLoopback;
 
+	-- ____________________________________________________________________________________
 	-- Seven Segment, 3 digits
 	sevSeg : entity work.Loadable_7SD_3LED
    Port map ( 
@@ -161,15 +173,17 @@ BEGIN
 		o_Anode_Activate 		=> Scan_Sig,			-- 3 Anode signals
 		o_LED_out 				=> SMG_Data				-- Cathode patterns of 7-segment display
 	);
-	vga_r <= w_videoR(1)&w_videoR(1)&w_videoR(0)&w_videoR(0)&w_videoR(0);
+	
+	-- ____________________________________________________________________________________
+	-- Grant's VGA driver
+	vga_r <= w_videoR(1)&w_videoR(1)&w_videoR(0)&w_videoR(0)&w_videoR(0);					-- Map pins
 	vga_g <= w_videoG(1)&w_videoG(1)&w_videoG(0)&w_videoG(0)&w_videoG(0)&w_videoG(0);
 	vga_b <= w_videoB(1)&w_videoB(1)&w_videoB(0)&w_videoB(0)&w_videoB(0);
-	
-	-- Grant's VGA driver
+
 	W_VDUWr <= '1' when ((w_peripAddr(7 downto 1) = "0000011") and (w_peripWr = '1')) else '0';
 	W_VDURd <= '1' when ((w_peripAddr(7 downto 1) = "0000011") and (w_peripRd = '1')) else '0';
 	
-	vdu : entity work.SBCTextDisplayRGB
+	vdu : entity work.ANSIDisplayVGA
 		port map (
 			clk		=> i_clock,
 			n_reset	=> '1',
@@ -188,11 +202,9 @@ BEGIN
 			videoG1	=> w_videoG(1),
 			videoB0	=> w_videoB(0),
 			videoB1	=> w_videoB(1)
-			-- PS/2 keyboard
---			ps2Clk	=> io_ps2Clk,
---			ps2Data	=> io_ps2Data
 		);
 	
+	-- ____________________________________________________________________________________
 	-- ACIA UART serial interface
 	w_UARTWr <= '1' when ((w_peripAddr(7 downto 1) = "0000010") and (w_peripWr = '1')) else '0';
 	W_UARTRd <= '1' when ((w_peripAddr(7 downto 1) = "0000010") and (w_peripRd = '1')) else '0';
@@ -230,6 +242,7 @@ BEGIN
 		o_slowClock	=> w_slowPulse
 	);
 
+	-- ____________________________________________________________________________________
 	-- Timer Unit
 	w_timerAdr	<=	'1' when (w_peripAddr(7 downto 2) = "000010") else '0';
 	timerUnit : entity work.TimerUnit
