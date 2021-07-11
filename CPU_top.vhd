@@ -66,6 +66,9 @@ ENTITY CPU_top IS
 		vga_hs		: OUT std_logic;
 		vga_vs		: OUT std_logic;
 		
+		-- J12
+		io_J12		: inout std_logic_vector(36 downto 3) := "00"&x"00000000";
+		
 		-- UART
 		uart_rx		: in std_logic := '1';
 		uart_tx		: OUT std_logic

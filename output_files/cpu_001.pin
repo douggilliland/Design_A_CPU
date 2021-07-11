@@ -77,18 +77,18 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : A5        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : A6        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A7        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A8        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A9        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A10       :        :                   :         : 8         :                
+io_J12[35]                   : A9        : bidir  : 3.3-V LVTTL       :         : 8         : Y              
+io_J12[33]                   : A10       : bidir  : 3.3-V LVTTL       :         : 8         : Y              
 GND+                         : A11       :        :                   :         : 8         :                
 GND+                         : A12       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A13       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A14       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A15       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A16       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A17       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A18       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A19       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A20       :        :                   :         : 7         :                
+io_J12[31]                   : A13       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[29]                   : A14       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[27]                   : A15       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[25]                   : A16       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[23]                   : A17       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[21]                   : A18       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[19]                   : A19       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[17]                   : A20       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
 VCCIO7                       : A21       : power  :                   : 3.3V    : 7         :                
 GND                          : A22       : gnd    :                   :         :           :                
 DRAM_ADDR[7]                 : AA1       : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -143,20 +143,20 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : B5        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : B6        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B7        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B8        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B9        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B10       :        :                   :         : 8         :                
+io_J12[36]                   : B9        : bidir  : 3.3-V LVTTL       :         : 8         : Y              
+io_J12[34]                   : B10       : bidir  : 3.3-V LVTTL       :         : 8         : Y              
 GND+                         : B11       :        :                   :         : 8         :                
 GND+                         : B12       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B13       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B14       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B15       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B16       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B17       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B18       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B19       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B20       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B21       :        :                   :         : 6         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B22       :        :                   :         : 6         :                
+io_J12[32]                   : B13       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[30]                   : B14       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[28]                   : B15       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[26]                   : B16       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[24]                   : B17       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[22]                   : B18       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[20]                   : B19       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[18]                   : B20       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[6]                    : B21       : bidir  : 3.3-V LVTTL       :         : 6         : Y              
+io_J12[5]                    : B22       : bidir  : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : C1        :        :                   :         : 1         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C2        :        :                   :         : 1         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C3        :        :                   :         : 8         :                
@@ -173,12 +173,12 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : C13       :        :                   :      
 GND                          : C14       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C15       :        :                   :         : 7         :                
 GND                          : C16       : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C17       :        :                   :         : 7         :                
+io_J12[15]                   : C17       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
 GND                          : C18       : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C19       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C20       :        :                   :         : 6         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C21       :        :                   :         : 6         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C22       :        :                   :         : 6         :                
+io_J12[13]                   : C19       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[11]                   : C20       : bidir  : 3.3-V LVTTL       :         : 6         : Y              
+io_J12[4]                    : C21       : bidir  : 3.3-V LVTTL       :         : 6         : Y              
+io_J12[3]                    : C22       : bidir  : 3.3-V LVTTL       :         : 6         : Y              
 ~ALTERA_ASDO_DATA1~ / RESERVED_INPUT_WITH_WEAK_PULLUP : D1        : input  : 3.3-V LVTTL       :         : 1         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : D2        :        :                   :         : 1         :                
 GND                          : D3        : gnd    :                   :         :           :                
@@ -195,10 +195,10 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : D13       :        :                   :      
 VCCIO7                       : D14       : power  :                   : 3.3V    : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D15       :        :                   :         : 7         :                
 VCCIO7                       : D16       : power  :                   : 3.3V    : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : D17       :        :                   :         : 7         :                
+io_J12[16]                   : D17       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
 VCCIO7                       : D18       : power  :                   : 3.3V    : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : D19       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : D20       :        :                   :         : 6         :                
+io_J12[14]                   : D19       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
+io_J12[12]                   : D20       : bidir  : 3.3-V LVTTL       :         : 6         : Y              
 e_rxd[0]                     : D21       : input  : 3.3-V LVTTL       :         : 6         : Y              
 e_rxdv                       : D22       : input  : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : E1        :        :                   :         : 1         :                
@@ -241,8 +241,8 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : F15       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : F16       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F17       :        :                   :         : 6         :                
 VCCA2                        : F18       : power  :                   : 2.5V    :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : F19       :        :                   :         : 6         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : F20       :        :                   :         : 6         :                
+io_J12[10]                   : F19       : bidir  : 3.3-V LVTTL       :         : 6         : Y              
+io_J12[9]                    : F20       : bidir  : 3.3-V LVTTL       :         : 6         : Y              
 e_rxc                        : F21       : input  : 3.3-V LVTTL       :         : 6         : Y              
 e_rxd[3]                     : F22       : input  : 3.3-V LVTTL       :         : 6         : Y              
 GND+                         : G1        :        :                   :         : 1         :                
@@ -285,8 +285,8 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : H15       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : H16       :        :                   :         : 6         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : H17       :        :                   :         : 6         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : H18       :        :                   :         : 6         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : H19       :        :                   :         : 6         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : H20       :        :                   :         : 6         :                
+io_J12[8]                    : H19       : bidir  : 3.3-V LVTTL       :         : 6         : Y              
+io_J12[7]                    : H20       : bidir  : 3.3-V LVTTL       :         : 6         : Y              
 e_rxd[5]                     : H21       : input  : 3.3-V LVTTL       :         : 6         : Y              
 e_rxd[4]                     : H22       : input  : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : J1        :        :                   :         : 1         :                
