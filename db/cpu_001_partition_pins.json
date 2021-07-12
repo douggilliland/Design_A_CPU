@@ -188,15 +188,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "i_KEY0",
-					"strict" : false
-				},
-				{
 					"name" : "i_clock",
 					"strict" : false
 				},
 				{
 					"name" : "uart_rx",
+					"strict" : false
+				},
+				{
+					"name" : "i_KEY0",
 					"strict" : false
 				},
 				{

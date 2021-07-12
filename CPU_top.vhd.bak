@@ -1,4 +1,15 @@
+-- -----------------------------------------------------------------------------------------------------------------
 -- CPU_top.vhd
+-- Calls the CPU and the individual Peripheral units
+--
+--	16-Bit Processor
+-- Peripherals On the FPGA card
+--		VDU
+--		UART (USB/Serial)
+--		Timer Unit
+--		3 digit Seven Segment LED
+--		Pushbutton
+--		LED
 
 -- Library boilerplates
 LIBRARY ieee;
@@ -48,6 +59,16 @@ ENTITY CPU_top IS
 		SMG_Data		: out std_logic_vector(7 downto 0);
 		Scan_Sig		: out std_logic_vector(2 downto 0);
 		
+		-- VGA
+		vga_r			: out std_logic_vector(4 downto 0);
+		vga_g			: out std_logic_vector(5 downto 0);
+		vga_b			: out std_logic_vector(4 downto 0);
+		vga_hs		: OUT std_logic;
+		vga_vs		: OUT std_logic;
+		
+		-- J12
+		io_J12		: inout std_logic_vector(36 downto 3) := "00"&x"00000000";
+		
 		-- UART
 		uart_rx		: in std_logic := '1';
 		uart_tx		: OUT std_logic
@@ -56,212 +77,197 @@ ENTITY CPU_top IS
 END CPU_top;
 
 ARCHITECTURE beh OF CPU_top IS
-
-	signal w_keyBuff	: std_logic;
-	
-	-- Program Counter
-	signal w_loadPC	: std_logic;
-	signal w_incPC		: std_logic;
-	signal w_ProgCtr	: std_logic_vector(11 downto 0);
-	
-	-- Stack Return address
-	signal w_rtnAddr	: std_logic_vector(11 downto 0);
-	signal w_LDAddr	: std_logic_vector(11 downto 0);
 	
 	-- Slow clock signals
 	signal w_slowPulse	: std_logic;
 	
-	-- Register File
-	signal w_ldRegF	: std_logic;
---	signal w_regSel	: std_logic_vector(3 downto 0) := "0000";
-	signal w_regFIn	: std_logic_vector(7 downto 0) := x"55";
-	signal w_regFOut	: std_logic_vector(7 downto 0);
-	
-	-- ROM
-	signal w_romData	: std_logic_vector(15 downto 0);
-	
-	-- Opcode decoder
-	signal OP_LRI		: std_logic;
-	signal OP_IOR		: std_logic;
-	signal OP_IOw		: std_logic;
-	signal OP_ARI		: std_logic;
-	signal OP_ORI		: std_logic;
-	signal OP_BEZ		: std_logic;
-	signal OP_BNZ		: std_logic;
-	signal OP_JMP		: std_logic;
-	signal OP_JSR		: std_logic;
-	signal OP_RTS		: std_logic;
-	
-	-- Peripheral bus
+	-- CPU Peripheral bus
 	signal w_peripAddr			: std_logic_vector(7 downto 0);
 	signal w_peripDataFromCPU	: std_logic_vector(7 downto 0);
 	signal w_peripDataToCPU		: std_logic_vector(7 downto 0) := x"00";
 	signal w_peripWr				: std_logic;
 	signal w_peripRd				: std_logic;
 	
-	-- Peripherals
-	signal w_serialLoopback		: std_logic;
-	signal w_segs					: std_logic_vector(7 downto 0);
+	-- Pushbutton
+	signal w_keyBuff				: std_logic;
+
+	-- Seven Segment Display
+	signal w_SevenSegData		: std_logic_vector(11 downto 0);
 	
-	-- State Machine
-	signal w_GreyCode				: std_logic_vector(1 downto 0);
+   -- UART
+	signal serialEn     			: std_logic;							-- 16x Serial Clock
+	signal w_UARTDataOut			: std_logic_vector(7 downto 0);
+	signal w_UARTWr    				: std_logic;
+	signal W_UARTRd    				: std_logic;
 	
-	-- ALU
-	signal w_ALUDataOut		: std_logic_vector(7 downto 0);
-	signal w_ALUZBit		: std_logic;
+	-- VGA
+	signal w_videoR		: std_logic_vector(1 downto 0);
+	signal w_videoG		: std_logic_vector(1 downto 0);
+	signal w_videoB		: std_logic_vector(1 downto 0);
+	signal w_VDUDataOut	: std_logic_vector(7 downto 0);
+	signal W_VDUWr    	: std_logic;
+	signal W_VDURd    	: std_logic;
 	
-	-- Signal Tap
-	attribute syn_keep	: boolean;
-	attribute syn_keep of OP_IOR					: signal is true;
-	attribute syn_keep of OP_IOW					: signal is true;
-	attribute syn_keep of w_peripAddr			: signal is true;
-	attribute syn_keep of w_peripDataFromCPU	: signal is true;
-	attribute syn_keep of w_peripDataToCPU		: signal is true;
+	-- Timer
+	signal w_timerAdr		:	std_logic;
+	signal w_timerOut		: 	std_logic_vector(7 downto 0);
 	
+	-- J12 Connectpr
+	signal w_io_J12		: std_logic_vector(36 downto 3);
+
+--	-- Signal Tap Logic Analyzer signals
+--	attribute syn_keep	: boolean;
+--	attribute syn_keep of w_peripAddr			: signal is true;
+--	attribute syn_keep of w_peripDataFromCPU			: signal is true;
+--	attribute syn_keep of w_peripDataToCPU			: signal is true;
+
 	
 BEGIN
 
+	-- -----------------------------------------------------------------------------------------------------------------
+	-- The CPU
+	CPU : ENTITY work.cpu_001
+	PORT map 
+	(
+		i_clock					=> i_clock,					-- 50 MHz clock
+		i_peripDataToCPU		=> w_peripDataToCPU,
+		-- Peripheral bus
+		o_peripAddr				=> w_peripAddr,
+		o_peripDataFromCPU	=> w_peripDataFromCPU,
+		o_peripWr				=> w_peripWr,
+		o_peripRd				=> w_peripRd
+	);
+	
+	-- Peripheral read data mux
+	w_peripDataToCPU <=	"0000000"&w_keyBuff						when (w_peripAddr = x"00") else							-- 0X00 = KEY0
+								w_SevenSegData(7 downto 0)				when (w_peripAddr = x"02") else							-- 0X02 = 7 SEG BOTTOM 2 NIBBLES
+								"0000"&w_SevenSegData(11 downto 8)	when (w_peripAddr = x"03") else							-- 0X03 = 7 SEG UPPER NIBBLE
+								w_UARTDataOut								when (w_peripAddr(7 downto 1) = "0000010") else		-- 0X04-0X05 = UART
+								w_VDUDataOut								when (w_peripAddr(7 downto 1) = "0000011") else		-- 0X06-0X07 = VDU
+								w_timerOut									when (w_peripAddr(7 downto 2) = "000010") else		-- 0X08-0X0B = TIMER
+								io_J12(10 downto 3)						when (w_peripAddr = x"0C") else							-- 0X0C = Readback output latch
+								io_J12(36 downto 29)						when (w_peripAddr = x"0D") else							-- 0X0C = Readback output latch
+								x"00";
 	w_keyBuff	<= i_KEY0;
+
+	-- -----------------------------------------------------------------------------------------------------------------
+	-- Peripherals
 	
-	w_serialLoopback <= uart_rx;
-	uart_tx <= w_serialLoopback;
+	-- ____________________________________________________________________________________
+	-- CPU Write Latches
+	WriteLatches : process (i_clock)
+	begin
+		if rising_edge(i_clock) then
+			if ((w_peripAddr = x"00") and (w_peripWr = '1')) then		-- LED
+				o_LED <= w_peripDataFromCPU(0);
+			elsif ((w_peripAddr = x"02") and (w_peripWr = '1')) then	-- 7Seg lower 8 bits
+				w_SevenSegData(7 downto 0) <= w_peripDataFromCPU;
+			elsif ((w_peripAddr = x"03") and (w_peripWr = '1')) then	-- 7Seg upper 4 bits
+				w_SevenSegData(11 downto 8) <= w_peripDataFromCPU( 3 downto 0);
+			elsif ((w_peripAddr = x"0C") and (w_peripWr = '1')) then	-- 
+				io_J12(10 downto 3) <= w_peripDataFromCPU;
+			end if;
+		end if;
+	end process;
 	
-	OP_LRI <= '1' when w_romData(15 downto 12) = "0010" else '0';
-	OP_IOR <= '1' when w_romData(15 downto 12) = "0110" else '0';
-	OP_IOW <= '1' when w_romData(15 downto 12) = "0111" else '0';
-	OP_ARI <= '1' when w_romData(15 downto 12) = "1000" else '0';
-	OP_ORI <= '1' when w_romData(15 downto 12) = "1001" else '0';	
-	OP_JSR <= '1' when w_romData(15 downto 12) = "1010" else '0';
-	OP_RTS <= '1' when w_romData(15 downto 12) = "1011" else '0';
-	OP_BEZ <= '1' when w_romData(15 downto 12) = "1100" else '0';
-	OP_BNZ <= '1' when w_romData(15 downto 12) = "1101" else '0';
-	OP_JMP <= '1' when w_romData(15 downto 12) = "1110" else '0';
-	
+	-- USB-Serial for UART
+--	w_serialLoopback	<= uart_rx;
+--	uart_tx				<= w_serialLoopback;
+
+	-- ____________________________________________________________________________________
 	-- Seven Segment, 3 digits
 	sevSeg : entity work.Loadable_7SD_3LED
    Port map ( 
 		i_clock_50Mhz 			=> i_clock,
-		i_reset 					=> '0', 			-- i_reset - active high
-		i_displayed_number 	=> x"DEF",		-- 3 digits
-		o_Anode_Activate 		=> Scan_Sig,	-- 3 Anode signals
-		o_LED_out 				=> SMG_Data		-- Cathode patterns of 7-segment display
+		i_reset 					=> '0', 					-- i_reset - active high
+		i_displayed_number 	=> w_SevenSegData,	-- 3 digits
+		o_Anode_Activate 		=> Scan_Sig,			-- 3 Anode signals
+		o_LED_out 				=> SMG_Data				-- Cathode patterns of 7-segment display
 	);
 	
-	-- SMG_Data <= w_segs;
+	-- ____________________________________________________________________________________
+	-- Grant's VGA driver
+	vga_r <= w_videoR(1)&w_videoR(1)&w_videoR(0)&w_videoR(0)&w_videoR(0);					-- Map pins
+	vga_g <= w_videoG(1)&w_videoG(1)&w_videoG(0)&w_videoG(0)&w_videoG(0)&w_videoG(0);
+	vga_b <= w_videoB(1)&w_videoB(1)&w_videoB(0)&w_videoB(0)&w_videoB(0);
 
-	-- Program Counter
-	progCtr : ENTITY work.ProgramCounter
-	PORT map
-   (
-		-- Ins
-		i_clock		=> i_clock,		-- Clock (50 MHz)
-		i_loadPC		=> w_loadPC,	-- Load PC control
-		i_incPC		=> w_incPC,		-- Increment PC control
-		i_PCLdValr	=> w_LDAddr,	-- Load PC value
-		-- Outs
-		o_ProgCtr	=> w_ProgCtr	-- Program Counter
-	);
+	W_VDUWr <= '1' when ((w_peripAddr(7 downto 1) = "0000011") and (w_peripWr = '1')) else '0';
+	W_VDURd <= '1' when ((w_peripAddr(7 downto 1) = "0000011") and (w_peripRd = '1')) else '0';
 	
-	w_LDAddr <= w_rtnAddr when (OP_RTS = '1') else
-						w_romData(11 downto 0);
+	vdu : entity work.ANSIDisplayVGA
+		port map (
+			clk		=> i_clock,
+			n_reset	=> '1',
+			-- CPU interface
+			n_WR		=> not W_VDUWr,
+			n_rd		=> not W_VDURd,
+			regSel	=> w_peripAddr(0),
+			dataIn	=> w_peripDataFromCPU,
+			dataOut	=> w_VDUDataOut,
+			-- VGA video signals
+			hSync		=> vga_hs,
+			vSync		=> vga_vs,
+			videoR0	=> w_videoR(0),
+			videoR1	=> w_videoR(1),
+			videoG0	=> w_videoG(0),
+			videoG1	=> w_videoG(1),
+			videoB0	=> w_videoB(0),
+			videoB1	=> w_videoB(1)
+		);
+	
+	-- ____________________________________________________________________________________
+	-- ACIA UART serial interface
+	w_UARTWr <= '1' when ((w_peripAddr(7 downto 1) = "0000010") and (w_peripWr = '1')) else '0';
+	W_UARTRd <= '1' when ((w_peripAddr(7 downto 1) = "0000010") and (w_peripRd = '1')) else '0';
+
+	acia: entity work.bufferedUART
+		port map (
+			clk		=> i_clock,     
+			n_WR		=> not w_UARTWr,
+			n_rd		=> not W_UARTRd,
+			regSel	=> w_peripAddr(0),
+			dataIn	=> w_peripDataFromCPU,
+			dataOut	=> w_UARTDataOut,
+			rxClkEn	=> serialEn,
+			txClkEn	=> serialEn,
+			rxd		=> uart_rx,
+			txd		=> uart_tx
+		);
 		
-	w_loadPC <= '1' when ((w_GreyCode = "10") and (OP_JMP = '1')) else 
-					'1' when ((w_GreyCode = "10") and (OP_RTS = '1')) else 
-					'1' when ((w_GreyCode = "10") and (OP_JSR = '1')) else 
-					'1' when ((w_GreyCode = "10") and (OP_BEZ = '1') and (w_ALUZBit = '1')) else 
-					'1' when ((w_GreyCode = "10") and (OP_BNZ = '1') and (w_ALUZBit = '0')) else 
-					'0';
-	w_incPC	<= '1' when  (w_GreyCode = "10") else '0';
-	
-	stackVal : PROCESS (i_clock)			-- Sensitivity list
-	BEGIN
-		IF rising_edge(i_clock) THEN		-- On clocks
-			if ((OP_JSR = '1') and (w_GreyCode = "10")) then	-- store next addr + 1
-				w_rtnAddr <= w_ProgCtr + 1;
-			END IF;
-		END IF;
-	END PROCESS;
+	-- ____________________________________________________________________________________
+	-- Baud Rate Generator
+	-- Legal BAUD_RATE values are 115200, 38400, 19200, 9600, 4800, 2400, 1200, 600, 300
+	BaudRateGen : entity work.BaudRate6850
+	GENERIC map (
+		BAUD_RATE	=>  115200
+	)
+	PORT map (
+		i_CLOCK_50	=> i_clock,
+		o_serialEn	=> serialEn
+	);
 
-	
-	-- Slow clock
+	-- Slow clock - used for debugging CPU
 	slowClock : ENTITY work.SlowClock
 	PORT MAP  (
 		i_clock		=> i_clock,
 		o_slowClock	=> w_slowPulse
 	);
-	
-	-- Register File
-	RegFile : ENTITY work.RegisterFile
-	PORT MAP (
-		i_clock		=> i_clock,
-		i_ldRegF		=> w_ldRegF,
-		i_regSel		=> w_romData(11 downto 8),
-		i_RegFData	=> w_regFIn,
-		o_RegFData	=> w_regFOut
-	);
-	
-	w_regFIn <= w_peripDataToCPU 			when OP_IOR = '1'  else
-					w_ALUDataOut				when OP_ARI = '1' else
-					w_ALUDataOut				when OP_ORI = '1' else
-					w_romData(7 downto 0)	when OP_LRI = '1' else
-					x"00";
-	
-	w_ldRegF	<= '1' when ((w_GreyCode = "10") and (OP_LRI = '1'))	else 
-					'1' when ((w_GreyCode = "10") and (OP_IOR = '1'))	else 
-					'1' when ((w_GreyCode = "10") and (OP_ARI = '1'))	else 
-					'1' when ((w_GreyCode = "10") and (OP_ORI = '1'))	else 
-					'0';
-	
-	-- ROM
-	rom : ENTITY work.ROM_1KW
-	PORT map
-	(
-		clock		=> i_clock,
-		address	=> w_ProgCtr(8 downto 0),
-		q			=> w_romData
-	);
-	
-	-- Grey code counter
-	GreyCodeCounter : ENTITY work.GreyCode
-	  PORT  map (
-			i_clock		=> i_clock,
-			i_resetN		=> '1',
-			o_GreyCode	=> w_GreyCode
-		);
-		
-	-- Peripheral bus
-	w_peripAddr				<= w_romData(7 downto 0);
-	w_peripDataFromCPU	<= w_regFOut;
-	w_peripWr				<= '1' when ((w_GreyCode = "10")   and (OP_IOW = '1'))	else '0';
-	w_peripRd				<= '1' when ((w_GreyCode(1) = '1') and (OP_IOR = '1'))	else '0';
-	
-	PeripUnit : ENTITY work.PeripheralUnit
-	  PORT map (
-			-- Ins
-			i_clock					=> i_clock,					-- Clock (50 MHz)
-			i_peripWr				=> w_peripWr,				-- Peripheral Write Strobe
-			i_peripRd				=> w_peripRd,				-- Peripheral Read Strove
-			i_peripAddr				=> w_peripAddr,			-- Peripheral address
-			i_peripDataFromCPU	=> w_peripDataFromCPU,	-- Data to peripherals
-			-- Outs
-			o_peripDataToCPU		=> w_peripDataToCPU			-- Data from peripherals
-		);
 
-	
-	o_LED 		<= w_romData(15) when i_KEY0 = '0' else -- LED0
-						w_romData(0);
-	
-	-- ALU Unit
-	ALU_Unit : ENTITY work.ALU_Unit
-	  PORT  MAP (
-			i_clock		=> i_clock,
-			i_ALU_A_In	=> w_regFOut,				-- Register file out
-			i_ALU_B_In	=> w_romData(7 downto 0),	-- Immediate value
-			i_OP_ARI		=> OP_ARI,					-- AND opcode
-			i_OP_ORI		=> OP_ORI,					-- OR opcode
-			i_LatchZBit	=> (OP_ORI or OP_ARI) and w_GreyCode(1) and (not w_GreyCode(0)),
-			o_Z_Bit		=> w_ALUZBit,				-- Z bit from ALU
-			o_ALU_Out	=> w_ALUDataOut				-- Register file input mux
+	-- ____________________________________________________________________________________
+	-- Timer Unit
+	w_timerAdr	<=	'1' when (w_peripAddr(7 downto 2) = "000010") else '0';
+	timerUnit : entity work.TimerUnit
+		port map
+		(
+			-- Clock and Reset
+			i_clk					=> i_clock,
+			i_n_reset			=> '1',
+			-- The key and LED on the FPGA card 
+			i_timerSel			=> w_timerAdr,
+			i_writeStrobe		=> w_peripWr,
+			i_regSel				=> w_peripAddr(1 downto 0),
+			i_dataIn				=> w_peripDataFromCPU,
+			o_dataOut			=> w_timerOut
 		);
-
+	
 END beh;

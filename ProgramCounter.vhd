@@ -13,6 +13,7 @@ ENTITY ProgramCounter IS
   (
 		-- Ins
 		i_clock		: IN std_logic;		-- Clock (50 MHz)
+		i_resetN		: IN std_logic := '1';		-- 
 		i_loadPC		: IN std_logic;		-- Load PC control
 		i_incPC		: IN std_logic;		-- Increment PC control
 		i_PCLdValr	: IN std_logic_vector(11 downto 0);
@@ -30,7 +31,9 @@ BEGIN
 		progCtr : PROCESS (i_clock)			-- Sensitivity list
 		BEGIN
 			IF rising_edge(i_clock) THEN		-- On clocks
-				if i_loadPC = '1' then			-- Load new PC
+				if i_resetN = '0' then
+					w_progCtr <= x"000";
+				elsif i_loadPC = '1' then			-- Load new PC
 					w_progCtr <= i_PCLdValr;
 				elsif i_incPC = '1' then		-- Increment counter
 					w_progCtr <= w_progCtr+1;

@@ -23,7 +23,7 @@ ENTITY CPU_top IS
   PORT 
   (
 		i_clock		: IN std_logic;		-- 50 MHz clock
-		i_KEY0		: IN std_logic;		-- KEY0
+		i_KEY0		: IN std_logic;		-- KEY0 = Reset
 		o_LED			: OUT std_logic;
 		
 		-- SDRAM - Not used
@@ -35,9 +35,9 @@ ENTITY CPU_top IS
 		DRAM_WE_N	: OUT std_logic := '1';
 		DRAM_UDQM	: OUT std_logic := '0';
 		DRAM_LDQM	: OUT std_logic := '0';
-		DRAM_BA		: OUT std_logic_vector(1 downto 0) := "00";
-		DRAM_ADDR	: OUT std_logic_vector(12 downto 0) := "0"&x"000";
-		DRAM_DQ		: inout std_logic_vector(15 downto 0) := (others=>'Z');
+		DRAM_BA		: OUT std_logic_vector(1 downto 0)		:= "00";
+		DRAM_ADDR	: OUT std_logic_vector(12 downto 0)		:= "0"&x"000";
+		DRAM_DQ		: inout std_logic_vector(15 downto 0)	:= (others=>'Z');
 		
 		-- Ethernet
 		-- Ins
@@ -80,6 +80,9 @@ ARCHITECTURE beh OF CPU_top IS
 	
 	-- Slow clock signals
 	signal w_slowPulse	: std_logic;
+	
+	-- Reset debounce
+	signal w_resetClean_n		: std_logic;
 	
 	-- CPU Peripheral bus
 	signal w_peripAddr			: std_logic_vector(7 downto 0);
@@ -127,28 +130,43 @@ BEGIN
 	-- -----------------------------------------------------------------------------------------------------------------
 	-- The CPU
 	CPU : ENTITY work.cpu_001
+		generic	map ( 
+			INST_SRAM_SIZE_PASS	=> 512,		-- Instruction ROM size
+			STACK_DEPTH_PASS		=> 4			-- JSR/RTS nesting depth - Stack size 2^n - n (4-12 locations)
+		)
 	PORT map 
 	(
 		i_clock					=> i_clock,					-- 50 MHz clock
-		i_peripDataToCPU		=> w_peripDataToCPU,
+		i_resetN					=> w_resetClean_n,		-- Reset CPU
+		i_peripDataToCPU		=> w_peripDataToCPU,		-- Data from the Peripherals to the CPU
 		-- Peripheral bus
-		o_peripAddr				=> w_peripAddr,
-		o_peripDataFromCPU	=> w_peripDataFromCPU,
-		o_peripWr				=> w_peripWr,
-		o_peripRd				=> w_peripRd
+		o_peripAddr				=> w_peripAddr,			-- Peripher address bus (256 I/O locations)
+		o_peripDataFromCPU	=> w_peripDataFromCPU,	-- Data from CPU to Peripherals
+		o_peripWr				=> w_peripWr,				-- Write strobe
+		o_peripRd				=> w_peripRd				-- Read strobe
 	);
 	
+	-- Loopback values
+	debounceReset : entity work.Debouncer
+		port map
+		(
+			i_clk				=> i_clock,
+			i_PinIn			=> i_KEY0,
+			o_PinOut			=> w_resetClean_n
+		);
+		
 	-- Peripheral read data mux
-	w_peripDataToCPU <=	"0000000"&w_keyBuff						when (w_peripAddr = x"00") else							-- 0X00 = KEY0
-								w_SevenSegData(7 downto 0)				when (w_peripAddr = x"02") else							-- 0X02 = 7 SEG BOTTOM 2 NIBBLES
-								"0000"&w_SevenSegData(11 downto 8)	when (w_peripAddr = x"03") else							-- 0X03 = 7 SEG UPPER NIBBLE
-								w_UARTDataOut								when (w_peripAddr(7 downto 1) = "0000010") else		-- 0X04-0X05 = UART
-								w_VDUDataOut								when (w_peripAddr(7 downto 1) = "0000011") else		-- 0X06-0X07 = VDU
-								w_timerOut									when (w_peripAddr(7 downto 2) = "000010") else		-- 0X08-0X0B = TIMER
-								io_J12(10 downto 3)						when (w_peripAddr = x"0C") else							-- 0X0C = Readback output latch
-								io_J12(36 downto 29)						when (w_peripAddr = x"0D") else							-- 0X0C = Readback output latch
-								x"00";
-	w_keyBuff	<= i_KEY0;
+	w_peripDataToCPU <=	
+		"0000000"&w_keyBuff						when (w_peripAddr = x"00") else							-- 0X00 = KEY0
+		w_SevenSegData(7 downto 0)				when (w_peripAddr = x"02") else							-- 0X02 = 7 SEG BOTTOM 2 NIBBLES
+		"0000"&w_SevenSegData(11 downto 8)	when (w_peripAddr = x"03") else							-- 0X03 = 7 SEG UPPER NIBBLE
+		w_UARTDataOut								when (w_peripAddr(7 downto 1) = "0000010") else		-- 0X04-0X05 = UART
+		w_VDUDataOut								when (w_peripAddr(7 downto 1) = "0000011") else		-- 0X06-0X07 = VDU
+		w_timerOut									when (w_peripAddr(7 downto 2) = "000010") else		-- 0X08-0X0B = TIMER
+		io_J12(10 downto 3)						when (w_peripAddr = x"0C") else							-- 0X0C = Readback output latch
+		io_J12(36 downto 29)						when (w_peripAddr = x"0D") else							-- 0X0C = Readback output latch
+		x"00";
+	w_keyBuff	<= '0';
 
 	-- -----------------------------------------------------------------------------------------------------------------
 	-- Peripherals
@@ -179,10 +197,10 @@ BEGIN
 	sevSeg : entity work.Loadable_7SD_3LED
    Port map ( 
 		i_clock_50Mhz 			=> i_clock,
-		i_reset 					=> '0', 					-- i_reset - active high
-		i_displayed_number 	=> w_SevenSegData,	-- 3 digits
-		o_Anode_Activate 		=> Scan_Sig,			-- 3 Anode signals
-		o_LED_out 				=> SMG_Data				-- Cathode patterns of 7-segment display
+		i_reset 					=> not w_resetClean_n, 	-- i_reset - active high
+		i_displayed_number 	=> w_SevenSegData,		-- 3 digits
+		o_Anode_Activate 		=> Scan_Sig,				-- 3 Anode signals
+		o_LED_out 				=> SMG_Data					-- Cathode patterns of 7-segment display
 	);
 	
 	-- ____________________________________________________________________________________
@@ -197,7 +215,7 @@ BEGIN
 	vdu : entity work.ANSIDisplayVGA
 		port map (
 			clk		=> i_clock,
-			n_reset	=> '1',
+			n_reset	=> w_resetClean_n,
 			-- CPU interface
 			n_WR		=> not W_VDUWr,
 			n_rd		=> not W_VDURd,
@@ -261,7 +279,7 @@ BEGIN
 		(
 			-- Clock and Reset
 			i_clk					=> i_clock,
-			i_n_reset			=> '1',
+			i_n_reset			=> w_resetClean_n,
 			-- The key and LED on the FPGA card 
 			i_timerSel			=> w_timerAdr,
 			i_writeStrobe		=> w_peripWr,

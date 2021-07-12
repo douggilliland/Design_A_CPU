@@ -8,9 +8,14 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 ENTITY cpu_001 IS
+	generic (
+		constant INST_SRAM_SIZE_PASS	: integer;	-- Legal Values are 256, 512, 1024, 2048, 4096
+		constant STACK_DEPTH_PASS		: integer	-- Legal Values are 0, 1 (single), > 1 (2^N) (nested subroutines)
+	);
   PORT 
   (
 		i_clock					: IN std_logic;		-- 50 MHz clock
+		i_resetN					: IN std_logic := '1';
 		-- Peripheral bus
 		i_peripDataToCPU		: in std_logic_vector(7 downto 0);
 		o_peripAddr				: out std_logic_vector(7 downto 0);
@@ -26,6 +31,7 @@ ARCHITECTURE beh OF cpu_001 IS
 	signal w_loadPC	: std_logic;
 	signal w_incPC		: std_logic;
 	signal w_ProgCtr	: std_logic_vector(11 downto 0);
+	signal pcPlus1		: std_logic_vector(11 DOWNTO 0);		-- Program Couner + 1
 	
 	-- Stack Return address
 	signal w_rtnAddr	: std_logic_vector(11 downto 0);
@@ -111,6 +117,7 @@ BEGIN
    (
 		-- Ins
 		i_clock		=> i_clock,		-- Clock (50 MHz)
+		i_resetN		=> i_resetN,
 		i_loadPC		=> w_loadPC,	-- Load PC control
 		i_incPC		=> w_incPC,		-- Increment PC control
 		i_PCLdValr	=> w_LDAddr,	-- Load PC value
@@ -125,14 +132,52 @@ BEGIN
 	w_incPC	<= '1' when  (w_GreyCode = "10") else '0';
 	
 	-- JSR/RTS Stack
-	stackVal : PROCESS (i_clock)			-- Sensitivity list
-	BEGIN
-		IF rising_edge(i_clock) THEN		-- On clocks
-			if ((OP_JSR = '1') and (w_GreyCode = "10")) then	-- If instruction is JSR then store next addr + 1
-				w_rtnAddr <= w_ProgCtr + 1;
+--	stackVal : PROCESS (i_clock)			-- Sensitivity list
+--	BEGIN
+--		IF rising_edge(i_clock) THEN		-- On clocks
+--			if ((OP_JSR = '1') and (w_GreyCode = "10")) then	-- If instruction is JSR then store next addr + 1
+--				w_rtnAddr <= w_ProgCtr + 1;
+--			END IF;
+--		END IF;
+--	END PROCESS;
+	
+	-- LIFO - Return address stack (JSR writes, RTS reads)
+	-- Single depth uses no memory
+	-- Deeper depth uses memory
+	GEN_STACK_SINGLE : if (STACK_DEPTH_PASS = 1) generate
+	begin
+	-- Store the return address for JSR opcodes
+	-- Single level stack
+		returnAddress : PROCESS (i_clock)
+		BEGIN
+			IF rising_edge(i_clock) THEN
+				if ((OP_JSR = '1') and (w_GreyCode="10")) then
+					w_rtnAddr <= w_ProgCtr + 1;
+				END IF;
 			END IF;
-		END IF;
-	END PROCESS;
+		END PROCESS;
+	end generate GEN_STACK_SINGLE;
+
+	GEN_STACK_DEEPER : if (STACK_DEPTH_PASS > 1) generate
+	begin
+		pcPlus1 <= (w_ProgCtr + 1);				-- Next address past PC is the return address
+		lifo : entity work.lifo
+			generic map (
+				g_INDEX_WIDTH => STACK_DEPTH_PASS, -- internal index bit width affecting the LIFO capacity
+				g_DATA_WIDTH  => 12 				-- bit width of stored data
+			)
+			port map (
+				i_clk		=> i_clock, 					-- clock signal
+				i_rst		=> not i_resetN,			-- reset signal
+				--
+				i_we   	=> (OP_JSR and w_GreyCode(1) and (not w_GreyCode(0))), -- write enable (push)
+				i_data 	=> pcPlus1,			-- written data
+	--			o_full	=> ,
+				i_re		=> (OP_RTS and w_GreyCode(1) and w_GreyCode(0)), -- read enable (pop)
+				o_data  	=> w_rtnAddr			-- read data
+		--		o_empty :=>							-- empty LIFO indicator
+			);	
+	end generate GEN_STACK_DEEPER;
 	
 	-- Register File
 	RegFile : ENTITY work.RegisterFile
@@ -170,20 +215,76 @@ BEGIN
 			o_DataOut		=> w_ShiftDataOut				-- Data Out
 		);	
 
-	-- ROM (max 4K words)
-	rom : ENTITY work.ROM_1KW
-	PORT map
-	(
-		clock		=> i_clock,
-		address	=> w_ProgCtr(8 downto 0),
-		q			=> w_romData
-	);
+--	-- ROM (max 4K words)
+--	rom : ENTITY work.ROM_1KW
+--	PORT map
+--	(
+--		clock		=> i_clock,
+--		address	=> w_ProgCtr(8 downto 0),
+--		q			=> w_romData
+--	);
+	
+	-- IO Processor ROM
+	GEN_256W_INST_ROM: if (INST_SRAM_SIZE_PASS=256) generate
+		begin
+		IopRom : ENTITY work.IOP_ROM
+		PORT map
+		(
+			address		=> w_ProgCtr(7 downto 0),
+			clock			=> i_clock,
+			q				=> w_romData
+		);
+	end generate GEN_256W_INST_ROM;
+	
+	GEN_512W_INST_ROM: if (INST_SRAM_SIZE_PASS=512) generate
+		begin
+		IopRom : ENTITY work.IOP_ROM
+		PORT map
+		(
+			address		=> w_ProgCtr(8 downto 0),
+			clock			=> i_clock,
+			q				=> w_romData
+		);
+	end generate GEN_512W_INST_ROM;
+	
+	GEN_1KW_INST_ROM: if (INST_SRAM_SIZE_PASS=1024) generate
+		begin
+		IopRom : ENTITY work.IOP_ROM
+		PORT map
+		(
+			address		=> w_ProgCtr(9 downto 0),
+			clock			=> i_clock,
+			q				=> w_romData
+		);
+	end generate GEN_1KW_INST_ROM;
+	
+	GEN_2KW_INST_ROM: if (INST_SRAM_SIZE_PASS=2048) generate
+		begin
+		IopRom : ENTITY work.IOP_ROM
+		PORT map
+		(
+			address		=> w_ProgCtr(10 downto 0),
+			clock			=> i_clock,
+			q				=> w_romData
+		);
+	end generate GEN_2KW_INST_ROM;
+	
+	GEN_4KW_INST_ROM: if (INST_SRAM_SIZE_PASS=4096) generate
+		begin
+		IopRom : ENTITY work.IOP_ROM
+		PORT map
+		(
+			address		=> w_ProgCtr,
+			clock			=> i_clock,
+			q				=> w_romData
+		);
+	end generate GEN_4KW_INST_ROM;
 	
 	-- Grey code counter
 	GreyCodeCounter : ENTITY work.GreyCode
 	  PORT  map (
 			i_clock		=> i_clock,
-			i_resetN		=> '1',
+			i_resetN		=> i_resetN,
 			o_GreyCode	=> w_GreyCode
 		);
 		
