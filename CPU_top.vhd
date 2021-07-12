@@ -5,7 +5,7 @@
 --	16-Bit Processor
 -- Peripherals On the FPGA card
 --		VDU
---		UART (USBSerial)
+--		UART (USB/Serial)
 --		Timer Unit
 --		3 digit Seven Segment LED
 --		Pushbutton

@@ -22,7 +22,8 @@
 # Assembler Psuedo-opcodes
 #	NOP - No operation
 #	HLT - Halt (Jump to self)
-#
+#	BEQ - Branch if equal (same as BEZ)
+#	BNE - Branch if not equal (Aame as BNZ)
 
 import csv
 import string
@@ -90,19 +91,33 @@ class ControlClass:
 				if row[1] == 'NOP':
 					vecStr = '0x9800'  # ORI Reg8,0x00	
 					program.append(vecStr)
-				elif row[1] == 'SRL':
+				elif row[1] == 'SLL':
 					if row[3] != '0X01':
 						assert False,'Only supports single shift'
 					vecStr = '0x3'
 					vecStr += row[2][-1]
 					vecStr += "01"
 					program.append(vecStr)
-				elif row[1] == 'SRR':
+				elif row[1] == 'SLR':
 					if row[3] != '0X01':
 						assert False,'Only supports single shift'
 					vecStr = '0x3'
 					vecStr += row[2][-1]
 					vecStr += "81"
+					program.append(vecStr)
+				elif row[1] == 'SAL':
+					if row[3] != '0X01':
+						assert False,'Only supports single shift'
+					vecStr = '0x3'
+					vecStr += row[2][-1]
+					vecStr += "21"
+					program.append(vecStr)
+				elif row[1] == 'SAR':
+					if row[3] != '0X01':
+						assert False,'Only supports single shift'
+					vecStr = '0x3'
+					vecStr += row[2][-1]
+					vecStr += "A1"
 					program.append(vecStr)
 				elif row[1] == 'RRL':
 					if row[3] != '0X01':
@@ -145,6 +160,16 @@ class ControlClass:
 					vecStr += row[2][-1]
 					vecStr += row[3][-2:]
 					program.append(vecStr)
+				elif row[1] == 'ADI':
+					vecStr = '0x0'
+					vecStr += row[2][-1]
+					vecStr += row[3][-2:]
+					program.append(vecStr)
+				elif row[1] == 'CMP':
+					vecStr = '0x1'
+					vecStr += row[2][-1]
+					vecStr += row[3][-2:]
+					program.append(vecStr)
 				elif row[1] == 'ORI':
 					vecStr = '0x9'
 					vecStr += row[2][-1]
@@ -156,7 +181,19 @@ class ControlClass:
 					distStr = self.calcOffsetString(distance)
 					vecStr += distStr
 					program.append(vecStr)
+				elif row[1] == 'BEQ':
+					vecStr = '0xC'
+					distance = labelsList[row[2]]
+					distStr = self.calcOffsetString(distance)
+					vecStr += distStr
+					program.append(vecStr)
 				elif row[1] == 'BNZ':
+					vecStr = '0xD'
+					distance = labelsList[row[2]]
+					distStr = self.calcOffsetString(distance)
+					vecStr += distStr
+					program.append(vecStr)
+				elif row[1] == 'BEQ':
 					vecStr = '0xD'
 					distance = labelsList[row[2]]
 					distStr = self.calcOffsetString(distance)
@@ -354,7 +391,7 @@ class Dashboard:
 	def __init__(self):
 		self.win = Tk()
 		self.win.geometry("320x240")
-		self.win.title("IOP16 Assembler")
+		self.win.title("pyAssemble-cpu001")
 
 	def add_menu(self):
 		self.mainmenu = Menu(self.win)
