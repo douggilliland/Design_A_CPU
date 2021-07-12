@@ -287,7 +287,7 @@
         <trigger_in_editor/>
         <trigger_out_editor/>
       </presentation>
-      <trigger CRC="E9017ABA" attribute_mem_mode="false" gap_record="true" global_temp="1" is_expanded="true" name="trigger: 2021/07/12 09:03:53  #0" position="pre" power_up_trigger_mode="false" record_data_gap="true" segment_size="1" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="false" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_type="circular">
+      <trigger CRC="E9017ABA" attribute_mem_mode="false" gap_record="true" global_temp="1" is_expanded="true" name="trigger: 2021/07/12 09:03:53  #0" position="pre" power_up_trigger_mode="false" record_data_gap="true" segment_size="1" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="true" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_type="circular">
         <power_up_trigger position="pre" storage_qualifier_disabled="no"/>
         <events use_custom_flow_control="no">
           <level enabled="yes" name="condition1" type="basic">'cpu_001:CPU|w_ProgCtr[0]' == low &amp;&amp; 'cpu_001:CPU|w_ProgCtr[10]' == low &amp;&amp; 'cpu_001:CPU|w_ProgCtr[11]' == low &amp;&amp; 'cpu_001:CPU|w_ProgCtr[1]' == low &amp;&amp; 'cpu_001:CPU|w_ProgCtr[2]' == low &amp;&amp; 'cpu_001:CPU|w_ProgCtr[3]' == low &amp;&amp; 'cpu_001:CPU|w_ProgCtr[4]' == low &amp;&amp; 'cpu_001:CPU|w_ProgCtr[5]' == low &amp;&amp; 'cpu_001:CPU|w_ProgCtr[6]' == high &amp;&amp; 'cpu_001:CPU|w_ProgCtr[7]' == low &amp;&amp; 'cpu_001:CPU|w_ProgCtr[8]' == low &amp;&amp; 'cpu_001:CPU|w_ProgCtr[9]' == low

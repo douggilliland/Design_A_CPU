@@ -1,5 +1,5 @@
 Flow report for cpu_001
-Mon Jul 12 09:50:25 2021
+Mon Jul 12 10:25:55 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Jul 12 09:50:25 2021       ;
+; Flow Status                        ; Successful - Mon Jul 12 10:25:55 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_001                                     ;
 ; Top-level Entity Name              ; CPU_top                                     ;
@@ -157,7 +157,9 @@ https://fpgasoftware.intel.com/eula.
 ; Assembler            ; 00:00:04     ; 1.0                     ; 4689 MB             ; 00:00:04                           ;
 ; MIF/HEX Update       ; 00:00:02     ; 1.0                     ; 4706 MB             ; 00:00:02                           ;
 ; Assembler            ; 00:00:04     ; 1.0                     ; 4689 MB             ; 00:00:03                           ;
-; Total                ; 00:02:12     ; --                      ; --                  ; 00:02:39                           ;
+; MIF/HEX Update       ; 00:00:02     ; 1.0                     ; 4706 MB             ; 00:00:02                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4689 MB             ; 00:00:04                           ;
+; Total                ; 00:02:18     ; --                      ; --                  ; 00:02:45                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -192,6 +194,8 @@ https://fpgasoftware.intel.com/eula.
 ; Assembler            ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
 ; MIF/HEX Update       ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
 ; Assembler            ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
+; MIF/HEX Update       ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -216,6 +220,8 @@ quartus_cdb cpu_001 -c cpu_001 --update_mif
 quartus_cdb cpu_001 -c cpu_001 --update_mif
 quartus_asm --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 quartus_cdb cpu_001 -c cpu_001 --update_mif
+quartus_cdb cpu_001 -c cpu_001 --update_mif
+quartus_asm --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 quartus_cdb cpu_001 -c cpu_001 --update_mif
 quartus_asm --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 quartus_cdb cpu_001 -c cpu_001 --update_mif

@@ -160,6 +160,11 @@ class ControlClass:
 					vecStr += row[2][-1]
 					vecStr += row[3][-2:]
 					program.append(vecStr)
+				elif row[1] == 'XRI':
+					vecStr = '0x4'
+					vecStr += row[2][-1]
+					vecStr += row[3][-2:]
+					program.append(vecStr)
 				elif row[1] == 'ADI':
 					vecStr = '0x0'
 					vecStr += row[2][-1]
