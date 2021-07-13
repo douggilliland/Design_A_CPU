@@ -1,7 +1,16 @@
-# IOP16 Assembler
+# cpu_001 Assembler
+# Assemble code for CPU
+# CPU is at
+# 	https://github.com/douggilliland/Design_A_CPU/tree/main
 #
-# Input File Header
-#	['LABEL', 'OPCODE', 'REG_LABEL', 'OFFSET_ADDR', 'COMMENT']
+# Input fileName.csv
+# 	Input file is tightly constrained in CSV file
+# 	Input File Header has to be -
+#		['LABEL', 'OPCODE', 'REG_LABEL', 'OFFSET_ADDR', 'COMMENT']
+#
+# Output files
+# 	.mif file - Quartus II ROM Memory Initialization File
+#	.lst file - Listing file (with addresses)
 #
 # Assembler opcodes
 #	LRI - Load a register with an immediate value (byte)
@@ -24,6 +33,7 @@
 #	HLT - Halt (Jump to self)
 #	BEQ - Branch if equal (same as BEZ)
 #	BNE - Branch if not equal (Aame as BNZ)
+#
 
 import csv
 import string
