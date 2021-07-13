@@ -23,8 +23,8 @@ ENTITY CPU_top IS
   PORT 
   (
 		i_clock		: IN std_logic;		-- 50 MHz clock
-		i_KEY0		: IN std_logic;		-- KEY0 = Reset
-		o_LED			: OUT std_logic;
+		i_KEY0		: IN std_logic;		-- Reset PUSHBUTTON
+		o_LED			: INOUT std_logic;
 		
 		-- SDRAM - Not used
 		DRAM_CS_N	: OUT std_logic := '1';
@@ -91,9 +91,9 @@ ARCHITECTURE beh OF CPU_top IS
 	signal w_peripWr				: std_logic;
 	signal w_peripRd				: std_logic;
 	
-	-- Pushbutton
-	signal w_keyBuff				: std_logic;
-
+	-- Register write/Read for register to register transfers
+	signal W_RegXfer				: std_logic_vector(7 downto 0);
+	
 	-- Seven Segment Display
 	signal w_SevenSegData		: std_logic_vector(11 downto 0);
 	
@@ -124,9 +124,18 @@ ARCHITECTURE beh OF CPU_top IS
 --	attribute syn_keep of w_peripDataFromCPU			: signal is true;
 --	attribute syn_keep of w_peripDataToCPU			: signal is true;
 
-	
 BEGIN
 
+	-- -----------------------------------------------------------------------------------------------------------------
+	-- Loopback values
+	debounceReset : entity work.Debouncer
+		port map
+		(
+			i_clk				=> i_clock,
+			i_PinIn			=> i_KEY0,
+			o_PinOut			=> w_resetClean_n
+		);
+		
 	-- -----------------------------------------------------------------------------------------------------------------
 	-- The CPU
 	CPU : ENTITY work.cpu_001
@@ -146,27 +155,19 @@ BEGIN
 		o_peripRd				=> w_peripRd				-- Read strobe
 	);
 	
-	-- Loopback values
-	debounceReset : entity work.Debouncer
-		port map
-		(
-			i_clk				=> i_clock,
-			i_PinIn			=> i_KEY0,
-			o_PinOut			=> w_resetClean_n
-		);
-		
 	-- Peripheral read data mux
+	-- Read data memory map
 	w_peripDataToCPU <=	
-		"0000000"&w_keyBuff						when (w_peripAddr = x"00") else							-- 0X00 = KEY0
+		"0000000"&o_LED							when (w_peripAddr = x"00") else							-- 0X00 = Was: KEY0
+		W_RegXfer									when (w_peripAddr = x"01") else							-- 0X01 - Register-to-register transfer latch
 		w_SevenSegData(7 downto 0)				when (w_peripAddr = x"02") else							-- 0X02 = 7 SEG BOTTOM 2 NIBBLES
 		"0000"&w_SevenSegData(11 downto 8)	when (w_peripAddr = x"03") else							-- 0X03 = 7 SEG UPPER NIBBLE
 		w_UARTDataOut								when (w_peripAddr(7 downto 1) = "0000010") else		-- 0X04-0X05 = UART
 		w_VDUDataOut								when (w_peripAddr(7 downto 1) = "0000011") else		-- 0X06-0X07 = VDU
 		w_timerOut									when (w_peripAddr(7 downto 2) = "000010") else		-- 0X08-0X0B = TIMER
 		io_J12(10 downto 3)						when (w_peripAddr = x"0C") else							-- 0X0C = Readback output latch
-		io_J12(36 downto 29)						when (w_peripAddr = x"0D") else							-- 0X0C = Readback output latch
+		io_J12(36 downto 29)						when (w_peripAddr = x"0D") else							-- 0X0D = Readback output latch
 		x"00";
-	w_keyBuff	<= '0';
 
 	-- -----------------------------------------------------------------------------------------------------------------
 	-- Peripherals
@@ -178,6 +179,8 @@ BEGIN
 		if rising_edge(i_clock) then
 			if ((w_peripAddr = x"00") and (w_peripWr = '1')) then		-- LED
 				o_LED <= w_peripDataFromCPU(0);
+			ELSif ((w_peripAddr = x"01") and (w_peripWr = '1')) then		-- LED
+				W_RegXfer <= w_peripDataFromCPU;
 			elsif ((w_peripAddr = x"02") and (w_peripWr = '1')) then	-- 7Seg lower 8 bits
 				w_SevenSegData(7 downto 0) <= w_peripDataFromCPU;
 			elsif ((w_peripAddr = x"03") and (w_peripWr = '1')) then	-- 7Seg upper 4 bits

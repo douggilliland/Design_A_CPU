@@ -4,10 +4,6 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "o_LED",
-					"strict" : false
-				},
-				{
 					"name" : "SMG_Data[0]",
 					"strict" : false
 				},
@@ -121,6 +117,10 @@
 				},
 				{
 					"name" : "uart_tx",
+					"strict" : false
+				},
+				{
+					"name" : "o_LED",
 					"strict" : false
 				},
 				{

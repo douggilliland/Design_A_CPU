@@ -164,15 +164,15 @@ BEGIN
 		lifo : entity work.lifo
 			generic map (
 				g_INDEX_WIDTH => STACK_DEPTH_PASS, -- internal index bit width affecting the LIFO capacity
-				g_DATA_WIDTH  => 12 				-- bit width of stored data
+				g_DATA_WIDTH  => 12 						-- bit width of stored data
 			)
 			port map (
-				i_clk		=> i_clock, 					-- clock signal
-				i_rst		=> not i_resetN,			-- reset signal
+				i_clk		=> i_clock, 			-- clock signal
+				i_rst		=> not i_resetN,		-- reset signal
 				--
 				i_we   	=> (OP_JSR and w_GreyCode(1) and (not w_GreyCode(0))), -- write enable (push)
-				i_data 	=> pcPlus1,			-- written data
-	--			o_full	=> ,
+				i_data 	=> pcPlus1,				-- written data
+		--		o_full	=> ,
 				i_re		=> (OP_RTS and w_GreyCode(1) and w_GreyCode(0)), -- read enable (pop)
 				o_data  	=> w_rtnAddr			-- read data
 		--		o_empty :=>							-- empty LIFO indicator
