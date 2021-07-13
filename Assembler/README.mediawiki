@@ -56,8 +56,8 @@ pyinstaller --onefile pyAssemble_cpu_001.py
 #
 </pre>
 
-== Hardware ==
+== Hardware Target ==
 
-[https://www.aliexpress.com/item/33007471265.html?spm=a2g0o.store_pc_groupList.8148356.5.2f5a77a2912sNP QMTECH EP4CE15 FPGA card]
+* The targetted hardware is [https://www.aliexpress.com/item/33007471265.html?spm=a2g0o.store_pc_groupList.8148356.5.2f5a77a2912sNP QMTECH EP4CE15 FPGA card]. The CPU could easily be run on pretty much any FPGA.
 
 <img src="https://raw.githubusercontent.com/douggilliland/Design_A_CPU/main/Docs/CycloneIV_Starter_Kit_P528-cropped.jpg?token=AALUDDTXH4AAMPMJKRVL2LDA5BCOI"></img>
