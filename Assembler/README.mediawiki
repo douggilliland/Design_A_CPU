@@ -6,7 +6,7 @@ The CPU has an Assembler.
 
 * Windows executable is [https://github.com/douggilliland/Design_A_CPU/tree/main/Assembler/dist in this folder]
 * Useful for people who don't have Python 3 installed
-* Compiled using
+* Compiled to executable using
 <pre>
 pyinstaller --onefile pyAssemble_cpu_001.py
 </pre>
