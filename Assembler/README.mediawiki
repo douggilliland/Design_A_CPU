@@ -1,5 +1,7 @@
 == Design a CPU - Assembler ==
 
+The CPU has an Assembler.
+
 === Compiled Assembler to Windows executable ===
 
 * Windows executable is [https://github.com/douggilliland/Design_A_CPU/tree/main/Assembler/dist in this folder]
