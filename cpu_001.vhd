@@ -9,7 +9,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 ENTITY cpu_001 IS
 	generic (
-		constant INST_SRAM_SIZE_PASS	: integer;	-- Legal Values are 256, 512, 1024, 2048, 4096
+		constant INST_ROM_SIZE_PASS	: integer;	-- Legal Values are 256, 512, 1024, 2048, 4096
 		constant STACK_DEPTH_PASS		: integer	-- Legal Values are 0, 1 (single), > 1 (2^N) (nested subroutines)
 	);
   PORT 
@@ -225,7 +225,7 @@ BEGIN
 --	);
 	
 	-- IO Processor ROM
-	GEN_256W_INST_ROM: if (INST_SRAM_SIZE_PASS=256) generate
+	GEN_256W_INST_ROM: if (INST_ROM_SIZE_PASS=256) generate
 		begin
 		IopRom : ENTITY work.IOP_ROM
 		PORT map
@@ -236,7 +236,7 @@ BEGIN
 		);
 	end generate GEN_256W_INST_ROM;
 	
-	GEN_512W_INST_ROM: if (INST_SRAM_SIZE_PASS=512) generate
+	GEN_512W_INST_ROM: if (INST_ROM_SIZE_PASS=512) generate
 		begin
 		IopRom : ENTITY work.IOP_ROM
 		PORT map
@@ -247,7 +247,7 @@ BEGIN
 		);
 	end generate GEN_512W_INST_ROM;
 	
-	GEN_1KW_INST_ROM: if (INST_SRAM_SIZE_PASS=1024) generate
+	GEN_1KW_INST_ROM: if (INST_ROM_SIZE_PASS=1024) generate
 		begin
 		IopRom : ENTITY work.IOP_ROM
 		PORT map
@@ -258,7 +258,7 @@ BEGIN
 		);
 	end generate GEN_1KW_INST_ROM;
 	
-	GEN_2KW_INST_ROM: if (INST_SRAM_SIZE_PASS=2048) generate
+	GEN_2KW_INST_ROM: if (INST_ROM_SIZE_PASS=2048) generate
 		begin
 		IopRom : ENTITY work.IOP_ROM
 		PORT map
@@ -269,7 +269,7 @@ BEGIN
 		);
 	end generate GEN_2KW_INST_ROM;
 	
-	GEN_4KW_INST_ROM: if (INST_SRAM_SIZE_PASS=4096) generate
+	GEN_4KW_INST_ROM: if (INST_ROM_SIZE_PASS=4096) generate
 		begin
 		IopRom : ENTITY work.IOP_ROM
 		PORT map

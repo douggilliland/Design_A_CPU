@@ -389,7 +389,6 @@ set_global_assignment -name VHDL_FILE Periperals/UART/BaudRate6850.vhd
 set_global_assignment -name VHDL_FILE cpu_001.vhd
 set_global_assignment -name VHDL_FILE ProgramCounter.vhd
 set_global_assignment -name VHDL_FILE RegisterFile.vhd
-set_global_assignment -name QIP_FILE ROM_1KW.qip
 set_global_assignment -name VHDL_FILE GreyCode.vhd
 set_global_assignment -name SIGNALTAP_FILE output_files/cpu_002_Part8.stp
 set_global_assignment -name VHDL_FILE ALU.vhd

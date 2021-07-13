@@ -140,7 +140,7 @@ BEGIN
 	-- The CPU
 	CPU : ENTITY work.cpu_001
 		generic	map ( 
-			INST_SRAM_SIZE_PASS	=> 512,		-- Instruction ROM size
+			INST_ROM_SIZE_PASS	=> 512,		-- Instruction ROM size
 			STACK_DEPTH_PASS		=> 4			-- JSR/RTS nesting depth - Stack size 2^n - n (4-12 locations)
 		)
 	PORT map 

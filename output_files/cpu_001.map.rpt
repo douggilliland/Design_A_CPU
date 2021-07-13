@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu_001
-Tue Jul 13 08:42:54 2021
+Tue Jul 13 09:48:43 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -88,7 +88,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jul 13 08:42:54 2021       ;
+; Analysis & Synthesis Status        ; Successful - Tue Jul 13 09:48:43 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_001                                     ;
 ; Top-level Entity Name              ; CPU_top                                     ;
@@ -308,6 +308,7 @@ https://fpgasoftware.intel.com/eula.
 ; db/alt_u_div_2af.tdf                                               ; yes             ; Auto-Generated Megafunction                  ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/alt_u_div_2af.tdf                                               ;             ;
 ; db/add_sub_7pc.tdf                                                 ; yes             ; Auto-Generated Megafunction                  ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/add_sub_7pc.tdf                                                 ;             ;
 ; db/add_sub_8pc.tdf                                                 ; yes             ; Auto-Generated Megafunction                  ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/add_sub_8pc.tdf                                                 ;             ;
+; ROM_1KW.vhd                                                        ; yes             ; User Wizard-Generated File                   ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ROM_1KW.vhd                                                        ;             ;
 ; db/altsyncram_5at3.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_5at3.tdf                                             ;             ;
 ; ../CPU_Code/Part9-1_Test1.mif                                      ; yes             ; Auto-Found Memory Initialization File        ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_Code/Part9-1_Test1.mif                                         ;             ;
 +--------------------------------------------------------------------+-----------------+----------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------------+
@@ -911,12 +912,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 
 +----------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: cpu_001:CPU ;
-+---------------------+-------+----------------------------+
-; Parameter Name      ; Value ; Type                       ;
-+---------------------+-------+----------------------------+
-; inst_sram_size_pass ; 512   ; Signed Integer             ;
-; stack_depth_pass    ; 4     ; Signed Integer             ;
-+---------------------+-------+----------------------------+
++--------------------+-------+-----------------------------+
+; Parameter Name     ; Value ; Type                        ;
++--------------------+-------+-----------------------------+
+; inst_rom_size_pass ; 512   ; Signed Integer              ;
+; stack_depth_pass   ; 4     ; Signed Integer              ;
++--------------------+-------+-----------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -1631,7 +1632,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:08     ;
+; Top            ; 00:00:07     ;
 +----------------+--------------+
 
 
@@ -1739,7 +1740,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue Jul 13 08:41:58 2021
+    Info: Processing started: Tue Jul 13 09:47:51 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1791,9 +1792,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file program
 Info (12021): Found 2 design units, including 1 entities, in source file registerfile.vhd
     Info (12022): Found design unit 1: RegisterFile-beh File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/RegisterFile.vhd Line: 19
     Info (12023): Found entity 1: RegisterFile File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/RegisterFile.vhd Line: 9
-Info (12021): Found 2 design units, including 1 entities, in source file rom_1kw.vhd
-    Info (12022): Found design unit 1: rom_1kw-SYN File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ROM_1KW.vhd Line: 53
-    Info (12023): Found entity 1: ROM_1KW File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ROM_1KW.vhd Line: 43
 Info (12021): Found 2 design units, including 1 entities, in source file greycode.vhd
     Info (12022): Found design unit 1: GreyCode-beh File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/GreyCode.vhd Line: 17
     Info (12023): Found entity 1: GreyCode File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/GreyCode.vhd Line: 9
@@ -2056,7 +2054,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_ngc File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/cmpr_ngc.tdf Line: 23
 Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2021.07.13.08:42:26 Progress: Loading sld8375e25e/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2021.07.13.09:48:18 Progress: Loading sld8375e25e/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -2339,9 +2337,9 @@ Info (21057): Implemented 2895 device resources after synthesis - the final reso
     Info (21061): Implemented 2652 logic cells
     Info (21064): Implemented 105 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 158 warnings
-    Info: Peak virtual memory: 4868 megabytes
-    Info: Processing ended: Tue Jul 13 08:42:55 2021
-    Info: Elapsed time: 00:00:57
-    Info: Total CPU time (on all processors): 00:01:25
+    Info: Peak virtual memory: 4870 megabytes
+    Info: Processing ended: Tue Jul 13 09:48:43 2021
+    Info: Elapsed time: 00:00:52
+    Info: Total CPU time (on all processors): 00:01:22
 
 
