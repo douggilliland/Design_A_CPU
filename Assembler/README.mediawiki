@@ -1,9 +1,10 @@
 == Design a CPU - Assembler ==
 
-* 2021-07-13 - Compiled Assembler to Windows executable
-** Windows executable is [https://github.com/douggilliland/Design_A_CPU/tree/main/Assembler/dist in this folder]
-** Useful for people who don't have Python 3 installed
-** Compiled using
+=== Compiled Assembler to Windows executable ===
+
+* Windows executable is [https://github.com/douggilliland/Design_A_CPU/tree/main/Assembler/dist in this folder]
+* Useful for people who don't have Python 3 installed
+* Compiled using
 <pre>
 pyinstaller --onefile pyAssemble_cpu_001.py
 </pre>
