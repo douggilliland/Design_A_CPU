@@ -35,6 +35,13 @@
 #	BEQ - Branch if equal (same as BEZ)
 #	BNE - Branch if not equal (Aame as BNZ)
 #
+# Error Messages
+#	Error messages are pretty rudimentary.
+#	Error messages are printed to the command window.
+#	The line with the error is printed as a list of the line.
+#	Missing labels are presented as a message.
+# 	Only one error at a time is presented.
+#
 
 import csv
 import string
