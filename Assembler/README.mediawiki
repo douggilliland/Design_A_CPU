@@ -1,9 +1,10 @@
 == Design a CPU - Assembler ==
 
 The CPU has an Assembler. 
-The Assembler is written in Python 3 but there's a Windows executable if you don't have Python 3 installed on your computer.
+The Assembler is written in Python 3.
+There's also a Windows executable if you don't have Python 3 installed on your computer.
 
-== Assembler - Windows executable ==
+=== Assembler - Windows executable ===
 
 * Windows executable is [https://github.com/douggilliland/Design_A_CPU/tree/main/Assembler/dist in this folder]
 * Useful for people who don't have Python 3 installed
