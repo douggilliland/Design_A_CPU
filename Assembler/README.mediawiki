@@ -9,6 +9,46 @@
 
 [https://github.com/douggilliland/Design_A_CPU/tree/main/Docs Documentation slides are here].
 
+<pre>
+# cpu_001 Assembler
+# Assemble code for CPU
+# 
+# CPU is at
+# 	https://github.com/douggilliland/Design_A_CPU/tree/main
+#
+# Input fileName.csv
+# 	Input file is tightly constrained in CSV file
+# 	Input File Header has to be -
+#		['LABEL', 'OPCODE', 'REG_LABEL', 'OFFSET_ADDR', 'COMMENT']
+#
+# Output files
+# 	.mif file - Quartus II ROM Memory Initialization File
+#	.lst file - Listing file (with addresses)
+#
+# Assembler opcodes
+#	LRI - Load a register with an immediate value (byte)
+#	SRL - Shift register left
+#	SRR - Shift register right
+#	RRL - Rotate register left
+#	RRR - Rotate register right
+#	IOW - Write a register to an I/O address
+#	IOR - Read an I/O address to a register
+#	ORI - OR a register with an immediate value
+#	ARI - AND a register with an immediate value
+#	JSR - Jump to a subroutine (single level only)
+#	RTS - Return from subroutine
+#	BEZ - Branch if equal to zero
+#	BNZ - Branch if not equal to zero
+#	JMP - Jump to an address
+#
+# Assembler Psuedo-opcodes
+#	NOP - No operation
+#	HLT - Halt (Jump to self)
+#	BEQ - Branch if equal (same as BEZ)
+#	BNE - Branch if not equal (Aame as BNZ)
+#
+</pre>
+
 == Hardware ==
 
 [https://www.aliexpress.com/item/33007471265.html?spm=a2g0o.store_pc_groupList.8148356.5.2f5a77a2912sNP QMTECH EP4CE15 FPGA card]
