@@ -6,7 +6,7 @@ The CPU has an Assembler.
 
 * Windows executable is [https://github.com/douggilliland/Design_A_CPU/tree/main/Assembler/dist in this folder]
 * Useful for people who don't have Python 3 installed
-* Compiled using
+* Compiled to executable using
 <pre>
 pyinstaller --onefile pyAssemble_cpu_001.py
 </pre>
@@ -65,6 +65,9 @@ pyinstaller --onefile pyAssemble_cpu_001.py
 
 == Hardware Target ==
 
-* The targetted hardware is [https://www.aliexpress.com/item/33007471265.html?spm=a2g0o.store_pc_groupList.8148356.5.2f5a77a2912sNP QMTECH EP4CE15 FPGA card]. The CPU could easily be run on pretty much any FPGA.
+* The CPU could easily be run on pretty much any FPGA. 
+* The targetted hardware is the [https://www.aliexpress.com/item/33007471265.html?spm=a2g0o.store_pc_groupList.8148356.5.2f5a77a2912sNP QMTECH EP4CE15 FPGA card].
+** This FPGA is inexpensive and powerful.
+** The CPU takes up very little of the resources of the FPGA.
 
 <img src="https://raw.githubusercontent.com/douggilliland/Design_A_CPU/main/Docs/CycloneIV_Starter_Kit_P528-cropped.jpg?token=AALUDDTXH4AAMPMJKRVL2LDA5BCOI"></img>
