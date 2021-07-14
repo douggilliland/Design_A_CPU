@@ -1,0 +1,82 @@
+== Design a CPU - Assembly Language Code Examples ==
+
+* These are assembly language code examples for the video series.
+* The code examples are not necessarily forward compatible.
+* Some facailites, like the pushbutton are used as ageneral purpose pushbutton in earlier Test code but are re-purposed in later examples.
+* The examples correlate to the [https://www.youtube.com/watch?v=ZtEJHF-pVU0&list=PLn__0BqzWEWNspQ0xkG5h-oSJ21EAet8H YouTube Video Series].
+* Some of the examples were misnumbered.
+* If you pull the CPU tip things are newerr and may have changed vs prior builds.
+* There are branches for each of the examples.
+
+=== Assembler - Windows executable ===
+
+* The CPU has an Assembler. 
+* The assembler source files have to be saved as CSV files with a very specific first line
+** This made the assembler much easier to write and code entry is much less error prone
+** Assumes everyone has a spreadsheet program that can deal with CSV files
+*** I use Calc in OpenOffice
+* The Assembler is written in Python 3
+* There's also a Windows executable if you don't have Python 3 installed on your computer
+* Windows executable is [https://github.com/douggilliland/Design_A_CPU/tree/main/Assembler/dist in this folder]
+** Useful for people who don't have Python 3 installed
+
+== Documentation ==
+
+* 
+* [https://github.com/douggilliland/Design_A_CPU/tree/main/Docs Documentation slides are here].
+
+<pre>
+# cpu_001 Assembler
+# Assemble code for CPU
+# 
+# CPU is at
+# 	https://github.com/douggilliland/Design_A_CPU/tree/main
+#
+# Input fileName.csv
+# 	Input file is tightly constrained in CSV file
+# 	Input File Header has to be -
+#		['LABEL', 'OPCODE', 'REG_LABEL', 'OFFSET_ADDR', 'COMMENT']
+#
+# Output files
+# 	.mif file - Quartus II ROM Memory Initialization File
+#	.lst file - Listing file (with addresses)
+#
+# Assembler opcodes
+#	LRI - Load a register with an immediate value (byte)
+#	SRL - Shift register left
+#	SRR - Shift register right
+#	RRL - Rotate register left
+#	RRR - Rotate register right
+#	IOW - Write a register to an I/O address
+#	IOR - Read an I/O address to a register
+#	ORI - OR a register with an immediate value
+#	ARI - AND a register with an immediate value
+#	JSR - Jump to a subroutine (single level only)
+#	RTS - Return from subroutine
+#	BEZ - Branch if equal to zero
+#	BNZ - Branch if not equal to zero
+#	JMP - Jump to an address
+#
+# Assembler Psuedo-opcodes
+#	NOP - No operation
+#	HLT - Halt (Jump to self)
+#	BEQ - Branch if equal (same as BEZ)
+#	BNE - Branch if not equal (Aame as BNZ)
+#
+# Error Messages
+#	Error messages are pretty rudimentary.
+#	Error messages are printed to the command window.
+#	The line with the error is printed as a list of the line.
+#	Missing labels are presented as a message.
+# 	Only one error at a time is presented.
+#
+</pre>
+
+== Hardware Target ==
+
+* The CPU could easily be run on pretty much any FPGA. 
+* The targetted hardware is the [https://www.aliexpress.com/item/33007471265.html?spm=a2g0o.store_pc_groupList.8148356.5.2f5a77a2912sNP QMTECH EP4CE15 FPGA card].
+** This FPGA is inexpensive and powerful.
+** The CPU takes up very little of the resources of the FPGA.
+
+<img src="https://raw.githubusercontent.com/douggilliland/Design_A_CPU/main/Docs/CycloneIV_Starter_Kit_P528-cropped.jpg?token=AALUDDTXH4AAMPMJKRVL2LDA5BCOI"></img>
