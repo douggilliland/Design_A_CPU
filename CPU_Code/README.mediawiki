@@ -1,12 +1,12 @@
 == Design a CPU - Assembly Language Code Examples ==
 
-* These are assembly language code examples for the [https://www.youtube.com/watch?v=ZtEJHF-pVU0&list=PLn__0BqzWEWNspQ0xkG5h-oSJ21EAet8H YouTube Video Series]
+* These are the assembly language code examples for the [https://www.youtube.com/watch?v=ZtEJHF-pVU0&list=PLn__0BqzWEWNspQ0xkG5h-oSJ21EAet8H YouTube Video Series]
 * The code examples are not necessarily forward compatible
-* Some facailites, like the pushbutton are used as ageneral purpose pushbutton in earlier Test code but are re-purposed in later examples
+** Some facailites, like the pushbutton are used as ageneral purpose pushbutton in earlier Test code but are re-purposed in later examples
+** There are complete branches for each of the examples.
 * Some of the examples were misnumbered.
 ** The videos take note of the error.
 * If you pull the CPU tip things are newer and may have changed vs prior builds.
-* There are complete branches for each of the examples.
 
 === Assembler / Windows executable ===
 
