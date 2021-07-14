@@ -45,13 +45,12 @@ pyinstaller --onefile pyAssemble_cpu_001.py
 #	ORI - OR a register with an immediate value
 #	XRI - XOR a register with an immediate value
 #	ARI - AND a register with an immediate value
-#	ADI - ADD a register with an immediate value
+#	ADI - ADD immediate value to a register
 #	JSR - Jump to a subroutine (single level only)
 #	RTS - Return from subroutine
 #	CMP - Compare resister to immediate value
 #	BEZ - Branch if equal to zero
 #	BNZ - Branch if not equal to zero
-#	Branch if not equal to zero
 #	JMP - Jump to an address
 #
 # Assembler Psuedo-opcodes
@@ -62,7 +61,7 @@ pyinstaller --onefile pyAssemble_cpu_001.py
 #
 # Error Messages
 #	Error messages are pretty rudimentary.
-#	Error messages are printed to the command window.
+#	Dialog box notes that error messages are printed to the command window.
 #	The line with the error is printed as a list of the line.
 #	Missing labels are presented as a message.
 # 	Only one error at a time is presented.
