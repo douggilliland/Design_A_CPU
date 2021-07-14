@@ -84,7 +84,7 @@ class ControlClass:
 		defaultPath = myCSVFileReadClass.getLastPath()
 		defaultParmsClass.storeKeyValuePair('DEFAULT_PATH',defaultPath)
 		if inList[0] != ['LABEL', 'OPCODE', 'REG_LABEL', 'OFFSET_ADDR', 'COMMENT']:
-			print('header does not match expected values')
+			errorDialog('Header does not match expected values\nSeecommand window')
 			print('header :',inList[0])
 			assert False,'header does not match expected values'
 		else:
@@ -238,6 +238,7 @@ class ControlClass:
 					vecStr = '0xB000'
 					program.append(vecStr) 
 				else:
+					errorDialog('Bad instruction.\nSee command window') 
 					print('bad instr', row)
 					assert False,'bad instr'
 				progCounter += 1
@@ -264,7 +265,7 @@ class ControlClass:
 			annotatedSource.append(annRow)		
 		print('inFileName',inFileName)
 		self.outStuff(inFileName,annotatedSource)
-		errorDialog("Complete")
+		infoBox("Complete")
 		
 	def calcOffsetString(self,distanceInt):
 		dresultStr = ''
