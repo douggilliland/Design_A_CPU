@@ -7,6 +7,9 @@ USE ieee.numeric_std.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
+library work;
+use work.cpu_001_Pkg.all;
+
 ENTITY cpu_001 IS
 	generic (
 		constant INST_ROM_SIZE_PASS	: integer;	-- Legal Values are 256, 512, 1024, 2048, 4096
@@ -97,20 +100,20 @@ ARCHITECTURE beh OF cpu_001 IS
 	
 BEGIN
 
-	OP_ADI <= '1' when w_romData(15 downto 12) = "0000" else '0';
-	OP_CMP <= '1' when w_romData(15 downto 12) = "0001" else '0';
-	OP_LRI <= '1' when w_romData(15 downto 12) = "0010" else '0';
-	OP_SRI <= '1' when w_romData(15 downto 12) = "0011" else '0';
-	OP_XRI <= '1' when w_romData(15 downto 12) = "0100" else '0';	
-	OP_IOR <= '1' when w_romData(15 downto 12) = "0110" else '0';
-	OP_IOW <= '1' when w_romData(15 downto 12) = "0111" else '0';
-	OP_ARI <= '1' when w_romData(15 downto 12) = "1000" else '0';
-	OP_ORI <= '1' when w_romData(15 downto 12) = "1001" else '0';	
-	OP_JSR <= '1' when w_romData(15 downto 12) = "1010" else '0';
-	OP_RTS <= '1' when w_romData(15 downto 12) = "1011" else '0';
-	OP_BEZ <= '1' when w_romData(15 downto 12) = "1100" else '0';
-	OP_BNZ <= '1' when w_romData(15 downto 12) = "1101" else '0';
-	OP_JMP <= '1' when w_romData(15 downto 12) = "1110" else '0';
+	OP_ADI <= '1' when w_romData(15 downto 12) = ADI_OP else '0';
+	OP_CMP <= '1' when w_romData(15 downto 12) = CMP_OP else '0';
+	OP_LRI <= '1' when w_romData(15 downto 12) = LRI_OP else '0';
+	OP_SRI <= '1' when w_romData(15 downto 12) = SRI_OP else '0';
+	OP_XRI <= '1' when w_romData(15 downto 12) = XRI_OP else '0';	
+	OP_IOR <= '1' when w_romData(15 downto 12) = IOR_OP else '0';
+	OP_IOW <= '1' when w_romData(15 downto 12) = IOW_OP else '0';
+	OP_ARI <= '1' when w_romData(15 downto 12) = ARI_OP else '0';
+	OP_ORI <= '1' when w_romData(15 downto 12) = ORI_OP else '0';	
+	OP_JSR <= '1' when w_romData(15 downto 12) = JSR_OP else '0';
+	OP_RTS <= '1' when w_romData(15 downto 12) = RTS_OP else '0';
+	OP_BEZ <= '1' when w_romData(15 downto 12) = BEZ_OP else '0';
+	OP_BNZ <= '1' when w_romData(15 downto 12) = BNZ_OP else '0';
+	OP_JMP <= '1' when w_romData(15 downto 12) = JMP_OP else '0';
 	
 	-- Program Counter
 	progCtr : ENTITY work.ProgramCounter
@@ -132,19 +135,8 @@ BEGIN
 	w_loadPC <= '1' when ((w_GreyCode = "10") and (w_ldPCSel = '1')) else '0';
 	w_incPC	<= '1' when  (w_GreyCode = "10") else '0';
 	
-	-- JSR/RTS Stack
---	stackVal : PROCESS (i_clock)			-- Sensitivity list
---	BEGIN
---		IF rising_edge(i_clock) THEN		-- On clocks
---			if ((OP_JSR = '1') and (w_GreyCode = "10")) then	-- If instruction is JSR then store next addr + 1
---				w_rtnAddr <= w_ProgCtr + 1;
---			END IF;
---		END IF;
---	END PROCESS;
-	
 	-- LIFO - Return address stack (JSR writes, RTS reads)
 	-- Single depth uses no memory
-	-- Deeper depth uses memory
 	GEN_STACK_SINGLE : if (STACK_DEPTH_PASS = 1) generate
 	begin
 	-- Store the return address for JSR opcodes
@@ -159,6 +151,7 @@ BEGIN
 		END PROCESS;
 	end generate GEN_STACK_SINGLE;
 
+	-- Deeper depth uses memory
 	GEN_STACK_DEEPER : if (STACK_DEPTH_PASS > 1) generate
 	begin
 		pcPlus1 <= (w_ProgCtr + 1);				-- Next address past PC is the return address
@@ -296,11 +289,11 @@ BEGIN
 			i_ALU_A_In	=> w_regFOut,				-- Register file out
 			i_ALU_B_In	=> w_romData(7 downto 0),	-- Immediate value
 			i_OP_ADI		=> OP_ADI,					-- ADD opcode
-			i_OP_CMP		=> OP_ARI,					-- COMPARE opcode
+			i_OP_CMP		=> OP_CMP,					-- COMPARE opcode
 			i_OP_ARI		=> OP_ARI,					-- AND opcode
 			i_OP_ORI		=> OP_ORI,					-- OR opcode
 			i_OP_XRI		=> OP_XRI,					-- XOR opcode
-			i_LatchZBit	=> (OP_ORI or OP_ARI) and w_GreyCode(1) and (not w_GreyCode(0)),
+			i_LatchZBit	=> w_GreyCode(1) and (not w_GreyCode(0)),
 			o_Z_Bit		=> w_ALUZBit,				-- Z bit from ALU
 			o_ALU_Out	=> w_ALUDataOut				-- Register file input mux
 		);
