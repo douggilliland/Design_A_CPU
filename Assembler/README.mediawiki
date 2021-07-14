@@ -62,7 +62,7 @@ pyinstaller --onefile pyAssemble_cpu_001.py
 #
 # Error Messages
 #	Error messages are pretty rudimentary.
-#	Error messages are printed to the command window.
+#	Dialog box notes that error messages are printed to the command window.
 #	The line with the error is printed as a list of the line.
 #	Missing labels are presented as a message.
 # 	Only one error at a time is presented.
