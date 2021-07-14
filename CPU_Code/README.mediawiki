@@ -1,16 +1,16 @@
 == Design a CPU - Assembly Language Code Examples ==
 
-* These are assembly language code examples for the video series.
-* The code examples are not necessarily forward compatible.
-* Some facailites, like the pushbutton are used as ageneral purpose pushbutton in earlier Test code but are re-purposed in later examples.
-* The examples correlate to the [https://www.youtube.com/watch?v=ZtEJHF-pVU0&list=PLn__0BqzWEWNspQ0xkG5h-oSJ21EAet8H YouTube Video Series].
+* These are the assembly language code examples for the [https://www.youtube.com/watch?v=ZtEJHF-pVU0&list=PLn__0BqzWEWNspQ0xkG5h-oSJ21EAet8H YouTube Video Series]
+* The code examples are not necessarily forward compatible
+** Some facailites, like the pushbutton are used as ageneral purpose pushbutton in earlier Test code but are re-purposed in later examples
+** There are complete branches for each of the examples.
 * Some of the examples were misnumbered.
-* If you pull the CPU tip things are newerr and may have changed vs prior builds.
-* There are branches for each of the examples.
+** The videos take note of the error.
+* If you pull the CPU tip things are newer and may have changed vs prior builds.
 
-=== Assembler - Windows executable ===
+=== Assembler / Windows executable ===
 
-* The CPU has an Assembler. 
+* The CPU has an Assembler
 * The assembler source files have to be saved as CSV files with a very specific first line
 ** This made the assembler much easier to write and code entry is much less error prone
 ** Assumes everyone has a spreadsheet program that can deal with CSV files
@@ -22,7 +22,6 @@
 
 == Documentation ==
 
-* 
 * [https://github.com/douggilliland/Design_A_CPU/tree/main/Docs Documentation slides are here].
 
 <pre>
