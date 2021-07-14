@@ -91,7 +91,8 @@ ARCHITECTURE beh OF cpu_001 IS
 	attribute syn_keep of w_peripDataFromCPU	: signal is true;
 	attribute syn_keep of w_peripDataToCPU		: signal is true;
 	attribute syn_keep of OP_IOR					: signal is true;
-	attribute syn_keep of OP_IOW					: signal is true;
+	attribute syn_keep of w_romData				: signal is true;
+--ttribute syn_keep of w_GreyCode				: signal is true;
 	
 	
 BEGIN
