@@ -3,6 +3,7 @@
 * 16-bit CPU
 * 12.5 MIPS
 * 14+ instructions
+* Assembler
 
 == Video Series ==
 
