@@ -4,10 +4,20 @@
 # CPU is at
 # 	https://github.com/douggilliland/Design_A_CPU/tree/main
 #
-# Input fileName.csv
+# Input File
+#	File named: fileName.csv
 # 	Input file is tightly constrained in CSV file
 # 	Input File Header has to be -
 #		['LABEL', 'OPCODE', 'REG_LABEL', 'OFFSET_ADDR', 'COMMENT']
+# 
+# Memory Map File
+#	Optional
+#	File named: fileName_MMAP.csv
+#	Memory map file Header has to be -
+#		['IO_ADDR','DIR','MNEUMONIC']
+#	IO_ADDR = 0XNN
+#	DIR = R, W, or RW
+#	Ex: ['0X00','R','LED_RD']
 #
 # Output files
 # 	.mif file - Quartus II ROM Memory Initialization File
@@ -90,6 +100,13 @@ class ControlClass:
 		else:
 			print('header ok')
 		inFileName = myCSVFileReadClass.getLastPathFileName()
+		memMapList = []
+		memMapFileName = inFileName[0:-4] + '_MMAP.csv'
+		if os.path.isfile(memMapFileName):
+			print('Memory map exists')
+			memMapList = myCSVFileReadClass.readInCSV(memMapFileName)
+			print('memMapList',memMapList)
+		print('memMapFileName',memMapFileName)
 		progCounter = 0
 		labelsList = {}
 		for row in inList[1:]:
@@ -264,7 +281,7 @@ class ControlClass:
 			#print(annRow)
 			annotatedSource.append(annRow)		
 		print('inFileName',inFileName)
-		self.outStuff(inFileName,annotatedSource)
+		self.outStuff(inFileName,annotatedSource,memMapList)
 		infoBox("Complete")
 		
 	def calcOffsetString(self,distanceInt):
@@ -289,7 +306,7 @@ class ControlClass:
 		# print('distance =',distStr)
 		return distStr
 	
-	def outStuff(self,inFileName,sourceFile):
+	def outStuff(self,inFileName,sourceFile,memMapList):
 		"""
 		[['LABEL', 'OPCODE', 'VAL4', 'VAL8', 'COMMENT'], ['INIT', 'NOP', '', '', ''], ['', 'LRI', '0X00', '0X01', 'LOAD START CMD'], ['', 'LRI', '0X01', '0X40', 'LOAD SLAVE ADDR<<1, WRITE'], ['', 'LRI', '0X02', '0X00', 'LOAD IDLE CMD'], ['', 'LRI', '0X03', '0X00', 'LOAD IODIRA REGISTER_OFFSET'], ['', 'LRI', '0X04', '0XFF', 'LOAD IODIRA_ALL_INS'], ['', 'IOW', '0X00', '0X00', 'ISSUE START CMD'], ['', 'IOW', '0X01', '0X00', 'ISSUE SLAVE ADDR<<1, WRITE'], ['', 'IOW', '0X02', '0X00', 'ISSUE IDLE CMD'], ['', 'IOW', '0X03', '0X00', 'ISSUE IODIRA REGISTER_OFFSET'], ['', 'IOW', '0X04', '0X00', 'ISSUE IODIRA_ALL_INS'], ['LDST000', 'IOR', '0X05', '0X00', 'READ STATUS'], ['', 'ARI', '0X05', '0X01', 'BUSY BIT'], ['', 'BNZ', '', 'LDST000', 'LOOP UNTIL NOT BUSY'], ['SELF', 'JMP', 'SELF', '', '']]
 		"""
@@ -402,7 +419,14 @@ class ControlClass:
 								# outStr += 'LEDS3' + '\t'
 							# else:
 								# outStr += 'TBDIO' + '\t'
-							outStr += 'IO_' + cell[2:] + '\t'
+							if memMapList != []:
+								portStr = self.getMemMapStr(cell,ioRd,ioWr,memMapList)
+								if portStr == '':
+									outStr += 'IO_' + cell[2:] + '\t'
+								else:
+									outStr += portStr + '\t'
+							else:
+								outStr += 'IO_' + cell[2:] + '\t'
 					else:
 						outStr += cell + '\t'
 				cellOff += 1
@@ -410,6 +434,18 @@ class ControlClass:
 			F.writelines(outStr)
 			address += 1
 		F.close()
+		
+	def getMemMapStr(self,regNum,ioRd,ioWr,memMapList):
+		"""
+		"""
+		for row in memMapList[1:]:
+			if regNum[2:] == row[0][2:]:
+				if (row[1] == 'R' or row[1] == 'RW') and ioRd:
+					return(row[2])
+				elif (row[1] == 'W' or row[1] == 'RW') and ioWr:
+					return(row[2])
+		return ''
+	
 			
 class Dashboard:
 	def __init__(self):
