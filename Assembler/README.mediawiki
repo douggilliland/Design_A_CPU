@@ -18,6 +18,8 @@ pyinstaller --onefile pyAssemble_cpu_001.py
 * [https://www.youtube.com/watch?v=ZtEJHF-pVU0&list=PLn__0BqzWEWNspQ0xkG5h-oSJ21EAet8H YouTube Video Series].
 * [https://github.com/douggilliland/Design_A_CPU/tree/main/Docs Documentation slides are here].
 
+<img src="https://raw.githubusercontent.com/douggilliland/Design_A_CPU/main/Docs/Opcodes.PNG"></img>
+
 <pre>
 # cpu_001 Assembler
 # Assemble code for CPU
