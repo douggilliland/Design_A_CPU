@@ -1,0 +1,7 @@
+== Peripherals Set ==
+
+* ANSI Display (better)
+* VGA (2nd ANSI Display)
+* UART
+* Timer Unit
+* Seven Segmentm 3 digit display
