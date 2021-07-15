@@ -22,6 +22,8 @@
 
 == Hardware ==
 
-* [https://www.aliexpress.com/item/33007471265.html?spm=a2g0o.store_pc_groupList.8148356.5.2f5a77a2912sNP QMTECH EP4CE15 FPGA card]
+* https://github.com/ChinaQMTECH/CYCLONE_IV_STARTER_KIT QMTECH CYCLONE IV STARTER KIT GitHub]
+** [https://github.com/douggilliland/FPGA_Cards/tree/master/QMTECH_CYCLONE_IV_STARTER_KIT QMTECH FPGA Files Reflector ]
+* [https://www.aliexpress.com/item/33007471265.html?spm=a2g0o.store_pc_groupList.8148356.5.2f5a77a2912sNP QMTECH EP4CE15 FPGA card] - AliExpress page
 
 <img src="https://raw.githubusercontent.com/douggilliland/Design_A_CPU/main/Docs/CycloneIV_Starter_Kit_P528-cropped.jpg?token=AALUDDTXH4AAMPMJKRVL2LDA5BCOI"></img>
