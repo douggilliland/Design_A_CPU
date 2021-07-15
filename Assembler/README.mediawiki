@@ -34,6 +34,15 @@ pyinstaller --onefile pyAssemble_cpu_001.py
 # 	Input File Header has to be -
 #		['LABEL', 'OPCODE', 'REG_LABEL', 'OFFSET_ADDR', 'COMMENT']
 #
+# Memory Map File
+#	Optional
+#	File named: fileName_MMAP.csv
+#	Memory map file Header has to be -
+#		['IO_ADDR','DIR','MNEUMONIC']
+#	IO_ADDR = 0XNN
+#	DIR = R, W, or RW
+#	Ex: ['0X00','R','LED_RD']
+#
 # Output files
 # 	.mif file - Quartus II ROM Memory Initialization File
 #	.lst file - Listing file (with addresses)
