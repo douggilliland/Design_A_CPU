@@ -5,7 +5,7 @@
 * 12.5 MIPS (4 of 50 MHz FPGA clocks)
 * 14+ instructions
 * [https://github.com/douggilliland/Design_A_CPU/tree/main/Assembler Assembler]
-* Wide peripheral support
+* Wide [https://github.com/douggilliland/Design_A_CPU/tree/main/Periperals peripheral support]
 * Small LUT/Memory footprint in FPGA
 
 == Video Series ==
