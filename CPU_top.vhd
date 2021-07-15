@@ -191,15 +191,11 @@ BEGIN
 		end if;
 	end process;
 	
-	-- USB-Serial for UART
---	w_serialLoopback	<= uart_rx;
---	uart_tx				<= w_serialLoopback;
-
 	-- ____________________________________________________________________________________
 	-- Seven Segment, 3 digits
-	sevSeg : entity work.Loadable_7SD_3LED
-   Port map ( 
-		i_clock_50Mhz 			=> i_clock,
+   sevSeg : entity work.Loadable_7SD_3LED
+	Port map ( 
+		i_clock_50Mhz 			=> i_clock,					-- 50 MHZ clock
 		i_reset 					=> not w_resetClean_n, 	-- i_reset - active high
 		i_displayed_number 	=> w_SevenSegData,		-- 3 digits
 		o_Anode_Activate 		=> Scan_Sig,				-- 3 Anode signals
@@ -208,7 +204,7 @@ BEGIN
 	
 	-- ____________________________________________________________________________________
 	-- Grant's VGA driver
-	vga_r <= w_videoR(1)&w_videoR(1)&w_videoR(0)&w_videoR(0)&w_videoR(0);					-- Map pins
+	vga_r <= w_videoR(1)&w_videoR(1)&w_videoR(0)&w_videoR(0)&w_videoR(0);					-- Map VGA pins
 	vga_g <= w_videoG(1)&w_videoG(1)&w_videoG(0)&w_videoG(0)&w_videoG(0)&w_videoG(0);
 	vga_b <= w_videoB(1)&w_videoB(1)&w_videoB(0)&w_videoB(0)&w_videoB(0);
 
