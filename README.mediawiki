@@ -4,6 +4,8 @@
 
 [https://github.com/douggilliland/Design_A_CPU/tree/main/Docs Documentation slides are here].
 
+<img src="https://raw.githubusercontent.com/douggilliland/Design_A_CPU/main/Docs/Opcodes.PNG"></img>
+
 == Hardware ==
 
 [https://www.aliexpress.com/item/33007471265.html?spm=a2g0o.store_pc_groupList.8148356.5.2f5a77a2912sNP QMTECH EP4CE15 FPGA card]
