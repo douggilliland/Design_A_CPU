@@ -18,6 +18,8 @@ pyinstaller --onefile pyAssemble_cpu_001.py
 * [https://www.youtube.com/watch?v=ZtEJHF-pVU0&list=PLn__0BqzWEWNspQ0xkG5h-oSJ21EAet8H YouTube Video Series].
 * [https://github.com/douggilliland/Design_A_CPU/tree/main/Docs Documentation slides are here].
 
+== Assembler opcodes ==
+
 <img src="https://raw.githubusercontent.com/douggilliland/Design_A_CPU/main/Docs/Opcodes.PNG"></img>
 
 <pre>
@@ -35,25 +37,6 @@ pyinstaller --onefile pyAssemble_cpu_001.py
 # Output files
 # 	.mif file - Quartus II ROM Memory Initialization File
 #	.lst file - Listing file (with addresses)
-#
-# Assembler opcodes
-#	LRI - Load a register with an immediate value (byte)
-#	SRL - Shift register left
-#	SRR - Shift register right
-#	RRL - Rotate register left
-#	RRR - Rotate register right
-#	IOW - Write a register to an I/O address
-#	IOR - Read an I/O address to a register
-#	ORI - OR a register with an immediate value
-#	XRI - XOR a register with an immediate value
-#	ARI - AND a register with an immediate value
-#	ADI - ADD immediate value to a register
-#	JSR - Jump to a subroutine (single level only)
-#	RTS - Return from subroutine
-#	CMP - Compare resister to immediate value
-#	BEZ - Branch if equal to zero
-#	BNZ - Branch if not equal to zero
-#	JMP - Jump to an address
 #
 # Assembler Psuedo-opcodes
 #	NOP - No operation
