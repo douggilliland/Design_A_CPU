@@ -4,6 +4,7 @@
 * 12.5 MIPS
 * 14+ instructions
 * Assembler
+* Wide peripheral support
 
 == Video Series ==
 
