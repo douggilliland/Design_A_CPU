@@ -4,7 +4,7 @@
 * Coded in VHDL
 * 12.5 MIPS
 * 14+ instructions
-* Assembler
+* [https://github.com/douggilliland/Design_A_CPU/tree/main/Assembler Assembler]
 * Wide peripheral support
 * Small LUT/Memory footprint in FPGA
 
