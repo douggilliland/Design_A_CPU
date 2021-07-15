@@ -1,8 +1,18 @@
 == Design_A_CPU ==
 
+* 16-bit CPU
+* 12.5 MIPS
+* 14+ instructions
+
+== Video Series ==
+
 [https://www.youtube.com/watch?v=ZtEJHF-pVU0&list=PLn__0BqzWEWNspQ0xkG5h-oSJ21EAet8H YouTube Video Series].
 
+== Documentation ==
+
 [https://github.com/douggilliland/Design_A_CPU/tree/main/Docs Documentation slides are here].
+
+== Opcodes ==
 
 <img src="https://raw.githubusercontent.com/douggilliland/Design_A_CPU/main/Docs/Opcodes.PNG"></img>
 
