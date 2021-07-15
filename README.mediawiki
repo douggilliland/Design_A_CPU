@@ -1,5 +1,6 @@
 == Design_A_CPU ==
 
+* Coded in VHDL
 * 16-bit CPU
 * 12.5 MIPS
 * 14+ instructions
