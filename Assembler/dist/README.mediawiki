@@ -1,0 +1,2 @@
+This is the executable of the Assembler.
+It may not be as up to date as the Python code - check commit date.
