@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu_001
-Wed Jul 14 14:20:00 2021
+Wed Jul 14 18:04:51 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -88,7 +88,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jul 14 14:19:59 2021       ;
+; Analysis & Synthesis Status        ; Successful - Wed Jul 14 18:04:51 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_001                                     ;
 ; Top-level Entity Name              ; CPU_top                                     ;
@@ -1784,7 +1784,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Wed Jul 14 14:18:59 2021
+    Info: Processing started: Wed Jul 14 18:03:55 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1828,8 +1828,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file periper
     Info (12022): Found design unit 1: BaudRate6850-BaudRate6850_beh File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/UART/BaudRate6850.vhd Line: 33
     Info (12023): Found entity 1: BaudRate6850 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/UART/BaudRate6850.vhd Line: 23
 Info (12021): Found 2 design units, including 1 entities, in source file cpu_001.vhd
-    Info (12022): Found design unit 1: cpu_001-beh File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 31
-    Info (12023): Found entity 1: cpu_001 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 13
+    Info (12022): Found design unit 1: cpu_001-beh File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 40
+    Info (12023): Found entity 1: cpu_001 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 22
 Info (12021): Found 2 design units, including 1 entities, in source file programcounter.vhd
     Info (12022): Found design unit 1: ProgramCounter-beh File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ProgramCounter.vhd Line: 25
     Info (12023): Found entity 1: ProgramCounter File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ProgramCounter.vhd Line: 11
@@ -1876,11 +1876,11 @@ Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(55): used explic
 Warning (10036): Verilog HDL or VHDL warning at CPU_top.vhd(82): object "w_slowPulse" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 82
 Info (12128): Elaborating entity "Debouncer" for hierarchy "Debouncer:debounceReset" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 131
 Info (12128): Elaborating entity "cpu_001" for hierarchy "cpu_001:CPU" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 141
-Info (12128): Elaborating entity "ProgramCounter" for hierarchy "cpu_001:CPU|ProgramCounter:progCtr" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 119
-Info (12128): Elaborating entity "lifo" for hierarchy "cpu_001:CPU|lifo:\GEN_STACK_DEEPER:lifo" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 158
-Info (12128): Elaborating entity "RegisterFile" for hierarchy "cpu_001:CPU|RegisterFile:RegFile" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 177
-Info (12128): Elaborating entity "Shifter" for hierarchy "cpu_001:CPU|Shifter:Shifter" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 198
-Info (12128): Elaborating entity "IOP_ROM" for hierarchy "cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 235
+Info (12128): Elaborating entity "ProgramCounter" for hierarchy "cpu_001:CPU|ProgramCounter:progCtr" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 128
+Info (12128): Elaborating entity "lifo" for hierarchy "cpu_001:CPU|lifo:\GEN_STACK_DEEPER:lifo" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 167
+Info (12128): Elaborating entity "RegisterFile" for hierarchy "cpu_001:CPU|RegisterFile:RegFile" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 186
+Info (12128): Elaborating entity "Shifter" for hierarchy "cpu_001:CPU|Shifter:Shifter" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 207
+Info (12128): Elaborating entity "IOP_ROM" for hierarchy "cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 244
 Info (12128): Elaborating entity "altsyncram" for hierarchy "cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/IOP_ROM.vhd Line: 60
 Info (12130): Elaborated megafunction instantiation "cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/IOP_ROM.vhd Line: 60
 Info (12133): Instantiated megafunction "cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/IOP_ROM.vhd Line: 60
@@ -1938,15 +1938,15 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
     Info (12023): Found entity 1: altsyncram_dft3 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_dft3.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_dft3" for hierarchy "cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Critical Warning (127005): Memory depth (512) in the design file differs from memory depth (138) in the Memory Initialization File "C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_Code/Part9-1_Test1.mif" -- setting initial value for remaining addresses to 0 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/IOP_ROM.vhd Line: 60
-Info (12128): Elaborating entity "GreyCode" for hierarchy "cpu_001:CPU|GreyCode:GreyCodeCounter" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 278
-Info (12128): Elaborating entity "ALU_Unit" for hierarchy "cpu_001:CPU|ALU_Unit:ALU_Unit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 286
-Info (12128): Elaborating entity "Loadable_7SD_3LED" for hierarchy "Loadable_7SD_3LED:sevSeg" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 200
+Info (12128): Elaborating entity "GreyCode" for hierarchy "cpu_001:CPU|GreyCode:GreyCodeCounter" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 287
+Info (12128): Elaborating entity "ALU_Unit" for hierarchy "cpu_001:CPU|ALU_Unit:ALU_Unit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 295
+Info (12128): Elaborating entity "Loadable_7SD_3LED" for hierarchy "Loadable_7SD_3LED:sevSeg" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 196
 Warning (10631): VHDL Process Statement warning at Loadable_7SD_3LED.vhd(69): inferring latch(es) for signal or variable "w_LED_BCD", which holds its previous value in one or more paths through the process File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
 Info (10041): Inferred latch for "w_LED_BCD[0]" at Loadable_7SD_3LED.vhd(69) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
 Info (10041): Inferred latch for "w_LED_BCD[1]" at Loadable_7SD_3LED.vhd(69) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
 Info (10041): Inferred latch for "w_LED_BCD[2]" at Loadable_7SD_3LED.vhd(69) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
 Info (10041): Inferred latch for "w_LED_BCD[3]" at Loadable_7SD_3LED.vhd(69) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
-Info (12128): Elaborating entity "ANSIDisplayVGA" for hierarchy "ANSIDisplayVGA:vdu" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 218
+Info (12128): Elaborating entity "ANSIDisplayVGA" for hierarchy "ANSIDisplayVGA:vdu" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 214
 Warning (10036): Verilog HDL or VHDL warning at ANSIDisplayVGA.vhd(112): object "func_reset" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/ANSIDisplay/ANSIDisplayVGA.vhd Line: 112
 Info (12128): Elaborating entity "SansBoldRom" for hierarchy "ANSIDisplayVGA:vdu|SansBoldRom:\GEN_EXT_SCHARS:fontRom" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/ANSIDisplay/ANSIDisplayVGA.vhd Line: 219
 Info (12128): Elaborating entity "altsyncram" for hierarchy "ANSIDisplayVGA:vdu|SansBoldRom:\GEN_EXT_SCHARS:fontRom|altsyncram:altsyncram_component" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/ANSIDisplay/SansBoldRom.vhd Line: 60
@@ -2073,10 +2073,10 @@ Info (12133): Instantiated megafunction "ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2K
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ldr3.tdf
     Info (12023): Found entity 1: altsyncram_ldr3 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_ldr3.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_ldr3" for hierarchy "ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KRAM:dispCharRam|altsyncram:altsyncram_component|altsyncram_ldr3:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "bufferedUART" for hierarchy "bufferedUART:acia" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 244
-Info (12128): Elaborating entity "BaudRate6850" for hierarchy "BaudRate6850:BaudRateGen" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 261
-Info (12128): Elaborating entity "SlowClock" for hierarchy "SlowClock:slowClock" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 271
-Info (12128): Elaborating entity "TimerUnit" for hierarchy "TimerUnit:timerUnit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 280
+Info (12128): Elaborating entity "bufferedUART" for hierarchy "bufferedUART:acia" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 240
+Info (12128): Elaborating entity "BaudRate6850" for hierarchy "BaudRate6850:BaudRateGen" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 257
+Info (12128): Elaborating entity "SlowClock" for hierarchy "SlowClock:slowClock" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 267
+Info (12128): Elaborating entity "TimerUnit" for hierarchy "TimerUnit:timerUnit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 276
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_4524.tdf
     Info (12023): Found entity 1: altsyncram_4524 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_4524.tdf Line: 28
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_ssc.tdf
@@ -2099,7 +2099,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_ngc File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/cmpr_ngc.tdf Line: 23
 Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2021.07.14.14:19:29 Progress: Loading sld8375e25e/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2021.07.14.18:04:24 Progress: Loading sld8375e25e/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -2335,33 +2335,33 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
 Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Info (17016): Found the following redundant logic cells in design
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[12]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 51
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[13]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 51
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[14]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 51
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[15]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 51
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[7]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 51
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[6]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 51
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[5]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 51
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[4]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 51
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[2]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 51
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[1]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 51
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 51
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[0]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 51
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[8]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 51
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[9]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 51
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[10]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 51
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[11]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 51
-    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[10]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 36
-    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[11]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 36
-    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[1]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 36
-    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[2]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 36
-    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 36
-    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[4]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 36
-    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[5]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 36
-    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[6]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 36
-    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[7]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 36
-    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[8]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 36
-    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[9]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 36
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[12]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[13]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[14]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[15]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[7]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[6]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[5]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[4]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[2]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[1]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[0]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[8]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[9]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[10]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[11]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[10]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 45
+    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[11]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 45
+    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[1]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 45
+    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[2]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 45
+    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 45
+    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[4]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 45
+    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[5]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 45
+    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[6]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 45
+    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[7]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 45
+    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[8]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 45
+    Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[9]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 45
     Info (17048): Logic cell "cpu_001:CPU|Shifter:Shifter|i_Shift0Rot1~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Shifter.vhd Line: 21
     Info (17048): Logic cell "cpu_001:CPU|Shifter:Shifter|i_ShiftL0R1~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Shifter.vhd Line: 22
     Info (17048): Logic cell "cpu_001:CPU|Shifter:Shifter|i_ShiftCount[0]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Shifter.vhd Line: 23
@@ -2398,9 +2398,9 @@ Info (21057): Implemented 3042 device resources after synthesis - the final reso
     Info (21061): Implemented 2783 logic cells
     Info (21064): Implemented 121 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 158 warnings
-    Info: Peak virtual memory: 4869 megabytes
-    Info: Processing ended: Wed Jul 14 14:20:00 2021
-    Info: Elapsed time: 00:01:01
-    Info: Total CPU time (on all processors): 00:01:25
+    Info: Peak virtual memory: 4867 megabytes
+    Info: Processing ended: Wed Jul 14 18:04:51 2021
+    Info: Elapsed time: 00:00:56
+    Info: Total CPU time (on all processors): 00:01:26
 
 
