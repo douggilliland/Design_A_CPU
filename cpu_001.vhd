@@ -1,4 +1,9 @@
+-- ---------------------------------------------------------------------------------------------------------
 -- File: cpu_001.vhd
+-- Was: IOP16
+--	
+-- Author: Doug Gilliland
+-- 
 
 -- Library boilerplates
 LIBRARY ieee;
@@ -7,9 +12,13 @@ USE ieee.numeric_std.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
+-- Opcodes table is in here
 library work;
 use work.cpu_001_Pkg.all;
 
+
+-- ---------------------------------------------------------------------------------------------------------
+-- CPU
 ENTITY cpu_001 IS
 	generic (
 		constant INST_ROM_SIZE_PASS	: integer;	-- Legal Values are 256, 512, 1024, 2048, 4096
