@@ -103,15 +103,15 @@ DRAM_DQ[2]                   : AA9       : bidir  : 3.3-V LVTTL       :         
 DRAM_DQ[0]                   : AA10      : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 GND+                         : AA11      :        :                   :         : 3         :                
 GND+                         : AA12      :        :                   :         : 4         :                
-vga_hs                       : AA13      : output : 3.3-V LVTTL       :         : 4         : Y              
-vga_b[4]                     : AA14      : output : 3.3-V LVTTL       :         : 4         : Y              
-vga_b[2]                     : AA15      : output : 3.3-V LVTTL       :         : 4         : Y              
-vga_g[4]                     : AA16      : output : 3.3-V LVTTL       :         : 4         : Y              
-vga_g[2]                     : AA17      : output : 3.3-V LVTTL       :         : 4         : Y              
-vga_g[1]                     : AA18      : output : 3.3-V LVTTL       :         : 4         : Y              
-vga_r[3]                     : AA19      : output : 3.3-V LVTTL       :         : 4         : Y              
-vga_r[1]                     : AA20      : output : 3.3-V LVTTL       :         : 4         : Y              
-vga_r[0]                     : AA21      : output : 3.3-V LVTTL       :         : 5         : Y              
+o_vga_hs                     : AA13      : output : 3.3-V LVTTL       :         : 4         : Y              
+o_vga_b[4]                   : AA14      : output : 3.3-V LVTTL       :         : 4         : Y              
+o_vga_b[2]                   : AA15      : output : 3.3-V LVTTL       :         : 4         : Y              
+o_vga_g[4]                   : AA16      : output : 3.3-V LVTTL       :         : 4         : Y              
+o_vga_g[2]                   : AA17      : output : 3.3-V LVTTL       :         : 4         : Y              
+o_vga_g[1]                   : AA18      : output : 3.3-V LVTTL       :         : 4         : Y              
+o_vga_r[3]                   : AA19      : output : 3.3-V LVTTL       :         : 4         : Y              
+o_vga_r[1]                   : AA20      : output : 3.3-V LVTTL       :         : 4         : Y              
+o_vga_r[0]                   : AA21      : output : 3.3-V LVTTL       :         : 5         : Y              
 GND                          : AA22      : gnd    :                   :         :           :                
 GND                          : AB1       : gnd    :                   :         :           :                
 VCCIO3                       : AB2       : power  :                   : 3.3V    : 3         :                
@@ -122,17 +122,17 @@ GND                          : AB6       : gnd    :                   :         
 DRAM_DQ[5]                   : AB7       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 DRAM_DQ[3]                   : AB8       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 DRAM_DQ[1]                   : AB9       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
-vga_vs                       : AB10      : output : 3.3-V LVTTL       :         : 3         : Y              
+o_vga_vs                     : AB10      : output : 3.3-V LVTTL       :         : 3         : Y              
 GND+                         : AB11      :        :                   :         : 3         :                
 GND+                         : AB12      :        :                   :         : 4         :                
-vga_b[3]                     : AB13      : output : 3.3-V LVTTL       :         : 4         : Y              
-vga_b[1]                     : AB14      : output : 3.3-V LVTTL       :         : 4         : Y              
-vga_b[0]                     : AB15      : output : 3.3-V LVTTL       :         : 4         : Y              
-vga_g[5]                     : AB16      : output : 3.3-V LVTTL       :         : 4         : Y              
-vga_g[3]                     : AB17      : output : 3.3-V LVTTL       :         : 4         : Y              
-vga_g[0]                     : AB18      : output : 3.3-V LVTTL       :         : 4         : Y              
-vga_r[4]                     : AB19      : output : 3.3-V LVTTL       :         : 4         : Y              
-vga_r[2]                     : AB20      : output : 3.3-V LVTTL       :         : 4         : Y              
+o_vga_b[3]                   : AB13      : output : 3.3-V LVTTL       :         : 4         : Y              
+o_vga_b[1]                   : AB14      : output : 3.3-V LVTTL       :         : 4         : Y              
+o_vga_b[0]                   : AB15      : output : 3.3-V LVTTL       :         : 4         : Y              
+o_vga_g[5]                   : AB16      : output : 3.3-V LVTTL       :         : 4         : Y              
+o_vga_g[3]                   : AB17      : output : 3.3-V LVTTL       :         : 4         : Y              
+o_vga_g[0]                   : AB18      : output : 3.3-V LVTTL       :         : 4         : Y              
+o_vga_r[4]                   : AB19      : output : 3.3-V LVTTL       :         : 4         : Y              
+o_vga_r[2]                   : AB20      : output : 3.3-V LVTTL       :         : 4         : Y              
 VCCIO4                       : AB21      : power  :                   : 3.3V    : 4         :                
 GND                          : AB22      : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B1        :        :                   :         : 1         :                
@@ -483,8 +483,8 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : U15       :        :                   :      
 VCCINT                       : U16       : power  :                   : 1.2V    :           :                
 VCCINT                       : U17       : power  :                   : 1.2V    :           :                
 VCCA4                        : U18       : power  :                   : 2.5V    :           :                
-SMG_Data[6]                  : U19       : output : 3.3-V LVTTL       :         : 5         : Y              
-SMG_Data[1]                  : U20       : output : 3.3-V LVTTL       :         : 5         : Y              
+o_SMG_Data[6]                : U19       : output : 3.3-V LVTTL       :         : 5         : Y              
+o_SMG_Data[1]                : U20       : output : 3.3-V LVTTL       :         : 5         : Y              
 e_txd[6]                     : U21       : output : 3.3-V LVTTL       :         : 5         : Y              
 e_txd[5]                     : U22       : output : 3.3-V LVTTL       :         : 5         : Y              
 DRAM_ADDR[1]                 : V1        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -499,9 +499,9 @@ DRAM_DQ[11]                  : V9        : bidir  : 3.3-V LVTTL       :         
 DRAM_DQ[12]                  : V10       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 DRAM_DQ[15]                  : V11       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : V12       :        :                   :         : 4         :                
-Scan_Sig[0]                  : V13       : output : 3.3-V LVTTL       :         : 4         : Y              
+o_Scan_Sig[0]                : V13       : output : 3.3-V LVTTL       :         : 4         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : V14       :        :                   :         : 4         :                
-SMG_Data[0]                  : V15       : output : 3.3-V LVTTL       :         : 4         : Y              
+o_SMG_Data[0]                : V15       : output : 3.3-V LVTTL       :         : 4         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : V16       :        :                   :         : 4         :                
 VCCD_PLL4                    : V17       : power  :                   : 1.2V    :           :                
 GNDA4                        : V18       : gnd    :                   :         :           :                
@@ -521,14 +521,14 @@ VCCIO3                       : W9        : power  :                   : 3.3V    
 DRAM_DQ[14]                  : W10       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 VCCIO3                       : W11       : power  :                   : 3.3V    : 3         :                
 VCCIO4                       : W12       : power  :                   : 3.3V    : 4         :                
-Scan_Sig[1]                  : W13       : output : 3.3-V LVTTL       :         : 4         : Y              
+o_Scan_Sig[1]                : W13       : output : 3.3-V LVTTL       :         : 4         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : W14       :        :                   :         : 4         :                
-SMG_Data[4]                  : W15       : output : 3.3-V LVTTL       :         : 4         : Y              
+o_SMG_Data[4]                : W15       : output : 3.3-V LVTTL       :         : 4         : Y              
 VCCIO4                       : W16       : power  :                   : 3.3V    : 4         :                
-SMG_Data[5]                  : W17       : output : 3.3-V LVTTL       :         : 4         : Y              
+o_SMG_Data[5]                : W17       : output : 3.3-V LVTTL       :         : 4         : Y              
 VCCIO4                       : W18       : power  :                   : 3.3V    : 4         :                
-SMG_Data[7]                  : W19       : output : 3.3-V LVTTL       :         : 5         : Y              
-SMG_Data[2]                  : W20       : output : 3.3-V LVTTL       :         : 5         : Y              
+o_SMG_Data[7]                : W19       : output : 3.3-V LVTTL       :         : 5         : Y              
+o_SMG_Data[2]                : W20       : output : 3.3-V LVTTL       :         : 5         : Y              
 e_mdio                       : W21       : bidir  : 3.3-V LVTTL       :         : 5         : Y              
 e_mdc                        : W22       : output : 3.3-V LVTTL       :         : 5         : Y              
 DRAM_BA[0]                   : Y1        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -543,13 +543,13 @@ GND                          : Y9        : gnd    :                   :         
 DRAM_DQ[13]                  : Y10       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 GND                          : Y11       : gnd    :                   :         :           :                
 GND                          : Y12       : gnd    :                   :         :           :                
-Scan_Sig[2]                  : Y13       : output : 3.3-V LVTTL       :         : 4         : Y              
+o_Scan_Sig[2]                : Y13       : output : 3.3-V LVTTL       :         : 4         : Y              
 VCCIO4                       : Y14       : power  :                   : 3.3V    : 4         :                
 GND                          : Y15       : gnd    :                   :         :           :                
 GND                          : Y16       : gnd    :                   :         :           :                
-SMG_Data[3]                  : Y17       : output : 3.3-V LVTTL       :         : 4         : Y              
+o_SMG_Data[3]                : Y17       : output : 3.3-V LVTTL       :         : 4         : Y              
 GND                          : Y18       : gnd    :                   :         :           :                
 VCCIO5                       : Y19       : power  :                   : 3.3V    : 5         :                
 GND                          : Y20       : gnd    :                   :         :           :                
-uart_rx                      : Y21       : input  : 3.3-V LVTTL       :         : 5         : Y              
-uart_tx                      : Y22       : output : 3.3-V LVTTL       :         : 5         : Y              
+i_uart_rx                    : Y21       : input  : 3.3-V LVTTL       :         : 5         : Y              
+o_uart_tx                    : Y22       : output : 3.3-V LVTTL       :         : 5         : Y              

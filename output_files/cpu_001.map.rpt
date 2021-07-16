@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu_001
-Wed Jul 14 18:04:51 2021
+Fri Jul 16 10:10:16 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -88,7 +88,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jul 14 18:04:51 2021       ;
+; Analysis & Synthesis Status        ; Successful - Fri Jul 16 10:10:16 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_001                                     ;
 ; Top-level Entity Name              ; CPU_top                                     ;
@@ -1784,7 +1784,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Wed Jul 14 18:03:55 2021
+    Info: Processing started: Fri Jul 16 10:09:21 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1857,22 +1857,22 @@ Info (12021): Found 2 design units, including 1 entities, in source file iop_rom
 Info (12021): Found 1 design units, including 0 entities, in source file cpu_001_pkg.vhd
     Info (12022): Found design unit 1: cpu_001_Pkg File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001_Pkg.vhd Line: 5
 Info (12127): Elaborating entity "CPU_top" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(30): used explicit default value for signal "DRAM_CS_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 30
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(31): used explicit default value for signal "DRAM_CLK" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 31
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(32): used explicit default value for signal "DRAM_CKE" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 32
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(33): used explicit default value for signal "DRAM_CAS_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 33
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(34): used explicit default value for signal "DRAM_RAS_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 34
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(35): used explicit default value for signal "DRAM_WE_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 35
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(36): used explicit default value for signal "DRAM_UDQM" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 36
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(37): used explicit default value for signal "DRAM_LDQM" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 37
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(38): used explicit default value for signal "DRAM_BA" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 38
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(39): used explicit default value for signal "DRAM_ADDR" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 39
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(50): used explicit default value for signal "e_mdc" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 50
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(51): used explicit default value for signal "e_gtxc" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 51
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(52): used explicit default value for signal "e_reset" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 52
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(53): used explicit default value for signal "e_txen" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 53
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(54): used explicit default value for signal "e_txer" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 54
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(55): used explicit default value for signal "e_txd" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 55
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(48): used explicit default value for signal "DRAM_CS_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 48
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(49): used explicit default value for signal "DRAM_CLK" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 49
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(50): used explicit default value for signal "DRAM_CKE" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 50
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(51): used explicit default value for signal "DRAM_CAS_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 51
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(52): used explicit default value for signal "DRAM_RAS_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 52
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(53): used explicit default value for signal "DRAM_WE_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 53
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(54): used explicit default value for signal "DRAM_UDQM" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 54
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(55): used explicit default value for signal "DRAM_LDQM" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 55
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(56): used explicit default value for signal "DRAM_BA" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 56
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(57): used explicit default value for signal "DRAM_ADDR" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(68): used explicit default value for signal "e_mdc" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 68
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(69): used explicit default value for signal "e_gtxc" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 69
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(70): used explicit default value for signal "e_reset" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(71): used explicit default value for signal "e_txen" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 71
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(72): used explicit default value for signal "e_txer" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 72
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(73): used explicit default value for signal "e_txd" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
 Warning (10036): Verilog HDL or VHDL warning at CPU_top.vhd(82): object "w_slowPulse" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 82
 Info (12128): Elaborating entity "Debouncer" for hierarchy "Debouncer:debounceReset" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 131
 Info (12128): Elaborating entity "cpu_001" for hierarchy "cpu_001:CPU" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 141
@@ -2099,7 +2099,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_ngc File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/cmpr_ngc.tdf Line: 23
 Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2021.07.14.18:04:24 Progress: Loading sld8375e25e/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2021.07.16.10:09:56 Progress: Loading sld8375e25e/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -2221,49 +2221,49 @@ Warning (13034): The following nodes have both tri-state and non-tri-state drive
     Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[9]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
     Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[10]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
 Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "io_J12[29]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[30]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[31]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[32]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[33]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[34]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[35]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[36]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
-    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
-    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
-    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
-    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
-    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
-    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
-    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
-    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
-    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
-    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
-    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
-    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
-    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
-    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
-    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 40
-    Warning (13040): bidirectional pin "e_mdio" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 56
-    Warning (13040): bidirectional pin "io_J12[11]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[12]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[13]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[14]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[15]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[16]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[17]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[18]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[19]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[20]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[21]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[22]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[23]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[24]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[25]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[26]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[27]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13040): bidirectional pin "io_J12[28]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
+    Warning (13040): bidirectional pin "io_J12[29]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[30]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[31]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[32]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[33]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[34]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[35]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[36]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[11]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[12]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[13]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[14]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[15]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[16]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[17]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[18]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[19]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[20]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[21]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[22]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[23]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[24]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[25]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[26]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[27]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "io_J12[28]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13040): bidirectional pin "e_mdio" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 74
 Info (13060): One or more bidirectional pins are fed by always enabled tri-state buffers
     Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "o_LED" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 27
     Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[3]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
@@ -2295,43 +2295,43 @@ Warning (13009): TRI or OPNDRN buffers permanently enabled
     Warning (13010): Node "io_J12[9]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
     Warning (13010): Node "io_J12[10]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "DRAM_CS_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 30
-    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 31
-    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 32
-    Warning (13410): Pin "DRAM_CAS_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 33
-    Warning (13410): Pin "DRAM_RAS_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 34
-    Warning (13410): Pin "DRAM_WE_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 35
-    Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 36
-    Warning (13410): Pin "DRAM_LDQM" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 37
-    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 38
-    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 38
-    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 39
-    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 39
-    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 39
-    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 39
-    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 39
-    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 39
-    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 39
-    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 39
-    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 39
-    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 39
-    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 39
-    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 39
-    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 39
-    Warning (13410): Pin "e_mdc" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 50
-    Warning (13410): Pin "e_gtxc" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 51
-    Warning (13410): Pin "e_reset" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 52
-    Warning (13410): Pin "e_txen" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 53
-    Warning (13410): Pin "e_txer" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 54
-    Warning (13410): Pin "e_txd[0]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 55
-    Warning (13410): Pin "e_txd[1]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 55
-    Warning (13410): Pin "e_txd[2]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 55
-    Warning (13410): Pin "e_txd[3]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 55
-    Warning (13410): Pin "e_txd[4]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 55
-    Warning (13410): Pin "e_txd[5]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 55
-    Warning (13410): Pin "e_txd[6]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 55
-    Warning (13410): Pin "e_txd[7]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 55
-    Warning (13410): Pin "SMG_Data[7]" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13410): Pin "o_SMG_Data[7]" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 30
+    Warning (13410): Pin "DRAM_CS_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 48
+    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 49
+    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 50
+    Warning (13410): Pin "DRAM_CAS_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 51
+    Warning (13410): Pin "DRAM_RAS_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 52
+    Warning (13410): Pin "DRAM_WE_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 53
+    Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 54
+    Warning (13410): Pin "DRAM_LDQM" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 55
+    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 56
+    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 56
+    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+    Warning (13410): Pin "e_mdc" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 68
+    Warning (13410): Pin "e_gtxc" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 69
+    Warning (13410): Pin "e_reset" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
+    Warning (13410): Pin "e_txen" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 71
+    Warning (13410): Pin "e_txer" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 72
+    Warning (13410): Pin "e_txd[0]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
+    Warning (13410): Pin "e_txd[1]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
+    Warning (13410): Pin "e_txd[2]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
+    Warning (13410): Pin "e_txd[3]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
+    Warning (13410): Pin "e_txd[4]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
+    Warning (13410): Pin "e_txd[5]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
+    Warning (13410): Pin "e_txd[6]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
+    Warning (13410): Pin "e_txd[7]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
 Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Info (17016): Found the following redundant logic cells in design
@@ -2379,18 +2379,18 @@ Critical Warning (35025): Partially connected in-system debug instance "auto_sig
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 12 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "e_rxc" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 44
-    Warning (15610): No output dependent on input pin "e_rxdv" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 45
-    Warning (15610): No output dependent on input pin "e_rxer" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 46
-    Warning (15610): No output dependent on input pin "e_rxd[0]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 47
-    Warning (15610): No output dependent on input pin "e_rxd[1]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 47
-    Warning (15610): No output dependent on input pin "e_rxd[2]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 47
-    Warning (15610): No output dependent on input pin "e_rxd[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 47
-    Warning (15610): No output dependent on input pin "e_rxd[4]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 47
-    Warning (15610): No output dependent on input pin "e_rxd[5]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 47
-    Warning (15610): No output dependent on input pin "e_rxd[6]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 47
-    Warning (15610): No output dependent on input pin "e_rxd[7]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 47
-    Warning (15610): No output dependent on input pin "e_txc" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 48
+    Warning (15610): No output dependent on input pin "e_rxc" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 62
+    Warning (15610): No output dependent on input pin "e_rxdv" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 63
+    Warning (15610): No output dependent on input pin "e_rxer" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 64
+    Warning (15610): No output dependent on input pin "e_rxd[0]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
+    Warning (15610): No output dependent on input pin "e_rxd[1]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
+    Warning (15610): No output dependent on input pin "e_rxd[2]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
+    Warning (15610): No output dependent on input pin "e_rxd[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
+    Warning (15610): No output dependent on input pin "e_rxd[4]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
+    Warning (15610): No output dependent on input pin "e_rxd[5]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
+    Warning (15610): No output dependent on input pin "e_rxd[6]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
+    Warning (15610): No output dependent on input pin "e_rxd[7]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
+    Warning (15610): No output dependent on input pin "e_txc" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
 Info (21057): Implemented 3042 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 18 input pins
     Info (21059): Implemented 67 output pins
@@ -2398,9 +2398,9 @@ Info (21057): Implemented 3042 device resources after synthesis - the final reso
     Info (21061): Implemented 2783 logic cells
     Info (21064): Implemented 121 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 158 warnings
-    Info: Peak virtual memory: 4867 megabytes
-    Info: Processing ended: Wed Jul 14 18:04:51 2021
-    Info: Elapsed time: 00:00:56
+    Info: Peak virtual memory: 4868 megabytes
+    Info: Processing ended: Fri Jul 16 10:10:16 2021
+    Info: Elapsed time: 00:00:55
     Info: Total CPU time (on all processors): 00:01:26
 
 

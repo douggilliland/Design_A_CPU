@@ -26,6 +26,24 @@ ENTITY CPU_top IS
 		i_KEY0		: IN std_logic;		-- Reset PUSHBUTTON
 		o_LED			: INOUT std_logic;
 		
+		-- 3 Digits, 7 Segment Display
+		o_SMG_Data	: out std_logic_vector(7 downto 0);
+		o_Scan_Sig	: out std_logic_vector(2 downto 0);
+		
+		-- VGA
+		o_vga_r		: out std_logic_vector(4 downto 0);
+		o_vga_g		: out std_logic_vector(5 downto 0);
+		o_vga_b		: out std_logic_vector(4 downto 0);
+		o_vga_hs		: OUT std_logic;
+		o_vga_vs		: OUT std_logic;
+		
+		-- J12
+		io_J12		: inout std_logic_vector(36 downto 3) := "00"&x"00000000";
+		
+		-- UART
+		i_uart_rx	: in std_logic := '1';
+		o_uart_tx	: OUT std_logic;
+		
 		-- SDRAM - Not used
 		DRAM_CS_N	: OUT std_logic := '1';
 		DRAM_CLK		: OUT std_logic := '0';
@@ -53,25 +71,7 @@ ENTITY CPU_top IS
 		e_txen		: OUT std_logic := '0';
 		e_txer		: OUT std_logic := '0';
 		e_txd			: OUT std_logic_vector(7 downto 0) := X"00";
-		e_mdio		: INOUT std_logic := 'Z';				-- Management Data
-		
-		-- 3 Digits, 7 Segment Display
-		SMG_Data		: out std_logic_vector(7 downto 0);
-		Scan_Sig		: out std_logic_vector(2 downto 0);
-		
-		-- VGA
-		vga_r			: out std_logic_vector(4 downto 0);
-		vga_g			: out std_logic_vector(5 downto 0);
-		vga_b			: out std_logic_vector(4 downto 0);
-		vga_hs		: OUT std_logic;
-		vga_vs		: OUT std_logic;
-		
-		-- J12
-		io_J12		: inout std_logic_vector(36 downto 3) := "00"&x"00000000";
-		
-		-- UART
-		uart_rx		: in std_logic := '1';
-		uart_tx		: OUT std_logic
+		e_mdio		: INOUT std_logic := 'Z'				-- Management Data
 		
 	);
 END CPU_top;
@@ -198,15 +198,15 @@ BEGIN
 		i_clock_50Mhz 			=> i_clock,					-- 50 MHZ clock
 		i_reset 					=> not w_resetClean_n, 	-- i_reset - active high
 		i_displayed_number 	=> w_SevenSegData,		-- 3 digits
-		o_Anode_Activate 		=> Scan_Sig,				-- 3 Anode signals
-		o_LED_out 				=> SMG_Data					-- Cathode patterns of 7-segment display
+		o_Anode_Activate 		=> o_Scan_Sig,				-- 3 Anode signals
+		o_LED_out 				=> o_SMG_Data					-- Cathode patterns of 7-segment display
 	);
 	
 	-- ____________________________________________________________________________________
 	-- Grant's VGA driver
-	vga_r <= w_videoR(1)&w_videoR(1)&w_videoR(0)&w_videoR(0)&w_videoR(0);					-- Map VGA pins
-	vga_g <= w_videoG(1)&w_videoG(1)&w_videoG(0)&w_videoG(0)&w_videoG(0)&w_videoG(0);
-	vga_b <= w_videoB(1)&w_videoB(1)&w_videoB(0)&w_videoB(0)&w_videoB(0);
+	o_vga_r <= w_videoR(1)&w_videoR(1)&w_videoR(0)&w_videoR(0)&w_videoR(0);					-- Map VGA pins
+	o_vga_g <= w_videoG(1)&w_videoG(1)&w_videoG(0)&w_videoG(0)&w_videoG(0)&w_videoG(0);
+	o_vga_b <= w_videoB(1)&w_videoB(1)&w_videoB(0)&w_videoB(0)&w_videoB(0);
 
 	W_VDUWr <= '1' when ((w_peripAddr(7 downto 1) = "0000011") and (w_peripWr = '1')) else '0';
 	W_VDURd <= '1' when ((w_peripAddr(7 downto 1) = "0000011") and (w_peripRd = '1')) else '0';
@@ -222,8 +222,8 @@ BEGIN
 			dataIn	=> w_peripDataFromCPU,
 			dataOut	=> w_VDUDataOut,
 			-- VGA video signals
-			hSync		=> vga_hs,
-			vSync		=> vga_vs,
+			hSync		=> o_vga_hs,
+			vSync		=> o_vga_vs,
 			videoR0	=> w_videoR(0),
 			videoR1	=> w_videoR(1),
 			videoG0	=> w_videoG(0),
@@ -247,8 +247,8 @@ BEGIN
 			dataOut	=> w_UARTDataOut,
 			rxClkEn	=> serialEn,
 			txClkEn	=> serialEn,
-			rxd		=> uart_rx,
-			txd		=> uart_tx
+			rxd		=> i_uart_rx,
+			txd		=> o_uart_tx
 		);
 		
 	-- ____________________________________________________________________________________
