@@ -2,64 +2,196 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'altera_reserved_tck'
-Slack : 43.383
+Type  : Slow 1200mV 85C Model Setup 'i_clock'
+Slack : -14.541
+TNS   : -3508.327
+
+Type  : Slow 1200mV 85C Model Setup 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[1]~reg0'
+Slack : -9.334
+TNS   : -244.654
+
+Type  : Slow 1200mV 85C Model Setup 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[0]~reg0'
+Slack : -8.740
+TNS   : -165.406
+
+Type  : Slow 1200mV 85C Model Setup 'Loadable_7SD_3LED:sevSeg|w_refresh_counter[18]'
+Slack : -5.449
+TNS   : -17.963
+
+Type  : Slow 1200mV 85C Model Hold 'i_clock'
+Slack : 0.143
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'altera_reserved_tck'
+Type  : Slow 1200mV 85C Model Hold 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[1]~reg0'
 Slack : 0.455
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Recovery 'altera_reserved_tck'
-Slack : 95.880
+Type  : Slow 1200mV 85C Model Hold 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[0]~reg0'
+Slack : 0.593
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Removal 'altera_reserved_tck'
-Slack : 1.130
+Type  : Slow 1200mV 85C Model Hold 'Loadable_7SD_3LED:sevSeg|w_refresh_counter[18]'
+Slack : 0.885
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'altera_reserved_tck'
-Slack : 49.415
+Type  : Slow 1200mV 85C Model Recovery 'i_clock'
+Slack : -1.389
+TNS   : -51.007
+
+Type  : Slow 1200mV 85C Model Recovery 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[1]~reg0'
+Slack : -0.192
+TNS   : -1.344
+
+Type  : Slow 1200mV 85C Model Removal 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[1]~reg0'
+Slack : 0.467
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Setup 'altera_reserved_tck'
-Slack : 43.882
+Type  : Slow 1200mV 85C Model Removal 'i_clock'
+Slack : 0.925
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'altera_reserved_tck'
-Slack : 0.403
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'i_clock'
+Slack : -3.201
+TNS   : -804.124
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[1]~reg0'
+Slack : -3.201
+TNS   : -62.681
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[0]~reg0'
+Slack : -1.487
+TNS   : -34.201
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Loadable_7SD_3LED:sevSeg|w_refresh_counter[18]'
+Slack : 0.232
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Recovery 'altera_reserved_tck'
-Slack : 96.214
+Type  : Slow 1200mV 0C Model Setup 'i_clock'
+Slack : -13.618
+TNS   : -3249.135
+
+Type  : Slow 1200mV 0C Model Setup 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[1]~reg0'
+Slack : -8.729
+TNS   : -225.206
+
+Type  : Slow 1200mV 0C Model Setup 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[0]~reg0'
+Slack : -8.124
+TNS   : -152.950
+
+Type  : Slow 1200mV 0C Model Setup 'Loadable_7SD_3LED:sevSeg|w_refresh_counter[18]'
+Slack : -5.322
+TNS   : -17.232
+
+Type  : Slow 1200mV 0C Model Hold 'i_clock'
+Slack : 0.088
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Removal 'altera_reserved_tck'
-Slack : 1.031
+Type  : Slow 1200mV 0C Model Hold 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[1]~reg0'
+Slack : 0.294
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'altera_reserved_tck'
-Slack : 49.259
+Type  : Slow 1200mV 0C Model Hold 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[0]~reg0'
+Slack : 0.429
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Setup 'altera_reserved_tck'
-Slack : 47.308
+Type  : Slow 1200mV 0C Model Hold 'Loadable_7SD_3LED:sevSeg|w_refresh_counter[18]'
+Slack : 0.816
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'altera_reserved_tck'
+Type  : Slow 1200mV 0C Model Recovery 'i_clock'
+Slack : -1.177
+TNS   : -41.106
+
+Type  : Slow 1200mV 0C Model Recovery 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[1]~reg0'
+Slack : -0.096
+TNS   : -0.672
+
+Type  : Slow 1200mV 0C Model Removal 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[1]~reg0'
+Slack : 0.312
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'i_clock'
+Slack : 0.852
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'i_clock'
+Slack : -3.201
+TNS   : -804.171
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[1]~reg0'
+Slack : -3.201
+TNS   : -63.260
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[0]~reg0'
+Slack : -1.487
+TNS   : -34.201
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Loadable_7SD_3LED:sevSeg|w_refresh_counter[18]'
+Slack : 0.178
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'i_clock'
+Slack : -5.768
+TNS   : -1224.602
+
+Type  : Fast 1200mV 0C Model Setup 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[1]~reg0'
+Slack : -3.597
+TNS   : -81.825
+
+Type  : Fast 1200mV 0C Model Setup 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[0]~reg0'
+Slack : -3.067
+TNS   : -54.183
+
+Type  : Fast 1200mV 0C Model Setup 'Loadable_7SD_3LED:sevSeg|w_refresh_counter[18]'
+Slack : -1.745
+TNS   : -5.150
+
+Type  : Fast 1200mV 0C Model Hold 'i_clock'
+Slack : 0.123
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[0]~reg0'
+Slack : 0.161
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[1]~reg0'
+Slack : 0.172
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Loadable_7SD_3LED:sevSeg|w_refresh_counter[18]'
 Slack : 0.188
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Recovery 'altera_reserved_tck'
-Slack : 98.074
+Type  : Fast 1200mV 0C Model Recovery 'i_clock'
+Slack : -0.139
+TNS   : -0.513
+
+Type  : Fast 1200mV 0C Model Recovery 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[1]~reg0'
+Slack : 0.346
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Removal 'altera_reserved_tck'
-Slack : 0.495
+Type  : Fast 1200mV 0C Model Removal 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[1]~reg0'
+Slack : 0.191
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'altera_reserved_tck'
-Slack : 49.294
+Type  : Fast 1200mV 0C Model Removal 'i_clock'
+Slack : 0.395
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'i_clock'
+Slack : -3.000
+TNS   : -649.545
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[1]~reg0'
+Slack : -1.000
+TNS   : -41.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'cpu_001:CPU|GreyCode:GreyCodeCounter|o_GreyCode[0]~reg0'
+Slack : -1.000
+TNS   : -23.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Loadable_7SD_3LED:sevSeg|w_refresh_counter[18]'
+Slack : 0.437
 TNS   : 0.000
 
 ------------------------------------------------------------

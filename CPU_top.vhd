@@ -23,14 +23,14 @@ ENTITY CPU_top IS
   PORT 
   (
 		i_clock		: IN std_logic;		-- 50 MHz clock
-		i_KEY0		: IN std_logic;		-- Reset PUSHBUTTON
+		i_resetN		: IN std_logic;		-- Reset PUSHBUTTON
 		o_LED			: INOUT std_logic;
 		
 		-- 3 Digits, 7 Segment Display
 		o_SMG_Data	: out std_logic_vector(7 downto 0);
 		o_Scan_Sig	: out std_logic_vector(2 downto 0);
 		
-		-- VGA
+		-- VGA - Mapped from 2:2:2 to 5:6:5
 		o_vga_r		: out std_logic_vector(4 downto 0);
 		o_vga_g		: out std_logic_vector(5 downto 0);
 		o_vga_b		: out std_logic_vector(4 downto 0);
@@ -44,7 +44,7 @@ ENTITY CPU_top IS
 		i_uart_rx	: in std_logic := '1';
 		o_uart_tx	: OUT std_logic;
 		
-		-- SDRAM - Not used
+		-- SDRAM - Not used but pulled to inactive values
 		DRAM_CS_N	: OUT std_logic := '1';
 		DRAM_CLK		: OUT std_logic := '0';
 		DRAM_CKE		: OUT std_logic := '0';
@@ -57,7 +57,7 @@ ENTITY CPU_top IS
 		DRAM_ADDR	: OUT std_logic_vector(12 downto 0)		:= "0"&x"000";
 		DRAM_DQ		: inout std_logic_vector(15 downto 0)	:= (others=>'Z');
 		
-		-- Ethernet
+		-- Ethernet - Not used but pulled to inactive values
 		-- Ins
 		e_rxc			: IN std_logic := '0';
 		e_rxdv		: IN std_logic := '0';					-- Rx Data Valid
@@ -79,7 +79,7 @@ END CPU_top;
 ARCHITECTURE beh OF CPU_top IS
 	
 	-- Slow clock signals
-	signal w_slowPulse	: std_logic;
+	signal w_slowPulse			: std_logic;
 	
 	-- Reset debounce
 	signal w_resetClean_n		: std_logic;
@@ -98,25 +98,25 @@ ARCHITECTURE beh OF CPU_top IS
 	signal w_SevenSegData		: std_logic_vector(11 downto 0);
 	
    -- UART
-	signal serialEn     			: std_logic;							-- 16x Serial Clock
+	signal w_serialEn    		: std_logic;							-- 16x Serial Clock
 	signal w_UARTDataOut			: std_logic_vector(7 downto 0);
-	signal w_UARTWr    				: std_logic;
-	signal W_UARTRd    				: std_logic;
+	signal w_UARTWr    			: std_logic;
+	signal W_UARTRd    			: std_logic;
 	
 	-- VGA
-	signal w_videoR		: std_logic_vector(1 downto 0);
-	signal w_videoG		: std_logic_vector(1 downto 0);
-	signal w_videoB		: std_logic_vector(1 downto 0);
-	signal w_VDUDataOut	: std_logic_vector(7 downto 0);
-	signal W_VDUWr    	: std_logic;
-	signal W_VDURd    	: std_logic;
+	signal w_videoR				: std_logic_vector(1 downto 0);
+	signal w_videoG				: std_logic_vector(1 downto 0);
+	signal w_videoB				: std_logic_vector(1 downto 0);
+	signal w_VDUDataOut			: std_logic_vector(7 downto 0);
+	signal W_VDUWr    			: std_logic;
+	signal W_VDURd    			: std_logic;
 	
 	-- Timer
-	signal w_timerAdr		:	std_logic;
-	signal w_timerOut		: 	std_logic_vector(7 downto 0);
+	signal w_timerAdr				:	std_logic;
+	signal w_timerOut				: 	std_logic_vector(7 downto 0);
 	
 	-- J12 Connectpr
-	signal w_io_J12		: std_logic_vector(36 downto 3);
+	signal w_io_J12				: std_logic_vector(36 downto 3);
 
 --	-- Signal Tap Logic Analyzer signals
 --	attribute syn_keep	: boolean;
@@ -132,7 +132,7 @@ BEGIN
 		port map
 		(
 			i_clk				=> i_clock,
-			i_PinIn			=> i_KEY0,
+			i_PinIn			=> i_resetN,
 			o_PinOut			=> w_resetClean_n
 		);
 		
@@ -177,15 +177,15 @@ BEGIN
 	WriteLatches : process (i_clock)
 	begin
 		if rising_edge(i_clock) then
-			if ((w_peripAddr = x"00") and (w_peripWr = '1')) then		-- LED
+			if ((w_peripAddr = x"00") and (w_peripWr = '1')) then			-- LED
 				o_LED <= w_peripDataFromCPU(0);
-			ELSif ((w_peripAddr = x"01") and (w_peripWr = '1')) then		-- LED
+			ELSif ((w_peripAddr = x"01") and (w_peripWr = '1')) then		-- Register-to-register transfer
 				W_RegXfer <= w_peripDataFromCPU;
-			elsif ((w_peripAddr = x"02") and (w_peripWr = '1')) then	-- 7Seg lower 8 bits
+			elsif ((w_peripAddr = x"02") and (w_peripWr = '1')) then		-- 7Seg lower 8 bits
 				w_SevenSegData(7 downto 0) <= w_peripDataFromCPU;
-			elsif ((w_peripAddr = x"03") and (w_peripWr = '1')) then	-- 7Seg upper 4 bits
+			elsif ((w_peripAddr = x"03") and (w_peripWr = '1')) then		-- 7Seg upper 4 bits
 				w_SevenSegData(11 downto 8) <= w_peripDataFromCPU( 3 downto 0);
-			elsif ((w_peripAddr = x"0C") and (w_peripWr = '1')) then	-- 
+			elsif ((w_peripAddr = x"0C") and (w_peripWr = '1')) then		-- J12 input lines
 				io_J12(10 downto 3) <= w_peripDataFromCPU;
 			end if;
 		end if;
@@ -204,7 +204,7 @@ BEGIN
 	
 	-- ____________________________________________________________________________________
 	-- Grant's VGA driver
-	o_vga_r <= w_videoR(1)&w_videoR(1)&w_videoR(0)&w_videoR(0)&w_videoR(0);					-- Map VGA pins
+	o_vga_r <= w_videoR(1)&w_videoR(1)&w_videoR(0)&w_videoR(0)&w_videoR(0);					-- Map VGA pins 2:2:2 to 5:6:5
 	o_vga_g <= w_videoG(1)&w_videoG(1)&w_videoG(0)&w_videoG(0)&w_videoG(0)&w_videoG(0);
 	o_vga_b <= w_videoB(1)&w_videoB(1)&w_videoB(0)&w_videoB(0)&w_videoB(0);
 
@@ -245,8 +245,8 @@ BEGIN
 			regSel	=> w_peripAddr(0),
 			dataIn	=> w_peripDataFromCPU,
 			dataOut	=> w_UARTDataOut,
-			rxClkEn	=> serialEn,
-			txClkEn	=> serialEn,
+			rxClkEn	=> w_serialEn,
+			txClkEn	=> w_serialEn,
 			rxd		=> i_uart_rx,
 			txd		=> o_uart_tx
 		);
@@ -260,14 +260,7 @@ BEGIN
 	)
 	PORT map (
 		i_CLOCK_50	=> i_clock,
-		o_serialEn	=> serialEn
-	);
-
-	-- Slow clock - used for debugging CPU
-	slowClock : ENTITY work.SlowClock
-	PORT MAP  (
-		i_clock		=> i_clock,
-		o_slowClock	=> w_slowPulse
+		o_serialEn	=> w_serialEn
 	);
 
 	-- ____________________________________________________________________________________
@@ -287,4 +280,12 @@ BEGIN
 			o_dataOut			=> w_timerOut
 		);
 	
+	-- ____________________________________________________________________________________
+	-- Slow clock - used for debugging CPU
+	slowClock : ENTITY work.SlowClock
+	PORT MAP  (
+		i_clock		=> i_clock,
+		o_slowClock	=> w_slowPulse
+	);
+
 END beh;

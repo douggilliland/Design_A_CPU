@@ -1,5 +1,5 @@
 Flow report for cpu_001
-Fri Jul 16 10:10:45 2021
+Fri Jul 16 10:45:26 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,20 +41,20 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Jul 16 10:10:38 2021       ;
+; Flow Status                        ; Successful - Fri Jul 16 10:45:19 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_001                                     ;
 ; Top-level Entity Name              ; CPU_top                                     ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE15F23C8                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 2,637 / 15,408 ( 17 % )                     ;
-;     Total combinational functions  ; 2,126 / 15,408 ( 14 % )                     ;
-;     Dedicated logic registers      ; 1,316 / 15,408 ( 9 % )                      ;
-; Total registers                    ; 1316                                        ;
+; Total logic elements               ; 1,686 / 15,408 ( 11 % )                     ;
+;     Total combinational functions  ; 1,615 / 15,408 ( 10 % )                     ;
+;     Dedicated logic registers      ; 512 / 15,408 ( 3 % )                        ;
+; Total registers                    ; 512                                         ;
 ; Total pins                         ; 133 / 344 ( 39 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 65,472 / 516,096 ( 13 % )                   ;
+; Total memory bits                  ; 57,616 / 516,096 ( 11 % )                   ;
 ; Embedded Multiplier 9-bit elements ; 0 / 112 ( 0 % )                             ;
 ; Total PLLs                         ; 0 / 4 ( 0 % )                               ;
 +------------------------------------+---------------------------------------------+
@@ -65,65 +65,37 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/16/2021 10:09:23 ;
+; Start date & time ; 07/16/2021 10:43:17 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; cpu_001             ;
 +-------------------+---------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                                    ;
-+-------------------------------------+------------------------------------------------------------------------------+---------------+-------------+------------------+
-; Assignment Name                     ; Value                                                                        ; Default Value ; Entity Name ; Section Id       ;
-+-------------------------------------+------------------------------------------------------------------------------+---------------+-------------+------------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589187.162644456314220                                               ; --            ; --          ; --               ;
-; ENABLE_SIGNALTAP                    ; On                                                                           ; --            ; --          ; --               ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                                                           ; --            ; --          ; --               ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                                                            ; --            ; --          ; --               ;
-; MISC_FILE                           ; IOP_ROM.cmp                                                                  ; --            ; --          ; --               ;
-; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                                                         ; --            ; --          ; --               ;
-; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                            ; --            ; --          ; --               ;
-; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                            ; --            ; --          ; --               ;
-; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                                   ; --            ; --          ; --               ;
-; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                                   ; --            ; --          ; --               ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family)                                       ; --            ; CPU_top     ; Top              ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                                       ; --            ; CPU_top     ; Top              ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                                       ; --            ; CPU_top     ; Top              ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                          ; --            ; --          ; --               ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                        ; --            ; --          ; --               ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                                 ; --            ; --          ; --               ;
-; SLD_FILE                            ; db/cpu_002_Part9_auto_stripped.stp                                           ; --            ; --          ; --               ;
-; SLD_NODE_CREATOR_ID                 ; 110                                                                          ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_ENTITY_NAME                ; sld_signaltap                                                                ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_BLOCK_TYPE=AUTO                                                      ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_NODE_INFO=805334528                                                      ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_POWER_UP_TRIGGER=0                                                       ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0                                ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SEGMENT_SIZE=128                                                         ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ATTRIBUTE_MEM_MODE=OFF                                                   ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_FLOW_USE_GENERATED=0                                               ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_BITS=11                                                            ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_BUFFER_FULL_STOP=1                                                       ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_CURRENT_RESOURCE_WIDTH=1                                                 ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INCREMENTAL_ROUTING=1                                                    ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL=1                                                          ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SAMPLE_DEPTH=128                                                         ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_IN_ENABLED=0                                                     ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_PIPELINE=0                                                       ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_PIPELINE=0                                                           ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_COUNTER_PIPELINE=0                                                       ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=basic,1,                                         ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL_PIPELINE=1                                                 ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ENABLE_ADVANCED_TRIGGER=0                                                ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=12                                                          ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK=000000000000000000000000000000000000000000000000000000000 ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK_LENGTH=57                                                 ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=61                                                             ; --            ; --          ; auto_signaltap_0 ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=61                                                ; --            ; --          ; auto_signaltap_0 ;
-; SMART_RECOMPILE                     ; On                                                                           ; Off           ; --          ; --               ;
-; TOP_LEVEL_ENTITY                    ; CPU_top                                                                      ; cpu_001       ; --          ; --               ;
-; USE_SIGNALTAP_FILE                  ; output_files/cpu_002_Part9.stp                                               ; --            ; --          ; --               ;
-+-------------------------------------+------------------------------------------------------------------------------+---------------+-------------+------------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                        ;
++-------------------------------------+----------------------------------------+---------------+-------------+------------+
+; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
++-------------------------------------+----------------------------------------+---------------+-------------+------------+
+; COMPILER_SIGNATURE_ID               ; 10995770589187.162644659706104         ; --            ; --          ; --         ;
+; ENABLE_SIGNALTAP                    ; Off                                    ; --            ; --          ; --         ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; IOP_ROM.cmp                            ; --            ; --          ; --         ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --         ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                      ; --            ; --          ; --         ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                      ; --            ; --          ; --         ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                             ; --            ; --          ; --         ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                             ; --            ; --          ; --         ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; CPU_top     ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; CPU_top     ; Top        ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; CPU_top     ; Top        ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --         ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --         ;
+; SMART_RECOMPILE                     ; On                                     ; Off           ; --          ; --         ;
+; TOP_LEVEL_ENTITY                    ; CPU_top                                ; cpu_001       ; --          ; --         ;
+; USE_SIGNALTAP_FILE                  ; output_files/cpu_002_Part9.stp         ; --            ; --          ; --         ;
++-------------------------------------+----------------------------------------+---------------+-------------+------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -131,11 +103,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:53     ; 1.0                     ; 4868 MB             ; 00:01:24                           ;
-; Fitter               ; 00:00:15     ; 1.1                     ; 5545 MB             ; 00:00:17                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 4690 MB             ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.2                     ; 4799 MB             ; 00:00:05                           ;
-; Total                ; 00:01:15     ; --                      ; --                  ; 00:01:49                           ;
+; Analysis & Synthesis ; 00:00:23     ; 1.0                     ; 4833 MB             ; 00:00:42                           ;
+; Fitter               ; 00:00:19     ; 1.1                     ; 5539 MB             ; 00:00:26                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4690 MB             ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.3                     ; 4795 MB             ; 00:00:05                           ;
+; Fitter               ; 00:00:19     ; 1.1                     ; 5541 MB             ; 00:00:25                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 4689 MB             ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.3                     ; 4795 MB             ; 00:00:05                           ;
+; Total                ; 00:01:14     ; --                      ; --                  ; 00:01:47                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -148,6 +123,9 @@ https://fpgasoftware.intel.com/eula.
 ; Fitter               ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
 ; Assembler            ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
 ; Timing Analyzer      ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -156,6 +134,9 @@ https://fpgasoftware.intel.com/eula.
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 quartus_fit --read_settings_files=off --write_settings_files=off cpu_001 -c cpu_001
+quartus_asm --read_settings_files=off --write_settings_files=off cpu_001 -c cpu_001
+quartus_sta cpu_001 -c cpu_001
+quartus_fit --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 quartus_asm --read_settings_files=off --write_settings_files=off cpu_001 -c cpu_001
 quartus_sta cpu_001 -c cpu_001
 
