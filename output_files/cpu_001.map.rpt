@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu_001
-Fri Jul 16 10:43:40 2021
+Fri Jul 16 15:18:11 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -84,13 +84,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jul 16 10:43:40 2021       ;
+; Analysis & Synthesis Status        ; Successful - Fri Jul 16 15:18:11 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_001                                     ;
 ; Top-level Entity Name              ; CPU_top                                     ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 1,760                                       ;
-;     Total combinational functions  ; 1,615                                       ;
+; Total logic elements               ; 1,761                                       ;
+;     Total combinational functions  ; 1,616                                       ;
 ;     Dedicated logic registers      ; 512                                         ;
 ; Total registers                    ; 512                                         ;
 ; Total pins                         ; 133                                         ;
@@ -244,7 +244,7 @@ https://fpgasoftware.intel.com/eula.
 ; altram.inc                                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc                                          ;         ;
 ; altdpram.inc                                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                                        ;         ;
 ; db/altsyncram_dft3.tdf                        ; yes             ; Auto-Generated Megafunction            ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_dft3.tdf                        ;         ;
-; cpu_code/part9-1_test1.mif                    ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_code/part9-1_test1.mif                    ;         ;
+; ../CPU_Code/Part9-1_Test1.mif                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_Code/Part9-1_Test1.mif                    ;         ;
 ; db/altsyncram_k1t3.tdf                        ; yes             ; Auto-Generated Megafunction            ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_k1t3.tdf                        ;         ;
 ; periperals/ansidisplay/sansfontbold.hex       ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/periperals/ansidisplay/sansfontbold.hex       ;         ;
 ; db/altsyncram_ldr3.tdf                        ; yes             ; Auto-Generated Megafunction            ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_ldr3.tdf                        ;         ;
@@ -266,16 +266,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+---------------+
 ; Resource                                    ; Usage         ;
 +---------------------------------------------+---------------+
-; Estimated Total logic elements              ; 1,760         ;
+; Estimated Total logic elements              ; 1,761         ;
 ;                                             ;               ;
-; Total combinational functions               ; 1615          ;
+; Total combinational functions               ; 1616          ;
 ; Logic element usage by number of LUT inputs ;               ;
-;     -- 4 input functions                    ; 717           ;
-;     -- 3 input functions                    ; 393           ;
-;     -- <=2 input functions                  ; 505           ;
+;     -- 4 input functions                    ; 701           ;
+;     -- 3 input functions                    ; 404           ;
+;     -- <=2 input functions                  ; 511           ;
 ;                                             ;               ;
 ; Logic elements by mode                      ;               ;
-;     -- normal mode                          ; 1254          ;
+;     -- normal mode                          ; 1255          ;
 ;     -- arithmetic mode                      ; 361           ;
 ;                                             ;               ;
 ; Total registers                             ; 512           ;
@@ -289,8 +289,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;               ;
 ; Maximum fan-out node                        ; i_clock~input ;
 ; Maximum fan-out                             ; 529           ;
-; Total fan-out                               ; 7757          ;
-; Average fan-out                             ; 3.10          ;
+; Total fan-out                               ; 7738          ;
+; Average fan-out                             ; 3.09          ;
 +---------------------------------------------+---------------+
 
 
@@ -299,8 +299,8 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                              ; Entity Name         ; Library Name ;
 +-----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |CPU_top                                      ; 1615 (35)           ; 512 (29)                  ; 57616       ; 0            ; 0       ; 0         ; 133  ; 0            ; |CPU_top                                                                                                                         ; CPU_top             ; work         ;
-;    |ANSIDisplayVGA:vdu|                       ; 968 (790)           ; 203 (203)                 ; 49152       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|ANSIDisplayVGA:vdu                                                                                                      ; ANSIDisplayVGA      ; work         ;
+; |CPU_top                                      ; 1616 (35)           ; 512 (29)                  ; 57616       ; 0            ; 0       ; 0         ; 133  ; 0            ; |CPU_top                                                                                                                         ; CPU_top             ; work         ;
+;    |ANSIDisplayVGA:vdu|                       ; 965 (787)           ; 203 (203)                 ; 49152       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|ANSIDisplayVGA:vdu                                                                                                      ; ANSIDisplayVGA      ; work         ;
 ;       |DisplayRam2K:\GEN_2KATTRAM:dispAttRam| ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KATTRAM:dispAttRam                                                                ; DisplayRam2K        ; work         ;
 ;          |altsyncram:altsyncram_component|    ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KATTRAM:dispAttRam|altsyncram:altsyncram_component                                ; altsyncram          ; work         ;
 ;             |altsyncram_ldr3:auto_generated|  ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KATTRAM:dispAttRam|altsyncram:altsyncram_component|altsyncram_ldr3:auto_generated ; altsyncram_ldr3     ; work         ;
@@ -325,7 +325,7 @@ https://fpgasoftware.intel.com/eula.
 ;    |bufferedUART:acia|                        ; 130 (130)           ; 93 (93)                   ; 128         ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|bufferedUART:acia                                                                                                       ; bufferedUART        ; work         ;
 ;       |altsyncram:rxBuffer_rtl_0|             ; 0 (0)               ; 0 (0)                     ; 128         ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|bufferedUART:acia|altsyncram:rxBuffer_rtl_0                                                                             ; altsyncram          ; work         ;
 ;          |altsyncram_3ce1:auto_generated|     ; 0 (0)               ; 0 (0)                     ; 128         ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|bufferedUART:acia|altsyncram:rxBuffer_rtl_0|altsyncram_3ce1:auto_generated                                              ; altsyncram_3ce1     ; work         ;
-;    |cpu_001:CPU|                              ; 316 (115)           ; 80 (0)                    ; 8336        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU                                                                                                             ; cpu_001             ; work         ;
+;    |cpu_001:CPU|                              ; 320 (119)           ; 80 (0)                    ; 8336        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU                                                                                                             ; cpu_001             ; work         ;
 ;       |ALU_Unit:ALU_Unit|                     ; 76 (76)             ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU|ALU_Unit:ALU_Unit                                                                                           ; ALU_Unit            ; work         ;
 ;       |GreyCode:GreyCodeCounter|              ; 1 (1)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU|GreyCode:GreyCodeCounter                                                                                    ; GreyCode            ; work         ;
 ;       |IOP_ROM:\GEN_512W_INST_ROM:IopRom|     ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom                                                                           ; IOP_ROM             ; work         ;
@@ -1432,20 +1432,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SLD               ; 8                           ;
 ;     plain             ; 71                          ;
 ; cycloneiii_io_obuf    ; 52                          ;
-; cycloneiii_lcell_comb ; 1618                        ;
+; cycloneiii_lcell_comb ; 1619                        ;
 ;     arith             ; 361                         ;
 ;         2 data inputs ; 224                         ;
 ;         3 data inputs ; 137                         ;
-;     normal            ; 1257                        ;
+;     normal            ; 1258                        ;
 ;         0 data inputs ; 17                          ;
 ;         1 data inputs ; 82                          ;
-;         2 data inputs ; 185                         ;
-;         3 data inputs ; 256                         ;
-;         4 data inputs ; 717                         ;
+;         2 data inputs ; 191                         ;
+;         3 data inputs ; 267                         ;
+;         4 data inputs ; 701                         ;
 ; cycloneiii_ram_block  ; 57                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 12.00                       ;
-; Average LUT depth     ; 5.77                        ;
+; Average LUT depth     ; 5.79                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1454,7 +1454,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:07     ;
+; Top            ; 00:00:08     ;
 +----------------+--------------+
 
 
@@ -1464,7 +1464,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Jul 16 10:43:16 2021
+    Info: Processing started: Fri Jul 16 15:17:41 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1526,7 +1526,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file periper
     Info (12022): Found design unit 1: Loadable_7SD_3LED-Behavioral File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 25
     Info (12023): Found entity 1: Loadable_7SD_3LED File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 17
 Info (12021): Found 2 design units, including 1 entities, in source file cpu_top.vhd
-    Info (12022): Found design unit 1: CPU_top-beh File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 79
+    Info (12022): Found design unit 1: CPU_top-beh File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 80
     Info (12023): Found entity 1: CPU_top File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 22
 Info (12021): Found 2 design units, including 1 entities, in source file shifter.vhd
     Info (12022): Found design unit 1: Shifter-beh File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Shifter.vhd Line: 30
@@ -1537,30 +1537,30 @@ Info (12021): Found 2 design units, including 1 entities, in source file iop_rom
 Info (12021): Found 1 design units, including 0 entities, in source file cpu_001_pkg.vhd
     Info (12022): Found design unit 1: cpu_001_Pkg File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001_Pkg.vhd Line: 5
 Info (12127): Elaborating entity "CPU_top" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(48): used explicit default value for signal "DRAM_CS_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 48
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(49): used explicit default value for signal "DRAM_CLK" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 49
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(50): used explicit default value for signal "DRAM_CKE" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 50
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(51): used explicit default value for signal "DRAM_CAS_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 51
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(52): used explicit default value for signal "DRAM_RAS_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 52
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(53): used explicit default value for signal "DRAM_WE_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 53
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(54): used explicit default value for signal "DRAM_UDQM" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 54
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(55): used explicit default value for signal "DRAM_LDQM" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 55
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(56): used explicit default value for signal "DRAM_BA" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 56
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(57): used explicit default value for signal "DRAM_ADDR" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(68): used explicit default value for signal "e_mdc" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 68
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(69): used explicit default value for signal "e_gtxc" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 69
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(70): used explicit default value for signal "e_reset" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(71): used explicit default value for signal "e_txen" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 71
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(72): used explicit default value for signal "e_txer" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 72
-Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(73): used explicit default value for signal "e_txd" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
-Warning (10036): Verilog HDL or VHDL warning at CPU_top.vhd(82): object "w_slowPulse" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 82
-Info (12128): Elaborating entity "Debouncer" for hierarchy "Debouncer:debounceReset" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 131
-Info (12128): Elaborating entity "cpu_001" for hierarchy "cpu_001:CPU" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 141
-Info (12128): Elaborating entity "ProgramCounter" for hierarchy "cpu_001:CPU|ProgramCounter:progCtr" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 128
-Info (12128): Elaborating entity "lifo" for hierarchy "cpu_001:CPU|lifo:\GEN_STACK_DEEPER:lifo" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 167
-Info (12128): Elaborating entity "RegisterFile" for hierarchy "cpu_001:CPU|RegisterFile:RegFile" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 186
-Info (12128): Elaborating entity "Shifter" for hierarchy "cpu_001:CPU|Shifter:Shifter" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 207
-Info (12128): Elaborating entity "IOP_ROM" for hierarchy "cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 244
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(49): used explicit default value for signal "DRAM_CS_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 49
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(50): used explicit default value for signal "DRAM_CLK" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 50
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(51): used explicit default value for signal "DRAM_CKE" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 51
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(52): used explicit default value for signal "DRAM_CAS_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 52
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(53): used explicit default value for signal "DRAM_RAS_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 53
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(54): used explicit default value for signal "DRAM_WE_N" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 54
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(55): used explicit default value for signal "DRAM_UDQM" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 55
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(56): used explicit default value for signal "DRAM_LDQM" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 56
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(57): used explicit default value for signal "DRAM_BA" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(58): used explicit default value for signal "DRAM_ADDR" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(69): used explicit default value for signal "e_mdc" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 69
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(70): used explicit default value for signal "e_gtxc" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(71): used explicit default value for signal "e_reset" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 71
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(72): used explicit default value for signal "e_txen" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 72
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(73): used explicit default value for signal "e_txer" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
+Warning (10540): VHDL Signal Declaration warning at CPU_top.vhd(74): used explicit default value for signal "e_txd" because signal was never assigned a value File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 74
+Warning (10036): Verilog HDL or VHDL warning at CPU_top.vhd(120): object "w_slowPulse" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 120
+Info (12128): Elaborating entity "Debouncer" for hierarchy "Debouncer:debounceReset" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 132
+Info (12128): Elaborating entity "cpu_001" for hierarchy "cpu_001:CPU" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 142
+Info (12128): Elaborating entity "ProgramCounter" for hierarchy "cpu_001:CPU|ProgramCounter:progCtr" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 145
+Info (12128): Elaborating entity "lifo" for hierarchy "cpu_001:CPU|lifo:\GEN_STACK_DEEPER:lifo" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 185
+Info (12128): Elaborating entity "RegisterFile" for hierarchy "cpu_001:CPU|RegisterFile:RegFile" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 208
+Info (12128): Elaborating entity "Shifter" for hierarchy "cpu_001:CPU|Shifter:Shifter" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 234
+Info (12128): Elaborating entity "IOP_ROM" for hierarchy "cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 263
 Info (12128): Elaborating entity "altsyncram" for hierarchy "cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/IOP_ROM.vhd Line: 60
 Info (12130): Elaborated megafunction instantiation "cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/IOP_ROM.vhd Line: 60
 Info (12133): Instantiated megafunction "cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/IOP_ROM.vhd Line: 60
@@ -1617,15 +1617,16 @@ Info (12133): Instantiated megafunction "cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_dft3.tdf
     Info (12023): Found entity 1: altsyncram_dft3 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_dft3.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_dft3" for hierarchy "cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "GreyCode" for hierarchy "cpu_001:CPU|GreyCode:GreyCodeCounter" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 287
-Info (12128): Elaborating entity "ALU_Unit" for hierarchy "cpu_001:CPU|ALU_Unit:ALU_Unit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 295
-Info (12128): Elaborating entity "Loadable_7SD_3LED" for hierarchy "Loadable_7SD_3LED:sevSeg" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 196
+Critical Warning (127005): Memory depth (512) in the design file differs from memory depth (138) in the Memory Initialization File "C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_Code/Part9-1_Test1.mif" -- setting initial value for remaining addresses to 0 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/IOP_ROM.vhd Line: 60
+Info (12128): Elaborating entity "GreyCode" for hierarchy "cpu_001:CPU|GreyCode:GreyCodeCounter" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 308
+Info (12128): Elaborating entity "ALU_Unit" for hierarchy "cpu_001:CPU|ALU_Unit:ALU_Unit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 317
+Info (12128): Elaborating entity "Loadable_7SD_3LED" for hierarchy "Loadable_7SD_3LED:sevSeg" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 197
 Warning (10631): VHDL Process Statement warning at Loadable_7SD_3LED.vhd(69): inferring latch(es) for signal or variable "w_LED_BCD", which holds its previous value in one or more paths through the process File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
 Info (10041): Inferred latch for "w_LED_BCD[0]" at Loadable_7SD_3LED.vhd(69) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
 Info (10041): Inferred latch for "w_LED_BCD[1]" at Loadable_7SD_3LED.vhd(69) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
 Info (10041): Inferred latch for "w_LED_BCD[2]" at Loadable_7SD_3LED.vhd(69) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
 Info (10041): Inferred latch for "w_LED_BCD[3]" at Loadable_7SD_3LED.vhd(69) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
-Info (12128): Elaborating entity "ANSIDisplayVGA" for hierarchy "ANSIDisplayVGA:vdu" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 214
+Info (12128): Elaborating entity "ANSIDisplayVGA" for hierarchy "ANSIDisplayVGA:vdu" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 215
 Warning (10036): Verilog HDL or VHDL warning at ANSIDisplayVGA.vhd(112): object "func_reset" assigned a value but never read File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/ANSIDisplay/ANSIDisplayVGA.vhd Line: 112
 Info (12128): Elaborating entity "SansBoldRom" for hierarchy "ANSIDisplayVGA:vdu|SansBoldRom:\GEN_EXT_SCHARS:fontRom" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/ANSIDisplay/ANSIDisplayVGA.vhd Line: 219
 Info (12128): Elaborating entity "altsyncram" for hierarchy "ANSIDisplayVGA:vdu|SansBoldRom:\GEN_EXT_SCHARS:fontRom|altsyncram:altsyncram_component" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/ANSIDisplay/SansBoldRom.vhd Line: 60
@@ -1741,10 +1742,10 @@ Info (12133): Instantiated megafunction "ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2K
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ldr3.tdf
     Info (12023): Found entity 1: altsyncram_ldr3 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_ldr3.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_ldr3" for hierarchy "ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KRAM:dispCharRam|altsyncram:altsyncram_component|altsyncram_ldr3:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "bufferedUART" for hierarchy "bufferedUART:acia" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 240
-Info (12128): Elaborating entity "BaudRate6850" for hierarchy "BaudRate6850:BaudRateGen" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 257
-Info (12128): Elaborating entity "TimerUnit" for hierarchy "TimerUnit:timerUnit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 269
-Info (12128): Elaborating entity "SlowClock" for hierarchy "SlowClock:slowClock" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 285
+Info (12128): Elaborating entity "bufferedUART" for hierarchy "bufferedUART:acia" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 241
+Info (12128): Elaborating entity "BaudRate6850" for hierarchy "BaudRate6850:BaudRateGen" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 258
+Info (12128): Elaborating entity "TimerUnit" for hierarchy "TimerUnit:timerUnit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 270
+Info (12128): Elaborating entity "SlowClock" for hierarchy "SlowClock:slowClock" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 286
 Warning (276027): Inferred dual-clock RAM node "bufferedUART:acia|rxBuffer_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
 Warning (276027): Inferred dual-clock RAM node "cpu_001:CPU|lifo:\GEN_STACK_DEEPER:lifo|r_mem_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
 Info (19000): Inferred 2 megafunctions from design logic
@@ -1844,14 +1845,14 @@ Warning (14284): Synthesized away the following node(s):
         Warning (14320): Synthesized away node "cpu_001:CPU|lifo:\GEN_STACK_DEEPER:lifo|altsyncram:r_mem_rtl_0|altsyncram_2pd1:auto_generated|ram_block1a11" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_2pd1.tdf Line: 370
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
     Warning (13035): Inserted always-enabled tri-state buffer between "o_LED" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 27
-    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[3]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[4]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[5]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[6]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[7]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[8]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[9]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[10]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
+    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[3]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[4]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[5]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[6]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[7]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[8]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[9]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Warning (13035): Inserted always-enabled tri-state buffer between "io_J12[10]" and its non-tri-state driver. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
 Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "io_J12[29]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
     Warning (13040): bidirectional pin "io_J12[30]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
@@ -1879,33 +1880,33 @@ Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "io_J12[26]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
     Warning (13040): bidirectional pin "io_J12[27]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
     Warning (13040): bidirectional pin "io_J12[28]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
-    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
-    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
-    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
-    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
-    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
-    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
-    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
-    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
-    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
-    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
-    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
-    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
-    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
-    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
-    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
-    Warning (13040): bidirectional pin "e_mdio" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 74
+    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Warning (13040): bidirectional pin "e_mdio" has no driver File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 75
 Info (13060): One or more bidirectional pins are fed by always enabled tri-state buffers
     Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "o_LED" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 27
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[3]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[4]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[5]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[6]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[7]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[8]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[9]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[10]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[3]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[4]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[5]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[6]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[7]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[8]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[9]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "io_J12[10]" is moved to its source File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
 Warning (13012): Latch Loadable_7SD_3LED:sevSeg|w_LED_BCD[0] has unsafe behavior File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
     Warning (13013): Ports D and ENA on the latch are fed by the same signal Loadable_7SD_3LED:sevSeg|w_refresh_counter[19] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 61
 Warning (13012): Latch Loadable_7SD_3LED:sevSeg|w_LED_BCD[1] has unsafe behavior File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Periperals/Loadable_7SD_3LED.vhd Line: 69
@@ -1918,52 +1919,52 @@ Info (13000): Registers with preset signals will power-up high File: C:/Users/HP
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13009): TRI or OPNDRN buffers permanently enabled
     Warning (13010): Node "o_LED~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 27
-    Warning (13010): Node "io_J12[3]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Warning (13010): Node "io_J12[4]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Warning (13010): Node "io_J12[5]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Warning (13010): Node "io_J12[6]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Warning (13010): Node "io_J12[7]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Warning (13010): Node "io_J12[8]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Warning (13010): Node "io_J12[9]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
-    Warning (13010): Node "io_J12[10]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 179
+    Warning (13010): Node "io_J12[3]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Warning (13010): Node "io_J12[4]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Warning (13010): Node "io_J12[5]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Warning (13010): Node "io_J12[6]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Warning (13010): Node "io_J12[7]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Warning (13010): Node "io_J12[8]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Warning (13010): Node "io_J12[9]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
+    Warning (13010): Node "io_J12[10]~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 180
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "o_SMG_Data[7]" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 30
-    Warning (13410): Pin "DRAM_CS_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 48
-    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 49
-    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 50
-    Warning (13410): Pin "DRAM_CAS_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 51
-    Warning (13410): Pin "DRAM_RAS_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 52
-    Warning (13410): Pin "DRAM_WE_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 53
-    Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 54
-    Warning (13410): Pin "DRAM_LDQM" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 55
-    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 56
-    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 56
-    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
-    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
-    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
-    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
-    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
-    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
-    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
-    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
-    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
-    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
-    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
-    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
-    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
-    Warning (13410): Pin "e_mdc" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 68
-    Warning (13410): Pin "e_gtxc" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 69
-    Warning (13410): Pin "e_reset" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
-    Warning (13410): Pin "e_txen" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 71
-    Warning (13410): Pin "e_txer" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 72
-    Warning (13410): Pin "e_txd[0]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
-    Warning (13410): Pin "e_txd[1]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
-    Warning (13410): Pin "e_txd[2]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
-    Warning (13410): Pin "e_txd[3]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
-    Warning (13410): Pin "e_txd[4]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
-    Warning (13410): Pin "e_txd[5]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
-    Warning (13410): Pin "e_txd[6]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
-    Warning (13410): Pin "e_txd[7]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
+    Warning (13410): Pin "DRAM_CS_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 49
+    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 50
+    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 51
+    Warning (13410): Pin "DRAM_CAS_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 52
+    Warning (13410): Pin "DRAM_RAS_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 53
+    Warning (13410): Pin "DRAM_WE_N" is stuck at VCC File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 54
+    Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 55
+    Warning (13410): Pin "DRAM_LDQM" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 56
+    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 57
+    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 58
+    Warning (13410): Pin "e_mdc" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 69
+    Warning (13410): Pin "e_gtxc" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 70
+    Warning (13410): Pin "e_reset" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 71
+    Warning (13410): Pin "e_txen" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 72
+    Warning (13410): Pin "e_txer" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 73
+    Warning (13410): Pin "e_txd[0]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 74
+    Warning (13410): Pin "e_txd[1]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 74
+    Warning (13410): Pin "e_txd[2]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 74
+    Warning (13410): Pin "e_txd[3]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 74
+    Warning (13410): Pin "e_txd[4]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 74
+    Warning (13410): Pin "e_txd[5]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 74
+    Warning (13410): Pin "e_txd[6]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 74
+    Warning (13410): Pin "e_txd[7]" is stuck at GND File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 74
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 5 registers lost all their fanouts during netlist optimizations.
 Info (17016): Found the following redundant logic cells in design
@@ -1981,8 +1982,8 @@ Info (17016): Found the following redundant logic cells in design
     Info (17048): Logic cell "cpu_001:CPU|w_romData[6]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
     Info (17048): Logic cell "cpu_001:CPU|w_romData[5]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
     Info (17048): Logic cell "cpu_001:CPU|w_romData[4]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
-    Info (17048): Logic cell "cpu_001:CPU|w_romData[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
     Info (17048): Logic cell "cpu_001:CPU|w_romData[2]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|w_romData[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
     Info (17048): Logic cell "cpu_001:CPU|Shifter:Shifter|i_ShiftL0R1~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Shifter.vhd Line: 22
     Info (17048): Logic cell "cpu_001:CPU|Shifter:Shifter|i_ShiftCount[0]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Shifter.vhd Line: 23
     Info (17048): Logic cell "cpu_001:CPU|Shifter:Shifter|i_ShiftCount[2]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Shifter.vhd Line: 23
@@ -2007,28 +2008,28 @@ Info (17016): Found the following redundant logic cells in design
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 12 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "e_rxc" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 62
-    Warning (15610): No output dependent on input pin "e_rxdv" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 63
-    Warning (15610): No output dependent on input pin "e_rxer" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 64
-    Warning (15610): No output dependent on input pin "e_rxd[0]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
-    Warning (15610): No output dependent on input pin "e_rxd[1]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
-    Warning (15610): No output dependent on input pin "e_rxd[2]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
-    Warning (15610): No output dependent on input pin "e_rxd[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
-    Warning (15610): No output dependent on input pin "e_rxd[4]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
-    Warning (15610): No output dependent on input pin "e_rxd[5]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
-    Warning (15610): No output dependent on input pin "e_rxd[6]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
-    Warning (15610): No output dependent on input pin "e_rxd[7]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
-    Warning (15610): No output dependent on input pin "e_txc" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
-Info (21057): Implemented 1971 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "e_rxc" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 63
+    Warning (15610): No output dependent on input pin "e_rxdv" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 64
+    Warning (15610): No output dependent on input pin "e_rxer" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
+    Warning (15610): No output dependent on input pin "e_rxd[0]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
+    Warning (15610): No output dependent on input pin "e_rxd[1]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
+    Warning (15610): No output dependent on input pin "e_rxd[2]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
+    Warning (15610): No output dependent on input pin "e_rxd[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
+    Warning (15610): No output dependent on input pin "e_rxd[4]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
+    Warning (15610): No output dependent on input pin "e_rxd[5]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
+    Warning (15610): No output dependent on input pin "e_rxd[6]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
+    Warning (15610): No output dependent on input pin "e_rxd[7]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
+    Warning (15610): No output dependent on input pin "e_txc" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 67
+Info (21057): Implemented 1972 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 66 output pins
     Info (21060): Implemented 52 bidirectional pins
-    Info (21061): Implemented 1781 logic cells
+    Info (21061): Implemented 1782 logic cells
     Info (21064): Implemented 57 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 154 warnings
-    Info: Peak virtual memory: 4833 megabytes
-    Info: Processing ended: Fri Jul 16 10:43:40 2021
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:00:42
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 155 warnings
+    Info: Peak virtual memory: 4826 megabytes
+    Info: Processing ended: Fri Jul 16 15:18:11 2021
+    Info: Elapsed time: 00:00:30
+    Info: Total CPU time (on all processors): 00:00:50
 
 

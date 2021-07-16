@@ -86,8 +86,12 @@ ARCHITECTURE beh OF cpu_001 IS
 	signal w_serialLoopback		: std_logic;
 	signal w_segs					: std_logic_vector(7 downto 0);
 	
+	-- Stack
+	signal w_wrStack			: std_logic := '0';
+	signal w_rdStack			: std_logic := '0';
+	
 	-- State Machine
-	signal w_GreyCode				: std_logic_vector(1 downto 0);
+	signal w_GreyCode			: std_logic_vector(1 downto 0);
 	
 	-- ALU
 	signal w_ALUDataOut		: std_logic_vector(7 downto 0);
@@ -109,22 +113,35 @@ ARCHITECTURE beh OF cpu_001 IS
 	
 BEGIN
 
-	OP_ADI <= '1' when w_romData(15 downto 12) = ADI_OP else '0';
-	OP_CMP <= '1' when w_romData(15 downto 12) = CMP_OP else '0';
-	OP_LRI <= '1' when w_romData(15 downto 12) = LRI_OP else '0';
-	OP_SRI <= '1' when w_romData(15 downto 12) = SRI_OP else '0';
-	OP_XRI <= '1' when w_romData(15 downto 12) = XRI_OP else '0';	
-	OP_IOR <= '1' when w_romData(15 downto 12) = IOR_OP else '0';
-	OP_IOW <= '1' when w_romData(15 downto 12) = IOW_OP else '0';
-	OP_ARI <= '1' when w_romData(15 downto 12) = ARI_OP else '0';
-	OP_ORI <= '1' when w_romData(15 downto 12) = ORI_OP else '0';	
-	OP_JSR <= '1' when w_romData(15 downto 12) = JSR_OP else '0';
-	OP_RTS <= '1' when w_romData(15 downto 12) = RTS_OP else '0';
-	OP_BEZ <= '1' when w_romData(15 downto 12) = BEZ_OP else '0';
-	OP_BNZ <= '1' when w_romData(15 downto 12) = BNZ_OP else '0';
-	OP_JMP <= '1' when w_romData(15 downto 12) = JMP_OP else '0';
+	-- -----------------------------------------------------------------------------------------------------------------
+	-- Opcode decoderto
+	OP_SRI <= '1' when ((w_romData(15 downto 12) = OP3_OP) and (w_romData(4 downto 3) = "00")) else '0';		-- Shift/rotate instructions
+	OP_RTS <= '1' when ((w_romData(15 downto 12) = OP3_OP) and (w_romData(4 downto 3) = "01")) else '0';		-- Return from subroutine
 	
+	-- LRI/CMP
+	OP_LRI <= '1' when w_romData(15 downto 12) = LRI_OP else '0';		-- Load immediate to registet
+	OP_CMP <= '1' when w_romData(15 downto 12) = CMP_OP else '0';		-- Compare immediate to registet
+	
+	-- IO
+	OP_IOR <= '1' when w_romData(15 downto 12) = IOR_OP else '0';		-- I/O Read to register
+	OP_IOW <= '1' when w_romData(15 downto 12) = IOW_OP else '0';		-- I/O Write from register
+	
+	-- ALU operations
+	OP_XRI <= '1' when w_romData(15 downto 12) = XRI_OP else '0';		-- XOR immediate to registet
+	OP_ORI <= '1' when w_romData(15 downto 12) = ORI_OP else '0';		-- AND immediate to registet
+	OP_ARI <= '1' when w_romData(15 downto 12) = ARI_OP else '0';		-- AND immediate to registet
+	OP_ADI <= '1' when w_romData(15 downto 12) = ADI_OP else '0';		-- Add immediate to registet
+	
+	-- Flow Change
+	OP_JSR <= '1' when w_romData(15 downto 12) = JSR_OP else '0';		-- Jump to subroutine
+	OP_JMP <= '1' when w_romData(15 downto 12) = JMP_OP else '0';		-- Jump to address
+	OP_BEZ <= '1' when w_romData(15 downto 12) = BEZ_OP else '0';		-- Branch if equal to zero
+	OP_BNZ <= '1' when w_romData(15 downto 12) = BNZ_OP else '0';		-- Branch if not equal to zero
+		
+	-- -----------------------------------------------------------------------------------------------------------------
 	-- Program Counter
+	-- Up to 12-bits
+	-- FPGA compiler will optimize unused higher order bits depending on ROM size
 	progCtr : ENTITY work.ProgramCounter
 	PORT map
    (
@@ -144,12 +161,13 @@ BEGIN
 	w_loadPC <= '1' when ((w_GreyCode = "10") and (w_ldPCSel = '1')) else '0';
 	w_incPC	<= '1' when  (w_GreyCode = "10") else '0';
 	
-	-- LIFO - Return address stack (JSR writes, RTS reads)
+	-- -----------------------------------------------------------------------------------------------------------------
+	-- LIFO - Return address stack
+	-- JSR writes to stack, RTS reads from stack
+	-- Allowed STACK_DEPTH_PASS values are: 0, 1, >1
 	-- Single depth uses no memory
 	GEN_STACK_SINGLE : if (STACK_DEPTH_PASS = 1) generate
 	begin
-	-- Store the return address for JSR opcodes
-	-- Single level stack
 		returnAddress : PROCESS (i_clock)
 		BEGIN
 			IF rising_edge(i_clock) THEN
@@ -160,7 +178,7 @@ BEGIN
 		END PROCESS;
 	end generate GEN_STACK_SINGLE;
 
-	-- Deeper depth uses memory
+	-- Deeper depth (STACK_DEPTH_PASS > 1) uses FPGA memory
 	GEN_STACK_DEEPER : if (STACK_DEPTH_PASS > 1) generate
 	begin
 		pcPlus1 <= (w_ProgCtr + 1);				-- Next address past PC is the return address
@@ -170,19 +188,23 @@ BEGIN
 				g_DATA_WIDTH  => 12 						-- bit width of stored data
 			)
 			port map (
-				i_clk		=> i_clock, 			-- clock signal
-				i_rst		=> not i_resetN,		-- reset signal
+				i_clk		=> i_clock, 		-- clock signal
+				i_rst		=> not i_resetN,	-- reset signal
 				--
-				i_we   	=> (OP_JSR and w_GreyCode(1) and (not w_GreyCode(0))), -- write enable (push)
-				i_data 	=> pcPlus1,				-- written data
+				i_we   	=> w_wrStack, 		-- write enable (push)
+				i_data 	=> pcPlus1,			-- written data
 		--		o_full	=> ,
-				i_re		=> (OP_RTS and w_GreyCode(1) and w_GreyCode(0)), -- read enable (pop)
-				o_data  	=> w_rtnAddr			-- read data
-		--		o_empty :=>							-- empty LIFO indicator
+				i_re		=> w_rdStack, 		-- read enable (pop)
+				o_data  	=> w_rtnAddr		-- read data
+		--		o_empty :=>						-- empty LIFO indicator
 			);	
+		w_wrStack <= OP_JSR and w_GreyCode(1) and (not w_GreyCode(0));
+		w_rdStack <= OP_RTS and w_GreyCode(1) and      w_GreyCode(0);
 	end generate GEN_STACK_DEEPER;
 	
+	-- -----------------------------------------------------------------------------------------------------------------
 	-- Register File
+	-- Supports up to 16 of 8-bit registers
 	RegFile : ENTITY work.RegisterFile
 	PORT MAP (
 		i_clock		=> i_clock,
@@ -191,6 +213,7 @@ BEGIN
 		i_RegFData	=> w_regFIn,
 		o_RegFData	=> w_regFOut
 	);
+	-- Register File data in mux/select
 	w_regFIn <= i_peripDataToCPU 			when OP_IOR = '1' else
 					w_ALUDataOut				when OP_ARI = '1' else
 					w_ALUDataOut				when OP_ADI = '1' else
@@ -201,9 +224,13 @@ BEGIN
 					x"00";
 	-- Operations that load the Register File
 	w_ldRegFileSel <= OP_LRI or OP_IOR or OP_ARI or OP_ORI or OP_ADI or OP_SRI or OP_xRI;
-	w_ldRegF	<= '1' when ((w_GreyCode = "10") and (w_ldRegFileSel = '1')) else '0';
+	w_ldRegF			<= '1' when ((w_GreyCode = "10") and (w_ldRegFileSel = '1')) else '0';
 	
-	-- Shifter - Left/Right, Shift/Rotatte
+	-- -----------------------------------------------------------------------------------------------------------------
+	-- Shifter - Left/Right, Shift/Rotate
+	-- Logical/Arithmetic
+	-- Shift/rotate flag
+	-- Count (cuurently only support shift of 0x1)
 	Shifter : ENTITY work.Shifter
 	  PORT map (
 			-- Ins
@@ -217,16 +244,8 @@ BEGIN
 			-- Outs
 			o_DataOut		=> w_ShiftDataOut				-- Data Out
 		);	
-
---	-- ROM (max 4K words)
---	rom : ENTITY work.ROM_1KW
---	PORT map
---	(
---		clock		=> i_clock,
---		address	=> w_ProgCtr(8 downto 0),
---		q			=> w_romData
---	);
 	
+	-- -----------------------------------------------------------------------------------------------------------------
 	-- IO Processor ROM
 	GEN_256W_INST_ROM: if (INST_ROM_SIZE_PASS=256) generate
 		begin
@@ -283,7 +302,9 @@ BEGIN
 		);
 	end generate GEN_4KW_INST_ROM;
 	
-	-- Grey code counter
+	-- -----------------------------------------------------------------------------------------------------------------
+	-- Grey code counter - The main state machine
+	-- Counts 00 > 01 > 11 > 10
 	GreyCodeCounter : ENTITY work.GreyCode
 	  PORT  map (
 			i_clock		=> i_clock,
@@ -291,6 +312,7 @@ BEGIN
 			o_GreyCode	=> w_GreyCode
 		);
 		
+	-- -----------------------------------------------------------------------------------------------------------------
 	-- ALU Unit
 	ALU_Unit : ENTITY work.ALU_Unit
 	  PORT  MAP (
@@ -304,10 +326,12 @@ BEGIN
 			i_OP_XRI		=> OP_XRI,					-- XOR opcode
 			i_LatchZBit	=> w_GreyCode(1) and (not w_GreyCode(0)),
 			o_Z_Bit		=> w_ALUZBit,				-- Z bit from ALU
-			o_ALU_Out	=> w_ALUDataOut				-- Register file input mux
+			o_ALU_Out	=> w_ALUDataOut			-- Register file input mux
 		);
 
+	-- -----------------------------------------------------------------------------------------------------------------
 	-- Peripheral bus
+	-- Routed to the level above the CPU
 	o_peripAddr				<= w_romData(7 downto 0);
 	o_peripDataFromCPU	<= w_regFOut;
 	o_peripWr				<= '1' when ((w_GreyCode = "10")   and (OP_IOW = '1'))	else '0';

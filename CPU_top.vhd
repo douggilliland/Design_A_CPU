@@ -23,24 +23,25 @@ ENTITY CPU_top IS
   PORT 
   (
 		i_clock		: IN std_logic;		-- 50 MHz clock
-		i_resetN		: IN std_logic;		-- Reset PUSHBUTTON
-		o_LED			: INOUT std_logic;
+		i_resetN		: IN std_logic;		-- Reset Pushbutton - KEY0 on FPGA card
+		o_LED			: INOUT std_logic;	-- LED on FPGA card
 		
-		-- 3 Digits, 7 Segment Display
+		-- 3 Digits, 7 Segment Display on FPGA card
 		o_SMG_Data	: out std_logic_vector(7 downto 0);
 		o_Scan_Sig	: out std_logic_vector(2 downto 0);
 		
-		-- VGA - Mapped from 2:2:2 to 5:6:5
+		-- VGA - Mapped from 2:2:2 to 5:6:5 on FPGA card
 		o_vga_r		: out std_logic_vector(4 downto 0);
 		o_vga_g		: out std_logic_vector(5 downto 0);
 		o_vga_b		: out std_logic_vector(4 downto 0);
 		o_vga_hs		: OUT std_logic;
 		o_vga_vs		: OUT std_logic;
 		
-		-- J12
+		-- J12 on FPGA card
 		io_J12		: inout std_logic_vector(36 downto 3) := "00"&x"00000000";
 		
 		-- UART
+		-- USB-to-Serial - on FPGA card
 		i_uart_rx	: in std_logic := '1';
 		o_uart_tx	: OUT std_logic;
 		
@@ -78,9 +79,6 @@ END CPU_top;
 
 ARCHITECTURE beh OF CPU_top IS
 	
-	-- Slow clock signals
-	signal w_slowPulse			: std_logic;
-	
 	-- Reset debounce
 	signal w_resetClean_n		: std_logic;
 	
@@ -103,7 +101,7 @@ ARCHITECTURE beh OF CPU_top IS
 	signal w_UARTWr    			: std_logic;
 	signal W_UARTRd    			: std_logic;
 	
-	-- VGA
+	-- VDU - VGA
 	signal w_videoR				: std_logic_vector(1 downto 0);
 	signal w_videoG				: std_logic_vector(1 downto 0);
 	signal w_videoB				: std_logic_vector(1 downto 0);
@@ -118,6 +116,9 @@ ARCHITECTURE beh OF CPU_top IS
 	-- J12 Connectpr
 	signal w_io_J12				: std_logic_vector(36 downto 3);
 
+	-- Slow clock signals
+	signal w_slowPulse			: std_logic;
+	
 --	-- Signal Tap Logic Analyzer signals
 --	attribute syn_keep	: boolean;
 --	attribute syn_keep of w_peripAddr			: signal is true;

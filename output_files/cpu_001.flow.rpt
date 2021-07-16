@@ -1,5 +1,5 @@
 Flow report for cpu_001
-Fri Jul 16 10:45:26 2021
+Fri Jul 16 15:18:59 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Jul 16 10:45:19 2021       ;
+; Flow Status                        ; Successful - Fri Jul 16 15:18:50 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_001                                     ;
 ; Top-level Entity Name              ; CPU_top                                     ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE15F23C8                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 1,686 / 15,408 ( 11 % )                     ;
-;     Total combinational functions  ; 1,615 / 15,408 ( 10 % )                     ;
+; Total logic elements               ; 1,682 / 15,408 ( 11 % )                     ;
+;     Total combinational functions  ; 1,616 / 15,408 ( 10 % )                     ;
 ;     Dedicated logic registers      ; 512 / 15,408 ( 3 % )                        ;
 ; Total registers                    ; 512                                         ;
 ; Total pins                         ; 133 / 344 ( 39 % )                          ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/16/2021 10:43:17 ;
+; Start date & time ; 07/16/2021 15:17:43 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; cpu_001             ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589187.162644659706104         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 10995770589187.162646306207420         ; --            ; --          ; --         ;
 ; ENABLE_SIGNALTAP                    ; Off                                    ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
@@ -103,14 +103,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:23     ; 1.0                     ; 4833 MB             ; 00:00:42                           ;
-; Fitter               ; 00:00:19     ; 1.1                     ; 5539 MB             ; 00:00:26                           ;
+; Analysis & Synthesis ; 00:00:28     ; 1.0                     ; 4826 MB             ; 00:00:49                           ;
+; Fitter               ; 00:00:26     ; 1.1                     ; 5535 MB             ; 00:00:27                           ;
 ; Assembler            ; 00:00:02     ; 1.0                     ; 4690 MB             ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.3                     ; 4795 MB             ; 00:00:05                           ;
-; Fitter               ; 00:00:19     ; 1.1                     ; 5541 MB             ; 00:00:25                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4689 MB             ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.3                     ; 4795 MB             ; 00:00:05                           ;
-; Total                ; 00:01:14     ; --                      ; --                  ; 00:01:47                           ;
+; Timing Analyzer      ; 00:00:06     ; 1.4                     ; 4792 MB             ; 00:00:05                           ;
+; Total                ; 00:01:02     ; --                      ; --                  ; 00:01:23                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -123,9 +120,6 @@ https://fpgasoftware.intel.com/eula.
 ; Fitter               ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
 ; Assembler            ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
 ; Timing Analyzer      ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; DESKTOP-2UF8LNB  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -134,9 +128,6 @@ https://fpgasoftware.intel.com/eula.
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 quartus_fit --read_settings_files=off --write_settings_files=off cpu_001 -c cpu_001
-quartus_asm --read_settings_files=off --write_settings_files=off cpu_001 -c cpu_001
-quartus_sta cpu_001 -c cpu_001
-quartus_fit --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 quartus_asm --read_settings_files=off --write_settings_files=off cpu_001 -c cpu_001
 quartus_sta cpu_001 -c cpu_001
 

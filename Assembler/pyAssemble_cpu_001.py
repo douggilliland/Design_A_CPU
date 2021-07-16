@@ -93,8 +93,13 @@ class ControlClass:
 			return
 		defaultPath = myCSVFileReadClass.getLastPath()
 		defaultParmsClass.storeKeyValuePair('DEFAULT_PATH',defaultPath)
-		if inList[0] != ['LABEL', 'OPCODE', 'REG_LABEL', 'OFFSET_ADDR', 'COMMENT']:
-			errorDialog('Header does not match expected values\nSeecommand window')
+		if inList[0] != ['LABEL', 'OPCODE', 'REG_LABEL', 'OFFSET_ADDR', 'COMMENT','V3.0.0']:
+			if len(inList[0]) < 6:
+				errorDialog('Header does not match expected values\nSee command window\nProbably needs the version number added to the final column header')
+			elif inList[0][5] != 'V3.0.0':
+				errorDialog('Header does not match expected values\nSee command window\nCore rev s/b V3.0.0Should be ')
+			else:
+				errorDialog('Header does not match expected values\nSee command window')
 			print('header :',inList[0])
 			assert False,'header does not match expected values'
 		else:
@@ -123,10 +128,7 @@ class ControlClass:
 			# print(row)
 			row[1] = row[1].upper()
 			if row[1] != '':
-				if row[1] == 'NOP':
-					vecStr = '0x9800'  # ORI Reg8,0x00	
-					program.append(vecStr)
-				elif row[1] == 'SLL':
+				if row[1] == 'SLL':
 					if row[3] != '0X01':
 						assert False,'Only supports single shift'
 					vecStr = '0x3'
@@ -168,15 +170,16 @@ class ControlClass:
 					vecStr += row[2][-1]
 					vecStr += "C1"
 					program.append(vecStr)
-				elif row[1] == 'HLT':
-					vecStr = '0xE'
-					labelName = 'HLT_' + str(progCounter)
-					distance = labelsList[labelName]
-					distStr = self.calcOffsetString(distance)
-					vecStr += distStr
-					program.append(vecStr)
+				elif row[1] == 'RTS':
+					vecStr = '0x3008'
+					program.append(vecStr) 
 				elif row[1] == 'LRI':
-					vecStr = '0x2'
+					vecStr = '0x4'
+					vecStr += row[2][-1]
+					vecStr += row[3][-2:]
+					program.append(vecStr)
+				elif row[1] == 'CMP':
+					vecStr = '0x5'
 					vecStr += row[2][-1]
 					vecStr += row[3][-2:]
 					program.append(vecStr)
@@ -190,23 +193,8 @@ class ControlClass:
 					vecStr += row[2][-1]
 					vecStr += row[3][-2:]
 					program.append(vecStr)
-				elif row[1] == 'ARI':
-					vecStr = '0x8'
-					vecStr += row[2][-1]
-					vecStr += row[3][-2:]
-					program.append(vecStr)
 				elif row[1] == 'XRI':
-					vecStr = '0x4'
-					vecStr += row[2][-1]
-					vecStr += row[3][-2:]
-					program.append(vecStr)
-				elif row[1] == 'ADI':
-					vecStr = '0x0'
-					vecStr += row[2][-1]
-					vecStr += row[3][-2:]
-					program.append(vecStr)
-				elif row[1] == 'CMP':
-					vecStr = '0x1'
+					vecStr = '0x8'
 					vecStr += row[2][-1]
 					vecStr += row[3][-2:]
 					program.append(vecStr)
@@ -215,45 +203,62 @@ class ControlClass:
 					vecStr += row[2][-1]
 					vecStr += row[3][-2:]
 					program.append(vecStr)
-				elif row[1] == 'BEZ':
+				elif row[1] == 'NOP':	# Psuedo-Op
+					vecStr = '0x9800'  # ORI Reg8,0x00	
+					program.append(vecStr)
+				elif row[1] == 'ARI':
+					vecStr = '0xA'
+					vecStr += row[2][-1]
+					vecStr += row[3][-2:]
+					program.append(vecStr)
+				elif row[1] == 'ADI':
+					vecStr = '0xB'
+					vecStr += row[2][-1]
+					vecStr += row[3][-2:]
+					program.append(vecStr)
+				elif row[1] == 'HLT':
+					vecStr = '0xB'
+					labelName = 'HLT_' + str(progCounter)
+					distance = labelsList[labelName]
+					distStr = self.calcOffsetString(distance)
+					vecStr += distStr
+					program.append(vecStr)
+				elif row[1] == 'JSR':
 					vecStr = '0xC'
-					distance = labelsList[row[2]]
-					distStr = self.calcOffsetString(distance)
-					vecStr += distStr
-					program.append(vecStr)
-				elif row[1] == 'BEQ':
-					vecStr = '0xC'
-					distance = labelsList[row[2]]
-					distStr = self.calcOffsetString(distance)
-					vecStr += distStr
-					program.append(vecStr)
-				elif row[1] == 'BNZ':
-					vecStr = '0xD'
-					distance = labelsList[row[2]]
-					distStr = self.calcOffsetString(distance)
-					vecStr += distStr
-					program.append(vecStr)
-				elif row[1] == 'BEQ':
-					vecStr = '0xD'
 					distance = labelsList[row[2]]
 					distStr = self.calcOffsetString(distance)
 					vecStr += distStr
 					program.append(vecStr)
 				elif row[1] == 'JMP':
+					vecStr = '0xD'
+					distance = labelsList[row[2]]
+					distStr = self.calcOffsetString(distance)
+					vecStr += distStr
+					program.append(vecStr)
+				elif row[1] == 'BEZ':
 					vecStr = '0xE'
 					distance = labelsList[row[2]]
 					distStr = self.calcOffsetString(distance)
 					vecStr += distStr
 					program.append(vecStr)
-				elif row[1] == 'JSR':
-					vecStr = '0xA'
+				elif row[1] == 'BEQ':
+					vecStr = '0xE'
 					distance = labelsList[row[2]]
 					distStr = self.calcOffsetString(distance)
 					vecStr += distStr
 					program.append(vecStr)
-				elif row[1] == 'RTS':
-					vecStr = '0xB000'
-					program.append(vecStr) 
+				elif row[1] == 'BNZ':
+					vecStr = '0xF'
+					distance = labelsList[row[2]]
+					distStr = self.calcOffsetString(distance)
+					vecStr += distStr
+					program.append(vecStr)
+				elif row[1] == 'BNE':
+					vecStr = '0xF'
+					distance = labelsList[row[2]]
+					distStr = self.calcOffsetString(distance)
+					vecStr += distStr
+					program.append(vecStr)
 				else:
 					errorDialog('Bad instruction.\nSee command window') 
 					print('bad instr', row)

@@ -1,12 +1,12 @@
-Fitter Status : Successful - Fri Jul 16 10:45:15 2021
+Fitter Status : Successful - Fri Jul 16 15:18:40 2021
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : cpu_001
 Top-level Entity Name : CPU_top
 Family : Cyclone IV E
 Device : EP4CE15F23C8
 Timing Models : Final
-Total logic elements : 1,686 / 15,408 ( 11 % )
-    Total combinational functions : 1,615 / 15,408 ( 10 % )
+Total logic elements : 1,682 / 15,408 ( 11 % )
+    Total combinational functions : 1,616 / 15,408 ( 10 % )
     Dedicated logic registers : 512 / 15,408 ( 3 % )
 Total registers : 512
 Total pins : 133 / 344 ( 39 % )
