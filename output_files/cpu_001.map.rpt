@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu_001
-Sat Jul 17 09:56:47 2021
+Sat Jul 17 19:07:20 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -17,8 +17,8 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   9. Analysis & Synthesis IP Cores Summary
  10. State Machine - |CPU_top|bufferedUART:acia|txState
  11. State Machine - |CPU_top|bufferedUART:acia|rxState
- 12. State Machine - |CPU_top|ANSIDisplayVGA:vdu|dispState
- 13. State Machine - |CPU_top|ANSIDisplayVGA:vdu|escState
+ 12. State Machine - |CPU_top|ANSIDisplayVGA:vdu|escState
+ 13. State Machine - |CPU_top|ANSIDisplayVGA:vdu|dispState
  14. Registers Protected by Synthesis
  15. User-Specified and Inferred Latches
  16. Registers Removed During Synthesis
@@ -82,13 +82,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jul 17 09:56:47 2021       ;
+; Analysis & Synthesis Status        ; Successful - Sat Jul 17 19:07:20 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_001                                     ;
 ; Top-level Entity Name              ; CPU_top                                     ;
 ; Family                             ; Cyclone IV E                                ;
 ; Total logic elements               ; 1,831                                       ;
-;     Total combinational functions  ; 1,667                                       ;
+;     Total combinational functions  ; 1,668                                       ;
 ;     Dedicated logic registers      ; 542                                         ;
 ; Total registers                    ; 542                                         ;
 ; Total pins                         ; 133                                         ;
@@ -267,14 +267,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+---------------+
 ; Estimated Total logic elements              ; 1,831         ;
 ;                                             ;               ;
-; Total combinational functions               ; 1667          ;
+; Total combinational functions               ; 1668          ;
 ; Logic element usage by number of LUT inputs ;               ;
 ;     -- 4 input functions                    ; 760           ;
-;     -- 3 input functions                    ; 397           ;
-;     -- <=2 input functions                  ; 510           ;
+;     -- 3 input functions                    ; 396           ;
+;     -- <=2 input functions                  ; 512           ;
 ;                                             ;               ;
 ; Logic elements by mode                      ;               ;
-;     -- normal mode                          ; 1306          ;
+;     -- normal mode                          ; 1307          ;
 ;     -- arithmetic mode                      ; 361           ;
 ;                                             ;               ;
 ; Total registers                             ; 542           ;
@@ -288,8 +288,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;               ;
 ; Maximum fan-out node                        ; i_clock~input ;
 ; Maximum fan-out                             ; 551           ;
-; Total fan-out                               ; 7828          ;
-; Average fan-out                             ; 3.04          ;
+; Total fan-out                               ; 7852          ;
+; Average fan-out                             ; 3.05          ;
 +---------------------------------------------+---------------+
 
 
@@ -298,7 +298,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                             ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                       ; Entity Name         ; Library Name ;
 +--------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |CPU_top                                               ; 1667 (37)           ; 542 (29)                  ; 33040       ; 0            ; 0       ; 0         ; 133  ; 0            ; |CPU_top                                                                                                                                  ; CPU_top             ; work         ;
+; |CPU_top                                               ; 1668 (37)           ; 542 (29)                  ; 33040       ; 0            ; 0       ; 0         ; 133  ; 0            ; |CPU_top                                                                                                                                  ; CPU_top             ; work         ;
 ;    |ANSIDisplayVGA:vdu|                                ; 957 (779)           ; 203 (203)                 ; 24576       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|ANSIDisplayVGA:vdu                                                                                                               ; ANSIDisplayVGA      ; work         ;
 ;       |DisplayRam2K:\GEN_2KRAM:dispCharRam|            ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KRAM:dispCharRam                                                                           ; DisplayRam2K        ; work         ;
 ;          |altsyncram:altsyncram_component|             ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KRAM:dispCharRam|altsyncram:altsyncram_component                                           ; altsyncram          ; work         ;
@@ -321,7 +321,7 @@ https://fpgasoftware.intel.com/eula.
 ;    |bufferedUART:acia|                                 ; 128 (128)           ; 93 (93)                   ; 128         ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|bufferedUART:acia                                                                                                                ; bufferedUART        ; work         ;
 ;       |altsyncram:rxBuffer_rtl_0|                      ; 0 (0)               ; 0 (0)                     ; 128         ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|bufferedUART:acia|altsyncram:rxBuffer_rtl_0                                                                                      ; altsyncram          ; work         ;
 ;          |altsyncram_3ce1:auto_generated|              ; 0 (0)               ; 0 (0)                     ; 128         ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|bufferedUART:acia|altsyncram:rxBuffer_rtl_0|altsyncram_3ce1:auto_generated                                                       ; altsyncram_3ce1     ; work         ;
-;    |cpu_001:CPU|                                       ; 357 (155)           ; 80 (0)                    ; 8336        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU                                                                                                                      ; cpu_001             ; work         ;
+;    |cpu_001:CPU|                                       ; 356 (154)           ; 80 (0)                    ; 8336        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU                                                                                                                      ; cpu_001             ; work         ;
 ;       |ALU_Unit:ALU_Unit|                              ; 77 (77)             ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU|ALU_Unit:ALU_Unit                                                                                                    ; ALU_Unit            ; work         ;
 ;       |GreyCode:GreyCodeCounter|                       ; 1 (1)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU|GreyCode:GreyCodeCounter                                                                                             ; GreyCode            ; work         ;
 ;       |IOP_ROM:\GEN_512W_INST_ROM:IopRom|              ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom                                                                                    ; IOP_ROM             ; work         ;
@@ -333,7 +333,7 @@ https://fpgasoftware.intel.com/eula.
 ;       |lifo:\GEN_STACK_DEEPER:lifo|                    ; 13 (13)             ; 4 (4)                     ; 144         ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU|lifo:\GEN_STACK_DEEPER:lifo                                                                                          ; lifo                ; work         ;
 ;          |altsyncram:r_mem_rtl_0|                      ; 0 (0)               ; 0 (0)                     ; 144         ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU|lifo:\GEN_STACK_DEEPER:lifo|altsyncram:r_mem_rtl_0                                                                   ; altsyncram          ; work         ;
 ;             |altsyncram_2pd1:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 144         ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|cpu_001:CPU|lifo:\GEN_STACK_DEEPER:lifo|altsyncram:r_mem_rtl_0|altsyncram_2pd1:auto_generated                                    ; altsyncram_2pd1     ; work         ;
-;    |gpio:gpio|                                         ; 22 (22)             ; 30 (30)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|gpio:gpio                                                                                                                        ; gpio                ; work         ;
+;    |gpio:gpio|                                         ; 24 (24)             ; 30 (30)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU_top|gpio:gpio                                                                                                                        ; gpio                ; work         ;
 +--------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -385,30 +385,6 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |CPU_top|ANSIDisplayVGA:vdu|dispState                                                                                                                                                                                                                                                                                  ;
-+-----------------------+----------------+----------------+----------------------+----------------+----------------+----------------------+-------------------+---------------------+-------------------+-----------------------+-------------------+---------------------+-----------------------+---------------------+----------------+
-; Name                  ; dispState.del3 ; dispState.del2 ; dispState.deleteLine ; dispState.ins3 ; dispState.ins2 ; dispState.insertLine ; dispState.clearC2 ; dispState.clearChar ; dispState.clearS2 ; dispState.clearScreen ; dispState.clearL2 ; dispState.clearLine ; dispState.dispNextLoc ; dispState.dispWrite ; dispState.idle ;
-+-----------------------+----------------+----------------+----------------------+----------------+----------------+----------------------+-------------------+---------------------+-------------------+-----------------------+-------------------+---------------------+-----------------------+---------------------+----------------+
-; dispState.idle        ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0                     ; 0                 ; 0                   ; 0                     ; 0                   ; 0              ;
-; dispState.dispWrite   ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0                     ; 0                 ; 0                   ; 0                     ; 1                   ; 1              ;
-; dispState.dispNextLoc ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0                     ; 0                 ; 0                   ; 1                     ; 0                   ; 1              ;
-; dispState.clearLine   ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0                     ; 0                 ; 1                   ; 0                     ; 0                   ; 1              ;
-; dispState.clearL2     ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0                     ; 1                 ; 0                   ; 0                     ; 0                   ; 1              ;
-; dispState.clearScreen ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 1                     ; 0                 ; 0                   ; 0                     ; 0                   ; 1              ;
-; dispState.clearS2     ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 1                 ; 0                     ; 0                 ; 0                   ; 0                     ; 0                   ; 1              ;
-; dispState.clearChar   ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 1                   ; 0                 ; 0                     ; 0                 ; 0                   ; 0                     ; 0                   ; 1              ;
-; dispState.clearC2     ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 1                 ; 0                   ; 0                 ; 0                     ; 0                 ; 0                   ; 0                     ; 0                   ; 1              ;
-; dispState.insertLine  ; 0              ; 0              ; 0                    ; 0              ; 0              ; 1                    ; 0                 ; 0                   ; 0                 ; 0                     ; 0                 ; 0                   ; 0                     ; 0                   ; 1              ;
-; dispState.ins2        ; 0              ; 0              ; 0                    ; 0              ; 1              ; 0                    ; 0                 ; 0                   ; 0                 ; 0                     ; 0                 ; 0                   ; 0                     ; 0                   ; 1              ;
-; dispState.ins3        ; 0              ; 0              ; 0                    ; 1              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0                     ; 0                 ; 0                   ; 0                     ; 0                   ; 1              ;
-; dispState.deleteLine  ; 0              ; 0              ; 1                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0                     ; 0                 ; 0                   ; 0                     ; 0                   ; 1              ;
-; dispState.del2        ; 0              ; 1              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0                     ; 0                 ; 0                   ; 0                     ; 0                   ; 1              ;
-; dispState.del3        ; 1              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0                     ; 0                 ; 0                   ; 0                     ; 0                   ; 1              ;
-+-----------------------+----------------+----------------+----------------------+----------------+----------------+----------------------+-------------------+---------------------+-------------------+-----------------------+-------------------+---------------------+-----------------------+---------------------+----------------+
-
-
-Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------------------------------------------------------------------------+
 ; State Machine - |CPU_top|ANSIDisplayVGA:vdu|escState                                                                                                ;
 +-------------------------------------+-------------------------------------+---------------------------+-----------------------------+---------------+
@@ -419,6 +395,30 @@ Encoding Type:  One-Hot
 ; escState.processingParams           ; 0                                   ; 1                         ; 0                           ; 1             ;
 ; escState.processingAdditionalParams ; 1                                   ; 0                         ; 0                           ; 1             ;
 +-------------------------------------+-------------------------------------+---------------------------+-----------------------------+---------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |CPU_top|ANSIDisplayVGA:vdu|dispState                                                                                                                                                                                                                                                                                  ;
++-----------------------+----------------+----------------+----------------------+----------------+----------------+----------------------+-------------------+---------------------+-------------------+----------------+-------------------+---------------------+-----------------------+---------------------+-----------------------+
+; Name                  ; dispState.del3 ; dispState.del2 ; dispState.deleteLine ; dispState.ins3 ; dispState.ins2 ; dispState.insertLine ; dispState.clearC2 ; dispState.clearChar ; dispState.clearS2 ; dispState.idle ; dispState.clearL2 ; dispState.clearLine ; dispState.dispNextLoc ; dispState.dispWrite ; dispState.clearScreen ;
++-----------------------+----------------+----------------+----------------------+----------------+----------------+----------------------+-------------------+---------------------+-------------------+----------------+-------------------+---------------------+-----------------------+---------------------+-----------------------+
+; dispState.clearScreen ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0              ; 0                 ; 0                   ; 0                     ; 0                   ; 0                     ;
+; dispState.dispWrite   ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0              ; 0                 ; 0                   ; 0                     ; 1                   ; 1                     ;
+; dispState.dispNextLoc ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0              ; 0                 ; 0                   ; 1                     ; 0                   ; 1                     ;
+; dispState.clearLine   ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0              ; 0                 ; 1                   ; 0                     ; 0                   ; 1                     ;
+; dispState.clearL2     ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0              ; 1                 ; 0                   ; 0                     ; 0                   ; 1                     ;
+; dispState.idle        ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 1              ; 0                 ; 0                   ; 0                     ; 0                   ; 1                     ;
+; dispState.clearS2     ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 1                 ; 0              ; 0                 ; 0                   ; 0                     ; 0                   ; 1                     ;
+; dispState.clearChar   ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 1                   ; 0                 ; 0              ; 0                 ; 0                   ; 0                     ; 0                   ; 1                     ;
+; dispState.clearC2     ; 0              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 1                 ; 0                   ; 0                 ; 0              ; 0                 ; 0                   ; 0                     ; 0                   ; 1                     ;
+; dispState.insertLine  ; 0              ; 0              ; 0                    ; 0              ; 0              ; 1                    ; 0                 ; 0                   ; 0                 ; 0              ; 0                 ; 0                   ; 0                     ; 0                   ; 1                     ;
+; dispState.ins2        ; 0              ; 0              ; 0                    ; 0              ; 1              ; 0                    ; 0                 ; 0                   ; 0                 ; 0              ; 0                 ; 0                   ; 0                     ; 0                   ; 1                     ;
+; dispState.ins3        ; 0              ; 0              ; 0                    ; 1              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0              ; 0                 ; 0                   ; 0                     ; 0                   ; 1                     ;
+; dispState.deleteLine  ; 0              ; 0              ; 1                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0              ; 0                 ; 0                   ; 0                     ; 0                   ; 1                     ;
+; dispState.del2        ; 0              ; 1              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0              ; 0                 ; 0                   ; 0                     ; 0                   ; 1                     ;
+; dispState.del3        ; 1              ; 0              ; 0                    ; 0              ; 0              ; 0                    ; 0                 ; 0                   ; 0                 ; 0              ; 0                 ; 0                   ; 0                     ; 0                   ; 1                     ;
++-----------------------+----------------+----------------+----------------------+----------------+----------------+----------------------+-------------------+---------------------+-------------------+----------------+-------------------+---------------------+-----------------------+---------------------+-----------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -470,9 +470,9 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Total registers                              ; 542   ;
 ; Number of registers using Synchronous Clear  ; 163   ;
 ; Number of registers using Synchronous Load   ; 35    ;
-; Number of registers using Asynchronous Clear ; 98    ;
+; Number of registers using Asynchronous Clear ; 140   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 379   ;
+; Number of registers using Clock Enable       ; 361   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -482,7 +482,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; Debouncer:debounceReset|o_PinOut       ; 111     ;
+; Debouncer:debounceReset|o_PinOut       ; 131     ;
 ; ANSIDisplayVGA:vdu|cursorOn            ; 1       ;
 ; ANSIDisplayVGA:vdu|dispAttWRData[3]    ; 13      ;
 ; ANSIDisplayVGA:vdu|dispAttWRData[0]    ; 5       ;
@@ -508,49 +508,49 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|charVert[1]                        ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|param4[2]                          ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|charHoriz[4]                       ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|pixelCount[1]                      ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|bufferedUART:acia|dataOut[3]                          ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |CPU_top|bufferedUART:acia|dataOut[1]                          ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|charVert[0]                        ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|param4[3]                          ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|charHoriz[6]                       ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|pixelCount[2]                      ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|bufferedUART:acia|dataOut[2]                          ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |CPU_top|bufferedUART:acia|dataOut[0]                          ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|pixelClockCount[3]                 ;
 ; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|param1[2]                          ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|param2[1]                          ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|param3[6]                          ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |CPU_top|cpu_001:CPU|lifo:\GEN_STACK_DEEPER:lifo|r_wr_index[1] ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|charScanLine[0]                    ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|TimerUnit:timerUnit|w_countSecs[7]                    ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |CPU_top|bufferedUART:acia|rxClockCount[0]                     ;
-; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |CPU_top|cpu_001:CPU|ProgramCounter:progCtr|w_progCtr[4]       ;
-; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |CPU_top|TimerUnit:timerUnit|w_countmSecs[2]                   ;
-; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |CPU_top|TimerUnit:timerUnit|w_countuSecs[0]                   ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |CPU_top|TimerUnit:timerUnit|prescalerUSec[1]                  ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |CPU_top|bufferedUART:acia|rxBitCount[1]                       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|param2[0]                          ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|param3[2]                          ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |CPU_top|cpu_001:CPU|lifo:\GEN_STACK_DEEPER:lifo|r_wr_index[2] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|charScanLine[3]                    ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|TimerUnit:timerUnit|w_countSecs[4]                    ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |CPU_top|bufferedUART:acia|rxClockCount[5]                     ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |CPU_top|cpu_001:CPU|ProgramCounter:progCtr|w_progCtr[1]       ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |CPU_top|TimerUnit:timerUnit|w_countmSecs[5]                   ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |CPU_top|TimerUnit:timerUnit|w_countuSecs[6]                   ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |CPU_top|TimerUnit:timerUnit|prescalerUSec[5]                  ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |CPU_top|bufferedUART:acia|rxBitCount[0]                       ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |CPU_top|bufferedUART:acia|txBitCount[2]                       ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |CPU_top|bufferedUART:acia|txBuffer[3]                         ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|dispCharWRData[5]                  ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |CPU_top|bufferedUART:acia|txClockCount[0]                     ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|videoB1                            ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|startAddr[10]                      ;
-; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|videoG0                            ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |CPU_top|bufferedUART:acia|txBuffer[0]                         ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|dispCharWRData[6]                  ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |CPU_top|bufferedUART:acia|txClockCount[5]                     ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|videoG1                            ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|startAddr[6]                       ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|videoB0                            ;
 ; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|paramCount[0]                      ;
-; 12:1               ; 7 bits    ; 56 LEs        ; 7 LEs                ; 49 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|cursorHorizRestore[0]              ;
-; 13:1               ; 5 bits    ; 40 LEs        ; 5 LEs                ; 35 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|cursorVertRestore[4]               ;
-; 35:1               ; 7 bits    ; 161 LEs       ; 77 LEs               ; 84 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|cursorHoriz[4]                     ;
+; 12:1               ; 7 bits    ; 56 LEs        ; 7 LEs                ; 49 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|cursorHorizRestore[6]              ;
+; 13:1               ; 5 bits    ; 40 LEs        ; 5 LEs                ; 35 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|cursorVertRestore[2]               ;
+; 35:1               ; 7 bits    ; 161 LEs       ; 77 LEs               ; 84 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|cursorHoriz[3]                     ;
 ; 41:1               ; 2 bits    ; 54 LEs        ; 24 LEs               ; 30 LEs                 ; Yes        ; |CPU_top|ANSIDisplayVGA:vdu|cursorVert[2]                      ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |CPU_top|Loadable_7SD_3LED:sevSeg|Mux14                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |CPU_top|Loadable_7SD_3LED:sevSeg|Mux10                        ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |CPU_top|ANSIDisplayVGA:vdu|paramCount                         ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |CPU_top|ANSIDisplayVGA:vdu|dispState                          ;
 ; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |CPU_top|cpu_001:CPU|Shifter:Shifter|o_DataOut                 ;
-; 9:1                ; 7 bits    ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; No         ; |CPU_top|cpu_001:CPU|RegisterFile:RegFile|o_RegFData[1]        ;
+; 9:1                ; 7 bits    ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; No         ; |CPU_top|cpu_001:CPU|RegisterFile:RegFile|o_RegFData[4]        ;
 ; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; No         ; |CPU_top|cpu_001:CPU|ALU_Unit:ALU_Unit|o_ALU_Out               ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |CPU_top|ANSIDisplayVGA:vdu|escState.waitForLeftBracket        ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |CPU_top|ANSIDisplayVGA:vdu|escState.none                      ;
 ; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |CPU_top|bufferedUART:acia|txState.idle                        ;
 ; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |CPU_top|bufferedUART:acia|rxState.dataBit                     ;
 ; 9:1                ; 9 bits    ; 54 LEs        ; 9 LEs                ; 45 LEs                 ; No         ; |CPU_top|ANSIDisplayVGA:vdu|dispState                          ;
-; 20:1               ; 3 bits    ; 39 LEs        ; 27 LEs               ; 12 LEs                 ; No         ; |CPU_top|cpu_001:CPU|w_regFIn[6]                               ;
+; 20:1               ; 3 bits    ; 39 LEs        ; 27 LEs               ; 12 LEs                 ; No         ; |CPU_top|cpu_001:CPU|w_regFIn[5]                               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
 
 
@@ -1339,31 +1339,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; boundary_port         ; 133                         ;
 ; cycloneiii_ff         ; 542                         ;
-;     CLR               ; 43                          ;
-;     ENA               ; 217                         ;
-;     ENA CLR           ; 37                          ;
+;     CLR               ; 66                          ;
+;     ENA               ; 180                         ;
+;     ENA CLR           ; 56                          ;
 ;     ENA CLR SCLR      ; 18                          ;
 ;     ENA SCLR          ; 80                          ;
 ;     ENA SCLR SLD      ; 24                          ;
 ;     ENA SLD           ; 3                           ;
 ;     SCLR              ; 41                          ;
 ;     SLD               ; 8                           ;
-;     plain             ; 71                          ;
+;     plain             ; 66                          ;
 ; cycloneiii_io_obuf    ; 52                          ;
-; cycloneiii_lcell_comb ; 1670                        ;
+; cycloneiii_lcell_comb ; 1671                        ;
 ;     arith             ; 361                         ;
 ;         2 data inputs ; 224                         ;
 ;         3 data inputs ; 137                         ;
-;     normal            ; 1309                        ;
+;     normal            ; 1310                        ;
 ;         0 data inputs ; 17                          ;
-;         1 data inputs ; 78                          ;
-;         2 data inputs ; 194                         ;
-;         3 data inputs ; 260                         ;
+;         1 data inputs ; 79                          ;
+;         2 data inputs ; 195                         ;
+;         3 data inputs ; 259                         ;
 ;         4 data inputs ; 760                         ;
 ; cycloneiii_ram_block  ; 49                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 12.00                       ;
-; Average LUT depth     ; 5.93                        ;
+; Average LUT depth     ; 5.90                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1372,7 +1372,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:08     ;
+; Top            ; 00:00:10     ;
 +----------------+--------------+
 
 
@@ -1382,7 +1382,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sat Jul 17 09:56:24 2021
+    Info: Processing started: Sat Jul 17 19:06:54 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1669,11 +1669,11 @@ Info (12133): Instantiated megafunction "ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2K
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ldr3.tdf
     Info (12023): Found entity 1: altsyncram_ldr3 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_ldr3.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_ldr3" for hierarchy "ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KRAM:dispCharRam|altsyncram:altsyncram_component|altsyncram_ldr3:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "bufferedUART" for hierarchy "bufferedUART:acia" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 267
-Info (12128): Elaborating entity "BaudRate6850" for hierarchy "BaudRate6850:BaudRateGen" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 284
-Info (12128): Elaborating entity "TimerUnit" for hierarchy "TimerUnit:timerUnit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 296
-Info (12128): Elaborating entity "gpio" for hierarchy "gpio:gpio" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 313
-Info (12128): Elaborating entity "SlowClock" for hierarchy "SlowClock:slowClock" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 367
+Info (12128): Elaborating entity "bufferedUART" for hierarchy "bufferedUART:acia" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 270
+Info (12128): Elaborating entity "BaudRate6850" for hierarchy "BaudRate6850:BaudRateGen" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 287
+Info (12128): Elaborating entity "TimerUnit" for hierarchy "TimerUnit:timerUnit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 299
+Info (12128): Elaborating entity "gpio" for hierarchy "gpio:gpio" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 316
+Info (12128): Elaborating entity "SlowClock" for hierarchy "SlowClock:slowClock" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 370
 Warning (276027): Inferred dual-clock RAM node "bufferedUART:acia|rxBuffer_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
 Warning (276027): Inferred dual-clock RAM node "cpu_001:CPU|lifo:\GEN_STACK_DEEPER:lifo|r_mem_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
 Info (19000): Inferred 2 megafunctions from design logic
@@ -1843,7 +1843,7 @@ Warning (13012): Latch Loadable_7SD_3LED:sevSeg|w_LED_BCD[2] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal Loadable_7SD_3LED:sevSeg|w_refresh_counter[19] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/SevenSegs/Seven_Seg_3_Digits/Loadable_7SD_3LED.vhd Line: 61
 Warning (13012): Latch Loadable_7SD_3LED:sevSeg|w_LED_BCD[3] has unsafe behavior File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/SevenSegs/Seven_Seg_3_Digits/Loadable_7SD_3LED.vhd Line: 69
     Warning (13013): Ports D and ENA on the latch are fed by the same signal Loadable_7SD_3LED:sevSeg|w_refresh_counter[19] File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/SevenSegs/Seven_Seg_3_Digits/Loadable_7SD_3LED.vhd Line: 61
-Info (13000): Registers with preset signals will power-up high File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/ANSIDisplayVGA.vhd Line: 540
+Info (13000): Registers with preset signals will power-up high File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/ANSIDisplayVGA.vhd Line: 539
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13009): TRI or OPNDRN buffers permanently enabled
     Warning (13010): Node "o_LED~synth" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 27
@@ -1912,15 +1912,15 @@ Info (17016): Found the following redundant logic cells in design
     Info (17048): Logic cell "cpu_001:CPU|w_romData[4]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
     Info (17048): Logic cell "cpu_001:CPU|w_romData[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
     Info (17048): Logic cell "cpu_001:CPU|w_romData[2]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 60
+    Info (17048): Logic cell "cpu_001:CPU|Shifter:Shifter|i_ShiftL0R1~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Shifter.vhd Line: 22
+    Info (17048): Logic cell "cpu_001:CPU|Shifter:Shifter|i_ShiftCount[0]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Shifter.vhd Line: 23
+    Info (17048): Logic cell "cpu_001:CPU|Shifter:Shifter|i_ShiftCount[2]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Shifter.vhd Line: 23
+    Info (17048): Logic cell "cpu_001:CPU|Shifter:Shifter|i_ShiftCount[1]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Shifter.vhd Line: 23
     Info (17048): Logic cell "cpu_001:CPU|ALU_Unit:ALU_Unit|i_ALU_B_In[4]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 14
     Info (17048): Logic cell "cpu_001:CPU|ALU_Unit:ALU_Unit|i_ALU_B_In[3]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 14
     Info (17048): Logic cell "cpu_001:CPU|ALU_Unit:ALU_Unit|i_ALU_B_In[2]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 14
     Info (17048): Logic cell "cpu_001:CPU|ALU_Unit:ALU_Unit|i_ALU_B_In[1]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 14
     Info (17048): Logic cell "cpu_001:CPU|ALU_Unit:ALU_Unit|i_ALU_B_In[0]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/ALU.vhd Line: 14
-    Info (17048): Logic cell "cpu_001:CPU|Shifter:Shifter|i_ShiftL0R1~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Shifter.vhd Line: 22
-    Info (17048): Logic cell "cpu_001:CPU|Shifter:Shifter|i_ShiftCount[0]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Shifter.vhd Line: 23
-    Info (17048): Logic cell "cpu_001:CPU|Shifter:Shifter|i_ShiftCount[2]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Shifter.vhd Line: 23
-    Info (17048): Logic cell "cpu_001:CPU|Shifter:Shifter|i_ShiftCount[1]~buf0" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Shifter.vhd Line: 23
     Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[1]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 45
     Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[2]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 45
     Info (17048): Logic cell "cpu_001:CPU|w_ProgCtr[3]" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 45
@@ -1955,9 +1955,9 @@ Info (21057): Implemented 2035 device resources after synthesis - the final reso
     Info (21061): Implemented 1853 logic cells
     Info (21064): Implemented 49 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 161 warnings
-    Info: Peak virtual memory: 4833 megabytes
-    Info: Processing ended: Sat Jul 17 09:56:47 2021
-    Info: Elapsed time: 00:00:23
-    Info: Total CPU time (on all processors): 00:00:44
+    Info: Peak virtual memory: 4824 megabytes
+    Info: Processing ended: Sat Jul 17 19:07:20 2021
+    Info: Elapsed time: 00:00:26
+    Info: Total CPU time (on all processors): 00:00:46
 
 

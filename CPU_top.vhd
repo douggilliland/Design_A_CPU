@@ -8,8 +8,8 @@
 --		UART (USB/Serial)
 --		Timer Unit
 --		3 digit Seven Segment LED
---		Pushbutton
---		LED
+--		KEY0 pushbutton used as reset
+--		LED0
 
 -- Library boilerplates
 LIBRARY ieee;
@@ -24,7 +24,7 @@ ENTITY CPU_top IS
   (
 		i_clock		: IN std_logic;		-- 50 MHz clock
 		i_resetN		: IN std_logic;		-- Reset Pushbutton - KEY0 on FPGA card
-		o_LED			: INOUT std_logic;	-- LED on FPGA card
+		o_LED			: INOUT std_logic;	-- LED0 on FPGA card
 		
 		-- 3 Digits, 7 Segment Display on FPGA card
 		o_SMG_Data	: out std_logic_vector(7 downto 0);		-- 7 segments plus decimal point

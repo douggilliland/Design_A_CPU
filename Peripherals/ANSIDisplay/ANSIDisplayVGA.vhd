@@ -398,7 +398,6 @@ end generate GEN_NO_ATTRAM;
 						videoG1 <= dispAttWRData(1);
 						videoB1 <= dispAttWRData(2);
 
---						video <= '1'; -- Monochrome video out
 					else
 						if charData(7-to_integer(unsigned(pixelCount))) = '1' then
 						-- Foreground
@@ -539,6 +538,13 @@ end generate GEN_NO_ATTRAM;
 	begin
 		if n_reset='0' then
 			dispAttWRData <= DEFAULT_ATT;
+			-- Added screen clear
+			cursorVert <= 0;
+			cursorHoriz <= 0;
+			cursorVertRestore <= 0;
+			cursorHorizRestore <= 0;
+			dispState <= clearScreen;
+			paramCount<=0;
 		elsif rising_edge(clk) then
 			case dispState is
 			when idle =>
