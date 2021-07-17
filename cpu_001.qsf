@@ -254,19 +254,21 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[6]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[7]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[8]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_RAS_N
+set_global_assignment -name VHDL_FILE Peripherals/SevenSegs/Seven_Seg_3_Digits/Loadable_7SD_3LED.vhd
+set_global_assignment -name VHDL_FILE Peripherals/UART/bufferedUART.vhd
+set_global_assignment -name VHDL_FILE Peripherals/UART/BaudRate6850.vhd
+set_global_assignment -name VHDL_FILE Peripherals/SlowClock.vhd
+set_global_assignment -name VHDL_FILE Peripherals/IOP16_Timer_Unit/TimerUnit.vhd
+set_global_assignment -name VHDL_FILE Peripherals/ANSIDisplay/SansBoldRomReduced.vhd
+set_global_assignment -name VHDL_FILE Peripherals/ANSIDisplay/SansBoldRom.vhd
+set_global_assignment -name VHDL_FILE Peripherals/ANSIDisplay/DisplayRam2K.vhd
+set_global_assignment -name VHDL_FILE Peripherals/ANSIDisplay/DisplayRam1K.vhd
+set_global_assignment -name VHDL_FILE Peripherals/ANSIDisplay/CGABoldRomReduced.vhd
+set_global_assignment -name VHDL_FILE Peripherals/ANSIDisplay/CGABoldRom.vhd
+set_global_assignment -name VHDL_FILE Peripherals/ANSIDisplay/ANSIDisplayVGA.vhd
+set_global_assignment -name VHDL_FILE Peripherals/GPIO/gpio.vhd
 set_global_assignment -name VHDL_FILE Debounce.vhd
 set_global_assignment -name VHDL_FILE lifo.vhd
-set_global_assignment -name VHDL_FILE Periperals/ANSIDisplay/SansBoldRomReduced.vhd
-set_global_assignment -name VHDL_FILE Periperals/ANSIDisplay/SansBoldRom.vhd
-set_global_assignment -name VHDL_FILE Periperals/ANSIDisplay/DisplayRam2K.vhd
-set_global_assignment -name VHDL_FILE Periperals/ANSIDisplay/DisplayRam1K.vhd
-set_global_assignment -name VHDL_FILE Periperals/ANSIDisplay/CGABoldRomReduced.vhd
-set_global_assignment -name VHDL_FILE Periperals/ANSIDisplay/CGABoldRom.vhd
-set_global_assignment -name VHDL_FILE Periperals/ANSIDisplay/ANSIDisplayVGA.vhd
-set_global_assignment -name VHDL_FILE Periperals/IOP16_Timer_Unit/TimerUnit.vhd
-set_global_assignment -name VHDL_FILE Periperals/SlowClock.vhd
-set_global_assignment -name VHDL_FILE Periperals/UART/bufferedUART.vhd
-set_global_assignment -name VHDL_FILE Periperals/UART/BaudRate6850.vhd
 set_global_assignment -name VHDL_FILE cpu_001.vhd
 set_global_assignment -name VHDL_FILE ProgramCounter.vhd
 set_global_assignment -name VHDL_FILE RegisterFile.vhd
@@ -274,7 +276,6 @@ set_global_assignment -name VHDL_FILE GreyCode.vhd
 set_global_assignment -name SIGNALTAP_FILE output_files/cpu_002_Part8.stp
 set_global_assignment -name VHDL_FILE ALU.vhd
 set_global_assignment -name SIGNALTAP_FILE output_files/cpu_002_Part9.stp
-set_global_assignment -name VHDL_FILE Periperals/Loadable_7SD_3LED.vhd
 set_global_assignment -name VHDL_FILE CPU_top.vhd
 set_global_assignment -name VHDL_FILE Shifter.vhd
 set_global_assignment -name QIP_FILE IOP_ROM.qip
