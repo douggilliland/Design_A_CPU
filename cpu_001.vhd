@@ -1,6 +1,6 @@
 -- ---------------------------------------------------------------------------------------------------------
--- File: cpu_001.vhd
--- Was: IOP16
+-- File: cpu_001.vhd  (Was: IOP16)
+--		https://github.com/douggilliland/Design_A_CPU
 --	
 -- Author: Doug Gilliland
 -- 

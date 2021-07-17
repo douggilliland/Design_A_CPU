@@ -224,16 +224,19 @@ BEGIN
 
 	W_VDUWr <= '1' when ((w_peripAddr(7 downto 1) = "0000011") and (w_peripWr = '1')) else '0';
 	W_VDURd <= '1' when ((w_peripAddr(7 downto 1) = "0000011") and (w_peripRd = '1')) else '0';
-	
+	-- Resource usage can be reduced by changing the generics below
 	-- EXTENDED_CHARSET=0, COLOUR_ATTS_ENABLED=0 - Uses 3 M9K blocks
 	-- EXTENDED_CHARSET=1, COLOUR_ATTS_ENABLED=0 - Uses 4 M9K blocks
 	-- EXTENDED_CHARSET=0, COLOUR_ATTS_ENABLED=1 - Uses 5 M9K blocks
 	-- EXTENDED_CHARSET=1, COLOUR_ATTS_ENABLED=1 - Uses 6 M9K blocks
 	vdu : entity work.ANSIDisplayVGA
 	GENERIC map (
-		EXTENDED_CHARSET		=> 0,
-		COLOUR_ATTS_ENABLED	=> 0,
-		SANS_SERIF_FONT		=> 1
+		EXTENDED_CHARSET		=> 0,		 		-- 1 = 256 chars
+														-- 0 = 128 chars
+		COLOUR_ATTS_ENABLED	=> 0,				-- 1 = Color for each character
+														-- 0 = Color applied to whole display
+		SANS_SERIF_FONT		=> 1				-- 0 => use conventional CGA font
+														-- 1 => use san serif font
 	)
 		port map (
 			clk		=> i_clock,
