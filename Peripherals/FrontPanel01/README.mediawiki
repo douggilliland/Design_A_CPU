@@ -8,8 +8,21 @@
 * Reads 32 pushbuttons
 * Writes 32 LEDs
 
-=== Programming tools ===
+== I/O Processor - Memory Map ==
 
-* CSV fils(s) driven
-* Assembler - low level code
-* Compiler - Macro language
+* Address, R/W, Descr
+* x00, R, Pushbuttons(31..24)
+* x01, R, Pushbuttons(23..16)
+* x02, R, Pushbuttons(15..8)
+* x03, R, Pushbuttons(7..0)
+* x04-x5, R, I2C I/F
+* x04 - I2C Read Data
+* x05 - I2C Status
+* 0x06. R, I2C Interript
+* x00, W, LEDs(31..24)
+* x01, W, LEDs(23..16)
+* x02, W, LEDs(15..8)
+* x03, W, LEDs(7..0)
+* x04-x5, W, I2C I/F
+* x04 - I2C Write Data
+* x05 - I2C Command
