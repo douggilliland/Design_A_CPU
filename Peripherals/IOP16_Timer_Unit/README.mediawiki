@@ -6,10 +6,10 @@
 * Poll timer status
 <pre>
 Address Value      Read/Write Data
- 0      uSec Count Write      0-255 uS count - write starts timer
- 1      mSec Count Write      0-255 mS count - write starts timer 
- 2      Sec Count  Write      0-255 sec count - write starts timer
- 3      Not Used   Write      Not used
- 0-3    Status     Read       1 = Count In progresss
+0       uSec Count Write      0-255 uS count - write starts timer
+1       mSec Count Write      0-255 mS count - write starts timer 
+2       Sec Count  Write      0-255 sec count - write starts timer
+3       Not Used   Write      Not used
+0-3     Status     Read       1 = Count In progresss
                               0 = Done
 </pre>
