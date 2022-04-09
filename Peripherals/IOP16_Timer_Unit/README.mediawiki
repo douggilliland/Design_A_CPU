@@ -1,6 +1,6 @@
 == Timer Unit ==
 
-* Operates as a On-shot counter with single value
+* Operates as a One-shot counter with single value
 * Count uS, mSec or secs (allows for different resolutions)
 * Write to count value starts timer
 * Poll timer status
