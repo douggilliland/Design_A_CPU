@@ -2,21 +2,29 @@
 
 * Interface matches ACIA software interface address/control/status contents
 ** [http://www.swtpc.com/mholley/Notebook/Hardware_ACIA.pdf ACIA datasheet]
-* Status Register
-** Register Select = 0
-** Read/Write = Read
-*** d0 = RDRF	= Receive Data Register Full (1 = data is ready to read)
-*** d1 = TDRE	= Transmit Data Register Empty (1 = transmit is ready to send out data)
-*** d2 = DCD		= Data Carrier Detect (0 = carrier present - hardwired)
-*** d3 = CTS		= Clear to Send (0 = Clear to Send - ready to accept data - hardwired)
-*** d7 = IRQ		= Interrupt Request (1 = Interrupt present)
-* Control Register
-** Register Select = 0
-** Read/Write = Write
-*** d1,d0		= Control (11 = Master Reset)
-*** d6,d5		= TC = Transmitter Control (RTS = Transmitter Interrupt Enable/Disable)
-*** d7 		= Interrupt Enable (1=enable interrupts)
-* Data Register
+
+== Programming Interface ==
+
+=== Status Register ===
+
+* Register Select = 0
+* Read/Write = Read
+** d0 = RDRF	= Receive Data Register Full (1 = data is ready to read)
+** d1 = TDRE	= Transmit Data Register Empty (1 = transmit is ready to send out data)
+** d2 = DCD		= Data Carrier Detect (0 = carrier present - hardwired)
+** d3 = CTS		= Clear to Send (0 = Clear to Send - ready to accept data - hardwired)
+** d7 = IRQ		= Interrupt Request (1 = Interrupt present)
+
+===  Control Register ===
+
+* Register Select = 0
+* Read/Write = Write
+** d1,d0		= Control (11 = Master Reset)
+** d6,d5		= TC = Transmitter Control (RTS = Transmitter Interrupt Enable/Disable)
+** d7 		= Interrupt Enable (1=enable interrupts)
+
+== Data Register ==
+
 * Register Select = 1
 ** Read = Read data from the data register (not implemented due to kbd removal)
 ** Write = Write data to the data register
