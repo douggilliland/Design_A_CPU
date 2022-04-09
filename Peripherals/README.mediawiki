@@ -1,5 +1,7 @@
 == Peripherals Set ==
 
+Peripherals tested to work with the IOP16 CPU
+
 * [https://github.com/douggilliland/Design_A_CPU/tree/main/Peripherals/ANSIDisplay ANSI Display] (better)
 * [https://github.com/douggilliland/Design_A_CPU/tree/main/Peripherals/FrontPanel01 Front Panel interface]
 * [https://github.com/douggilliland/Design_A_CPU/tree/main/Peripherals/GPIO General Purpose I/O (GPIO)]
