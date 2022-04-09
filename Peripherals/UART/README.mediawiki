@@ -15,9 +15,9 @@ Interface mimics ACIA software interface address/control/status contents
 <pre>
 d0 = RDRF	= Receive Data Register Full (1 = data is ready to read)
 d1 = TDRE	= Transmit Data Register Empty (1 = transmit is ready to send out data)
-d2 = DCD		= Data Carrier Detect (0 = carrier present - hardwired)
-d3 = CTS		= Clear to Send (0 = Clear to Send - ready to accept data - hardwired)
-d7 = IRQ		= Interrupt Request (1 = Interrupt present)
+d2 = DCD  = Data Carrier Detect (0 = carrier present - hardwired)
+d3 = CTS  = Clear to Send (0 = Clear to Send - ready to accept data - hardwired)
+d7 = IRQ  = Interrupt Request (1 = Interrupt present)
 </pre>
 
 ====  Control Register (Write) ====
