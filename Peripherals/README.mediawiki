@@ -1,7 +1,13 @@
 == Peripherals Set ==
 
-* ANSI Display (better)
-* VGA (2nd ANSI Display)
-* UART
-* Timer Unit
-* Seven Segment 3 digit display
+* [https://github.com/douggilliland/Design_A_CPU/tree/main/Peripherals/ANSIDisplay ANSI Display] (better)
+* [https://github.com/douggilliland/Design_A_CPU/tree/main/Peripherals/FrontPanel01 Front Panel interface]
+* [https://github.com/douggilliland/Design_A_CPU/tree/main/Peripherals/GPIO General Purpose I/O (GPIO)]
+* [https://github.com/douggilliland/Design_A_CPU/tree/main/Peripherals/I2C I2C]
+* [https://github.com/douggilliland/Design_A_CPU/tree/main/Peripherals/PS2KB PS/2 Keyboard]
+* [https://github.com/douggilliland/Design_A_CPU/tree/main/Peripherals/SDCARD SD Card]
+* [https://github.com/douggilliland/Design_A_CPU/tree/main/Peripherals/SPI SPI]
+* [https://github.com/douggilliland/Design_A_CPU/tree/main/Peripherals/SevenSegs Seven Segment 3 digit display]
+* [https://github.com/douggilliland/Design_A_CPU/tree/main/Peripherals/IOP16_Timer_Unit Timer Unit]
+* [https://github.com/douggilliland/Design_A_CPU/tree/main/Peripherals/UART UART]
+* [https://github.com/douggilliland/Design_A_CPU/tree/main/Peripherals/VGA VGA] (2nd ANSI Display)
