@@ -1,6 +1,10 @@
 == PS/2 Keyboard ==
 
-Wrapper for PS/2 keyboard interfaces
+* Wrapper for PS/2 keyboard interfaces
+* Address i_RegSel - Register select
+** Address = 0, Status
+** Address = 1, Data
+
 <pre>
 ENTITY Wrap_Keyboard IS
 port (
