@@ -40,7 +40,10 @@
 # 	.mif file - Quartus II ROM Memory Initialization File
 #	.lst file - Listing file (with addresses)
 #
-# Assembler opcodes
+</pre>
+== Assembler opcodes ==
+
+<pre>
 #	LRI - Load a register with an immediate value (byte)
 #	SRL - Shift register left
 #	SRR - Shift register right
@@ -61,8 +64,11 @@
 #	HLT - Halt (Jump to self)
 #	BEQ - Branch if equal (same as BEZ)
 #	BNE - Branch if not equal (Aame as BNZ)
-#
-# Error Messages
+</pre>
+
+== Error Messages ==
+
+<pre>
 #	Error messages are pretty rudimentary.
 #	Error messages are printed to the command window.
 #	The line with the error is printed as a list of the line.
