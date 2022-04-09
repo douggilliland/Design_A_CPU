@@ -11,6 +11,7 @@ Interface mimics ACIA software interface address/control/status contents
 ==== Status Register (Read) ====
 
 * Register Select = 0
+* Bits
 ** d0 = RDRF	= Receive Data Register Full (1 = data is ready to read)
 ** d1 = TDRE	= Transmit Data Register Empty (1 = transmit is ready to send out data)
 ** d2 = DCD		= Data Carrier Detect (0 = carrier present - hardwired)
@@ -20,9 +21,10 @@ Interface mimics ACIA software interface address/control/status contents
 ====  Control Register (Write) ====
 
 * Register Select = 0
-** d1,d0		= Control (11 = Master Reset)
-** d6,d5		= TC = Transmitter Control (RTS = Transmitter Interrupt Enable/Disable)
-** d7 		= Interrupt Enable (1=enable interrupts)
+* Bits
+** d1,d0 = Control (11 = Master Reset)
+** d6,d5 = TC = Transmitter Control (RTS = Transmitter Interrupt Enable/Disable)
+** d7    = Interrupt Enable (1=enable interrupts)
 
 ==== Data Register (Read/Write) ====
 
