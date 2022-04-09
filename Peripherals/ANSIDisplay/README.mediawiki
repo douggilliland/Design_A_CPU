@@ -1,6 +1,6 @@
 == Multicomp FPGA (VHDL Template) VGA ==
 
-Interface matches ACIA software interface address/control/status contents
+Interface mimics ACIA software interface address/control/status contents
 
 * [http://www.swtpc.com/mholley/Notebook/Hardware_ACIA.pdf ACIA datasheet]
 
