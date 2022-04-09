@@ -1,6 +1,6 @@
 Timing Analyzer report for cpu_001
-Sat Jul 17 19:07:49 2021
-Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Sat Apr  9 10:59:36 2022
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
 ---------------------
@@ -92,7 +92,7 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2020  Intel Corporation. All rights reserved.
+Copyright (C) 2021  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -112,7 +112,7 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------+
 ; Timing Analyzer Summary                                                     ;
 +-----------------------+-----------------------------------------------------+
-; Quartus Prime Version ; Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Quartus Prime Version ; Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Timing Analyzer       ; Legacy Timing Analyzer                              ;
 ; Revision Name         ; cpu_001                                             ;
 ; Device Family         ; Cyclone IV E                                        ;
@@ -131,13 +131,13 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.35        ;
+; Average used               ; 1.36        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  13.9%      ;
-;     Processor 3            ;  11.3%      ;
+;     Processor 2            ;  14.7%      ;
+;     Processor 3            ;  11.1%      ;
 ;     Processor 4            ;   9.7%      ;
 +----------------------------+-------------+
 
@@ -1734,18 +1734,18 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------+-------------+--------------+------------+------------+
 ; 0.208 ; bufferedUART:acia|txState.dataBit                       ; bufferedUART:acia|txBitCount[1]                                                                                                                                  ; i_clock                                                 ; i_clock     ; 0.000        ; 0.532      ; 0.935      ;
 ; 0.383 ; ANSIDisplayVGA:vdu|param1[0]                            ; ANSIDisplayVGA:vdu|param1[0]                                                                                                                                     ; i_clock                                                 ; i_clock     ; 0.000        ; 0.091      ; 0.669      ;
-; 0.384 ; ANSIDisplayVGA:vdu|cursorVert[2]                        ; ANSIDisplayVGA:vdu|cursorVert[2]                                                                                                                                 ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
-; 0.384 ; ANSIDisplayVGA:vdu|cursorVert[3]                        ; ANSIDisplayVGA:vdu|cursorVert[3]                                                                                                                                 ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
-; 0.384 ; ANSIDisplayVGA:vdu|dispState.idle                       ; ANSIDisplayVGA:vdu|dispState.idle                                                                                                                                ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
-; 0.384 ; ANSIDisplayVGA:vdu|paramCount[2]                        ; ANSIDisplayVGA:vdu|paramCount[2]                                                                                                                                 ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
-; 0.384 ; ANSIDisplayVGA:vdu|paramCount[1]                        ; ANSIDisplayVGA:vdu|paramCount[1]                                                                                                                                 ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
-; 0.384 ; ANSIDisplayVGA:vdu|paramCount[0]                        ; ANSIDisplayVGA:vdu|paramCount[0]                                                                                                                                 ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
 ; 0.384 ; bufferedUART:acia|txBuffer[7]                           ; bufferedUART:acia|txBuffer[7]                                                                                                                                    ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
 ; 0.384 ; bufferedUART:acia|txByteSent                            ; bufferedUART:acia|txByteSent                                                                                                                                     ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
 ; 0.384 ; bufferedUART:acia|txBitCount[3]                         ; bufferedUART:acia|txBitCount[3]                                                                                                                                  ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
 ; 0.384 ; bufferedUART:acia|txBitCount[2]                         ; bufferedUART:acia|txBitCount[2]                                                                                                                                  ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
 ; 0.384 ; bufferedUART:acia|txBitCount[0]                         ; bufferedUART:acia|txBitCount[0]                                                                                                                                  ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
 ; 0.384 ; bufferedUART:acia|txBitCount[1]                         ; bufferedUART:acia|txBitCount[1]                                                                                                                                  ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
+; 0.384 ; ANSIDisplayVGA:vdu|cursorVert[2]                        ; ANSIDisplayVGA:vdu|cursorVert[2]                                                                                                                                 ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
+; 0.384 ; ANSIDisplayVGA:vdu|cursorVert[3]                        ; ANSIDisplayVGA:vdu|cursorVert[3]                                                                                                                                 ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
+; 0.384 ; ANSIDisplayVGA:vdu|dispState.idle                       ; ANSIDisplayVGA:vdu|dispState.idle                                                                                                                                ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
+; 0.384 ; ANSIDisplayVGA:vdu|paramCount[2]                        ; ANSIDisplayVGA:vdu|paramCount[2]                                                                                                                                 ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
+; 0.384 ; ANSIDisplayVGA:vdu|paramCount[1]                        ; ANSIDisplayVGA:vdu|paramCount[1]                                                                                                                                 ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
+; 0.384 ; ANSIDisplayVGA:vdu|paramCount[0]                        ; ANSIDisplayVGA:vdu|paramCount[0]                                                                                                                                 ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.669      ;
 ; 0.385 ; ANSIDisplayVGA:vdu|dispState.dispWrite                  ; ANSIDisplayVGA:vdu|dispState.dispWrite                                                                                                                           ; i_clock                                                 ; i_clock     ; 0.000        ; 0.089      ; 0.669      ;
 ; 0.399 ; Loadable_7SD_3LED:sevSeg|w_refresh_counter[0]           ; Loadable_7SD_3LED:sevSeg|w_refresh_counter[0]                                                                                                                    ; i_clock                                                 ; i_clock     ; 0.000        ; 0.090      ; 0.684      ;
 ; 0.402 ; cpu_001:CPU|ALU_Unit:ALU_Unit|o_Z_Bit                   ; cpu_001:CPU|ALU_Unit:ALU_Unit|o_Z_Bit                                                                                                                            ; i_clock                                                 ; i_clock     ; 0.000        ; 0.072      ; 0.669      ;
@@ -1761,11 +1761,6 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; 0.402 ; gpio:gpio|reg_dat0[2]                                   ; gpio:gpio|reg_dat0[2]                                                                                                                                            ; i_clock                                                 ; i_clock     ; 0.000        ; 0.072      ; 0.669      ;
 ; 0.402 ; TimerUnit:timerUnit|uSecTick                            ; TimerUnit:timerUnit|uSecTick                                                                                                                                     ; i_clock                                                 ; i_clock     ; 0.000        ; 0.072      ; 0.669      ;
 ; 0.402 ; TimerUnit:timerUnit|mSecTick                            ; TimerUnit:timerUnit|mSecTick                                                                                                                                     ; i_clock                                                 ; i_clock     ; 0.000        ; 0.072      ; 0.669      ;
-; 0.403 ; ANSIDisplayVGA:vdu|dispWR                               ; ANSIDisplayVGA:vdu|dispWR                                                                                                                                        ; i_clock                                                 ; i_clock     ; 0.000        ; 0.071      ; 0.669      ;
-; 0.403 ; ANSIDisplayVGA:vdu|param2[0]                            ; ANSIDisplayVGA:vdu|param2[0]                                                                                                                                     ; i_clock                                                 ; i_clock     ; 0.000        ; 0.071      ; 0.669      ;
-; 0.403 ; ANSIDisplayVGA:vdu|param3[0]                            ; ANSIDisplayVGA:vdu|param3[0]                                                                                                                                     ; i_clock                                                 ; i_clock     ; 0.000        ; 0.071      ; 0.669      ;
-; 0.403 ; ANSIDisplayVGA:vdu|param4[0]                            ; ANSIDisplayVGA:vdu|param4[0]                                                                                                                                     ; i_clock                                                 ; i_clock     ; 0.000        ; 0.071      ; 0.669      ;
-; 0.403 ; ANSIDisplayVGA:vdu|dispByteSent                         ; ANSIDisplayVGA:vdu|dispByteSent                                                                                                                                  ; i_clock                                                 ; i_clock     ; 0.000        ; 0.071      ; 0.669      ;
 ; 0.403 ; ANSIDisplayVGA:vdu|pixelCount[1]                        ; ANSIDisplayVGA:vdu|pixelCount[1]                                                                                                                                 ; i_clock                                                 ; i_clock     ; 0.000        ; 0.071      ; 0.669      ;
 ; 0.403 ; ANSIDisplayVGA:vdu|vActive                              ; ANSIDisplayVGA:vdu|vActive                                                                                                                                       ; i_clock                                                 ; i_clock     ; 0.000        ; 0.071      ; 0.669      ;
 ; 0.403 ; ANSIDisplayVGA:vdu|hActive                              ; ANSIDisplayVGA:vdu|hActive                                                                                                                                       ; i_clock                                                 ; i_clock     ; 0.000        ; 0.071      ; 0.669      ;
@@ -1784,6 +1779,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; 0.403 ; bufferedUART:acia|rxBitCount[2]                         ; bufferedUART:acia|rxBitCount[2]                                                                                                                                  ; i_clock                                                 ; i_clock     ; 0.000        ; 0.071      ; 0.669      ;
 ; 0.403 ; bufferedUART:acia|rxBitCount[1]                         ; bufferedUART:acia|rxBitCount[1]                                                                                                                                  ; i_clock                                                 ; i_clock     ; 0.000        ; 0.071      ; 0.669      ;
 ; 0.403 ; bufferedUART:acia|rxdFiltered                           ; bufferedUART:acia|rxdFiltered                                                                                                                                    ; i_clock                                                 ; i_clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.403 ; ANSIDisplayVGA:vdu|dispWR                               ; ANSIDisplayVGA:vdu|dispWR                                                                                                                                        ; i_clock                                                 ; i_clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.403 ; ANSIDisplayVGA:vdu|param2[0]                            ; ANSIDisplayVGA:vdu|param2[0]                                                                                                                                     ; i_clock                                                 ; i_clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.403 ; ANSIDisplayVGA:vdu|param3[0]                            ; ANSIDisplayVGA:vdu|param3[0]                                                                                                                                     ; i_clock                                                 ; i_clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.403 ; ANSIDisplayVGA:vdu|param4[0]                            ; ANSIDisplayVGA:vdu|param4[0]                                                                                                                                     ; i_clock                                                 ; i_clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.403 ; ANSIDisplayVGA:vdu|dispByteSent                         ; ANSIDisplayVGA:vdu|dispByteSent                                                                                                                                  ; i_clock                                                 ; i_clock     ; 0.000        ; 0.071      ; 0.669      ;
 ; 0.404 ; ANSIDisplayVGA:vdu|attBold                              ; ANSIDisplayVGA:vdu|attBold                                                                                                                                       ; i_clock                                                 ; i_clock     ; 0.000        ; 0.070      ; 0.669      ;
 ; 0.404 ; ANSIDisplayVGA:vdu|attInverse                           ; ANSIDisplayVGA:vdu|attInverse                                                                                                                                    ; i_clock                                                 ; i_clock     ; 0.000        ; 0.070      ; 0.669      ;
 ; 0.417 ; BaudRate6850:BaudRateGen|w_serialCount[4]               ; BaudRate6850:BaudRateGen|w_serialCount[4]                                                                                                                        ; i_clock                                                 ; i_clock     ; 0.000        ; 0.072      ; 0.684      ;
@@ -4093,8 +4093,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +--------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
-    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sat Jul 17 19:07:45 2021
+    Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+    Info: Processing started: Sat Apr  9 10:59:32 2022
 Info: Command: quartus_sta cpu_001 -c cpu_001
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -4232,8 +4232,8 @@ Info (332114): Report Metastability: Found 1 synchronizer chains.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 4795 megabytes
-    Info: Processing ended: Sat Jul 17 19:07:49 2021
+    Info: Peak virtual memory: 4799 megabytes
+    Info: Processing ended: Sat Apr  9 10:59:36 2022
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:05
 

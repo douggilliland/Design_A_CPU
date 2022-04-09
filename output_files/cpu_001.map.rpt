@@ -1,6 +1,6 @@
 Analysis & Synthesis report for cpu_001
-Sat Jul 17 19:07:20 2021
-Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Sat Apr  9 10:59:03 2022
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
 ---------------------
@@ -62,7 +62,7 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2020  Intel Corporation. All rights reserved.
+Copyright (C) 2021  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -82,8 +82,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jul 17 19:07:20 2021       ;
-; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Analysis & Synthesis Status        ; Successful - Sat Apr  9 10:59:03 2022       ;
+; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; cpu_001                                     ;
 ; Top-level Entity Name              ; CPU_top                                     ;
 ; Family                             ; Cyclone IV E                                ;
@@ -233,25 +233,25 @@ https://fpgasoftware.intel.com/eula.
 ; Shifter.vhd                                                    ; yes             ; User VHDL File                         ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Shifter.vhd                                                    ;         ;
 ; IOP_ROM.vhd                                                    ; yes             ; User Wizard-Generated File             ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/IOP_ROM.vhd                                                    ;         ;
 ; cpu_001_Pkg.vhd                                                ; yes             ; User VHDL File                         ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001_Pkg.vhd                                                ;         ;
-; altsyncram.tdf                                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf                                                       ;         ;
-; stratix_ram_block.inc                                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                                ;         ;
-; lpm_mux.inc                                                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc                                                          ;         ;
-; lpm_decode.inc                                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc                                                       ;         ;
-; aglobal201.inc                                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                                       ;         ;
-; a_rdenreg.inc                                                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                        ;         ;
-; altrom.inc                                                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc                                                           ;         ;
-; altram.inc                                                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc                                                           ;         ;
-; altdpram.inc                                                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                                                         ;         ;
+; altsyncram.tdf                                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altsyncram.tdf                                                       ;         ;
+; stratix_ram_block.inc                                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                                ;         ;
+; lpm_mux.inc                                                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_mux.inc                                                          ;         ;
+; lpm_decode.inc                                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_decode.inc                                                       ;         ;
+; aglobal211.inc                                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/aglobal211.inc                                                       ;         ;
+; a_rdenreg.inc                                                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                        ;         ;
+; altrom.inc                                                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altrom.inc                                                           ;         ;
+; altram.inc                                                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altram.inc                                                           ;         ;
+; altdpram.inc                                                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altdpram.inc                                                         ;         ;
 ; db/altsyncram_dft3.tdf                                         ; yes             ; Auto-Generated Megafunction            ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_dft3.tdf                                         ;         ;
-; cpu_code/part9-1_test1.mif                                     ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_code/part9-1_test1.mif                                     ;         ;
+; ../CPU_Code/Part9-1_Test1.mif                                  ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_Code/Part9-1_Test1.mif                                     ;         ;
 ; db/altsyncram_grt3.tdf                                         ; yes             ; Auto-Generated Megafunction            ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_grt3.tdf                                         ;         ;
-; peripherals/ansidisplay/sansfontboldreduced.hex                ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/peripherals/ansidisplay/sansfontboldreduced.hex                ;         ;
+; ./Peripherals/ANSIDisplay/SansFontBoldReduced.HEX              ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/SansFontBoldReduced.HEX                ;         ;
 ; db/altsyncram_ldr3.tdf                                         ; yes             ; Auto-Generated Megafunction            ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_ldr3.tdf                                         ;         ;
 ; db/altsyncram_3ce1.tdf                                         ; yes             ; Auto-Generated Megafunction            ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_3ce1.tdf                                         ;         ;
 ; db/altsyncram_2pd1.tdf                                         ; yes             ; Auto-Generated Megafunction            ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_2pd1.tdf                                         ;         ;
-; lpm_divide.tdf                                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf                                                       ;         ;
-; abs_divider.inc                                                ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc                                                      ;         ;
-; sign_div_unsign.inc                                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc                                                  ;         ;
+; lpm_divide.tdf                                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_divide.tdf                                                       ;         ;
+; abs_divider.inc                                                ; yes             ; Megafunction                           ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/abs_divider.inc                                                      ;         ;
+; sign_div_unsign.inc                                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/sign_div_unsign.inc                                                  ;         ;
 ; db/lpm_divide_icm.tdf                                          ; yes             ; Auto-Generated Megafunction            ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/lpm_divide_icm.tdf                                          ;         ;
 ; db/sign_div_unsign_7nh.tdf                                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/sign_div_unsign_7nh.tdf                                     ;         ;
 ; db/alt_u_div_2af.tdf                                           ; yes             ; Auto-Generated Megafunction            ; C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/alt_u_div_2af.tdf                                           ;         ;
@@ -1372,7 +1372,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:10     ;
+; Top            ; 00:00:11     ;
 +----------------+--------------+
 
 
@@ -1381,8 +1381,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sat Jul 17 19:06:54 2021
+    Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+    Info: Processing started: Sat Apr  9 10:58:33 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_001 -c cpu_001
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1543,7 +1543,8 @@ Info (12133): Instantiated megafunction "cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:
     Info (12134): Parameter "lpm_type" = "altsyncram"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_dft3.tdf
     Info (12023): Found entity 1: altsyncram_dft3 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_dft3.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_dft3" for hierarchy "cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "altsyncram_dft3" for hierarchy "cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated" File: c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Critical Warning (127005): Memory depth (512) in the design file differs from memory depth (138) in the Memory Initialization File "C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_Code/Part9-1_Test1.mif" -- setting initial value for remaining addresses to 0 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/IOP_ROM.vhd Line: 60
 Info (12128): Elaborating entity "GreyCode" for hierarchy "cpu_001:CPU|GreyCode:GreyCodeCounter" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 308
 Info (12128): Elaborating entity "ALU_Unit" for hierarchy "cpu_001:CPU|ALU_Unit:ALU_Unit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/cpu_001.vhd Line: 317
 Info (12128): Elaborating entity "Loadable_7SD_3LED" for hierarchy "Loadable_7SD_3LED:sevSeg" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 208
@@ -1611,7 +1612,18 @@ Info (12133): Instantiated megafunction "ANSIDisplayVGA:vdu|SansBoldRomReduced:\
     Info (12134): Parameter "lpm_type" = "altsyncram"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_grt3.tdf
     Info (12023): Found entity 1: altsyncram_grt3 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_grt3.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_grt3" for hierarchy "ANSIDisplayVGA:vdu|SansBoldRomReduced:\GEN_REDUCED_SCHARS:fontRom|altsyncram:altsyncram_component|altsyncram_grt3:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "altsyncram_grt3" for hierarchy "ANSIDisplayVGA:vdu|SansBoldRomReduced:\GEN_REDUCED_SCHARS:fontRom|altsyncram:altsyncram_component|altsyncram_grt3:auto_generated" File: c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Warning (113015): Width of data items in "SansFontBoldReduced.HEX" is greater than the memory width. Wrapping data items to subsequent addresses. Found 32 warnings, reporting 10 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/SansFontBoldReduced.HEX Line: 1
+    Warning (113009): Data at line (1) of memory initialization file "SansFontBoldReduced.HEX" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/SansFontBoldReduced.HEX Line: 1
+    Warning (113009): Data at line (2) of memory initialization file "SansFontBoldReduced.HEX" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/SansFontBoldReduced.HEX Line: 2
+    Warning (113009): Data at line (3) of memory initialization file "SansFontBoldReduced.HEX" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/SansFontBoldReduced.HEX Line: 3
+    Warning (113009): Data at line (4) of memory initialization file "SansFontBoldReduced.HEX" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/SansFontBoldReduced.HEX Line: 4
+    Warning (113009): Data at line (5) of memory initialization file "SansFontBoldReduced.HEX" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/SansFontBoldReduced.HEX Line: 5
+    Warning (113009): Data at line (6) of memory initialization file "SansFontBoldReduced.HEX" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/SansFontBoldReduced.HEX Line: 6
+    Warning (113009): Data at line (7) of memory initialization file "SansFontBoldReduced.HEX" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/SansFontBoldReduced.HEX Line: 7
+    Warning (113009): Data at line (8) of memory initialization file "SansFontBoldReduced.HEX" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/SansFontBoldReduced.HEX Line: 8
+    Warning (113009): Data at line (9) of memory initialization file "SansFontBoldReduced.HEX" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/SansFontBoldReduced.HEX Line: 9
+    Warning (113009): Data at line (10) of memory initialization file "SansFontBoldReduced.HEX" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/SansFontBoldReduced.HEX Line: 10
 Info (12128): Elaborating entity "DisplayRam2K" for hierarchy "ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KRAM:dispCharRam" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/ANSIDisplayVGA.vhd Line: 250
 Info (12128): Elaborating entity "altsyncram" for hierarchy "ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KRAM:dispCharRam|altsyncram:altsyncram_component" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/DisplayRam2K.vhd Line: 67
 Info (12130): Elaborated megafunction instantiation "ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KRAM:dispCharRam|altsyncram:altsyncram_component" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/ANSIDisplay/DisplayRam2K.vhd Line: 67
@@ -1668,7 +1680,7 @@ Info (12133): Instantiated megafunction "ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2K
     Info (12134): Parameter "lpm_type" = "altsyncram"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ldr3.tdf
     Info (12023): Found entity 1: altsyncram_ldr3 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_ldr3.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_ldr3" for hierarchy "ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KRAM:dispCharRam|altsyncram:altsyncram_component|altsyncram_ldr3:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "altsyncram_ldr3" for hierarchy "ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KRAM:dispCharRam|altsyncram:altsyncram_component|altsyncram_ldr3:auto_generated" File: c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12128): Elaborating entity "bufferedUART" for hierarchy "bufferedUART:acia" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 270
 Info (12128): Elaborating entity "BaudRate6850" for hierarchy "BaudRate6850:BaudRateGen" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 287
 Info (12128): Elaborating entity "TimerUnit" for hierarchy "TimerUnit:timerUnit" File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 299
@@ -1954,10 +1966,10 @@ Info (21057): Implemented 2035 device resources after synthesis - the final reso
     Info (21060): Implemented 52 bidirectional pins
     Info (21061): Implemented 1853 logic cells
     Info (21064): Implemented 49 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 161 warnings
-    Info: Peak virtual memory: 4824 megabytes
-    Info: Processing ended: Sat Jul 17 19:07:20 2021
-    Info: Elapsed time: 00:00:26
-    Info: Total CPU time (on all processors): 00:00:46
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 173 warnings
+    Info: Peak virtual memory: 4861 megabytes
+    Info: Processing ended: Sat Apr  9 10:59:03 2022
+    Info: Elapsed time: 00:00:30
+    Info: Total CPU time (on all processors): 00:00:50
 
 
