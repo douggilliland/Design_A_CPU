@@ -1,6 +1,6 @@
 == General-purpose I/O ==
 
-From [https://github.com/nealcrook/multicomp6809/blob/master/multicomp/Components/GPIO/gpio.vhd Neal Crook's simple GPIO unit for a 6809 multicomp].
+From [https://github.com/nealcrook/multicomp6809/blob/master/multicomp/Components/GPIO/gpio.vhd Neal Crook's simple GPIO unit].
 
 * A simple GPIO unit for a 6809 multicomp. 
 ** Aims to provide a number of programmable I/O lines all accessed through an indirect mechanism using 2 locations in the processor address space; this fills the final 2 spare locations.
