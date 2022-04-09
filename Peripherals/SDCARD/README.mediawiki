@@ -34,8 +34,9 @@
 
 * The end result of all this is that the addressing looks the same for SDSC and SDHC cards.
 
+=== SDSTATUS (RO) ===
+
 <pre>
--- SDSTATUS (RO)
 --    b7     Write Data Byte can be accepted
 --    b6     Read Data Byte available
 --    b5     Block Busy
@@ -44,24 +45,33 @@
 --    b2     Unused. Read 0
 --    b1     Unused. Read 0
 --    b0     Unused. Read 0
---
--- SDCONTROL (WO)
+</pre>
+
+=== SDCONTROL (WO) ===
+
+<pre>
 --    b7:0   0x00 Read block
 --           0x01 Write block
 </pre>
 
-* To read a 512-byte block from the SDCARD:
-** Wait until SDSTATUS=0x80 (ensures previous cmd has completed)
-** Write SDLBA0, SDLBA1 SDLBA2 to select block index to read from
-** Write 0 to SDCONTROL to issue read command
-** Loop 512 times:
-*** Wait until SDSTATUS=0xE0 (read byte ready, block busy)
-*** Read byte from SDDATA
-* To write a 512-byte block to the SDCARD:
-** Wait until SDSTATUS=0x80 (ensures previous cmd has completed)
-** Write SDLBA0, SDLBA1 SDLBA2 to select block index to write to
-** Write 1 to SDCONTROL to issue write command
-** Loop 512 times:
-*** Wait until SDSTATUS=0xA0 (block busy)
-*** Write byte to SDDATA
+=== To read a 512-byte block from the SDCARD ===
+
+* Wait until SDSTATUS=0x80 (ensures previous cmd has completed)
+* Write SDLBA0, SDLBA1 SDLBA2 to select block index to read from
+* Write 0 to SDCONTROL to issue read command
+* Loop 512 times:
+** Wait until SDSTATUS=0xE0 (read byte ready, block busy)
+** Read byte from SDDATA
+
+=== To write a 512-byte block to the SDCARD ===
+
+* Wait until SDSTATUS=0x80 (ensures previous cmd has completed)
+* Write SDLBA0, SDLBA1 SDLBA2 to select block index to write to
+* Write 1 to SDCONTROL to issue write command
+* Loop 512 times:
+** Wait until SDSTATUS=0xA0 (block busy)
+** Write byte to SDDATA
+
+== Transfers ==
+
 * At HW level each data transfer is 515 bytes: a start byte, 512 data bytes, 2 CRC bytes. CRC need not be valid in SPI mode, *except* for CMD0.
