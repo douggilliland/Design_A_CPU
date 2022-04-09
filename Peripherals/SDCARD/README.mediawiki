@@ -3,7 +3,7 @@
 * Reads and writes a single block of data as a data stream
 
 <pre>
--- Address Register ===
+-- Address Register
 --    0    SDDATA        read/write data
 --    1    SDSTATUS      read
 --    1    SDCONTROL     write
