@@ -10,6 +10,34 @@ This is a standalone application of the Land Boards Front Panel card that uses t
 * Reads 32 pushbuttons
 * Writes 32 LEDs
 
+==== VHDL Entity ====
+
+<pre>
+-- -------------------------------------------------------------------------------------------------------
+-- Front Panel starts here
+	
+fp01 : work.FrontPanel01
+  port map
+  (
+    -- Clock and reset
+    i_CLOCK_50		=> i_CLOCK_50,		-- Clock (50 MHz)
+    i_n_reset		=> w_resetClean_n,	-- Reset
+    -- 32 outs, 32 ins
+    i_FPLEDs		=> w_LEDsOut,		-- Out to LEDs (32)
+    o_PBRaw		=> w_PBsRaw,		-- Raw version of the Pushbuttons (32)
+    o_PBLatched		=> w_PBLatched,		-- Latched version of the Pushbuttons (32)
+    o_PBToggled		=> w_PBsToggled,	-- Toggle version of the Pushbuttons (32)
+    -- I2C interface
+    io_I2C_SCL		=> io_I2C_SCL,		-- I2C clock to Front Panel card
+    io_I2C_SDA		=> io_I2C_SDA,		-- I2C data to/from Front Panel card
+    i_I2C_INTn		=> i_I2C_INTn		-- Interrupt input - active low
+  );
+
+-- Front Panel ends here
+-- -------------------------------------------------------------------------------------------------------
+
+</pre>
+
 == I/O Processor - Memory Map ==
 
 * Address, R/W, Descr
