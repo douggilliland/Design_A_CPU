@@ -1,11 +1,9 @@
-== UART ==
-
-Interface mimics ACIA software interface address/control/status contents
-
-* [http://www.swtpc.com/mholley/Notebook/Hardware_ACIA.pdf ACIA datasheet]
+== UART and Baud Rate Generator ==
 
 === UART Programming Interface ===
 
+* Interface mimics ACIA software interface address/control/status contents
+** [http://www.swtpc.com/mholley/Notebook/Hardware_ACIA.pdf ACIA datasheet]
 * Two addresses, Control/status and data access
 
 ==== Status Register (Read) ====
@@ -35,3 +33,23 @@ d7    = Interrupt Enable (1=enable interrupts)
 * Register Select = 1
 ** Read = Read data from the data register (not implemented due to kbd removal)
 ** Write = Write data to the data register
+
+=== Baud Rate Generator ===
+
+Baud Rate Generator for buffered UART
+
+* Assumes 50 MHz clock
+* Pass Baud Rate in BAUD_RATE generic as integer value (300, 9600, 115,200)
+* Legal values are 115200, 38400, 19200, 9600, 4800, 2400, 1200, 600, 300
+--
+--	Call with
+--
+--	BaudRateGen : entity work.BaudRate6850
+--	GENERIC map (
+--		BAUD_RATE	=>  115200
+--	)
+--	PORT map (
+--		i_CLOCK_50	=> i_CLOCK_50,
+--		o_serialEn	=> serialEn
+--	);
+--
