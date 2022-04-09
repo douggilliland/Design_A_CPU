@@ -1,3 +1,5 @@
+[https://github.com/douggilliland/Design_A_CPU/wiki Wiki Pages]
+
 == Design_A_CPU Features ==
 
 * 16-bit CPU
