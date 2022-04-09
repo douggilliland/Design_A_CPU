@@ -1,3 +1,5 @@
 == SPI Interface ==
 
+From https://github.com/jakubcabal
+
 <img src="https://raw.githubusercontent.com/douggilliland/MultiComp/master/MultiComp%20(VHDL%20Template)/Components/SPI/jakubcabal/SPI_VHDL_Docs.png></img>
