@@ -7,6 +7,11 @@ This is a standalone application of the Land Boards Front Panel card that uses t
 === VHDL Code ===
 
 * VHDL code to "automatically" talk to [http://land-boards.com/blwiki/index.php?title=Front_Panel_For_8_Bit_Computers Land Boards FrontPanel-01 card]
+** Great for FPGA Retro-computers
+** Converts pushbuttons into raw, debounced, and toggled outputs
+** Uses IOP16 small CPU core
+** Example: [https://github.com/douggilliland/MultiComp/tree/master/MultiComp_On_RETRO-EP4CE15/M6800_MIKBUG_FrontPanel01 6800 running MIKBUG using the Front Panel] - Run/Halt the CPU, Read SRAM, ROM, etc, Write to SRAM
+
 * Reads 32 pushbuttons
 ** i_FPLEDs,  Out to LEDs (32)
 ** o_PBRaw, Raw version of the Pushbuttons (32)
