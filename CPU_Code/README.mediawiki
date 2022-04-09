@@ -11,6 +11,7 @@
 === Assembler / Windows executable ===
 
 * The CPU has an Assembler
+** cpu_001 Assembler
 * The assembler source files have to be saved as CSV files with a very specific first line
 ** This made the assembler much easier to write and code entry is much less error prone
 ** Assumes everyone has a spreadsheet program that can deal with CSV files
@@ -20,27 +21,26 @@
 * Windows executable is [https://github.com/douggilliland/Design_A_CPU/tree/main/Assembler/dist in this folder]
 ** Useful for people who don't have Python 3 installed
 
+==== Assembler Options ====
+
+* Input fileName.csv
+** Input file is tightly constrained in CSV file
+(( Input File Header has to be -
+<pre>
+['LABEL', 'OPCODE', 'REG_LABEL', 'OFFSET_ADDR', 'COMMENT']
+</pre>
+* Output files
+** .mif file - Quartus II ROM Memory Initialization File
+** .lst file - Listing file (with addresses)
+
 == Documentation ==
 
 * [https://github.com/douggilliland/Design_A_CPU/tree/main/Docs Documentation slides are here].
+* [https://github.com/douggilliland/Design_A_CPU/tree/main CPU is here]
 
 <pre>
-# cpu_001 Assembler
-# Assemble code for CPU
-# 
-# CPU is at
-# 	https://github.com/douggilliland/Design_A_CPU/tree/main
-#
-# Input fileName.csv
-# 	Input file is tightly constrained in CSV file
-# 	Input File Header has to be -
-#		['LABEL', 'OPCODE', 'REG_LABEL', 'OFFSET_ADDR', 'COMMENT']
-#
-# Output files
-# 	.mif file - Quartus II ROM Memory Initialization File
-#	.lst file - Listing file (with addresses)
-#
 </pre>
+
 == Assembler opcodes ==
 
 <pre>
