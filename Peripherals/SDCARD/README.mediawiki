@@ -10,7 +10,8 @@
 --    2    SDLBA0        write-only
 --    3    SDLBA1        write-only
 --    4    SDLBA2        write-only (only bits 6:0 are valid)
-
+</pre>
+<pre>
 -- For both SDSC and SDHC (high capacity) cards, the block size is 512bytes (9-bit value) and the
 -- SDLBA registers select the block number. SDLBA2 is most significant, SDLBA0 is least significant.
 --
