@@ -54,6 +54,8 @@
 --           0x01 Write block
 </pre>
 
+== Programming ==
+
 === To read a 512-byte block from the SDCARD ===
 
 * Wait until SDSTATUS=0x80 (ensures previous cmd has completed)
@@ -72,6 +74,6 @@
 ** Wait until SDSTATUS=0xA0 (block busy)
 ** Write byte to SDDATA
 
-== Transfers ==
+== Transfer Details ==
 
 * At HW level each data transfer is 515 bytes: a start byte, 512 data bytes, 2 CRC bytes. CRC need not be valid in SPI mode, *except* for CMD0.
