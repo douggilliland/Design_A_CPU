@@ -1,5 +1,5 @@
 == General-purpose I/O ==
- 
+
 From [https://github.com/nealcrook/multicomp6809/blob/master/multicomp/Components/GPIO/gpio.vhd Neal Crook's simple GPIO unit for a 6809 multicomp].
 
 * A simple GPIO unit for a 6809 multicomp. 
