@@ -32,7 +32,7 @@ Interface mimics ACIA software interface address/control/status contents
 ** Read = Read data from the data register (not implemented due to kbd removal)
 ** Write = Write data to the data register
 
-=== ANSI ESC Codes ==
+=== ANSI ESC Codes ===
 
 <img src="http://land-boards.com/blwiki/images/4/44/ANSI_001.PNG"></img>
 <img src="http://land-boards.com/blwiki/images/7/7d/ANSI_002.PNG"></img>
