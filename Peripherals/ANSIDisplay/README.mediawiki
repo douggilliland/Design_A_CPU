@@ -23,7 +23,7 @@
 ** d6,d5		= TC = Transmitter Control (RTS = Transmitter Interrupt Enable/Disable)
 ** d7 		= Interrupt Enable (1=enable interrupts)
 
-== Data Register ==
+=== Data Register ===
 
 * Register Select = 1
 ** Read = Read data from the data register (not implemented due to kbd removal)
