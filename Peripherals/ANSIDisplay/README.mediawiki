@@ -1,9 +1,12 @@
 == Multicomp FPGA (VHDL Template) VGA ==
 
-* Interface matches ACIA software interface address/control/status contents
-** [http://www.swtpc.com/mholley/Notebook/Hardware_ACIA.pdf ACIA datasheet]
+Interface matches ACIA software interface address/control/status contents
+
+* [http://www.swtpc.com/mholley/Notebook/Hardware_ACIA.pdf ACIA datasheet]
 
 == Programming Interface ==
+
+* Two addresses, Control/status and data access
 
 === Status Register ===
 
