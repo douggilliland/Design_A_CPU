@@ -4,4 +4,4 @@
 * VGA (2nd ANSI Display)
 * UART
 * Timer Unit
-* Seven Segmentm 3 digit display
+* Seven Segment 3 digit display
