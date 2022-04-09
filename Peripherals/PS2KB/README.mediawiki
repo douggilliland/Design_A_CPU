@@ -4,13 +4,13 @@ Wrapper for PS/2 keyboard interfaces
 <pre>
 ENTITY Wrap_Keyboard IS
 port (
-  i_CLOCK_50 : IN  STD_LOGIC;  -- input clock
-  i_n_reset  : IN  STD_LOGIC;  -- 
-  i_kbCS     : IN  STD_LOGIC;  -- 
+  i_CLOCK_50 : IN  STD_LOGIC; -- input clock
+  i_n_reset  : IN  STD_LOGIC; -- 
+  i_kbCS     : IN  STD_LOGIC; -- 
   i_RegSel   : IN  STD_LOGIC; -- address
   i_rd_Kbd   : IN  STD_LOGIC;  --
-  i_ps2_clk  : IN  STD_LOGIC;  --
-  i_ps2_data : IN  STD_LOGIC;  --
+  i_ps2_clk  : IN  STD_LOGIC; --
+  i_ps2_data : IN  STD_LOGIC; --
   o_kbdDat   : OUT STD_LOGIC_vector(7 downto 0));
 end Wrap_Keyboard;
 </pre>
