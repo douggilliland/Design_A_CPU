@@ -3,6 +3,8 @@
 * Wrapper for PS/2 keyboard interfaces
 * Address i_RegSel - Register select
 ** Address = 0, Status
+*** Value = 0x00, No data present
+*** Value = 0x01, Data present
 ** Address = 1, Data
 
 <pre>
