@@ -1,0 +1,4 @@
+== VGA ==
+
+* [https://github.com/douggilliland/Design_A_CPU/tree/main/Peripherals/ANSIDisplay ANSIDisplay] is better
+** Includes PS/2
