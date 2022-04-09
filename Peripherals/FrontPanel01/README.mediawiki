@@ -6,7 +6,7 @@ This is a standalone application of the Land Boards Front Panel card that uses t
 
 === VHDL Code ===
 
-* VHDL code to "automatically" talk to [http://land-boards.com/blwiki/index.php?title=Front_Panel_For_8_Bit_Computers Front Panel]
+* VHDL code to "automatically" talk to [http://land-boards.com/blwiki/index.php?title=Front_Panel_For_8_Bit_Computers Land Boards FrontPanel-01 card]
 * Reads 32 pushbuttons
 * Writes 32 LEDs
 
