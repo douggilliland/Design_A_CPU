@@ -90,8 +90,8 @@ Our [http://land-boards.com/blwiki/index.php?title=RetroComputing RetroComputing
 | 
 |-
 | ESC[0J
-or
-ESC[J
+ or
+ ESC[J
 | Clear to end of screen
 | All positions from the current cursor to end of screen are replaced with spaces
 | PRINT CHR$(27);"[0J";
@@ -127,265 +127,40 @@ ESC[J
 | PRINT CHR$(27);"[5;33H";
 | 
 |-
-| ESC[L
-Only ONE line supported
+| ESC[L Only ONE line supported
 | Delete line
 | Delete the current cursor line and move the display underneath it up one line. Last line of the display then is blank.
 | PRINT CHR$(27);"[L"
 | 
 |-
-| ESC[M
-Only ONE line supported
+| ESC[M Only ONE line supported
 | Insert line
 | Insert a blank line at the current cursor position and move the display below it down one line.
 | PRINT CHR$(27);"[M"
 | 
 |-
 | ESC[{val}m
-ESC[{val1};...
-{val8}m
-
-(1 to 4 values)
+ ESC[{val1};...
+ {val8}m
+ (1 to 4 values)
 | Set graphics rendition
-
-Note: Text and background setting reversed if inverse is active.
+ Note: Text and background setting reversed if inverse is active.
 | Set the active foreground or background text colour. 
-If character attributes enabled, all characters that appear after this sequence will use the colour specified. 
-If character attributes disabled then the complete screen will be displayed in the colours specified.
-One or two parameters can be specified in the same command.
-Val.
+ If character attributes enabled, all characters that appear after this sequence will use the colour specified. 
+ If character attributes disabled then the complete screen will be displayed in the colours specified.
+ One or two parameters can be specified in the same command.
+ Val.
 | effect
 | PRINT CHR$(27);"[31;44mTHIS IS RED ON BLUE"
-PRINT CHR$(27);"[93;42mTHIS IS BRIGHT YELLOW ON GREEN"
-PRINT CHR$(27);"[30mTHIS IS BLACK TEXT"
-PRINT CHR$(27);"[41mBACKGROUND NOW RED"
-will give the following...
-THIS IS RED ON BLUE
-THIS IS BRIGHT YELLOW ON GREEN
-THIS IS BLACK TEXT
-BACKGROUND NOW RED
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
-|-
-| 
-| 
-| 
-| 
-| 
+ PRINT CHR$(27);"[93;42mTHIS IS BRIGHT YELLOW ON GREEN"
+ PRINT CHR$(27);"[30mTHIS IS BLACK TEXT"
+ PRINT CHR$(27);"[41mBACKGROUND NOW RED"
+ will give the following...
+ THIS IS RED ON BLUE
+ THIS IS BRIGHT YELLOW ON GREEN
+ THIS IS BLACK TEXT
+ BACKGROUND NOW RED
+
 |-
 | 
 | 0
