@@ -11,21 +11,17 @@ From [https://github.com/nealcrook/multicomp6809/blob/master/multicomp/Component
 
 == GPIO PROGRAMMING INTERFACE ==
 
+* The software interface is through 2 read/write registers, usually decoded at the following addresses :
+** regSel = 0 - GPIOADR
+** regSel = 1 - GPIODAT
+
+* GPIOADR specifies the register to access. GPIODAT provides data read/write to selected register.
+* Using a 16-bit store you can generate an atomic register select/data write.
+* There is no equivalent mechanism for reads. 
+* Therefore, if any ISR ever accesses a GPIO register, you must bracket any GPIO register operations with disable/enable of interrupts. 
+* It's probably safest simply to never access GPIO within an ISR.
+
 <pre>
--- The software interface is through 2 read/write registers, usually decoded
--- at the following addresses:
--- $FFD6 GPIOADR
--- $FFD7 GPIODAT
---
--- GPIOADR specifies the register to access. GPIODAT provides data read/write
--- to selected register.
---
--- Using a 16-bit store you can generate an atomic register select/data write.
--- There is no equivalent mechanism for reads. Therefore, if any ISR ever
--- accesses a GPIO register, you must bracket any GPIO register operations
--- with disable/enable of interrupts. It's probably safest simply to never
--- access GPIO within an ISR.
---
 -- When you have written a value to GPIOADR (either with an 8-bit or 16-bit
 -- store) you can perform multiple GPIODAT reads and writes to the selected
 -- register; there is no need to re-write GPIOADR until you wish to select
