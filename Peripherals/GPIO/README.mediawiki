@@ -3,7 +3,7 @@
 From [https://github.com/nealcrook/multicomp6809/blob/master/multicomp/Components/GPIO/gpio.vhd Neal Crook's simple GPIO unit].
 
 * A simple GPIO unit for a 6809 multicomp. 
-** Aims to provide a number of programmable I/O lines all accessed through an indirect mechanism using 2 locations in the processor address space; this fills the final 2 spare locations.
+** Aims to provide a number of programmable I/O lines all accessed through an indirect mechanism using 2 locations in the processor address space.
 
 * The operation is fully synchronous on the master clock; a clock enable determines when the state changes.
 * Design by Neal Crook foofoobedoo@gmail.com Jun2015.
