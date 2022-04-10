@@ -162,8 +162,8 @@ constant CHARS_PER_SCREEN : integer := HORIZ_CHARS*VERT_CHARS;
 	signal	cursorOn : std_logic := '1';
 	signal	dispWR : std_logic := '0';
 	signal	cursBlinkCount : unsigned(25 downto 0);
-	signal	kbWatchdogTimer : integer range 0 to 50000000 :=0;
-	signal	kbWriteTimer : integer range 0 to 50000000 :=0;
+--	signal	kbWatchdogTimer : integer range 0 to 50000000 :=0;
+--	signal	kbWriteTimer : integer range 0 to 50000000 :=0;
 
 	signal	n_int_internal   : std_logic := '1';
 	signal	statusReg : std_logic_vector(7 downto 0) := (others => '0');
@@ -194,7 +194,7 @@ constant CHARS_PER_SCREEN : integer := HORIZ_CHARS*VERT_CHARS;
 	signal	cursAddr_xx: std_logic_vector(10 downto 0);
 	signal	dispAddr_xx: std_logic_vector(10 downto 0);
 
-	type		kbDataArray is array (0 to 131) of std_logic_vector(6 downto 0);
+--	type		kbDataArray is array (0 to 131) of std_logic_vector(6 downto 0);
 
 
 begin

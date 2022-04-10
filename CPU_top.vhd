@@ -4,12 +4,30 @@
 --
 --	16-Bit Processor
 -- Peripherals On the FPGA card
---		VDU
+--		LED
+--		Register-to-register transfer latch
+--		3 digit Seven Segment LED
 --		UART (USB/Serial)
 --		Timer Unit
---		3 digit Seven Segment LED
 --		KEY0 pushbutton used as reset
+--		VDU
 --		LED0
+--
+-- Built for QMTECH EP4CE15 FPGA Starter Kit
+--		http://land-boards.com/blwiki/index.php?title=QMTECH_EP4CE15_FPGA_Starter_Kit
+--
+-- Peripheral Space Memory Map
+--		0X00 = LED
+-- 	0X01 - Register-to-register transfer latch
+--		0X02 = 7 SEG BOTTOM 2 NIBBLES
+--		0X03 = 7 SEG UPPER NIBBLE
+--		0X04-0X05 = UART
+--		0X06-0X07 = VDU
+--		0X08-0X0B = TIMER
+--		0X0C = Readback output latch
+--		0X0D = Readback output latch
+--		0X0E-0x0F = GPIO
+--
 
 -- Library boilerplates
 LIBRARY ieee;
@@ -159,7 +177,7 @@ BEGIN
 		i_resetN					=> w_resetClean_n,		-- Reset CPU
 		i_peripDataToCPU		=> w_peripDataToCPU,		-- Data from the Peripherals to the CPU
 		-- Peripheral bus
-		o_peripAddr				=> w_peripAddr,			-- Peripher address bus (256 I/O locations)
+		o_peripAddr				=> w_peripAddr,			-- Peripheral address bus (256 I/O locations)
 		o_peripDataFromCPU	=> w_peripDataFromCPU,	-- Data from CPU to Peripherals
 		o_peripWr				=> w_peripWr,				-- Write strobe
 		o_peripRd				=> w_peripRd				-- Read strobe
@@ -315,24 +333,24 @@ BEGIN
 	-- https://github.com/nealcrook/multicomp6809/blob/master/multicomp/Components/GPIO/gpio.vhd
 	gpio : entity WORK.gpio
 	port MAP (
-        n_reset 	=> w_resetClean_n,
-        clk     	=> i_clock,
-        hold    	=> '0',
-        -- conditioned with chip select externally
-        n_wr    	=> not w_peripWr,
-        dataIn  	=> w_peripDataFromCPU,
-        dataOut 	=> w_GPIO_Out,
-        -- 0 for GPIOADR, 1 for GPIODAT
-        regAddr 	=> w_peripAddr(0),
+		  n_reset 	=> w_resetClean_n,
+		  clk     	=> i_clock,
+		  hold    	=> '0',
+		  -- conditioned with chip select externally
+		  n_wr    	=> not w_peripWr,
+		  dataIn  	=> w_peripDataFromCPU,
+		  dataOut 	=> w_GPIO_Out,
+		  -- 0 for GPIOADR, 1 for GPIODAT
+		  regAddr 	=> w_peripAddr(0),
 
-        -- GPIO
-        dat0_i    => w_dat0_i,
-        dat0_o    => w_dat0_o,
-        n_dat0_oe => w_n_dat0_oe,
+		  -- GPIO
+		  dat0_i    => w_dat0_i,
+		  dat0_o    => w_dat0_o,
+		  n_dat0_oe => w_n_dat0_oe,
 
-        dat2_i    => w_dat2_i,
-        dat2_o    => w_dat2_o,
-        n_dat2_oe => w_n_dat2_oe
+		  dat2_i    => w_dat2_i,
+		  dat2_o    => w_dat2_o,
+		  n_dat2_oe => w_n_dat2_oe
 	);
 	-- io_J12(11) 
 	

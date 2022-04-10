@@ -1,5 +1,5 @@
 Fitter report for cpu_001
-Sat Apr  9 10:59:27 2022
+Sun Apr 10 13:18:35 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -30,7 +30,7 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
  22. Global & Other Fast Signals
  23. Fitter RAM Summary
  24. |CPU_top|ANSIDisplayVGA:vdu|SansBoldRomReduced:\GEN_REDUCED_SCHARS:fontRom|altsyncram:altsyncram_component|altsyncram_grt3:auto_generated|ALTSYNCRAM
- 25. |CPU_top|cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ALTSYNCRAM
+ 25. |CPU_top|cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ALTSYNCRAM
  26. Routing Usage Summary
  27. LAB Logic Elements
  28. LAB-wide Signals
@@ -72,7 +72,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Sat Apr  9 10:59:26 2022       ;
+; Fitter Status                      ; Successful - Sun Apr 10 13:18:35 2022       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; cpu_001                                     ;
 ; Top-level Entity Name              ; CPU_top                                     ;
@@ -160,14 +160,14 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.07        ;
+; Average used               ; 1.08        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.8%      ;
-;     Processor 3            ;   2.3%      ;
-;     Processor 4            ;   2.2%      ;
+;     Processor 2            ;   3.1%      ;
+;     Processor 3            ;   2.5%      ;
+;     Processor 4            ;   2.4%      ;
 +----------------------------+-------------+
 
 
@@ -1204,7 +1204,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;       |GreyCode:GreyCodeCounter|                       ; 3 (3)       ; 2 (2)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 2 (2)            ; |CPU_top|cpu_001:CPU|GreyCode:GreyCodeCounter                                                                                             ; GreyCode            ; work         ;
 ;       |IOP_ROM:\GEN_512W_INST_ROM:IopRom|              ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 8192        ; 2    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |CPU_top|cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom                                                                                    ; IOP_ROM             ; work         ;
 ;          |altsyncram:altsyncram_component|             ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 8192        ; 2    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |CPU_top|cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component                                                    ; altsyncram          ; work         ;
-;             |altsyncram_dft3:auto_generated|           ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 8192        ; 2    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |CPU_top|cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated                     ; altsyncram_dft3     ; work         ;
+;             |altsyncram_vdt3:auto_generated|           ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 8192        ; 2    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |CPU_top|cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated                     ; altsyncram_vdt3     ; work         ;
 ;       |ProgramCounter:progCtr|                         ; 28 (28)     ; 9 (9)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 19 (19)      ; 0 (0)             ; 9 (9)            ; |CPU_top|cpu_001:CPU|ProgramCounter:progCtr                                                                                               ; ProgramCounter      ; work         ;
 ;       |RegisterFile:RegFile|                           ; 84 (84)     ; 64 (64)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 19 (19)      ; 17 (17)           ; 48 (48)          ; |CPU_top|cpu_001:CPU|RegisterFile:RegFile                                                                                                 ; RegisterFile        ; work         ;
 ;       |Shifter:Shifter|                                ; 24 (24)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 21 (21)      ; 0 (0)             ; 3 (3)            ; |CPU_top|cpu_001:CPU|Shifter:Shifter                                                                                                      ; Shifter             ; work         ;
@@ -1555,7 +1555,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ANSIDisplayVGA:vdu|DisplayRam2K:\GEN_2KRAM:dispCharRam|altsyncram:altsyncram_component|altsyncram_ldr3:auto_generated|ALTSYNCRAM            ; AUTO ; True Dual Port   ; Single Clock ; 2048         ; 8            ; 2048         ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 16384 ; 2048                        ; 8                           ; 2048                        ; 8                           ; 16384               ; 2    ; None                                              ; M9K_X25_Y14_N0, M9K_X25_Y15_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
 ; ANSIDisplayVGA:vdu|SansBoldRomReduced:\GEN_REDUCED_SCHARS:fontRom|altsyncram:altsyncram_component|altsyncram_grt3:auto_generated|ALTSYNCRAM ; AUTO ; ROM              ; Single Clock ; 1024         ; 8            ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 8192  ; 1024                        ; 8                           ; --                          ; --                          ; 8192                ; 1    ; ./Peripherals/ANSIDisplay/SansFontBoldReduced.HEX ; M9K_X25_Y12_N0                 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
 ; bufferedUART:acia|altsyncram:rxBuffer_rtl_0|altsyncram_3ce1:auto_generated|ALTSYNCRAM                                                       ; AUTO ; Simple Dual Port ; Dual Clocks  ; 16           ; 8            ; 16           ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 128   ; 16                          ; 8                           ; 16                          ; 8                           ; 128                 ; 1    ; None                                              ; M9K_X25_Y10_N0                 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ALTSYNCRAM                     ; AUTO ; ROM              ; Single Clock ; 512          ; 16           ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 8192  ; 512                         ; 16                          ; --                          ; --                          ; 8192                ; 2    ; ../CPU_Code/Part9-1_Test1.mif                     ; M9K_X25_Y8_N0, M9K_X25_Y9_N0   ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ALTSYNCRAM                     ; AUTO ; ROM              ; Single Clock ; 512          ; 16           ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 8192  ; 512                         ; 16                          ; --                          ; --                          ; 8192                ; 2    ; ./CPU_Code/Part9-1_Test1.mif                      ; M9K_X25_Y8_N0, M9K_X25_Y9_N0   ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
 ; cpu_001:CPU|lifo:\GEN_STACK_DEEPER:lifo|altsyncram:r_mem_rtl_0|altsyncram_2pd1:auto_generated|ALTSYNCRAM                                    ; AUTO ; Simple Dual Port ; Single Clock ; 16           ; 12           ; 16           ; 12           ; yes                    ; no                      ; yes                    ; no                      ; 192   ; 16                          ; 9                           ; 16                          ; 9                           ; 144                 ; 1    ; None                                              ; M9K_X25_Y7_N0                  ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
 +---------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+-------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+---------------------------------------------------+--------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
 Note: Fitter may spread logical memories into multiple blocks to improve timing. The actual required RAM blocks can be found in the Fitter Resource Usage section.
@@ -1699,7 +1699,7 @@ RAM content values are presented in the following format: (Binary) (Octal) (Deci
 
 RAM content values are presented in the following format: (Binary) (Octal) (Decimal) (Hexadecimal) 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; |CPU_top|cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ALTSYNCRAM                                                                                                                                 ;
+; |CPU_top|cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ALTSYNCRAM                                                                                                                                 ;
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ;   Addr   ;              +0              ;              +1              ;              +2              ;              +3              ;              +4              ;              +5              ;              +6              ;              +7              ;
 +----------+------------------------------+------------------------------+------------------------------+------------------------------+------------------------------+------------------------------+------------------------------+------------------------------+
@@ -2200,17 +2200,17 @@ This will disable optimization of problematic paths and expose them for further 
 ; Loadable_7SD_3LED:sevSeg|w_refresh_counter[19]                                                                                                ; Loadable_7SD_3LED:sevSeg|w_LED_BCD[3]                                                                                   ; 2.494             ;
 ; w_SevenSegData[6]                                                                                                                             ; Loadable_7SD_3LED:sevSeg|w_LED_BCD[2]                                                                                   ; 2.255             ;
 ; w_SevenSegData[10]                                                                                                                            ; Loadable_7SD_3LED:sevSeg|w_LED_BCD[2]                                                                                   ; 2.255             ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a7~porta_address_reg0  ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a3~porta_address_reg0  ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a12~porta_address_reg0 ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a1~porta_address_reg0  ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a2~porta_address_reg0  ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a13~porta_address_reg0 ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a14~porta_address_reg0 ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a5~porta_address_reg0  ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a6~porta_address_reg0  ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a4~porta_address_reg0  ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a15~porta_address_reg0 ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a7~porta_address_reg0  ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a3~porta_address_reg0  ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a12~porta_address_reg0 ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a1~porta_address_reg0  ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a2~porta_address_reg0  ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a13~porta_address_reg0 ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a14~porta_address_reg0 ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a5~porta_address_reg0  ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a6~porta_address_reg0  ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a4~porta_address_reg0  ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a15~porta_address_reg0 ; bufferedUART:acia|func_reset                                                                                            ; 2.247             ;
 ; w_SevenSegData[4]                                                                                                                             ; Loadable_7SD_3LED:sevSeg|w_LED_BCD[0]                                                                                   ; 2.176             ;
 ; w_SevenSegData[8]                                                                                                                             ; Loadable_7SD_3LED:sevSeg|w_LED_BCD[0]                                                                                   ; 2.176             ;
 ; bufferedUART:acia|rxBuffer~14                                                                                                                 ; bufferedUART:acia|dataOut[0]                                                                                            ; 2.167             ;
@@ -2223,8 +2223,8 @@ This will disable optimization of problematic paths and expose them for further 
 ; cpu_001:CPU|RegisterFile:RegFile|reg3[3]                                                                                                      ; bufferedUART:acia|txByteLatch[3]                                                                                        ; 1.790             ;
 ; cpu_001:CPU|RegisterFile:RegFile|reg1[3]                                                                                                      ; bufferedUART:acia|txByteLatch[3]                                                                                        ; 1.790             ;
 ; cpu_001:CPU|RegisterFile:RegFile|reg7[3]                                                                                                      ; bufferedUART:acia|txByteLatch[3]                                                                                        ; 1.790             ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a9~porta_address_reg0  ; bufferedUART:acia|txByteLatch[3]                                                                                        ; 1.790             ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a10~porta_address_reg0 ; bufferedUART:acia|txByteLatch[3]                                                                                        ; 1.790             ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a9~porta_address_reg0  ; bufferedUART:acia|txByteLatch[3]                                                                                        ; 1.790             ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a10~porta_address_reg0 ; bufferedUART:acia|txByteLatch[3]                                                                                        ; 1.790             ;
 ; cpu_001:CPU|RegisterFile:RegFile|reg2[5]                                                                                                      ; bufferedUART:acia|txByteLatch[5]                                                                                        ; 1.702             ;
 ; cpu_001:CPU|RegisterFile:RegFile|reg4[5]                                                                                                      ; bufferedUART:acia|txByteLatch[5]                                                                                        ; 1.702             ;
 ; cpu_001:CPU|RegisterFile:RegFile|reg0[5]                                                                                                      ; bufferedUART:acia|txByteLatch[5]                                                                                        ; 1.702             ;
@@ -2238,13 +2238,13 @@ This will disable optimization of problematic paths and expose them for further 
 ; ANSIDisplayVGA:vdu|dispByteSent                                                                                                               ; ANSIDisplayVGA:vdu|dataOut[7]                                                                                           ; 1.435             ;
 ; cpu_001:CPU|RegisterFile:RegFile|reg3[0]                                                                                                      ; bufferedUART:acia|txByteLatch[0]                                                                                        ; 1.390             ;
 ; cpu_001:CPU|RegisterFile:RegFile|reg2[0]                                                                                                      ; bufferedUART:acia|txByteLatch[0]                                                                                        ; 1.390             ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a8~porta_address_reg0  ; bufferedUART:acia|txByteLatch[0]                                                                                        ; 1.390             ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a8~porta_address_reg0  ; bufferedUART:acia|txByteLatch[0]                                                                                        ; 1.390             ;
 ; cpu_001:CPU|RegisterFile:RegFile|reg5[5]                                                                                                      ; bufferedUART:acia|txByteLatch[5]                                                                                        ; 1.344             ;
 ; cpu_001:CPU|RegisterFile:RegFile|reg3[5]                                                                                                      ; bufferedUART:acia|txByteLatch[5]                                                                                        ; 1.344             ;
 ; cpu_001:CPU|RegisterFile:RegFile|reg1[5]                                                                                                      ; bufferedUART:acia|txByteLatch[5]                                                                                        ; 1.344             ;
 ; cpu_001:CPU|RegisterFile:RegFile|reg7[5]                                                                                                      ; bufferedUART:acia|txByteLatch[5]                                                                                        ; 1.344             ;
 ; w_SevenSegData[0]                                                                                                                             ; Loadable_7SD_3LED:sevSeg|w_LED_BCD[0]                                                                                   ; 1.295             ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a0~porta_address_reg0  ; gpio:gpio|reg[4]                                                                                                        ; 1.247             ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a0~porta_address_reg0  ; gpio:gpio|reg[4]                                                                                                        ; 1.247             ;
 ; w_SevenSegData[3]                                                                                                                             ; Loadable_7SD_3LED:sevSeg|w_LED_BCD[3]                                                                                   ; 1.247             ;
 ; w_SevenSegData[2]                                                                                                                             ; Loadable_7SD_3LED:sevSeg|w_LED_BCD[2]                                                                                   ; 1.231             ;
 ; bufferedUART:acia|rxBuffer~17                                                                                                                 ; bufferedUART:acia|dataOut[3]                                                                                            ; 1.204             ;
@@ -2290,7 +2290,7 @@ This will disable optimization of problematic paths and expose them for further 
 ; cpu_001:CPU|RegisterFile:RegFile|reg3[7]                                                                                                      ; bufferedUART:acia|controlReg[7]                                                                                         ; 1.040             ;
 ; cpu_001:CPU|RegisterFile:RegFile|reg1[7]                                                                                                      ; bufferedUART:acia|controlReg[7]                                                                                         ; 1.040             ;
 ; cpu_001:CPU|RegisterFile:RegFile|reg7[7]                                                                                                      ; bufferedUART:acia|controlReg[7]                                                                                         ; 1.040             ;
-; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a11~porta_address_reg0 ; bufferedUART:acia|controlReg[7]                                                                                         ; 1.040             ;
+; cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a11~porta_address_reg0 ; bufferedUART:acia|controlReg[7]                                                                                         ; 1.040             ;
 ; bufferedUART:acia|rxInPointer[1]                                                                                                              ; bufferedUART:acia|rxBuffer~13                                                                                           ; 1.038             ;
 +-----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+-------------------+
 Note: This table only shows the top 100 path(s) that have the largest delay added for hold.
@@ -2325,36 +2325,36 @@ Info (332144): No user constrained base clocks found in the design
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
-Info (176353): Automatically promoted node i_clock~input (placed in PIN T2 (CLK2, DIFFCLK_1p)) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 25
+Info (176353): Automatically promoted node i_clock~input (placed in PIN T2 (CLK2, DIFFCLK_1p)) File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 43
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G4
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a1 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_dft3.tdf Line: 57
-        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a2 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_dft3.tdf Line: 79
-        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a3 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_dft3.tdf Line: 101
-        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a4 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_dft3.tdf Line: 123
-        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a5 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_dft3.tdf Line: 145
-        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a6 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_dft3.tdf Line: 167
-        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a7 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_dft3.tdf Line: 189
-        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a12 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_dft3.tdf Line: 299
-        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a13 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_dft3.tdf Line: 321
-        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_dft3:auto_generated|ram_block1a14 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_dft3.tdf Line: 343
+        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a1 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_vdt3.tdf Line: 57
+        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a2 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_vdt3.tdf Line: 79
+        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a3 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_vdt3.tdf Line: 101
+        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a4 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_vdt3.tdf Line: 123
+        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a5 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_vdt3.tdf Line: 145
+        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a6 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_vdt3.tdf Line: 167
+        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a7 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_vdt3.tdf Line: 189
+        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a12 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_vdt3.tdf Line: 299
+        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a13 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_vdt3.tdf Line: 321
+        Info (176357): Destination node cpu_001:CPU|IOP_ROM:\GEN_512W_INST_ROM:IopRom|altsyncram:altsyncram_component|altsyncram_vdt3:auto_generated|ram_block1a14 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/db/altsyncram_vdt3.tdf Line: 343
         Info (176358): Non-global destination nodes limited to 10 nodes
-Info (176353): Automatically promoted node W_UARTRd  File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 102
+Info (176353): Automatically promoted node W_UARTRd  File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 120
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
-Info (176353): Automatically promoted node w_UARTWr  File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 101
+Info (176353): Automatically promoted node w_UARTWr  File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 119
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
         Info (176357): Destination node bufferedUART:acia|process_1~0
-Info (176353): Automatically promoted node W_VDUWr  File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 109
+Info (176353): Automatically promoted node W_VDUWr  File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 127
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
 Info (176353): Automatically promoted node Loadable_7SD_3LED:sevSeg|Mux12~0  File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/Peripherals/SevenSegs/Seven_Seg_3_Digits/Loadable_7SD_3LED.vhd Line: 71
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
-Info (176353): Automatically promoted node W_VDURd  File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 110
+Info (176353): Automatically promoted node W_VDURd  File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 128
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:03
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:02
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:01
@@ -2366,140 +2366,140 @@ Info (170195): Router estimated average interconnect usage is 3% of the availabl
     Info (170196): Router estimated peak interconnect usage is 20% of the available device resources in the region that extends from location X21_Y10 to location X30_Y19
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:06
-Info (11888): Total time spent on timing analysis during the Fitter is 2.27 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:05
+Info (11888): Total time spent on timing analysis during the Fitter is 2.22 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Warning (169177): 67 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing Cyclone IV E Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
-    Info (169178): Pin e_rxc uses I/O standard 3.3-V LVTTL at F21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 63
-    Info (169178): Pin e_rxdv uses I/O standard 3.3-V LVTTL at D22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 64
-    Info (169178): Pin e_rxer uses I/O standard 3.3-V LVTTL at K22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 65
-    Info (169178): Pin e_rxd[0] uses I/O standard 3.3-V LVTTL at D21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
-    Info (169178): Pin e_rxd[1] uses I/O standard 3.3-V LVTTL at E22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
-    Info (169178): Pin e_rxd[2] uses I/O standard 3.3-V LVTTL at E21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
-    Info (169178): Pin e_rxd[3] uses I/O standard 3.3-V LVTTL at F22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
-    Info (169178): Pin e_rxd[4] uses I/O standard 3.3-V LVTTL at H22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
-    Info (169178): Pin e_rxd[5] uses I/O standard 3.3-V LVTTL at H21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
-    Info (169178): Pin e_rxd[6] uses I/O standard 3.3-V LVTTL at J22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
-    Info (169178): Pin e_rxd[7] uses I/O standard 3.3-V LVTTL at J21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 66
-    Info (169178): Pin e_txc uses I/O standard 3.3-V LVTTL at R22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 67
-    Info (169178): Pin io_J12[11] uses I/O standard 3.3-V LVTTL at C20 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[12] uses I/O standard 3.3-V LVTTL at D20 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[13] uses I/O standard 3.3-V LVTTL at C19 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[14] uses I/O standard 3.3-V LVTTL at D19 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[15] uses I/O standard 3.3-V LVTTL at C17 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[16] uses I/O standard 3.3-V LVTTL at D17 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[17] uses I/O standard 3.3-V LVTTL at A20 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[18] uses I/O standard 3.3-V LVTTL at B20 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[19] uses I/O standard 3.3-V LVTTL at A19 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[20] uses I/O standard 3.3-V LVTTL at B19 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[21] uses I/O standard 3.3-V LVTTL at A18 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[22] uses I/O standard 3.3-V LVTTL at B18 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[23] uses I/O standard 3.3-V LVTTL at A17 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[24] uses I/O standard 3.3-V LVTTL at B17 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[25] uses I/O standard 3.3-V LVTTL at A16 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[26] uses I/O standard 3.3-V LVTTL at B16 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[27] uses I/O standard 3.3-V LVTTL at A15 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[28] uses I/O standard 3.3-V LVTTL at B15 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin DRAM_DQ[0] uses I/O standard 3.3-V LVTTL at AA10 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169178): Pin DRAM_DQ[1] uses I/O standard 3.3-V LVTTL at AB9 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169178): Pin DRAM_DQ[2] uses I/O standard 3.3-V LVTTL at AA9 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169178): Pin DRAM_DQ[3] uses I/O standard 3.3-V LVTTL at AB8 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169178): Pin DRAM_DQ[4] uses I/O standard 3.3-V LVTTL at AA8 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169178): Pin DRAM_DQ[5] uses I/O standard 3.3-V LVTTL at AB7 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169178): Pin DRAM_DQ[6] uses I/O standard 3.3-V LVTTL at AA7 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169178): Pin DRAM_DQ[7] uses I/O standard 3.3-V LVTTL at AB5 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169178): Pin DRAM_DQ[8] uses I/O standard 3.3-V LVTTL at Y7 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169178): Pin DRAM_DQ[9] uses I/O standard 3.3-V LVTTL at W8 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169178): Pin DRAM_DQ[10] uses I/O standard 3.3-V LVTTL at Y8 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169178): Pin DRAM_DQ[11] uses I/O standard 3.3-V LVTTL at V9 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169178): Pin DRAM_DQ[12] uses I/O standard 3.3-V LVTTL at V10 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169178): Pin DRAM_DQ[13] uses I/O standard 3.3-V LVTTL at Y10 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169178): Pin DRAM_DQ[14] uses I/O standard 3.3-V LVTTL at W10 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169178): Pin DRAM_DQ[15] uses I/O standard 3.3-V LVTTL at V11 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169178): Pin e_mdio uses I/O standard 3.3-V LVTTL at W21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 75
-    Info (169178): Pin o_LED uses I/O standard 3.3-V LVTTL at E3 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 27
-    Info (169178): Pin io_J12[3] uses I/O standard 3.3-V LVTTL at C22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 191
-    Info (169178): Pin io_J12[4] uses I/O standard 3.3-V LVTTL at C21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 191
-    Info (169178): Pin io_J12[5] uses I/O standard 3.3-V LVTTL at B22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 191
-    Info (169178): Pin io_J12[6] uses I/O standard 3.3-V LVTTL at B21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 191
-    Info (169178): Pin io_J12[7] uses I/O standard 3.3-V LVTTL at H20 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 191
-    Info (169178): Pin io_J12[8] uses I/O standard 3.3-V LVTTL at H19 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 191
-    Info (169178): Pin io_J12[9] uses I/O standard 3.3-V LVTTL at F20 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 191
-    Info (169178): Pin io_J12[10] uses I/O standard 3.3-V LVTTL at F19 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 191
-    Info (169178): Pin io_J12[29] uses I/O standard 3.3-V LVTTL at A14 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[30] uses I/O standard 3.3-V LVTTL at B14 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[31] uses I/O standard 3.3-V LVTTL at A13 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[32] uses I/O standard 3.3-V LVTTL at B13 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[33] uses I/O standard 3.3-V LVTTL at A10 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[34] uses I/O standard 3.3-V LVTTL at B10 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[35] uses I/O standard 3.3-V LVTTL at A9 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin io_J12[36] uses I/O standard 3.3-V LVTTL at B9 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169178): Pin i_clock uses I/O standard 3.3-V LVTTL at T2 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 25
-    Info (169178): Pin i_resetN uses I/O standard 3.3-V LVTTL at J4 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 26
-    Info (169178): Pin i_uart_rx uses I/O standard 3.3-V LVTTL at Y21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 45
+    Info (169178): Pin e_rxc uses I/O standard 3.3-V LVTTL at F21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 81
+    Info (169178): Pin e_rxdv uses I/O standard 3.3-V LVTTL at D22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 82
+    Info (169178): Pin e_rxer uses I/O standard 3.3-V LVTTL at K22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 83
+    Info (169178): Pin e_rxd[0] uses I/O standard 3.3-V LVTTL at D21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 84
+    Info (169178): Pin e_rxd[1] uses I/O standard 3.3-V LVTTL at E22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 84
+    Info (169178): Pin e_rxd[2] uses I/O standard 3.3-V LVTTL at E21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 84
+    Info (169178): Pin e_rxd[3] uses I/O standard 3.3-V LVTTL at F22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 84
+    Info (169178): Pin e_rxd[4] uses I/O standard 3.3-V LVTTL at H22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 84
+    Info (169178): Pin e_rxd[5] uses I/O standard 3.3-V LVTTL at H21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 84
+    Info (169178): Pin e_rxd[6] uses I/O standard 3.3-V LVTTL at J22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 84
+    Info (169178): Pin e_rxd[7] uses I/O standard 3.3-V LVTTL at J21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 84
+    Info (169178): Pin e_txc uses I/O standard 3.3-V LVTTL at R22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 85
+    Info (169178): Pin io_J12[11] uses I/O standard 3.3-V LVTTL at C20 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[12] uses I/O standard 3.3-V LVTTL at D20 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[13] uses I/O standard 3.3-V LVTTL at C19 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[14] uses I/O standard 3.3-V LVTTL at D19 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[15] uses I/O standard 3.3-V LVTTL at C17 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[16] uses I/O standard 3.3-V LVTTL at D17 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[17] uses I/O standard 3.3-V LVTTL at A20 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[18] uses I/O standard 3.3-V LVTTL at B20 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[19] uses I/O standard 3.3-V LVTTL at A19 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[20] uses I/O standard 3.3-V LVTTL at B19 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[21] uses I/O standard 3.3-V LVTTL at A18 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[22] uses I/O standard 3.3-V LVTTL at B18 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[23] uses I/O standard 3.3-V LVTTL at A17 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[24] uses I/O standard 3.3-V LVTTL at B17 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[25] uses I/O standard 3.3-V LVTTL at A16 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[26] uses I/O standard 3.3-V LVTTL at B16 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[27] uses I/O standard 3.3-V LVTTL at A15 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[28] uses I/O standard 3.3-V LVTTL at B15 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin DRAM_DQ[0] uses I/O standard 3.3-V LVTTL at AA10 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169178): Pin DRAM_DQ[1] uses I/O standard 3.3-V LVTTL at AB9 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169178): Pin DRAM_DQ[2] uses I/O standard 3.3-V LVTTL at AA9 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169178): Pin DRAM_DQ[3] uses I/O standard 3.3-V LVTTL at AB8 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169178): Pin DRAM_DQ[4] uses I/O standard 3.3-V LVTTL at AA8 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169178): Pin DRAM_DQ[5] uses I/O standard 3.3-V LVTTL at AB7 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169178): Pin DRAM_DQ[6] uses I/O standard 3.3-V LVTTL at AA7 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169178): Pin DRAM_DQ[7] uses I/O standard 3.3-V LVTTL at AB5 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169178): Pin DRAM_DQ[8] uses I/O standard 3.3-V LVTTL at Y7 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169178): Pin DRAM_DQ[9] uses I/O standard 3.3-V LVTTL at W8 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169178): Pin DRAM_DQ[10] uses I/O standard 3.3-V LVTTL at Y8 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169178): Pin DRAM_DQ[11] uses I/O standard 3.3-V LVTTL at V9 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169178): Pin DRAM_DQ[12] uses I/O standard 3.3-V LVTTL at V10 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169178): Pin DRAM_DQ[13] uses I/O standard 3.3-V LVTTL at Y10 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169178): Pin DRAM_DQ[14] uses I/O standard 3.3-V LVTTL at W10 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169178): Pin DRAM_DQ[15] uses I/O standard 3.3-V LVTTL at V11 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169178): Pin e_mdio uses I/O standard 3.3-V LVTTL at W21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 93
+    Info (169178): Pin o_LED uses I/O standard 3.3-V LVTTL at E3 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 45
+    Info (169178): Pin io_J12[3] uses I/O standard 3.3-V LVTTL at C22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 209
+    Info (169178): Pin io_J12[4] uses I/O standard 3.3-V LVTTL at C21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 209
+    Info (169178): Pin io_J12[5] uses I/O standard 3.3-V LVTTL at B22 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 209
+    Info (169178): Pin io_J12[6] uses I/O standard 3.3-V LVTTL at B21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 209
+    Info (169178): Pin io_J12[7] uses I/O standard 3.3-V LVTTL at H20 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 209
+    Info (169178): Pin io_J12[8] uses I/O standard 3.3-V LVTTL at H19 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 209
+    Info (169178): Pin io_J12[9] uses I/O standard 3.3-V LVTTL at F20 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 209
+    Info (169178): Pin io_J12[10] uses I/O standard 3.3-V LVTTL at F19 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 209
+    Info (169178): Pin io_J12[29] uses I/O standard 3.3-V LVTTL at A14 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[30] uses I/O standard 3.3-V LVTTL at B14 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[31] uses I/O standard 3.3-V LVTTL at A13 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[32] uses I/O standard 3.3-V LVTTL at B13 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[33] uses I/O standard 3.3-V LVTTL at A10 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[34] uses I/O standard 3.3-V LVTTL at B10 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[35] uses I/O standard 3.3-V LVTTL at A9 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin io_J12[36] uses I/O standard 3.3-V LVTTL at B9 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169178): Pin i_clock uses I/O standard 3.3-V LVTTL at T2 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 43
+    Info (169178): Pin i_resetN uses I/O standard 3.3-V LVTTL at J4 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 44
+    Info (169178): Pin i_uart_rx uses I/O standard 3.3-V LVTTL at Y21 File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 63
 Warning (169064): Following 52 pins have no output enable or a GND or VCC output enable - later changes to this connectivity may change fitting results
-    Info (169065): Pin io_J12[11] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[12] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[13] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[14] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[15] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[16] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[17] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[18] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[19] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[20] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[21] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[22] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[23] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[24] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[25] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[26] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[27] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[28] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin DRAM_DQ[0] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169065): Pin DRAM_DQ[1] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169065): Pin DRAM_DQ[2] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169065): Pin DRAM_DQ[3] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169065): Pin DRAM_DQ[4] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169065): Pin DRAM_DQ[5] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169065): Pin DRAM_DQ[6] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169065): Pin DRAM_DQ[7] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169065): Pin DRAM_DQ[8] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169065): Pin DRAM_DQ[9] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169065): Pin DRAM_DQ[10] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169065): Pin DRAM_DQ[11] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169065): Pin DRAM_DQ[12] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169065): Pin DRAM_DQ[13] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169065): Pin DRAM_DQ[14] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169065): Pin DRAM_DQ[15] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
-    Info (169065): Pin e_mdio has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 75
-    Info (169065): Pin o_LED has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 27
-    Info (169065): Pin io_J12[3] has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 191
-    Info (169065): Pin io_J12[4] has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 191
-    Info (169065): Pin io_J12[5] has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 191
-    Info (169065): Pin io_J12[6] has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 191
-    Info (169065): Pin io_J12[7] has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 191
-    Info (169065): Pin io_J12[8] has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 191
-    Info (169065): Pin io_J12[9] has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 191
-    Info (169065): Pin io_J12[10] has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 191
-    Info (169065): Pin io_J12[29] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[30] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[31] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[32] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[33] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[34] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[35] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
-    Info (169065): Pin io_J12[36] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 41
+    Info (169065): Pin io_J12[11] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[12] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[13] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[14] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[15] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[16] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[17] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[18] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[19] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[20] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[21] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[22] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[23] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[24] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[25] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[26] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[27] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[28] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin DRAM_DQ[0] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169065): Pin DRAM_DQ[1] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169065): Pin DRAM_DQ[2] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169065): Pin DRAM_DQ[3] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169065): Pin DRAM_DQ[4] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169065): Pin DRAM_DQ[5] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169065): Pin DRAM_DQ[6] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169065): Pin DRAM_DQ[7] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169065): Pin DRAM_DQ[8] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169065): Pin DRAM_DQ[9] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169065): Pin DRAM_DQ[10] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169065): Pin DRAM_DQ[11] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169065): Pin DRAM_DQ[12] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169065): Pin DRAM_DQ[13] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169065): Pin DRAM_DQ[14] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169065): Pin DRAM_DQ[15] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 77
+    Info (169065): Pin e_mdio has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 93
+    Info (169065): Pin o_LED has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 45
+    Info (169065): Pin io_J12[3] has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 209
+    Info (169065): Pin io_J12[4] has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 209
+    Info (169065): Pin io_J12[5] has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 209
+    Info (169065): Pin io_J12[6] has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 209
+    Info (169065): Pin io_J12[7] has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 209
+    Info (169065): Pin io_J12[8] has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 209
+    Info (169065): Pin io_J12[9] has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 209
+    Info (169065): Pin io_J12[10] has a permanently enabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 209
+    Info (169065): Pin io_J12[29] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[30] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[31] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[32] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[33] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[34] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[35] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
+    Info (169065): Pin io_J12[36] has a permanently disabled output enable File: C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/CPU_top.vhd Line: 59
 Info (144001): Generated suppressed messages file C:/Users/HPz420/Documents/GitHub/Doug Gilliland/Design_A_CPU/output_files/cpu_001.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 5539 megabytes
-    Info: Processing ended: Sat Apr  9 10:59:27 2022
-    Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:27
+    Info: Peak virtual memory: 5545 megabytes
+    Info: Processing ended: Sun Apr 10 13:18:36 2022
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:26
 
 
 +----------------------------+

@@ -3,7 +3,8 @@
 --		https://github.com/douggilliland/Design_A_CPU
 --	
 -- Author: Doug Gilliland
--- 
+-- Porting Guide:
+--		http://land-boards.com/blwiki/index.php?title=IOP16_Porting_Guide
 
 -- Library boilerplates
 LIBRARY ieee;
