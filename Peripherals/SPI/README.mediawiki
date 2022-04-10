@@ -2,7 +2,7 @@
 
 From https://github.com/jakubcabal
 
-<img src="https://raw.githubusercontent.com/douggilliland/MultiComp/master/MultiComp%20(VHDL%20Template)/Components/SPI/jakubcabal/SPI_VHDL_Docs.png></img>
+<img src="http://land-boards.com/blwiki/images/7/73/SPI_VHDL_Docs.png"></img>
 
 # SPI MASTER AND SLAVE FOR FPGA
 
