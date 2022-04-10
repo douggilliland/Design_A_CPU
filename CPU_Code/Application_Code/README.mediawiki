@@ -1,0 +1,24 @@
+== Code Examples ==
+
+Here are some Code and FPGA build example applications
+
+* [https://github.com/douggilliland/Design_A_CPU Design a CPU Base Code] - GitHub
+
+=== Blink LED ===
+
+Almost minimal design = CPU + Timer + LED
+
+* [https://github.com/douggilliland/IOP16/tree/main/Higher_Level_Examples/TestIOP16B TestIOP16B]
+* [https://github.com/douggilliland/IOP16/blob/main/IOP16_Code/testTimer/testTimer.csv testTimer Code]
+
+=== ANSI Terminal ===
+
+* [https://github.com/douggilliland/IOP16/tree/main/Higher_Level_Examples/ANSITerm2 ANSITerm2 FPGA]
+* [https://github.com/douggilliland/Design_A_CPU/tree/main/CPU_Code/Application_Code/ANSITerm03 ANSITerm03 Code]
+* [https://hackaday.io/project/180415-ansi-terminal-in-an-fpga Hackaday ANSI Terminal in an FPGA]
+
+=== Front Panel Loopback ===
+
+* [https://github.com/douggilliland/IOP16/tree/main/Higher_Level_Examples/Front%20Panel%20Examples/FrontPanel01_Test_LoopBack Front Panel Loopback FPGA]
+* [https://github.com/douggilliland/Design_A_CPU/tree/main/CPU_Code/Application_Code/FP01_LOOP4 Front Panel Loopback Code]
+* [https://hackaday.io/project/180199-8-bit-computer-front-panel Hackaday Front Panel]
