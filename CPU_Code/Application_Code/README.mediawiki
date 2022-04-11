@@ -22,4 +22,3 @@ Almost minimal design = CPU + Timer + LED
 * [https://github.com/douggilliland/IOP16/tree/main/Higher_Level_Examples/Front%20Panel%20Examples/FrontPanel01_Test_LoopBack Front Panel Loopback FPGA]
 * [https://github.com/douggilliland/Design_A_CPU/tree/main/CPU_Code/Application_Code/FP01_LOOP4 Front Panel Loopback Code]
 * [https://hackaday.io/project/180199-8-bit-computer-front-panel Hackaday Front Panel]
-
