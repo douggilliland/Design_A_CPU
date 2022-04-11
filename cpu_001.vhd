@@ -215,14 +215,14 @@ BEGIN
 		o_RegFData	=> w_regFOut
 	);
 	-- Register File data in mux/select
-	w_regFIn <= i_peripDataToCPU 			when OP_IOR = '1' else
-					w_ALUDataOut				when OP_ARI = '1' else
-					w_ALUDataOut				when OP_ADI = '1' else
-					w_ALUDataOut				when OP_ORI = '1' else
-					w_ALUDataOut				when OP_xRI = '1' else
-					w_romData(7 downto 0)	when OP_LRI = '1' else
-					w_ShiftDataOut				when OP_SRI = '1' else
-					x"00";
+	w_regFIn <= i_peripDataToCPU 			when OP_IOR = '1' else	-- I/O Read
+					w_ALUDataOut				when OP_ARI = '1' else	-- AND register immediate
+					w_ALUDataOut				when OP_ADI = '1' else	-- ADD register immediate
+					w_ALUDataOut				when OP_ORI = '1' else	-- OR register immediate
+					w_ALUDataOut				when OP_xRI = '1' else	-- Exclusive-OR register immediate
+					w_romData(7 downto 0)	when OP_LRI = '1' else	-- Load register with immediate value
+					w_ShiftDataOut				when OP_SRI = '1' else	-- Output of shiftewr
+					x"00";														-- Otherwise 0x00
 	-- Operations that load the Register File
 	w_ldRegFileSel <= OP_LRI or OP_IOR or OP_ARI or OP_ORI or OP_ADI or OP_SRI or OP_xRI;
 	w_ldRegF			<= '1' when ((w_GreyCode = "10") and (w_ldRegFileSel = '1')) else '0';
