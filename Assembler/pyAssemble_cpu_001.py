@@ -72,6 +72,12 @@ from tkinter import messagebox
 
 defaultPath = '.'
 
+# labelsList = {}
+# program = []
+# sourceFile = []
+# annotatedSource = []
+memMapList = []
+
 class ControlClass:
 	"""Methods to read tindie or Kickstarter files and write out USPS and PayPal lists.
 	"""
@@ -79,6 +85,9 @@ class ControlClass:
 		"""The code that calls the other code
 		"""
 		global defaultPath
+		# global labelsList
+		# global program
+		# global annotatedSource
 		defaultParmsClass = HandleDefault()
 		defaultParmsClass.initDefaults()
 		defaultPath = defaultParmsClass.getKeyVal('DEFAULT_PATH')
@@ -105,25 +114,52 @@ class ControlClass:
 		else:
 			print('header ok')
 		inFileName = myCSVFileReadClass.getLastPathFileName()
-		memMapList = []
-		memMapFileName = inFileName[0:-4] + '_MMAP.csv'
-		if os.path.isfile(memMapFileName):
-			print('Memory map exists')
-			memMapList = myCSVFileReadClass.readInCSV(memMapFileName)
-			print('memMapList',memMapList)
-		print('memMapFileName',memMapFileName)
+		inFileName = myCSVFileReadClass.getLastPathFileName()
+		labelsList = self.makeLabelsList(inList)
+		program = program = self.makeProgram(inList,labelsList)
+		annotatedSource = self.makeListFile(inList, program)
+		print('doConvert In File:',inFileName[inFileName.rfind("\\")+1:])
+		self.outStuff(inFileName, annotatedSource, memMapList)
+		infoBox("Complete")
+		
+	def calcOffsetString(self,distanceInt):
+		dresultStr = ''
+		if distanceInt < 0:
+			distanceInt = (distanceInt ^ 4095) + 1
+		distStr = hex(distanceInt).upper()
+		if distStr[0] == '-':	# -0xffe
+			if len(distStr) == 6:
+				return distStr[3:]
+			elif len(distStr) == 5:
+				return '0' + distStr[3:]
+			elif len(distStr) == 4:
+				return '00' + distStr[3:]
+		else:	#0x000
+			if len(distStr) == 5:
+				return distStr[2:]
+			elif len(distStr) == 4:
+				return '0' + distStr[2:]
+			elif len(distStr) == 3:
+				return '00' + distStr[2:]
+		# print('distance =',distStr)
+		return distStr
+	
+	def getMemMapStr(self,regNum,ioRd,ioWr,memMapList):
+		"""
+		"""
+		for row in memMapList[1:]:
+			if regNum[2:] == row[0][2:]:
+				if (row[1] == 'R' or row[1] == 'RW') and ioRd:
+					return(row[2])
+				elif (row[1] == 'W' or row[1] == 'RW') and ioWr:
+					return(row[2])
+		return ''
+	
+	def makeProgram(self,inList,labelsList):
+		""" makeProgram
+		"""
 		progCounter = 0
-		labelsList = {}
-		for row in inList[1:]:
-			if row[0] != '':
-				labelsList[row[0]] = progCounter
-			if row[1] == 'HLT':
-				labelName = 'HLT_' + str(progCounter)
-				labelsList[labelName] = progCounter
-			progCounter += 1
-		print('labelsList',labelsList)
 		program = []
-		progCounter = 0
 		for row in inList[1:]:
 			# print(row)
 			row[1] = row[1].upper()
@@ -265,7 +301,12 @@ class ControlClass:
 					assert False,'bad instr'
 				progCounter += 1
 		# print('program',program)
+		return program
+	
+	def makeListFile(self, inList, program):
 		# Create the list file
+		# global program
+		# global annotatedSource
 		annotatedSource = []
 		progOffset = 0
 		for rowOffset in range(len(inList)-1):
@@ -284,39 +325,32 @@ class ControlClass:
 			annRow.append(inList[rowOffset+1][3])
 			annRow.append(inList[rowOffset+1][4])
 			#print(annRow)
-			annotatedSource.append(annRow)		
-		print('inFileName',inFileName)
-		self.outStuff(inFileName,annotatedSource,memMapList)
-		infoBox("Complete")
+			annotatedSource.append(annRow)	
+		return annotatedSource
 		
-	def calcOffsetString(self,distanceInt):
-		dresultStr = ''
-		if distanceInt < 0:
-			distanceInt = (distanceInt ^ 4095) + 1
-		distStr = hex(distanceInt).upper()
-		if distStr[0] == '-':	# -0xffe
-			if len(distStr) == 6:
-				return distStr[3:]
-			elif len(distStr) == 5:
-				return '0' + distStr[3:]
-			elif len(distStr) == 4:
-				return '00' + distStr[3:]
-		else:	#0x000
-			if len(distStr) == 5:
-				return distStr[2:]
-			elif len(distStr) == 4:
-				return '0' + distStr[2:]
-			elif len(distStr) == 3:
-				return '00' + distStr[2:]
-		# print('distance =',distStr)
-		return distStr
+	def makeLabelsList(self, inList):
+		""" makeLabelsList
+		"""
+		# global labelsList
+		labelsList= {}
+		progCounter = 0
+		for row in inList[1:]:
+			if row[0] != '':
+				labelsList[row[0]] = progCounter
+			if row[1] == 'HLT':
+				labelName = 'HLT_' + str(progCounter)
+				labelsList[labelName] = progCounter
+			progCounter += 1
+		#print('labelsList',labelsList)
+		return labelsList
 	
-	def outStuff(self,inFileName,sourceFile,memMapList):
-		"""
-		[['LABEL', 'OPCODE', 'VAL4', 'VAL8', 'COMMENT'], ['INIT', 'NOP', '', '', ''], ['', 'LRI', '0X00', '0X01', 'LOAD START CMD'], ['', 'LRI', '0X01', '0X40', 'LOAD SLAVE ADDR<<1, WRITE'], ['', 'LRI', '0X02', '0X00', 'LOAD IDLE CMD'], ['', 'LRI', '0X03', '0X00', 'LOAD IODIRA REGISTER_OFFSET'], ['', 'LRI', '0X04', '0XFF', 'LOAD IODIRA_ALL_INS'], ['', 'IOW', '0X00', '0X00', 'ISSUE START CMD'], ['', 'IOW', '0X01', '0X00', 'ISSUE SLAVE ADDR<<1, WRITE'], ['', 'IOW', '0X02', '0X00', 'ISSUE IDLE CMD'], ['', 'IOW', '0X03', '0X00', 'ISSUE IODIRA REGISTER_OFFSET'], ['', 'IOW', '0X04', '0X00', 'ISSUE IODIRA_ALL_INS'], ['LDST000', 'IOR', '0X05', '0X00', 'READ STATUS'], ['', 'ARI', '0X05', '0X01', 'BUSY BIT'], ['', 'BNZ', '', 'LDST000', 'LOOP UNTIL NOT BUSY'], ['SELF', 'JMP', 'SELF', '', '']]
-		"""
+	def makeMIFFile(self, inFileName, annotatedSource):
+		# global labelsList
+		# global program
+		# global annotatedSource
+		# global memMapList
 		outFilePathName = inFileName[0:-4] + '.mif'
-		print('outFilePathName',outFilePathName)
+		print('makeMIFFile: MIF File:',outFilePathName[outFilePathName.rfind("\\")+1:])
 		# for row in sourceFile:
 			# print(row)
 		outList = []
@@ -325,7 +359,7 @@ class ControlClass:
 		outList.append('-- Generated by pyAssemble_cpu_001.py')
 		outList.append('-- ')
 		outLen = 0
-		for row in sourceFile:
+		for row in annotatedSource:
 			if row[1] != '':
 				outLen += 1
 		outStr = 'DEPTH = '+ str(outLen) + ';'
@@ -339,7 +373,7 @@ class ControlClass:
 		outStr = ''
 		# print('outList',outList)
 #		assert False,'stop'
-		for row in sourceFile:
+		for row in annotatedSource:
 			if row[1] != '':
 				if lineCount == 0:
 					outStr += str(addrCount)
@@ -367,11 +401,13 @@ class ControlClass:
 		for row in outList:
 			F.writelines(row+'\n')
 		F.close()
-		
-		outFilePathName = outFilePathName[0:-4] + '.lst'
+
+	def makeLstFile(self, inFileName, annotatedSource, memMapList):
+		outFilePathName = inFileName[0:-4] + '.lst'
+		print('makeLstFile: List File:',outFilePathName[outFilePathName.rfind("\\")+1:])
 		F = open(outFilePathName, 'w')
 		address = 0
-		for row in sourceFile:
+		for row in annotatedSource:
 			hexAddr = hex(address)
 			hexAddr = hexAddr[2:]
 			if len(hexAddr) == 1:
@@ -408,22 +444,6 @@ class ControlClass:
 						if not (ioRd or ioWr):
 							outStr += cell + '\t'
 						else:
-							# if cell == '0X04':
-								# outStr += 'I2C_DAT' + '\t'
-							# elif (cell == '0X05') and ioRd:
-								# outStr += 'I2C_STA' + '\t'
-							# elif (cell == '0X05') and ioWr:
-								# outStr += 'I2C_CTL' + '\t'
-							# elif (cell == '0X00') and ioWr:
-								# outStr += 'LEDS0' + '\t'
-							# elif (cell == '0X01') and ioWr:
-								# outStr += 'LEDS1' + '\t'
-							# elif (cell == '0X02') and ioWr:
-								# outStr += 'LEDS2' + '\t'
-							# elif (cell == '0X02') and ioWr:
-								# outStr += 'LEDS3' + '\t'
-							# else:
-								# outStr += 'TBDIO' + '\t'
 							if memMapList != []:
 								portStr = self.getMemMapStr(cell,ioRd,ioWr,memMapList)
 								if portStr == '':
@@ -439,19 +459,14 @@ class ControlClass:
 			F.writelines(outStr)
 			address += 1
 		F.close()
-		
-	def getMemMapStr(self,regNum,ioRd,ioWr,memMapList):
-		"""
-		"""
-		for row in memMapList[1:]:
-			if regNum[2:] == row[0][2:]:
-				if (row[1] == 'R' or row[1] == 'RW') and ioRd:
-					return(row[2])
-				elif (row[1] == 'W' or row[1] == 'RW') and ioWr:
-					return(row[2])
-		return ''
 	
-			
+	def outStuff(self,inFileName, annotatedSource, memMapList):
+		"""
+		[['LABEL', 'OPCODE', 'VAL4', 'VAL8', 'COMMENT'], ['INIT', 'NOP', '', '', ''], ['', 'LRI', '0X00', '0X01', 'LOAD START CMD'], ['', 'LRI', '0X01', '0X40', 'LOAD SLAVE ADDR<<1, WRITE'], ['', 'LRI', '0X02', '0X00', 'LOAD IDLE CMD'], ['', 'LRI', '0X03', '0X00', 'LOAD IODIRA REGISTER_OFFSET'], ['', 'LRI', '0X04', '0XFF', 'LOAD IODIRA_ALL_INS'], ['', 'IOW', '0X00', '0X00', 'ISSUE START CMD'], ['', 'IOW', '0X01', '0X00', 'ISSUE SLAVE ADDR<<1, WRITE'], ['', 'IOW', '0X02', '0X00', 'ISSUE IDLE CMD'], ['', 'IOW', '0X03', '0X00', 'ISSUE IODIRA REGISTER_OFFSET'], ['', 'IOW', '0X04', '0X00', 'ISSUE IODIRA_ALL_INS'], ['LDST000', 'IOR', '0X05', '0X00', 'READ STATUS'], ['', 'ARI', '0X05', '0X01', 'BUSY BIT'], ['', 'BNZ', '', 'LDST000', 'LOOP UNTIL NOT BUSY'], ['SELF', 'JMP', 'SELF', '', '']]
+		"""
+		self.makeMIFFile(inFileName, annotatedSource)
+		self.makeLstFile(inFileName, annotatedSource, memMapList)
+		
 class Dashboard:
 	def __init__(self):
 		self.win = Tk()
