@@ -70,9 +70,6 @@ import os
 import sys
 from sys import version_info
 
-# import time
-# from datetime import date
-
 from dgProgDefaultsTk import *
 from dgReadCSVtoListTk import *
 from dgWriteListtoCSVTk import *
@@ -173,33 +170,6 @@ class ControlClass:
 		# print("readMMapFile: memMapList",memMapList)
 		return
 		
-	def readConstsFile(self):
-		global defaultPath
-		global constFileName
-		if defaultPath == '':
-			self.loadDefaults()
-		constantsList = []
-		oldPath = defaultPath
-		myCSVFileReadClass = ReadCSVtoList()	# instantiate the class
-		myCSVFileReadClass.setVerboseMode(False)	# turn on verbose mode until all is working 
-		myCSVFileReadClass.setUseSnifferFlag(True)
-		doneReading = False
-		constantsList = myCSVFileReadClass.findOpenReadCSV(defaultPath,'Select Constants File (CSV) File')	# read in TSV into list
-		if constantsList == []:
-			errorDialog("runAssembler): No file selected")
-			return
-		defaultPath = myCSVFileReadClass.getLastPath()
-		constFileName = myCSVFileReadClass.getLastPathFileName()
-		if defaultPath != oldPath:
-			self.storeNewPath()
-		if constantsList[0] != ['LABEL','OFFSET']:
-			errorDialog('Header does not match expected values\nSee command window')
-			print("readConstsFile: Label file header should be ['LABEL','OFFSET'], header was ",constantsList[0])
-			return
-		print("readConstsFile: Constants file",constFileName[constFileName.rfind("\\")+1:])
-		# print("readConstsFile: constantsList",constantsList)
-		return
-		
 	def loadDefaults(self):
 		"""
 		"""
@@ -239,16 +209,21 @@ class ControlClass:
 				return '00' + distStr[2:]
 		return distStr
 	
-	def getMemMapStr(self,regNum,ioRd,ioWr):
+	def getMemMapStr(self,ioAddr,ioRd,ioWr):
 		""" getMemMapStr
+		memMapList [
+		['IO_ADDR', 'DIR', 'MNEUMONIC'], 
+		['0x00', 'RW', 'USR_LED']
 		"""
 		global memMapList
+		# print("getMemMapStr: memMapList",memMapList, '\nioAddr', ioAddr)
+		# assert False,"getMemMapStr"
 		for row in memMapList[1:]:
-			if regNum[2:] == row[0][2:]:
-				if (row[1] == 'R' or row[1] == 'RW') and ioRd:
-					return(row[2])
-				elif (row[1] == 'W' or row[1] == 'RW') and ioWr:
-					return(row[2])
+			if row[0] == ioAddr:
+				if ioRd and ((row[1] == 'R') or (row[1] == 'RW')):
+					return row[2]
+				if ioWr and (row[1] == 'W'):
+					return row[2]
 		return ''
 	
 	def makeProgram(self):
@@ -259,6 +234,7 @@ class ControlClass:
 		global asmList
 		progCounter = 0
 		program = []
+		# print("makeProgram: constantsList",constantsList)
 		for row in asmList[1:]:
 			# print("makeProgram: row ",row)
 			row[1] = row[1].upper()
@@ -309,14 +285,17 @@ class ControlClass:
 					vecStr = '0x3008'
 					program.append(vecStr) 
 				elif row[1] == 'LRI':
+					# print("makeProgram: LRI", row)
 					vecStr = '0x4'
 					vecStr += row[2][-1]
-					if constantsList != []:
-						print("makeProgram: row[3]",row[3])
+					if row[3][0:2] == '0X':
 						vecStr += row[3][-2:]
+						program.append(vecStr)
 					else:
-						vecStr += row[3][-2:]
-					program.append(vecStr)
+						constStr = self.findConstantsOffset(row[3])
+						constStr = constStr[2:4]
+						vecStr += constStr
+						program.append(vecStr)
 				elif row[1] == 'CMP':
 					vecStr = '0x5'
 					vecStr += row[2][-1]
@@ -406,18 +385,35 @@ class ControlClass:
 		# print('makeProgram: program',program)
 		return program
 	
+	def findConstantsString(self,addrHexStr):
+		global constantsList
+		for row in constantsList:
+			if row[1] == addrHexStr:
+				return row[0]
+		return ''
+	
+	def findConstantsOffset(self,constLabel):
+		global constantsList
+		for row in constantsList:
+			if row[0] == constLabel:
+				return row[1]
+		return ''
+	
 	def makeListFile(self, program):
 		"""Create the list file
+		['', 'LRI', '0X01', '0x05', 'R1 POINTS TO STRING1', '']
 		"""
 		global asmList
 		global annotatedSource
+		global constantsList
 		annotatedSource = []
 		progOffset = 0
 		for rowOffset in range(len(asmList)-1):
-			# print(asmList[rowOffset])
+			# print("makeListFile: asmList[rowOffset]",asmList[rowOffset])
 			annRow = []
+			# Label
 			annRow.append(asmList[rowOffset+1][0])
-			# print('makeProgram: progOffset',progOffset)
+			# print('makeListFile: progOffset',progOffset)
 			# Add copcode to listing
 			if asmList[rowOffset+1][1] != '':
 				annRow.append(program[progOffset])
@@ -426,7 +422,17 @@ class ControlClass:
 				annRow.append('')
 			annRow.append(asmList[rowOffset+1][1])
 			annRow.append(asmList[rowOffset+1][2])
-			annRow.append(asmList[rowOffset+1][3])
+			if (constantsList != []) and (asmList[rowOffset+1][1] == 'LRI'):
+				# print("makeListFile: asmList[rowOffset]",asmList[rowOffset])
+				# print("makeListFile: asmList[rowOffset+1][1]",asmList[rowOffset+1][1],asmList[rowOffset+1][3])
+				foundStr = self.findConstantsString(asmList[rowOffset+1][3])
+				if foundStr:
+					# print("makeListFile: foundStr",foundStr)
+					annRow.append(foundStr)
+				else:
+					annRow.append(asmList[rowOffset+1][3])
+			else:
+				annRow.append(asmList[rowOffset+1][3])
 			annRow.append(asmList[rowOffset+1][4])
 			#print(annRow)
 			annotatedSource.append(annRow)	
@@ -516,65 +522,76 @@ class ControlClass:
 		outFilePathName = inFileName[0:-4] + '.lst'
 		print('writeListFile: List File:',outFilePathName[outFilePathName.rfind("\\")+1:])
 		F = open(outFilePathName, 'w')
+		outStr = 'ADR LABEL' + '\t\t' + 'MACH' + '\t' + 'OPC' + '\t' + 'V1[,V2]' + '\t\t\t' + '// COMMENT' + '\n'
+		F.writelines(outStr)
 		address = 0
 		for row in annotatedSource:
 			# Address column
 			hexAddr = hex(address)
 			hexAddr = hexAddr[2:]
 			if len(hexAddr) == 1:
-				outStr = '00' + hexAddr + '\t'
+				hexAddr = '00' + hexAddr
 			elif len(hexAddr) == 2:
-				outStr = '0' + hexAddr + '\t'
+				hexAddr = '0' + hexAddr
 			else:
-				outStr = hexAddr + '\t'
-			cellOff = 0
-			ioRd = False
-			ioWr = False
-			for cell in row:
-				# Label column
-				if cell == '':
-					outStr += '\t\t'
+				hexAddr = hexAddr + ' '
+			# Label
+			label = row[0]
+			if len(label) < 4:
+				label += '\t'
+			if len(label) < 8:
+				label += '\t'
+			# Machine code
+			machineCode = row[1]
+			# opcode
+			opcode = row[2]
+			if opcode == 'IOR':
+				ioRd = True
+				ioWr = False
+			elif opcode == 'IOW':
+				ioWr = True
+				ioRd = False
+			else:
+				ioWr = False
+				ioRd = False
+			# register or label
+			labelReg = row[3]
+			if labelReg[0:2] == "0X":
+				if labelReg[3] == "8":
+					labelReg = "#0x00"
+				elif labelReg[3] == "9":
+					labelReg = "#0x01"
+				elif labelReg[3] == "F":
+					labelReg = "#0xFF"
 				else:
-					if cellOff == 2:
-						if cell == 'IOR':
-							ioRd = True
-						if cell == 'IOW':
-							ioWr = True
-					# Instruction hex value
-					if cellOff == 3:
-						if cell[0:2] == '0X':
-							if cell[3:] == '8':
-								outStr += '#0x00' + '\t'
-							elif cell[3:] == '9':
-								outStr += '#0x01' + '\t'
-							elif cell[3:] == '9':
-								outStr += '#0xFF' + '\t'
-							else:
-								outStr += 'Reg' + cell[3:] + '\t'
-						else:
-							outStr += cell + '\t'
-					# Opcode
-					elif cellOff == 4:
-						if not (ioRd or ioWr):
-							outStr += cell + '\t'
-						else:
-							if memMapList != []:
-								portStr = self.getMemMapStr(cell,ioRd,ioWr)
-								if portStr == '':
-									outStr += 'IO_' + cell[2:] + '\t'
-								else:
-									outStr += portStr + '\t'
-							else:
-								outStr += 'IO_' + cell[2:] + '\t'
-					# 2nd opcode field, comment field
-					else:
-						outStr += cell + '\t'
-				cellOff += 1
-			outStr += '\n'
+					labelReg = "Reg" + labelReg[3]
+			# 2nd op value
+			opValue = row[4]
+			if (ioRd or ioWr) and memMapList:
+				strLabel = self.getMemMapStr(opValue,ioRd,ioWr)
+				opValue = strLabel
+				# print("writeListFile: row",row)
+				# print("writeListFile: opValue",opValue)
+			if opValue:
+				labelPair = labelReg + ',' + opValue
+			else:
+				labelPair = labelReg
+			if len(labelPair) < 4:
+				labelPair += '\t'
+			if len(labelPair) < 8:
+				labelPair += '\t'
+			if len(labelPair) < 12:
+				labelPair += '\t'
+			# if len(labelPair) < 16:
+				# labelPair += '\t'
+			# comment
+			comment = '// ' + row[5]
+			outStr = hexAddr + '\t' + label + '\t' + machineCode + '\t' + opcode + '\t' + labelPair + '\t' + comment + '\n'
+			# print(outStr)
 			F.writelines(outStr)
 			address += 1
 		F.close()
-	
+		
 	def outStuff(self):
 		"""
 		[['LABEL', 'OPCODE', 'VAL4', 'VAL8', 'COMMENT'], ['INIT', 'NOP', '', '', ''], ['', 'LRI', '0X00', '0X01', 'LOAD START CMD'], ['', 'LRI', '0X01', '0X40', 'LOAD SLAVE ADDR<<1, WRITE'], ['', 'LRI', '0X02', '0X00', 'LOAD IDLE CMD'], ['', 'LRI', '0X03', '0X00', 'LOAD IODIRA REGISTER_OFFSET'], ['', 'LRI', '0X04', '0XFF', 'LOAD IODIRA_ALL_INS'], ['', 'IOW', '0X00', '0X00', 'ISSUE START CMD'], ['', 'IOW', '0X01', '0X00', 'ISSUE SLAVE ADDR<<1, WRITE'], ['', 'IOW', '0X02', '0X00', 'ISSUE IDLE CMD'], ['', 'IOW', '0X03', '0X00', 'ISSUE IODIRA REGISTER_OFFSET'], ['', 'IOW', '0X04', '0X00', 'ISSUE IODIRA_ALL_INS'], ['LDST000', 'IOR', '0X05', '0X00', 'READ STATUS'], ['', 'ARI', '0X05', '0X01', 'BUSY BIT'], ['', 'BNZ', '', 'LDST000', 'LOOP UNTIL NOT BUSY'], ['SELF', 'JMP', 'SELF', '', '']]
@@ -592,11 +609,12 @@ class ControlClass:
 		global labelsList
 		global program
 		global annotatedSource
+		global decConstantsList
 		global constantsList
 		defaultParmsClass = HandleDefault()
 		defaultParmsClass.initDefaults()
 		defaultPath = defaultParmsClass.getKeyVal('DEFAULT_PATH')
-		# print '(processConstantsFile): defaultPath',defaultPath
+		# print ('processConstantsFile: defaultPath',defaultPath)
 		myCSVFileReadClass = ReadCSVtoList()	# instantiate the class
 		myCSVFileReadClass.setVerboseMode(False)	# turn on verbose mode until all is working 
 		myCSVFileReadClass.setUseSnifferFlag(True)
@@ -615,17 +633,33 @@ class ControlClass:
 			# print('processConstantsFile: header ok')
 			pass
 		inFileName = myCSVFileReadClass.getLastPathFileName()
-		addressTable = self.makeAddressTableConstants(inList)
-		# print("processConstantsFile: addressTable",addressTable)
+		decConstantsList = self.makeAddressTableConstants(inList)
+		constantsList = self.turnItAround(decConstantsList)
+		# print("processConstantsFile: constantsList",constantsList)
 		longOutStr = self.makeOutStrConstants(inList)
 		# print("processConstantsFile: longOutStr\n",longOutStr)
 		outAsciiVals = self.makeAsciiValsConstants(longOutStr)
 		# print("processConstantsFile: outAsciiVals",outAsciiVals)
 		contsAsciiTable = self.makeACSIITableConstants(outAsciiVals)
 		# print("processConstantsFile: contsAsciiTable",contsAsciiTable)
-		print('processConstantsFile: inFileName',inFileName)
-		self.outConstantsStuff(inFileName,contsAsciiTable,addressTable)
+		# print('processConstantsFile: inFileName',inFileName)
+		self.outConstantsStuff(inFileName,contsAsciiTable,constantsList)
 			
+	def turnItAround(self,inList):
+		outList = []
+		for row in inList:
+			outRow = []
+			label = row[0]
+			addr = row[1]
+			addrHexStr = hex(addr)
+			addrHex = addrHexStr.upper()
+			if len(addrHex) == 3:
+				addrHex = '0x0' + addrHex[2]
+			outRow.append(label)
+			outRow.append(addrHex)
+			outList.append(outRow)
+		return outList
+	
 	def makeACSIITableConstants(self,outAsciiVals):
 		outValStrs = []
 		for char in outAsciiVals:
@@ -676,7 +710,7 @@ class ControlClass:
 
 	def outConstantsMIF(self,inFileName,contsAsciiTable):
 		outFilePathName = inFileName[0:-4] + '_const.mif'
-		print('outConstantsMIF: outFilePathName',outFilePathName)
+		print('outConstantsMIF:',outFilePathName[outFilePathName.rfind("\\")+1:])
 		# for row in sourceFile:
 			# print(row)
 		outList = []
@@ -766,8 +800,8 @@ class Dashboard:
 		self.filemenu = Menu(self.mainmenu, tearoff=0)
 		self.mainmenu.add_cascade(label="File",menu=self.filemenu)
 
-		self.filemenu.add_command(label="Load Memory Map file",command=control.readMMapFile)
 		self.filemenu.add_command(label="Load Constants file",command=control.processConstantsFile)
+		self.filemenu.add_command(label="Load Memory Map file",command=control.readMMapFile)
 		self.filemenu.add_separator()
 		self.filemenu.add_command(label="Run Assembler",command=control.runAssembler)
 		self.filemenu.add_separator()
