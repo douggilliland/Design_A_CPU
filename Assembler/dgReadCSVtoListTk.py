@@ -83,7 +83,8 @@ class ReadCSVtoList(object):
 			if self.verboseMode:
 				errorDialog('Input file was not selected')
 			return []
-		print("inPathFilename",inPathFilename)
+		if self.verboseMode:
+			print("inPathFilename",inPathFilename)
 		inPathFilename = os.path.normpath(inPathFilename)
 		self.lastPathFileName = inPathFilename
 		defaultPath = inPathFilename[0:inPathFilename.rfind('\\')+1]
@@ -142,7 +143,8 @@ class ReadCSVtoList(object):
 		# select the input file names and open the files
 		intFileHdl = open(inFileN, 'r')
 		if self.useSniffer:
-			print('using sniffer')
+			if self.verboseMode:
+				print('using sniffer')
 			try:
 				dialect = csv.Sniffer().sniff(intFileHdl.read(2048))
 			except:

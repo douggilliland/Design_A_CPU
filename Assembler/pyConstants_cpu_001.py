@@ -50,7 +50,7 @@ class ControlClass:
 	"""Methods 
 	"""
 	
-	def doConvert(self):
+	def processConstantsFile(self):
 		"""The code that calls the other code
 		"""
 		global defaultPath
@@ -60,14 +60,14 @@ class ControlClass:
 		defaultParmsClass = HandleDefault()
 		defaultParmsClass.initDefaults()
 		defaultPath = defaultParmsClass.getKeyVal('DEFAULT_PATH')
-		# print '(doConvert): defaultPath',defaultPath
+		# print '(processConstantsFile): defaultPath',defaultPath
 		myCSVFileReadClass = ReadCSVtoList()	# instantiate the class
 		myCSVFileReadClass.setVerboseMode(False)	# turn on verbose mode until all is working 
 		myCSVFileReadClass.setUseSnifferFlag(True)
 		doneReading = False
 		inList = myCSVFileReadClass.findOpenReadCSV(defaultPath,'Select CONSTS (CSV) File')	# read in TSV into list
 		if inList == []:
-			errorDialog("doConvert): No file selected")
+			errorDialog("processConstantsFile): No file selected")
 			return
 		defaultPath = myCSVFileReadClass.getLastPath()
 		defaultParmsClass.storeKeyValuePair('DEFAULT_PATH',defaultPath)
@@ -78,19 +78,19 @@ class ControlClass:
 		else:
 			print('header ok')
 		inFileName = myCSVFileReadClass.getLastPathFileName()
-		addressTable = self.makeAddressTable(inList)
+		addressTable = self.makeAddressTableConstants(inList)
 		print("addressTable",addressTable)
-		longOutStr = self.makeOutStr(inList)
+		longOutStr = self.makeOutStrConstants(inList)
 		print("longOutStr\n",longOutStr)
-		outAsciiVals = self.makeAsciiVals(longOutStr)
+		outAsciiVals = self.makeAsciiValsConstants(longOutStr)
 		print("outAsciiVals",outAsciiVals)
-		contsAsciiTable = self.makeACSIITable(outAsciiVals)
+		contsAsciiTable = self.makeACSIITableConstants(outAsciiVals)
 		print("contsAsciiTable",contsAsciiTable)
 		print('inFileName',inFileName)
-		self.outStuff(inFileName,contsAsciiTable,addressTable)
+		self.outConstantsStuff(inFileName,contsAsciiTable,addressTable)
 		infoBox("Complete")
 			
-	def makeACSIITable(self,outAsciiVals):
+	def makeACSIITableConstants(self,outAsciiVals):
 		outValStrs = []
 		for char in outAsciiVals:
 			outValsLine = ''
@@ -104,33 +104,33 @@ class ControlClass:
 			outValStrs.append(outValsLine)
 		return outValStrs
 	
-	def ascii_to_hex(self,ascii_char):
+	def ascii_to_hexConstants(self,ascii_char):
 		pos1 = binascii.hexlify(str(ascii_char).encode())
 		hexStr = []
 		hexStr.append(pos1[0])
 		hexStr.append(pos1[1])
 		return hexStr
 
-	def makeAsciiVals(self, longOutStr):
+	def makeAsciiValsConstants(self, longOutStr):
 		outAsciiVals = []
 		for char in longOutStr:
 			if char != '~':
-				hex_str = self.ascii_to_hex(char)
+				hex_str = self.ascii_to_hexConstants(char)
 				outAsciiVals.append(hex_str)
 			else:
 				outAsciiVals.append([0,0])
 		return outAsciiVals
 	
-	def makeAddressTable(self, inList):
+	def makeAddressTableConstants(self, inList):
 		addressTable = []
 		address = 0
-		print("makeAddressTable: inList[1:]",inList[1:])
+		print("makeAddressTableConstants: inList[1:]",inList[1:])
 		for line in inList[1:]:
 			addressTable.append([line[0],address])
 			address += len(line[1]) + 1
 		return addressTable
 
-	def makeOutStr(self, inList):
+	def makeOutStrConstants(self, inList):
 		outStr = ''
 		for line in inList[1:]:
 			for char in line[1]:
@@ -138,10 +138,7 @@ class ControlClass:
 			outStr += '~'
 		return outStr
 
-	def outStuff(self,inFileName,contsAsciiTable,addressTable):
-		"""
-		[['LABEL', 'OPCODE', 'VAL4', 'VAL8', 'COMMENT'], ['INIT', 'NOP', '', '', ''], ['', 'LRI', '0X00', '0X01', 'LOAD START CMD'], ['', 'LRI', '0X01', '0X40', 'LOAD SLAVE ADDR<<1, WRITE'], ['', 'LRI', '0X02', '0X00', 'LOAD IDLE CMD'], ['', 'LRI', '0X03', '0X00', 'LOAD IODIRA REGISTER_OFFSET'], ['', 'LRI', '0X04', '0XFF', 'LOAD IODIRA_ALL_INS'], ['', 'IOW', '0X00', '0X00', 'ISSUE START CMD'], ['', 'IOW', '0X01', '0X00', 'ISSUE SLAVE ADDR<<1, WRITE'], ['', 'IOW', '0X02', '0X00', 'ISSUE IDLE CMD'], ['', 'IOW', '0X03', '0X00', 'ISSUE IODIRA REGISTER_OFFSET'], ['', 'IOW', '0X04', '0X00', 'ISSUE IODIRA_ALL_INS'], ['LDST000', 'IOR', '0X05', '0X00', 'READ STATUS'], ['', 'ARI', '0X05', '0X01', 'BUSY BIT'], ['', 'BNZ', '', 'LDST000', 'LOOP UNTIL NOT BUSY'], ['SELF', 'JMP', 'SELF', '', '']]
-		"""
+	def outConstantsMIF(self,inFileName,contsAsciiTable):
 		outFilePathName = inFileName[0:-4] + '_const.mif'
 		print('outFilePathName',outFilePathName)
 		# for row in sourceFile:
@@ -177,20 +174,22 @@ class ControlClass:
 				outStr += ';'
 				outList.append(outStr)
 				outStr = ''
-		
 		outList.append('END;')
 		# for line in outList:
 			# print(line)
-
 		F = open(outFilePathName, 'w')
 		for row in outList:
 			F.writelines(row+'\n')
 		F.close()
+		return
 		
-		outFilePathName = outFilePathName[0:-4] + '.lst'
+	def outConstantsLST(self,inFileName,addressTable):
+		outFilePathName = inFileName[0:-4] + '_CONSTOUT.csv'
 		F = open(outFilePathName, 'w')
 		address = 0
 		print("addressTable",addressTable)
+		outStr = 'LABEL,OFFSET\n'
+		F.writelines(outStr)
 		for row in addressTable:
 			outStr = ''
 			label = row[0]
@@ -198,12 +197,19 @@ class ControlClass:
 			if len(addrOff) == 3:
 				addrOff = '0x0' + addrOff[2]
 			print(label,addrOff)
-			outStr = label + ' ' + addrOff + '\n'
+			outStr = label + ',' + addrOff + '\n'
 			F.writelines(outStr)
 			address += 1
 		F.close()
-
-		
+		return
+	
+	def outConstantsStuff(self,inFileName,contsAsciiTable,addressTable):
+		"""
+		[['LABEL', 'OPCODE', 'VAL4', 'VAL8', 'COMMENT'], ['INIT', 'NOP', '', '', ''], ['', 'LRI', '0X00', '0X01', 'LOAD START CMD'], ['', 'LRI', '0X01', '0X40', 'LOAD SLAVE ADDR<<1, WRITE'], ['', 'LRI', '0X02', '0X00', 'LOAD IDLE CMD'], ['', 'LRI', '0X03', '0X00', 'LOAD IODIRA REGISTER_OFFSET'], ['', 'LRI', '0X04', '0XFF', 'LOAD IODIRA_ALL_INS'], ['', 'IOW', '0X00', '0X00', 'ISSUE START CMD'], ['', 'IOW', '0X01', '0X00', 'ISSUE SLAVE ADDR<<1, WRITE'], ['', 'IOW', '0X02', '0X00', 'ISSUE IDLE CMD'], ['', 'IOW', '0X03', '0X00', 'ISSUE IODIRA REGISTER_OFFSET'], ['', 'IOW', '0X04', '0X00', 'ISSUE IODIRA_ALL_INS'], ['LDST000', 'IOR', '0X05', '0X00', 'READ STATUS'], ['', 'ARI', '0X05', '0X01', 'BUSY BIT'], ['', 'BNZ', '', 'LDST000', 'LOOP UNTIL NOT BUSY'], ['SELF', 'JMP', 'SELF', '', '']]
+		"""
+		self.outConstantsMIF(inFileName,contsAsciiTable)
+		self.outConstantsLST(inFileName,addressTable)
+		return
 	
 class Dashboard:
 	def __init__(self):
@@ -218,7 +224,7 @@ class Dashboard:
 		self.filemenu = Menu(self.mainmenu, tearoff=0)
 		self.mainmenu.add_cascade(label="File",menu=self.filemenu)
 
-		self.filemenu.add_command(label="Open consts file",command=control.doConvert)
+		self.filemenu.add_command(label="Open consts file",command=control.processConstantsFile)
 		self.filemenu.add_separator()
 		self.filemenu.add_command(label="Exit",command=self.win.quit)
 
