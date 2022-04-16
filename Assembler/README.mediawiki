@@ -43,6 +43,16 @@ pyinstaller --onefile pyAssemble_cpu_001.py
 #	DIR = R, W, or RW
 #	Ex: ['0X00','R','LED_RD']
 #
+# Constants file (Optional)
+#	File named: fileName_CONST.csv
+#	Constants file Header has to be -
+#		['LABEL','STRING']
+#	Example
+#		LABEL,STRING
+#		STRING0,1234
+#		STRING1,This is test string 1
+#		STRING2,This is test string 2
+#
 # Output files
 # 	.mif file - Quartus II ROM Memory Initialization File
 #	.lst file - Listing file (with addresses)
