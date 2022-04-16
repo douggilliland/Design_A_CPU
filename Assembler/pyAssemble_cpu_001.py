@@ -90,7 +90,7 @@ labelsList = []
 annotatedSource = []
 
 class ControlClass:
-	"""Methods to read tindie or Kickstarter files and write out USPS and PayPal lists.
+	"""Methods to assemble IOP16 software.
 	"""
 	def runAssembler(self):
 		"""The code that calls the other code
