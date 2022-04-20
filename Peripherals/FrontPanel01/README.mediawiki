@@ -2,7 +2,7 @@
 
 This is a standalone application of the Land Boards Front Panel card that uses the IOP16B CPU.
 
-<img src="http://land-boards.com/blwiki/images/1/1b/EightBitFrontPanel720px.JPG"></img>
+<img src="http://land-boards.com/blwiki/images/d/d6/FrontPanel02_P527-cropped-720px.jpg"></img>
 
 === VHDL Code ===
 
