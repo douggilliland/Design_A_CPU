@@ -78,6 +78,7 @@ begin
 				b_empty	<= '1';
 				r_wr_index <= to_unsigned(0, r_wr_index'length);
 			else
+				
 				if (i_we = '1') then -- write mechanism
 					-- the LIFO is never empty after write and no read
 					b_empty					   <= '0';
@@ -100,5 +101,22 @@ begin
 			end if;
 		end if;
 	end process mem_access;
+	
+	-- rtl_synthesis off
+--	input_prevention : process (i_clk) is
+--	begin
+--		if (rising_edge(i_clk)) then
+--			assert (not (b_full = '1' and i_we = '1'))
+--				report "Writing when full has caused overflow and get the module into undefined " &
+--				"state!"
+--				severity failure;
+--			
+--			assert (not (b_empty = '1' and i_re = '1' and i_we = '0'))
+--				report "Reading without writing when empty has caused underflow and get the " &
+--				"module into undefined state!"
+--				severity failure;
+--		end if;
+--	end process input_prevention;
+	-- rtl_synthesis on
 	
 end architecture rtl;

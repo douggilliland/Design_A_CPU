@@ -194,10 +194,8 @@ BEGIN
 				--
 				i_we   	=> w_wrStack, 		-- write enable (push)
 				i_data 	=> pcPlus1,			-- written data
-		--		o_full	=> ,
 				i_re		=> w_rdStack, 		-- read enable (pop)
 				o_data  	=> w_rtnAddr		-- read data
-		--		o_empty :=>						-- empty LIFO indicator
 			);	
 		w_wrStack <= OP_JSR and w_GreyCode(1) and (not w_GreyCode(0));
 		w_rdStack <= OP_RTS and w_GreyCode(1) and      w_GreyCode(0);
